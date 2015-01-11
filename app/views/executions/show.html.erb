@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', budget_path %></li>
+      		<li><%= link_to 'Ejecuciones', executions_path %></li>
+			<li class="active"><%= @execution.id%></li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tr>
+				<td class="col-xs-5 text-right">Dependencia:</td>
+				<td class="col-xs-7"><%= @execution.commitment.lab.sae_name %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de Elaboración:</td>
+        		<td class="col-xs-7"><%= @execution.check_elaboration_date.strftime('%d/%m/%Y') unless @execution.check_elaboration_date.blank? %>  </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de Firma:</td>
+        		<td class="col-xs-7"><%= @execution.check_sign_date.strftime('%d/%m/%Y') unless @execution.check_sign_date.blank? %>  </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de Entrega:</td>
+        		<td class="col-xs-7"><%= @execution.check_delivery_date.strftime('%d/%m/%Y') unless @execution.check_delivery_date.blank? %>  </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Estatus del cheque:</td>
+                <td class="col-xs-7">
+                  <% if @execution.check_sign_date.blank? %> 
+                    En espera de firma
+                  <% else if @execution.check_delivery_date.blank? %> 
+                    En custodia
+                  <% else %> 
+                    Entregado
+                  <% end %>
+                  <% end %>
+                </td>
+			</tr>
+			<tr class="success">
+				<td class="col-xs-5 text-right">Monto (Bs.):</td>
+				<td class="col-xs-7"><%= number_to_currency(@execution.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-xs-12">
+    <%= link_to edit_execution_path do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ejecución</button>
+		<% end %>
+		<%= link_to action: 'destroy' do %>
+			<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar Ejecución</button>
+		<% end %>
+	</div>
+</div>

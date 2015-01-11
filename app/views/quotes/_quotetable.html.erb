@@ -1,0 +1,77 @@
+<div class="grid_12">
+
+  <br/><br>
+	<table id="quoteTable" class="table table-hover">
+	  <thead>
+		 <tr>
+		   <th>Nombre</th>
+		   <th>Link de descarga</th>
+		 </tr>
+	  </thead>
+	  <tbody>
+		 <% @quotes.each do |quote| %>
+		   <tr>
+		     <td><%= link_to quote.nombre, quote %></td>
+		     <td><%= link_to "Descargar oferta", quote.attachment_url %></td>
+		   </tr>
+		 <% end %>
+		 <% if @sumQuotes == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay ofertas registradas</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+
+</div>
+
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+
+#quoteTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+      font-size: 14px;
+  }
+
+#quoteTable th td tr{
+ border-color:black;
+ }
+
+
+.table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#quoteTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>

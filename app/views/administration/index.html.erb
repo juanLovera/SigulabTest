@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li class="active">Administración</li>
+		</ol>
+	</div>
+	<div class="col-xs-8 col-xs-offset-2">
+		<ul class="administration-list">
+			<li><h3><a href="#"><i class="fa fa-paint-brush"></i>Anteproyecto de POA</a></h3></li>
+			<li><%= link_to controller: :budget do %>
+				<h3><i class="fa fa-money"></i>Presupuesto</h3>
+			<% end %></li>
+			<li><h3><a href="#"><i class="fa fa-clipboard"></i>Proyectos</a></h3></li>
+			<li><h3><a href="#"><i class="fa fa-folder-open"></i>Banco de Proyectos</a></h3></li>
+			<li><h3><a href="#"><i class="fa fa-file-text"></i>Ejecuciones de Órdenes de Compra</a></h3></li>
+		</ul>
+	</div>
+</div>

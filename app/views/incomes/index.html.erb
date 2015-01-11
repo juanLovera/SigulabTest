@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', budget_path %></li>
+			<li class="active">Ingresos</li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-hover">
+			<tr>
+				<th>Fecha</th>
+				<th>Dep.</th>
+				<th>Descripción</th>
+				<th class="text-right">Monto (Bs.)</th>
+			</tr>
+			<% @incomes.each do |i| %>
+				<tr>
+					<td><%= i.date.strftime('%d/%m/%Y') unless i.date.blank? %></td>
+					<td><%= i.lab.name %></td>
+					<td><%= link_to i.description, i %></td>
+					<td class="text-right"><%= number_to_currency(i.amount, format: "%n", delimiter: ".", separator: ",") %></td>
+				</tr>
+			<% end %>
+			<% if @sum > 0 %>
+				<tr class="success">
+					<td class="text-center" colspan="3"><h4>Monto Total Asignado</h4></td>
+					<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+				</tr>
+			<% else %>
+				<tr class="warning">
+					<td class="text-center" colspan="5"><h4>No hay ingresos registrados</h4></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+	<div class="col-xs-12">
+		<%= link_to new_income_path do %>
+			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Ingreso</button>
+		<% end %>
+	</div>
+</div>

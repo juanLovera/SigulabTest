@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  brand: MyString
+  type: 
+  national_good: 1
+  status: MyString
+  responsible: MyString
+  location: MyString
+  material: MyString
+  bill: MyString
+  from_set: false
+  investigation: false
+  teaching: false
+  extention: false
+  management: false
+
+two:
+  name: MyString
+  brand: MyString
+  type: 
+  national_good: 1
+  status: MyString
+  responsible: MyString
+  location: MyString
+  material: MyString
+  bill: MyString
+  from_set: false
+  investigation: false
+  teaching: false
+  extention: false
+  management: false

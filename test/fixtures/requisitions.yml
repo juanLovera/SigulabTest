@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  solicitante: MyString
+  consumidor: MyString
+  partida: MyString
+  autor: MyString
+  observacion: MyText
+
+two:
+  solicitante: MyString
+  consumidor: MyString
+  partida: MyString
+  autor: MyString
+  observacion: MyText

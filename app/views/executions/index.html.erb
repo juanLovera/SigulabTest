@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', budget_path %></li>
+			<li class="active">Ejecuciones</li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-hover">
+			<tr>
+				<th>Dep.</th>
+				<th>Fecha</th>
+				<th>Compromiso Asociado</th>
+				<th>Codigo</th>
+				<th class="text-right">Monto (Bs.)</th>
+			</tr>
+      		<% @executions.each do |i| %>
+				<tr>
+					<td><%= i.commitment.lab.sae_name %></td>
+					<td><%= i.date.strftime('%d/%m/%Y') unless i.date.blank? %></td>
+					<td><%= link_to i.commitment.description, i.commitment %></td>
+        			<td><%= link_to i.code, i %></td>
+					<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+				</tr>
+			<% end %>
+			<% if @sum > 0 %>
+				<tr class="success">
+					<td class="text-center" colspan="4"><h4>Monto Total Ejecutado</h4></td>
+					<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+				</tr>
+			<% else %>
+				<tr class="warning">
+					<td class="text-center" colspan="5"><h4>No hay ejecuciones registradas</h4></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

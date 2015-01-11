@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body>
+
+	<table id="itemTable" class="table table-hover" >
+	  <thead>
+		 <tr>
+		   <th align="left">Nombre</th>
+         <th align="left">Tipo</th>
+		   <th align="left">Descripción</th>
+		 </tr>
+	  </thead>
+
+	  <tbody>
+		 <% @items.each do |item| %>
+	  		<tr>
+		     <td style="text-decoration:underline; color:black"><%= link_to item.nombre, item %></td>
+		     <td><%= item.tipo %></td>
+		     <td><%= item.descripcion %></td>
+		   </tr>
+		 <% end %>
+		 <% if @sumItem == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay bienes/consumibles registrados</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+</body>
+
+<style>
+
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+
+#itemTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+      font-size: 14px;
+  }
+
+#itemTable th td tr{
+ border-color:black;
+ }
+
+
+.table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#itemTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>
+

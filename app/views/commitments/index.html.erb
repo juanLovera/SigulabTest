@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', budget_path %></li>
+			<li class="active">Compromisos</li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-hover">
+			<tr>
+				<th>Fecha</th>
+				<th>Dependencia</th>
+				<th>Descripción</th>
+				<th class="text-right">Monto (Bs.)</th>
+			</tr>
+			<% @commitments.each do |c| %>
+				<tr>
+					<td><%= c.date.strftime('%d/%m/%Y') %></td>
+					<td><%= c.lab.name %></td>
+					<td><%= link_to c.description, c %></td>
+					<td class="text-right"><%= number_to_currency(c.amount, format: "%n", delimiter: ".", separator: ",") %></td>
+				</tr>
+			<% end %>
+			<% if @sum > 0 %>
+				<tr class="success">
+					<td class="text-center" colspan="3"><h4>Monto Total Comprometido</h4></td>
+					<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+				</tr>
+			<% else %>
+				<tr class="warning">
+					<td class="text-center" colspan="4"><h4>No hay compromisos registrados</h4></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+	<div class="col-xs-12">
+		<%= link_to new_commitment_path do %>
+			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Compromiso</button>
+		<% end %>
+	</div>
+</div>

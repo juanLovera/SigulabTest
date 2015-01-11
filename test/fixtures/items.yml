@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: nombre
+  tipo: tipo
+  descripcion: Descripcion mediana y detallada medio random de prueba
+  dimensiones: muchoXmuchoXmucho
+  cantidad: 1
+  unidad: milimetos
+
+two:
+  nombre:
+  tipo: tipo
+  descripcion: Descripcion mediana y detallada medio random de prueba
+  dimensiones: muchoXmuchoXmucho
+  cantidad: 1
+  unidad: milimetos
+
+three:
+  nombre: nombre
+  tipo:
+  descripcion: Descripcion mediana y detallada medio random de prueba
+  dimensiones: muchoXmuchoXmucho
+  cantidad: 1
+  unidad: milimetos
+
+four:
+  nombre: nombre
+  tipo: tipo
+  descripcion:
+  dimensiones: muchoXmuchoXmucho
+  cantidad: 1
+  unidad: milimetos
+  
+five:
+  nombre: nombre
+  tipo: tipo
+  descripcion: Descripcion mediana y detallada medio random de prueba
+  dimensiones:
+  cantidad: 1
+  unidad: milimetos
+  
+six:
+  nombre: nombre
+  tipo: tipo
+  descripcion: Descripcion mediana y detallada medio random de prueba
+  dimensiones: muchoXmuchoXmucho
+  cantidad:
+  unidad: milimetos
+  
+seven:
+  nombre: nombre
+  tipo: tipo
+  descripcion: Descripcion mediana y detallada medio random de prueba
+  dimensiones: muchoXmuchoXmucho
+  cantidad: 1
+  unidad:

@@ -1,0 +1,1 @@
+json.extract! @chemical_substance, :id, :name, :purity, :matter_states, :controlled, :legal_regime, :quantity, :cas, :use, :status, :responsible, :location, :expiration_date, :dangerous, :rI7, :rI4, :toxic, :oxidant, :explosive, :irritating, :inflamable, :corrosive, :nocive, :investigation, :teaching, :extention, :management, :created_at, :updated_at

@@ -1,0 +1,76 @@
+<h2>Registrarse</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><b><%= 'Usuario' %></b><br />
+  <%= f.text_field :username, autofocus: true %></div><br>
+
+
+  <div><b><%= 'Correo' %></b><br />
+  <%= f.email_field :email %></div><br>
+
+
+  <div><b><%= 'Contraseña' %></b> <% if @validatable %><i>(<%= @minimum_password_length %> caracteres minimo)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div><br>
+
+
+  <div><b><%= 'Confirmación Contraseña' %></b><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div><br>
+
+
+<div class="field">
+<br>
+<b><%='Tipo de usuario:' %></b><br>
+  <%= f.check_box :director %>
+  <%= 'Director'%><br>
+  <%= f.check_box :directorate %>
+  <%= 'Coordinador direccion'%><br>
+  <%= f.check_box :gsmp %>
+  <%= 'GSMP'%><br><br>
+  
+
+  <%= 'Coordinación de adquisiciones :' %><br>
+  <%= f.check_box :acquisition %>
+  <%= 'Coordinador'%>
+  <%= f.check_box :acquisition_analist %>
+  <%= 'Analista'%><br><br>
+
+  <%= 'Coordinación de importaciones :' %><br>
+  <%= f.check_box :import %>
+  <%= 'Coordinador'%>
+  <%= f.check_box :import_analist %>
+  <%= 'Analista'%><br><br>
+
+  <%= 'Coordinación de administración:' %><br>
+  <%= f.check_box :manage %>
+  <%= 'Coordinador'%>
+  <%= f.check_box :manage_analist %>
+  <%= 'Analista'%><br><br>
+
+  <%= 'Coordinación de calidad:' %><br>
+  <%= f.check_box :quality %>
+  <%= 'Coordinador'%>
+  <%= f.check_box :quality_analist %>
+  <%= 'Analista'%><br><br>
+
+
+  <%= 'Personal laboratorio :' %><br>
+  <%= f.check_box :labBoss %>
+  <%= 'Jefe de laboratorio'%>
+  <%= f.check_box :labassistant %>
+  <%= 'Asistente de laboratorio'%><br>
+  <%= f.check_box :section_boss %>
+  <%= 'Jefe de sección'%>
+  <%= f.check_box :proy_responsible %>
+  <%= 'Responsable de proyecto'%><br>
+  <%= f.check_box :technician %>
+  <%= 'Técnico'%><br><br>
+  <%= f.check_box :external %>
+  <%= 'Agente externo'%><br>
+</div>
+
+  <div><%= f.submit "Registrarse!" %></div>
+<% end %>
+<br>
+<%= render "devise/shared/links" %>

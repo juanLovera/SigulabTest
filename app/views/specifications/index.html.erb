@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<div class="grid_12">
+      <ol class="breadcrumb">
+          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+       <li> <%=link_to 'Compras', compras_url %></li>
+        <li class="active">Especificaciones Técnicas</a></li>
+      </ol>
+</div>
+  <div class="grid_12">
+      
+      <div class="grid_5">
+        <h3>Lista de Especificaciones Técnicas</h3><br>
+      </div>
+      <div class="grid_3 push_4 text-right" id="agregar">
+          <%= link_to 'Agregar Especificación Técnica'.html_safe, new_specification_path %>  
+        </div>
+      <%= render 'specificationTable' %>
+      <%= link_to '<button type="button" class="btn btn-primary"> Agregar Especificación Técnica </button>'.html_safe, new_specification_path %> 
+      <br><br>
+      <%= link_to '<button type="button" class="btn btn-primary"> Volver a menú de compras </button>'.html_safe, compras_url %>
+  </div>
+
+</body>
+</html>
+
+<style>
+  
+#agregar {
+  font-size: 14px;
+}
+
+h3 {
+  position: relative;
+}
+
+</style>

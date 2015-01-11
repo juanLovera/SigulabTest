@@ -1,0 +1,97 @@
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li class="active"> Instrumentos </li>
+</ol>
+
+
+<div id="LeDivInstrumentos">
+  <h1><i class="fa fa-eyedropper"></i> Instrumentos de Medición</h1>
+
+  <div id = "table2">
+  </div>
+  <br>
+
+
+
+      <style type="text/css">
+      .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}
+      .tg td{font-family:Arial, sans-serif;font-size:15px;padding:15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
+      .tg th{font-family:Arial, sans-serif;font-size:16px;font-weight:normal;padding:15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#EE7B84;}
+      .tg .tg-qpa3{font-family:Arial, Helvetica, sans-serif !important;;text-align:center}
+      .tg .tg-s6z2{text-align:center}
+      .tg .tg-093g{font-weight:bold;text-align:center}
+      .tg .tg-hgcj{font-weight:bold;text-align:center}
+      .tg .tg-092g{color:#FFFFFF;background-color:transparent;font-weight:bold;text-align:left;font-size:14px;font-style: oblique; border-width:0px;line-height:1.4em;}
+
+      </style> 
+
+	<div id="search">
+		<%= form_tag(instruments_path, :method => "get", id: "search-form") do %>
+			<%= text_field_tag :search, params[:search], placeholder: "Instrumento a buscar" %>
+			<%= submit_tag "Buscar", :class => 'btn btn-success btn-sm', :name => nil %>
+		<% end %>
+	</div>
+  <br>
+	
+   <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-093g">Nombre</th>
+        <th class="tg-hgcj">Marca</th>
+        <th class="tg-hgcj">Número de Bien Nacional</th>
+       
+        <th class="tg-hgcj">Ubicación</th>
+        <th class="tg-hgcj">Responsable</th>
+  <!--       <th>Model</th> 
+   <th class="tg-hgcj">Status</th>
+        <th>Measurement unit</th>
+        <th>Capacity</th>
+        <th>Material</th>
+        <th>Use</th> 
+        <th>Last calibration</th>
+        <th>National good</th>
+        <th>Investigation</th>
+        <th>Teaching</th>
+        <th>Extention</th>
+        <th>Management</th> -->
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @instruments.each do |instrument| %>
+        <tr>
+          <td class="tg-s6z2"><%= link_to instrument.name, instrument %></td>
+          <td class="tg-qpa3"><%= instrument.brand %></td>
+          <td class="tg-qpa3"><%= instrument.national_good %></td>
+         
+          <td class="tg-qpa3"><%= instrument.location %></td>
+         <td class="tg-s6z2"><%= instrument.responsible %></td>
+  <!--         <td><%= instrument.model %></td>
+   <td class="tg-qpa3"><%= instrument.status %></td> 
+          <td><%= instrument.measurement_unit %></td>
+          <td><%= instrument.capacity %></td>
+          <td><%= instrument.material %></td>
+          <td><%= instrument.last_calibration %></td>
+          <td><%= instrument.national_good %></td>
+          <td><%= instrument.investigation %></td>
+          <td><%= instrument.teaching %></td>
+          <td><%= instrument.extention %></td>
+          <td><%= instrument.management %></td> -->
+
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <% if can? :create, @instrument %>
+    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Instrumento', new_instrument_path , 'data-no-turbolink' => true %> | 
+  <%end%>
+  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
+  <br><br><br><br><br><br><br><br><br>
+  
+  
+</div>

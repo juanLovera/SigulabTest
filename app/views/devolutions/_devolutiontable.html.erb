@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body>
+<table id="devolutionTable" class="table table-hover" >
+	  <thead>
+		 <tr>
+		   <th align="left">No. Registro</th>
+		   <th align="left">Unidad Solicitante</th>
+		   <th align="left">Observaciones</th>
+		 </tr>
+	  </thead>
+
+	  <tbody>
+		 <% @devolutions.each do |devolution| %>
+	  		<tr>
+		     <td style="text-decoration:underline; color:black"><%= link_to devolution.numRegistro, devolution %></td>
+		     <td><%= devolution.unidadSolicitante %></td>
+		     <td><%= devolution.observaciones %></td>
+		   </tr>
+		 <% end %>
+		 <% if @sumDevolution == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay notas de devolución registradas</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+</body>
+
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+#devolutionTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+     font-size: 14px;
+  }
+
+#devolutionTable th, td, tr{
+ border-color:black;
+ }
+
+
+
+ .table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+#devolutionTable tr:hover {
+background-color: #ffff99;
+}
+
+#devolutionTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>

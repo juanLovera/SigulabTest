@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li> <%=link_to 'Herramientas', tools_path %></li>
+	<li class="active"> Ver </li>
+</ol>
+
+    <div class="col-xs-12">
+        <table class="table table-striped">
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"><%= @tool.name %></td>
+          </tr>   
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+            <td class="col-xs-7"><%= @tool.brand %></td>
+          </tr> 
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
+            <td class="col-xs-7"><%= @tool.type %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Número Bien Nacional:</strong></td>
+            <td class="col-xs-7"><%= @tool.national_good %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
+            <td class="col-xs-7"><%= @tool.type %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
+            <td class="col-xs-7"><%= @tool.type %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= @tool.dependency %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= @tool.location %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Material:</strong></td>
+            <td class="col-xs-7"><%= @tool.material %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>De un juego:</strong></td>
+            <td class="col-xs-7">
+            <% if @tool.from_set %>
+              <%= 'SÍ' %>
+            <% else %>
+              <%= 'NO' %>
+            <% end %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
+              <td class="col-xs-7">   
+              <% if @tool.investigation %>
+              <%= ' INVESTIGACIÓN ' %>
+            <% end %>
+            <% if @tool.teaching %>
+              <%= ' DOCENCIA ' %>
+            <% end %>
+            <% if @tool.extention %>
+              <%= ' EXTENSIÓN ' %>
+            <% end %>
+            <% if @tool.management %>
+              <%= ' GESTIÓN ' %>
+            <% end %>
+              </td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
+            <td class="col-xs-7"><%= @tool.bill %></td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
+            <td class="col-xs-7"><%= @tool.cost %> Bs.</td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Órden de Compra:</strong></td>
+            <td class="col-xs-7"><%= @tool.buy_order %></td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
+            <td class="col-xs-7"><%= @tool.adquisition_date %></td>
+          </tr>
+        </table>
+
+      </div>
+
+
+
+<br><br>
+<% if can? :update, @tool %>
+  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_tool_path(@tool) %> |
+<% end %>
+<% if can? :create, @tool %>
+    <i class="fa fa-plus-circle"></i><%= link_to ' Nueva herramienta', new_tool_path %> | 
+<% end %>
+<% if can? :hide, @tool %>
+      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @tool, method: :delete, data: { confirm: '¿Estás seguro?' } %> |
+<!--       <i class="fa fa-times"></i><%= link_to ' Ocultar', tools_path %> |  -->
+<%end%>
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', tools_path %>
+<br><br><br><br>

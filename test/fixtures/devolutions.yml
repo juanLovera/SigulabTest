@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numRegistro: MyString
+  numRequisicion: MyString
+  requisicion: MyString
+  numAutorizacion: MyString
+  autorizacion: MyString
+  numCertificacion: MyString
+  certificacion: MyString
+  numSolicitud: MyString
+  solicitud: MyString
+  numInforme: MyString
+  informe: MyString
+  numOtro: MyString
+  otro: MyString
+  disponibilidad: MyString
+  idioma: MyString
+  discriminado: MyString
+  firma: MyString
+  carencia: MyString
+  nombre: MyString
+  direccion: MyString
+  datos: MyString
+  rif: MyString
+  telefonos: MyString
+  persona: MyString
+  otroCarencia: MyString
+  contacto: MyString
+  copia: MyString
+  factura: MyString
+  foto: MyString
+  observaciones: MyString
+  unidadSolicitante: MyString
+
+two:
+  numRegistro: MyString
+  numRequisicion: MyString
+  requisicion: MyString
+  numAutorizacion: MyString
+  autorizacion: MyString
+  numCertificacion: MyString
+  certificacion: MyString
+  numSolicitud: MyString
+  solicitud: MyString
+  numInforme: MyString
+  informe: MyString
+  numOtro: MyString
+  otro: MyString
+  disponibilidad: MyString
+  idioma: MyString
+  discriminado: MyString
+  firma: MyString
+  carencia: MyString
+  nombre: MyString
+  direccion: MyString
+  datos: MyString
+  rif: MyString
+  telefonos: MyString
+  persona: MyString
+  otroCarencia: MyString
+  contacto: MyString
+  copia: MyString
+  factura: MyString
+  foto: MyString
+  observaciones: MyString
+  unidadSolicitante: MyString

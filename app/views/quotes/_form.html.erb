@@ -1,0 +1,121 @@
+# encoding: utf-8
+
+<script>
+
+	function HandleBrowseClick()
+	{
+		 var fileinput = document.getElementById("browse");
+		 fileinput.click();
+	}
+
+	function Handlechange()
+	{
+		 var fileinput = document.getElementById("browse");
+		 var textinput = document.getElementById("filename");
+		 textinput.value = fileinput.value;
+	}
+
+</script>
+
+<div class="grid_12 push_5">
+	<%= form_for(@quote) do |f| %>
+  		<% if @quote.errors.any? %>
+         <h2>Error: ha dejado campos vacíos</h2>
+      	<br>	
+  		<% end %>
+  
+  <div class="field">
+	 <span class="red">*</span>
+    <%= f.label "Nombre de la empresa" %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+ 	 <span class="red">*</span>
+    <%= f.label "Oferta" %><br>
+    <%= f.file_field :attachment, id:"browse", style:"display: none", onChange:"Handlechange()" %>
+	 <input type="text" id="filename" readonly="true"/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick();"/>
+  </div>
+  <div class="actions">
+    <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+  </div>
+<% end %>
+</div>
+
+<style>
+
+input[type="submit"]  {
+
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	color: #fff;
+	background-color: #428bca;
+	border-color: #357ebd;
+	border: 1px solid transparent;
+	border-radius: 4px;
+
+
+}
+
+#fakeBrowse {
+
+position:relative;
+left: 220px;
+bottom: 34px;
+}
+
+.red {
+
+	font-size: 20px;
+	color: red;
+
+}
+
+
+input[type="text"] {
+
+display: block;
+width: 200px;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+maxlength:100;
+
+}
+
+input[type="text"]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+h2 {
+
+position:relative;
+right: 150px;
+color:red;
+font-size: 20px;
+right: 60px;
+}
+
+.field_with_errors {
+  	background-color: red;
+  	border-radius: 4px;
+}
+
+
+</style>
+

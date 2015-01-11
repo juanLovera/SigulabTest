@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', controller: 'budget' %></li>
+			<li class="active">Resumen Presupuestario</li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<h2>Resumen Presupuestario</h2>
+	</div>
+	<div class="col-xs-12">
+		<div class="well">
+			Todos los montos están expresados en bolívares.
+		</div>
+	</div>	
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<th>Dep.</th>
+					<th class="text-right">Monto Asignado</th>
+					<th class="text-right">Monto Comprometido</th>
+					<th class="text-right">Saldo Disponible</th>
+				</tr>
+				<% @labs.each do |l| %>
+					<tr>
+						<td><%= l.name %></td>
+						<td class="text-right"><%= number_to_currency(@incomes_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-right"><%= number_to_currency(@commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-right"><%= number_to_currency(@incomes_lab[l.id] - @commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
+					</tr>
+				<% end %>
+				<tr class="success">
+					<td>TOTALES</td>
+					<td class="text-right"><%= number_to_currency(@incomes_total, format: "%n", delimiter: ".", separator: ",") %></td>
+					<td class="text-right"><%= number_to_currency(@commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
+					<td class="text-right"><%= number_to_currency(@incomes_total - @commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,2 @@
+module ChemicalSubstancesHelper
+end

@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<div class="grid_12">
+      <ol class="breadcrumb">
+          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+          <li> <%=link_to 'Compras', compras_url %></li>
+          <li> <%=link_to 'Especificaciones Técnicas', specifications_url %></li>
+          <li> <%=link_to 'Solicitud', solicitud_url %></li>
+        <li class="active">Nota de Devolución </a></li>
+      </ol>
+</div>
+
+
+  <div class="grid_12">
+    
+    <div class="grid_5">
+      <h3>Notas de Devolución</h3><br>
+    </div>
+    <div class="grid_3 push_4 text-right" id="agregar">
+        <%= link_to 'Agregar nota de devolución'.html_safe, new_devolution_path %>
+      </div>
+    <%= render 'devolutiontable' %>
+    <%= link_to '<button type="button" class="btn btn-primary"> Agregar nota de devolución </button>'.html_safe, new_devolution_path %> <br><br>
+    <%= link_to '<button type="button" class="btn btn-primary"> Volver a solicitud de compras </button>'.html_safe, solicitud_url %>
+  </div>
+
+</body>
+</html>
+
+
+<style>
+  
+#agregar {
+  font-size: 14px;
+}
+
+h3 {
+  position: relative;
+  
+}
+
+</style>

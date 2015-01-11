@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', controller: 'administration' %></li>
+			<li class="active">Presupuesto</li>
+		</ol>
+	</div>
+	<div class="col-xs-8 col-xs-offset-2">
+		<ul class="administration-list">
+			<li><%= link_to action: :summary do %>
+				<h3></he><span class="glyphicon glyphicon-signal"></span>Resumen</h3>
+			<% end %></li>
+			<li><%= link_to controller: :incomes do %>
+				<h3><span class="glyphicon glyphicon-plus-sign"></span>Ingresos</h3>
+			<% end %></li>
+			<li><%= link_to controller: :commitments do %>
+				<h3><span class="glyphicon glyphicon-minus-sign"></span>Compromisos</h3>
+			<% end %></li>
+		</ul>
+	</div>
+</div>
