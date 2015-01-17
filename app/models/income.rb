@@ -32,7 +32,10 @@ class Income < ActiveRecord::Base
   validates :origin, presence: true
   validates :date, presence: true  
   validates_date :date, if: "!date.blank?"
-  
+  validates :doc_date, presence: true  
+  validates_date :doc_date, if: "!doc_date.blank?"
+  validates :doc_code, presence: true  
+
   validates :organism, length: {maximum: 512}
   validates :document, length: {maximum: 512} #!No se sabe si es obligatorio
   

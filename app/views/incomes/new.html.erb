@@ -75,14 +75,24 @@
 					<%= i.text_field :organism, class: 'form-control' %>
 				</div>
 			</div>
-			
 			<div class="form-group">
-				<label for='income_document' class="col-xs-3 control-label text-right">Documento</label>
+				<label for='income_doc_code' class="col-xs-3 control-label text-right">Código de Documento *</label>
+				<div class='col-xs-4'>
+					<%= i.text_field :doc_code, class: 'form-control' %>
+				</div>
+			</div>			
+			<div class="form-group">
+				<label for='income_doc_date' class="col-xs-3 control-label text-right">Fecha de Documento *</label>
+				<div class='col-xs-4'>
+					<%= i.text_field :doc_date, class: 'bootlayout-date form-control', placeholder: 'Fecha de Documento' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for='income_document' class="col-xs-3 control-label text-right">Documento *</label>
 				<div class='col-xs-4'>
 					<%= i.text_field :document, class: 'form-control' %>
 				</div>
-			</div>
-			
+			</div>		
 			<div class="form-group">
 				<label for='income_date' class="col-xs-3 control-label text-right">Fecha *</label>
 				<div class='col-xs-4'>
