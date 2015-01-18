@@ -22,42 +22,42 @@
 	<div class="col-xs-12">
 		<%= form_for @commitment, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>	
 			<div class="form-group">
-				<label for='commitment_lab_id' class="col-xs-3 control-label text-right">Dependencia *</label>
+				<label for='commitment_lab_id' class="col-xs-3 control-label text-right">Dependencia <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
 					<%= i.select(:lab_id, options_for_select(@labs.map { |l| [l.sae_name, l.id] }), {}, {class: "form-control"} ) %>
 				</div>
 			</div>	
 			
 			<div class="form-group">
-				<label for='income_sae_code' class="col-xs-3 control-label text-right">Código SAE *</label>
+				<label for='income_sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :sae_code, class: 'form-control' %>
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for='commitment_document' class="col-xs-3 control-label text-right">Documento *</label>
+				<label for='commitment_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
 					<%= i.select(:document, options_for_select(Commitment.document_str.zip(Commitment.documents.keys)), {}, {class: "form-control"} ) %>
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for='commitment_code' class="col-xs-3 control-label text-right">Código *</label>
+				<label for='commitment_code' class="col-xs-3 control-label text-right">Código <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :code, class: 'form-control' %>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for='commitment_recipient' class="col-xs-3 control-label text-right">Beneficiario *</label>
+				<label for='commitment_recipient' class="col-xs-3 control-label text-right">Beneficiario <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :recipient, class: 'form-control' %>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for='commitment_description' class="col-xs-3 control-label text-right">Descripción *</label>
+				<label for='commitment_description' class="col-xs-3 control-label text-right">Descripción <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :description, class: 'form-control' %>
 				</div>
@@ -71,7 +71,7 @@
 			</div>
 						
 			<div class="form-group">
-				<label for='commitment_amount' class="col-xs-3 control-label text-right">Monto *</label>
+				<label for='commitment_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<div class="input-group">
 						<%= i.text_field :amount, class: 'form-control' %>
@@ -81,7 +81,7 @@
 			</div>
 			
 			<div class="form-group">
-				<label for='commitment_date' class="col-xs-3 control-label text-right">Fecha *</label>
+				<label for='commitment_date' class="col-xs-3 control-label text-right">Fecha <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :date, class: 'bootlayout-date form-control', placeholder: 'Fecha de Recepción' %>
 				</div>
@@ -99,7 +99,7 @@
 	</div>
 	<div class="col-xs-12">
 		<div class="well">
-			* Los campos son obligatorios.
+			<span style="color:#FF0000">*</span> Los campos son obligatorios.
 		</div>
 	</div>
 </div>

@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
 <div class="row">
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
@@ -7,34 +12,55 @@
 			<li class="active">Ejecuciones</li>
 		</ol>
 	</div>
+
 	<div class="col-xs-12">
-		<table class="table table-hover">
-			<tr>
-				<th>Dep.</th>
-				<th>Fecha</th>
-				<th>Compromiso Asociado</th>
-				<th>Codigo</th>
-				<th class="text-right">Monto (Bs.)</th>
-			</tr>
-      		<% @executions.each do |i| %>
-				<tr>
-					<td><%= i.commitment.lab.sae_name %></td>
-					<td><%= i.date.strftime('%d/%m/%Y') unless i.date.blank? %></td>
-					<td><%= link_to i.commitment.description, i.commitment %></td>
-        			<td><%= link_to i.code, i %></td>
-					<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
-				</tr>
-			<% end %>
-			<% if @sum > 0 %>
-				<tr class="success">
-					<td class="text-center" colspan="4"><h4>Monto Total Ejecutado</h4></td>
-					<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
-				</tr>
-			<% else %>
-				<tr class="warning">
-					<td class="text-center" colspan="5"><h4>No hay ejecuciones registradas</h4></td>
-				</tr>
-			<% end %>
-		</table>
+		<h2><center>Ejecuciones</center></h2>
+	</div>
+
+	<div class="col-xs-12">
+		<div class="well">
+			El monto está expresado en bolívares.
+		</div>
+	</div>
+
+
+	<div class="col-xs-12">
+		<body id="dt_example" class="ex_highlight_row">
+
+			<div id="container">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+							<tr>
+								<th>Dependencia</th>
+								<th>Fecha</th>
+								<th>Compromiso Asociado</th>
+								<th>Código</th>
+								<th class="text-right">Monto</th>
+							</tr>
+						</thead>
+
+						<tbody>
+				      		<% @executions.each do |i| %>
+								<tr>
+									<td><%= i.commitment.lab.sae_name %></td>
+									<td><%= i.date.strftime('%d/%m/%Y') unless i.date.blank? %></td>
+									<td><%= link_to i.commitment.description, i.commitment %></td>
+				        			<td><%= link_to i.code, i %></td>
+									<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+							<% if @sum > 0 %>
+								<tr class="success">
+									<td class="text-center" colspan="4"><h4>Monto Total Ejecutado</h4></td>
+									<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</body>
 	</div>
 </div>

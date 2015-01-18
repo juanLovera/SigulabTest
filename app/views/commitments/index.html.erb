@@ -1,3 +1,9 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+
 <div class="row">
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
@@ -7,35 +13,58 @@
 			<li class="active">Compromisos</li>
 		</ol>
 	</div>
+
 	<div class="col-xs-12">
-		<table class="table table-hover">
-			<tr>
-				<th>Fecha</th>
-				<th>Dependencia</th>
-				<th>Descripción</th>
-				<th class="text-right">Monto (Bs.)</th>
-			</tr>
-			<% @commitments.each do |c| %>
-				<tr>
-					<td><%= c.date.strftime('%d/%m/%Y') %></td>
-					<td><%= c.lab.sae_name %></td>
-					<td><%= link_to c.description, c %></td>
-					<td class="text-right"><%= number_to_currency(c.amount, format: "%n", delimiter: ".", separator: ",") %></td>
-				</tr>
-			<% end %>
-			<% if @sum > 0 %>
-				<tr class="success">
-					<td class="text-center" colspan="3"><h4>Monto Total Comprometido</h4></td>
-					<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
-				</tr>
-			<% else %>
-				<tr class="warning">
-					<td class="text-center" colspan="4"><h4>No hay compromisos registrados</h4></td>
-				</tr>
-			<% end %>
-		</table>
+		<h2><center>Compromisos</center></h2>
 	</div>
+
 	<div class="col-xs-12">
+		<div class="well">
+			El monto está expresado en bolívares.
+		</div>
+	</div>
+
+
+	<div class="col-xs-12">
+		<body id="dt_example" class="ex_highlight_row">
+
+			<div id="container">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+							<tr>
+								<th>Fecha</th>
+								<th>Dependencia</th>
+								<th>Descripción</th>
+								<th>Monto</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @commitments.each do |c| %>
+								<tr>
+									<td><%= c.date.strftime('%d/%m/%Y') %></td>
+									<td><%= c.lab.sae_name %></td>
+									<td><%= link_to c.description, c %></td>
+									<td class="text-right"><%= number_to_currency(c.amount, format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+							<% if @sum > 0 %>
+								<tr class="success">
+									<td class="text-center" colspan="3"><h4>Monto Total Comprometido</h4></td>
+									<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</body>
+	</div>
+
+	<div class="col-xs-12">
+		<br></br>
 		<%= link_to new_commitment_path do %>
 			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Compromiso</button>
 		<% end %>
