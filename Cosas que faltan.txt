@@ -1,13 +1,6 @@
-OJO (BORRARAN ESTO SI JOSE Y GARBI ESTAN DE ACUERDO):
-Esto no creo que haga falta porque las tablas ordenan todo:
-"Las tablas se ordenarán por las fechas - En show de controller"
-
 OBSERVACIONES:
 - Me deja ingresar a cualquier parte sin estar autentificado.
 
-
-
-COSAS POR HACER:
 
 - rake db:seek para carga real
 - PENDIENTE: Actualizar links en navbar
@@ -23,6 +16,8 @@ INGRESOS:
 - Agregar campos para generar PDF (renglon Aplicacion de Recursos)
 - "Consultar planilla de modificacion presupuestaria" va en "Consultar ingreso", muestra pdf asociado
 - Cambiar "Codigo de Documento" por "Numero de documento", agregar validacion
+- Implementar Ocultar/Activar - Requiere un campo extra de visibilidad en la bd y dos tablas en la consulta: activos y ocultos
+
 
 COMPROMISO:
 
@@ -30,14 +25,12 @@ COMPROMISO:
 - Incorporar "Modificar Cheque" en "Modificar Compromiso"
 - Agregar "Anular Cheque", actualizar status y agregar campo de observacion
 - Cambiar "Codigo de Documento" por "Numero de documento", agregar validacion
+- Implementar Ocultar/Activar - Requiere un campo extra de visibilidad en la bd y dos tablas en la consulta: activos y ocultos
+
 
 EJECUCIONES:
 
 - Implementar validaciones en comparaciones de fecha
 - En agregar ejecución, añadir el campo "Código del documento:"
-- Quitar "Ejecuciones de Ordenes de Compra"
 - Crear "Ejecuciones" en "Presupuesto" y "Consultar ejecuciones asociadas" en cada compromiso
-
-PARA TODOS LOS MÓDULOS ANTERIORMENTE MENCIONADOS:
-
 - Implementar Ocultar/Activar - Requiere un campo extra de visibilidad en la bd y dos tablas en la consulta: activos y ocultos
