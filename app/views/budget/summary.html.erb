@@ -1,4 +1,17 @@
-<div class="row">
+<%# content_for :stylesheet_link do %>
+	<%= stylesheet_link_tag 'demo_page.css'%>
+	<%= stylesheet_link_tag 'demo_table_jui.css'%>
+	<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%# end %>
+
+<%# content_for :javascript_includes do %>
+	<%= javascript_include_tag 'jquery.js' %>
+	<%= javascript_include_tag 'jquery.dataTables.js' %>
+	<%= javascript_include_tag 'tabla.js' %>
+<%# end %>
+
+
+<div class="row">	
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
@@ -14,32 +27,51 @@
 		<div class="well">
 			Todos los montos están expresados en bolívares.
 		</div>
-	</div>	
+	</div>
+
 	<div class="col-xs-12">
-		<table class="table table-striped">
-			<tbody>
-				<tr>
-					<th>Dep.</th>
-					<th class="text-right">Monto Asignado</th>
-					<th class="text-right">Monto Comprometido</th>
-					<th class="text-right">Saldo Disponible</th>
-				</tr>
-				<% @labs.each do |l| %>
-					<tr>
-						<td><%= l.name %></td>
-						<td class="text-right"><%= number_to_currency(@incomes_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
-						<td class="text-right"><%= number_to_currency(@commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
-						<td class="text-right"><%= number_to_currency(@incomes_lab[l.id] - @commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
+
+		<body id="dt_example" class="ex_highlight_row">
+
+			<div id="container">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+							<tr>
+								<th>Dep.</th>
+								<th class="text-right">Monto Asignado</th>
+								<th class="text-right">Monto Comprometido</th>
+								<th class="text-right">Saldo Disponible</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @labs.each do |l| %>
+								<tr>
+									<td><%= l.name %></td>
+									<td class="text-right"><%= number_to_currency(@incomes_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
+									<td class="text-right"><%= number_to_currency(@commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
+									<td class="text-right"><%= number_to_currency(@incomes_lab[l.id] - @commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</body>
+		
+		<div class="col-xs-12">
+			<table class="table table-striped">
+				<tbody>
+					<tr class="success">
+						<td>TOTALES</td>
+						<td class="text-right"><%= number_to_currency(@incomes_total, format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-right"><%= number_to_currency(@commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-right"><%= number_to_currency(@incomes_total - @commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
 					</tr>
-				<% end %>
-				<tr class="success">
-					<td>TOTALES</td>
-					<td class="text-right"><%= number_to_currency(@incomes_total, format: "%n", delimiter: ".", separator: ",") %></td>
-					<td class="text-right"><%= number_to_currency(@commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
-					<td class="text-right"><%= number_to_currency(@incomes_total - @commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
-				</tr>
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
-

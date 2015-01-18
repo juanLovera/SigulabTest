@@ -10,3 +10,10 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( bootlayout.css )
 Rails.application.config.assets.precompile += %w( bootlayout.js )
 Rails.application.config.assets.precompile += %w( jquery-ui-1.10.3.custom.css )
+
+Rails.application.config.assets.precompile += %w( demo_page.css )
+Rails.application.config.assets.precompile += %w( demo_table_jui.css )
+Rails.application.config.assets.precompile += %w( examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css )
+Rails.application.config.assets.precompile += %w( jquery.js )
+Rails.application.config.assets.precompile += %w( jquery.dataTables.js )
+Rails.application.config.assets.precompile += %w( tabla.js )
