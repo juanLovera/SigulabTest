@@ -6,9 +6,6 @@ OBSERVACIONES:
 - PENDIENTE: Actualizar links en navbar
 - PENDIENTE: En config/locales/es.yml van las traducciones de modelos y atributos
 
-FECHAS:
-
-- PENDIENTE: Queda una hora en ceros en campos con fecha al encontrar error en validacion de formulario (Podria resolverse cambiando fechas a dates, estan en datetime)
 
 INGRESOS:
 
