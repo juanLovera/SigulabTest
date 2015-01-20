@@ -24,11 +24,19 @@ class Execution < ActiveRecord::Base
   validates_date :check_sign_date, if: "!check_sign_date.blank?"
   validates_date :check_delivery_date, if: "!check_delivery_date.blank?"
 
-private
+  validate :elaboration_sign, if: "!check_sign_date.blank?"
+  validate :sign_delivery, if: "!check_delivery_date.blank?"
+ 
+  def elaboration_sign
+    if check_elaboration_date > check_sign_date
+      errors.add(:check_elaboration_date, "no puede ser posterior a la fecha de firma")
+    end
+  end 
 
-def start_must_be_before_end_time
-    errors.add(:check_elaboration_date, "must be before end time") unless
-        ":check_elaboration_date <= :check_sign_date"
-end 
+  def sign_delivery
+    if check_sign_date > check_delivery_date
+      errors.add(:check_sign_date, "no puede ser posterior a la fecha de entrega")
+    end
+  end 
 	  
 end
