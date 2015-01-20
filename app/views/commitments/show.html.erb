@@ -30,7 +30,7 @@
 				<td class="col-xs-7"><%= Commitment.document_str[Commitment.documents[@commitment.document]] %></td>
 			</tr>
 			<tr>
-				<td class="col-xs-5 text-right">Código:</td>
+				<td class="col-xs-5 text-right">Número de Documento:</td>
 				<td class="col-xs-7"><%= @commitment.code %></td>
 			</tr>
 			<tr>
@@ -44,8 +44,8 @@
 			  </tr>
 			<% end %>
 			<tr class="success">
-				<td class="col-xs-5 text-right">Monto (Bs.):</td>
-				<td class="col-xs-7"><%= number_to_currency(@commitment.amount, format: "%n", delimiter: ".", separator: ",") %></td>
+				<td class="col-xs-5 text-right">Monto:</td>
+				<td class="col-xs-7"><%= number_to_currency(@commitment.amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
 			</tr>
 		</table>
 	</div>

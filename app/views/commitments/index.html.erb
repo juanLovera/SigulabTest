@@ -55,28 +55,19 @@
 				</div>
 			</div>
 		</body>
+
+		<p></p>
+
+		<div class="well" align="right">
+			<h4>Monto Total Comprometido: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
+		</div>
+
 	</div>
 
-	<div class="col-xs-12">
+	<div class="col-xs-12" align="left">
 		<p></p>
 		<%= link_to new_commitment_path do %>
 			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Compromiso</button>
-		<% end %>
-	</div>
-
-	<div class="col-xs-12">
-		<br></br>
-		<% if @sum > 0 %>
-			<div class="well">
-				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
-					<tbody>
-						<tr class="success">
-							<td class="text-center" colspan="3"><h4>Monto Total Comprometido</h4></td>
-							<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 		<% end %>
 	</div>
 

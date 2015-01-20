@@ -52,12 +52,12 @@
 			<% if !@income.doc_code.blank? -%>
 			  <tr>
 				<td class="col-xs-5 text-right">Documento:</td>
-				<td class="col-xs-7"><%= link_to "Consultar Documento", @income.document_url %></td>
+				<td class="col-xs-7"><%= link_to "Consultar", @income.document_url %></td>
   			  </tr>
             <% end %>
 			<tr class="success">
-				<td class="col-xs-5 text-right">Monto (Bs.):</td>
-				<td class="col-xs-7"><%= number_to_currency(@income.amount, format: "%n", delimiter: ".", separator: ",") %></td>
+				<td class="col-xs-5 text-right">Monto:</td>
+				<td class="col-xs-7"><%= number_to_currency(@income.amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
 			</tr>
 		</table>
 	</div>

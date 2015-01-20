@@ -5,7 +5,7 @@
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Presupuesto', budget_path %></li>
       		<li><%= link_to 'Ejecuciones', executions_path %></li>
-			<li class="active"><%= @execution.id%></li>
+			<li class="active"><%= @execution.id %></li>
 		</ol>
 	</div>
 	<div class="col-xs-12">
@@ -34,14 +34,20 @@
 				<td class="col-xs-5 text-right">Fecha de Elaboración:</td>
         		<td class="col-xs-7"><%= @execution.check_elaboration_date unless @execution.check_elaboration_date.blank? %>  </td>
 			</tr>
+
+			<% if !@execution.check_sign_date.blank? -%>
 			<tr>
+
 				<td class="col-xs-5 text-right">Fecha de Firma:</td>
         		<td class="col-xs-7"><%= @execution.check_sign_date unless @execution.check_sign_date.blank? %>  </td>
 			</tr>
+			<% end %>
+			<% if !@execution.check_delivery_date.blank? -%>
 			<tr>
 				<td class="col-xs-5 text-right">Fecha de Entrega:</td>
         		<td class="col-xs-7"><%= @execution.check_delivery_date unless @execution.check_delivery_date.blank? %>  </td>
 			</tr>
+			<% end %>
 			<tr>
 				<td class="col-xs-5 text-right">Estatus del cheque:</td>
                 <td class="col-xs-7">
@@ -56,8 +62,8 @@
                 </td>
 			</tr>
 			<tr class="success">
-				<td class="col-xs-5 text-right">Monto (Bs.):</td>
-				<td class="col-xs-7"><%= number_to_currency(@execution.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+				<td class="col-xs-5 text-right">Monto:</td>
+				<td class="col-xs-7"><%= number_to_currency(@execution.check_amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
 			</tr>
 		</table>
 	</div>
