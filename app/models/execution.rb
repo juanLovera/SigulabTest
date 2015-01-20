@@ -40,8 +40,8 @@ class Execution < ActiveRecord::Base
       errors.add(:check_sign_date, "no puede ser posterior a la fecha de entrega")
     end
   end
- 
-	 def valid_amount
+
+  def valid_amount
     if check_amount > commitment.amount
       errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado")
     end 
