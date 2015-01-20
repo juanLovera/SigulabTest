@@ -49,10 +49,10 @@
 				<td class="col-xs-5 text-right">Fecha del Documento:</td>
 				<td class="col-xs-7"><%= @income.doc_date unless  @income.date.blank? %>  </td>
 			</tr>
-			<% if !@income.document.blank? -%>
+			<% if !@income.doc_code.blank? -%>
 			  <tr>
 				<td class="col-xs-5 text-right">Documento:</td>
-				<td class="col-xs-7"><%= @income.document %></td>
+				<td class="col-xs-7"><%= link_to "Consultar Documento", @income.document_url %></td>
   			  </tr>
             <% end %>
 			<tr class="success">

@@ -26,9 +26,11 @@ class IncomesController < ApplicationController
     end
     
     @income = Income.new(income_params)
-    
+  
     if @income.save
-      redirect_to action: 'index'
+#      redirect_to action: 'index'
+		redirect_to incomes_path, notice: "The document has been uploaded."
+
     else
       @labs = Lab.all
       render 'new'

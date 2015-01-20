@@ -86,14 +86,16 @@
 			<div class="form-group">
 				<label for='income_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :doc_date, value: (@income.doc_date.strftime("%d/%m/%Y") unless @income.doc_date.nil?), class: 'bootlayout-date form-control', placeholder: 'Fecha del Documento' %>
+					<%= i.text_field :doc_date, value: (@income.doc_date unless @income.doc_date.nil?), class: 'bootlayout-date form-control', placeholder: 'Fecha del Documento' %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for='income_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :document, class: 'form-control' %>
+					<div class='carrier-wave-field'>
+    					<%= i.file_field :document %>
+    				</div>
 				</div>
 			</div>
 			

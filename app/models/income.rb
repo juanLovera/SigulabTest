@@ -21,6 +21,8 @@ class Income < ActiveRecord::Base
     'LOCTI'
   ]
   end
+
+  mount_uploader :document, AttachmentUploader # Tells rails to use this uploader for this model.
   
   belongs_to :lab
   
@@ -37,6 +39,5 @@ class Income < ActiveRecord::Base
   validates :doc_code, presence: true  
 
   validates :organism, length: {maximum: 512}
-  validates :document, length: {maximum: 512} #!No se sabe si es obligatorio
   
 end

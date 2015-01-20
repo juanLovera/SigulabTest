@@ -90,10 +90,10 @@
 			<div class="form-group">
 				<label for='income_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :document, class: 'form-control' %>
+    				<%= i.file_field :document %>
 				</div>
 			</div>		
-			<div class="form-group">
+    		<div class="form-group">
 				<label for='income_date' class="col-xs-3 control-label text-right">Fecha <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :date, class: 'bootlayout-date form-control', placeholder: 'Fecha de Recepción' %>
@@ -109,6 +109,7 @@
 				</div>
 			</div>
 		<% end %>
+
 	</div>
 	<div class="col-xs-12">
 		<div class="well">
@@ -116,3 +117,10 @@
 		</div>
 	</div>
 </div>
+
+
+<style>
+.file_field input {
+    color: red; /*or whatever you want to change*/
+}
+</style>
