@@ -50,24 +50,35 @@
 									<td class="text-right"><%= number_to_currency(i.amount, format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>
 							<% end %>
-							<% if @sum > 0 %>
-								<tr class="success">
-									<td class="text-center" colspan="3"><h4>Monto Total Asignado</h4></td>
-									<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
-								</tr>
-							<% end %>
 						</tbody>
 					</table>
 					<div class="spacer"></div>
 				</div>
 			</div>
-		</body>		
+		</body>	
 	</div>
-	
+
+
 	<div class="col-xs-12">
-		<br></br>
+		<p></p>
 		<%= link_to new_income_path do %>
 			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Ingreso</button>
+		<% end %>
+	</div>
+
+	<div class="col-xs-12">
+		<br></br>
+		<% if @sum > 0 %>
+			<div class="well">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+					<tbody>
+						<tr class="success">
+							<td class="text-center" colspan="3"><h4>Monto Total Asignado</h4></td>
+							<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		<% end %>
 	</div>
 

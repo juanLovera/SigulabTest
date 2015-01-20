@@ -50,12 +50,6 @@
 									<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>
 							<% end %>
-							<% if @sum > 0 %>
-								<tr class="success">
-									<td class="text-center" colspan="4"><h4>Monto Total Ejecutado</h4></td>
-									<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
-								</tr>
-							<% end %>
 						</tbody>
 					</table>
 					<div class="spacer"></div>
@@ -63,4 +57,21 @@
 			</div>
 		</body>
 	</div>
+
+	<div class="col-xs-12">
+		<br></br>
+		<% if @sum > 0 %>
+			<div class="well">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+					<tbody>
+						<tr class="success">
+							<td class="text-center" colspan="4"><h4>Monto Total Ejecutado</h4></td>
+							<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<% end %>
+	</div>
+
 </div>
