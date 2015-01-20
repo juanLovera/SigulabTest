@@ -4,6 +4,17 @@ class ExecutionsController < ApplicationController
   def index
     @executions = Execution.all
     @sum = @executions.sum(:check_amount)
+
+
+
+
+
+
+
+
+
+
+    
   end
 
   def show
@@ -12,7 +23,6 @@ class ExecutionsController < ApplicationController
 
   def list
     @execution = Execution.find(params[:cid])
-
     @executions = Execution.where("commitment_id=?",params[:cid])
     @sum = @executions.sum(:check_amount)
 
@@ -75,6 +85,12 @@ class ExecutionsController < ApplicationController
       @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)
       render 'edit'
     end
+  end
+
+  def annul
+    @execution = Execution.find(params[:id])
+    @execution.update_attribute(:check_annulled, true)
+    print "hola"
   end
   
   private

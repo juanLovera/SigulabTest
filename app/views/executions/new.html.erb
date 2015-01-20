@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for='commitment' class="col-xs-3 control-label text-right">   </label>
+				<label for='commitment' class="col-xs-3 control-label text-right"> Código del Compromiso</label>
 				<div class='col-xs-4'>
                   <%= i.text_field :commitment_id, class: "form-control", :style => "background-color:#E8E8E8;" %>
 				</div>
@@ -48,12 +48,12 @@
 			<div class="form-group">
 				<label for='execution_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
-					<%= i.select(:document, options_for_select(Execution.document_str.zip(Execution.documents.keys)), {}, {class: "form-control"} ) %>
+					<%= i.select(:document, options_for_select(Execution.document_str.zip(Execution.documents.keys)), {}, {class: "form-control"} ) %> 
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for='execution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<label for='execution_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :code, class: 'form-control' %>
 				</div>
@@ -96,6 +96,13 @@
 				<label for='execution_check_delivery_date' class="col-xs-3 control-label text-right">Fecha de Entrega</label>
 				<div class='col-xs-4'>
 					<%= i.text_field :check_delivery_date, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_remarks' class="col-xs-3 control-label text-right">Observaciones</label>
+				<div class='col-xs-4'>
+					<%= i.text_area :remarks, class: 'form-control' %>
 				</div>
 			</div>
 			

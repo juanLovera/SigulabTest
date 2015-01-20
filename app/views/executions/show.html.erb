@@ -51,6 +51,9 @@
 			<tr>
 				<td class="col-xs-5 text-right">Estatus del cheque:</td>
                 <td class="col-xs-7">
+				  <% if @execution.check_annulled? %>
+                    Anulado
+				 <% else %>
                   <% if @execution.check_sign_date.blank? %> 
                     En espera de firma
                   <% else if @execution.check_delivery_date.blank? %> 
@@ -59,7 +62,12 @@
                     Entregado
                   <% end %>
                   <% end %>
+				<% end %>
                 </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Observaciones:</td>
+        		<td class="col-xs-7"><%= @execution.remarks unless @execution.remarks.blank? %>  </td>
 			</tr>
 			<tr class="success">
 				<td class="col-xs-5 text-right">Monto:</td>
