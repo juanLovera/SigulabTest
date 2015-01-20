@@ -15,6 +15,22 @@
 				<td class="col-xs-7"><%= @execution.commitment.lab.sae_name %></td>
 			</tr>
 			<tr>
+				<td class="col-xs-5 text-right">Compromiso asociado:</td>
+				<td class="col-xs-7"><%= @execution.commitment.description %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Documento:</td>
+				<td class="col-xs-7"><%= Execution.document_str[Execution.documents[@execution.document]] %></td>
+			</tr>			
+			<tr>
+				<td class="col-xs-5 text-right">Código del Documento:</td>
+				<td class="col-xs-7"><%= @execution.code %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Número de Cheque:</td>
+				<td class="col-xs-7"><%= @execution.check_number %></td>
+			</tr>			
+			<tr>
 				<td class="col-xs-5 text-right">Fecha de Elaboración:</td>
         		<td class="col-xs-7"><%= @execution.check_elaboration_date unless @execution.check_elaboration_date.blank? %>  </td>
 			</tr>
