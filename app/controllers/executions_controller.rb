@@ -9,6 +9,11 @@ class ExecutionsController < ApplicationController
   def show
     @execution = Execution.find(params[:id])
   end
+
+  def list
+    @executions = Execution.where("commitment_id=?",params[:cid])
+    @sum = @executions.sum(:check_amount)
+  end
   
   def new
     @execution = Execution.new

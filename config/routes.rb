@@ -48,10 +48,10 @@ Rails.application.routes.draw do
   # Rutas del Subsistema de Administracion
   get 'administration/budget/(:action)', to: 'budget', as: :budget
   get 'administration/(:action)', to: 'administration', as: :administration
+  get "/executions/list", to: "executions#list", :as => "executions/list"
   resources :incomes
   resources :commitments
   resources :executions
-  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
