@@ -15,7 +15,7 @@
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Fecha:</td>
-				<td class="col-xs-7"><%= @income.date.strftime('%d/%m/%Y') unless  @income.date.blank? %>  </td>
+				<td class="col-xs-7"><%= @income.date unless  @income.date.blank? %>  </td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Dependencia:</td>
@@ -47,7 +47,7 @@
             <% end %>
 			<tr>
 				<td class="col-xs-5 text-right">Fecha del Documento:</td>
-				<td class="col-xs-7"><%= @income.doc_date.strftime('%d/%m/%Y') unless  @income.date.blank? %>  </td>
+				<td class="col-xs-7"><%= @income.doc_date unless  @income.date.blank? %>  </td>
 			</tr>
 			<% if !@income.document.blank? -%>
 			  <tr>

@@ -16,15 +16,15 @@
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Fecha de Elaboración:</td>
-        		<td class="col-xs-7"><%= @execution.check_elaboration_date.strftime('%d/%m/%Y') unless @execution.check_elaboration_date.blank? %>  </td>
+        		<td class="col-xs-7"><%= @execution.check_elaboration_date unless @execution.check_elaboration_date.blank? %>  </td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Fecha de Firma:</td>
-        		<td class="col-xs-7"><%= @execution.check_sign_date.strftime('%d/%m/%Y') unless @execution.check_sign_date.blank? %>  </td>
+        		<td class="col-xs-7"><%= @execution.check_sign_date unless @execution.check_sign_date.blank? %>  </td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Fecha de Entrega:</td>
-        		<td class="col-xs-7"><%= @execution.check_delivery_date.strftime('%d/%m/%Y') unless @execution.check_delivery_date.blank? %>  </td>
+        		<td class="col-xs-7"><%= @execution.check_delivery_date unless @execution.check_delivery_date.blank? %>  </td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Estatus del cheque:</td>

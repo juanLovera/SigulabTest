@@ -37,21 +37,21 @@
 			</div>
 			
 			<div class="form-group">
-				<label for='execution_document' class="col-xs-3 control-label text-right">Documento *</label>
+				<label for='execution_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
 					<%= i.select(:document, options_for_select(Execution.document_str.zip(Execution.documents.keys)), {}, {class: "form-control"} ) %>
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for='execution_code' class="col-xs-3 control-label text-right">Código *</label>
+				<label for='execution_code' class="col-xs-3 control-label text-right">Código <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :code, class: 'form-control' %>
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto *</label>
+				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<div class="input-group">
 						<%= i.text_field :check_amount, class: 'form-control' %>
@@ -63,14 +63,14 @@
 			<hr />
 			
 			<div class="form-group">
-				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque *</label>
+				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :check_number, class: 'form-control' %>
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for='execution_check_elaboration_date' class="col-xs-3 control-label text-right">Fecha de Elaboración *</label>
+				<label for='execution_check_elaboration_date' class="col-xs-3 control-label text-right">Fecha de Elaboración <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :check_elaboration_date, class: 'bootlayout-date form-control' %>
 				</div>
@@ -102,7 +102,7 @@
 	</div>
 	<div class="col-xs-12">
 		<div class="well">
-			* Los campos son obligatorios.
+			<span style="color:#FF0000">*</span> Los campos son obligatorios.
 		</div>
 	</div>
 </div>
