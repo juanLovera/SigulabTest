@@ -55,12 +55,30 @@
 			</div>
 		</body>
 
+
 		<br></br>
-		<% if @sum > 0 %>
-			<div class="well" align="right">
-				<h4>Monto Total Ejecutado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
-			</div>
-		<% end %>
+					
+		<div class="well">
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+				<tbody>
+					<thead>
+						<tr>
+							<th class="text-center"></th>
+							<th class="text-center">Monto Comprometido</th>
+							<th class="text-center">Monto Ejecutado</th>
+							<th class="text-center">Saldo Pendiente</th>
+						</tr>
+					</thead>
+
+					<tr>
+						<td class="text-center">TOTALES</td>
+						<td class="text-center"><%= number_to_currency(@sum_commitment, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+						<td class="text-center"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+						<td class="text-center"><%= number_to_currency(@sum_commitment - @sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 	</div>
 
