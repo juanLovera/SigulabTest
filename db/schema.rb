@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116025530) do
+ActiveRecord::Schema.define(version: 20150120024825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20150116025530) do
     t.integer  "execution_id"
     t.string   "check_number"
     t.float    "amount"
-    t.datetime "elaboration_date"
-    t.datetime "sign_date"
-    t.datetime "delivery_date"
+    t.date     "elaboration_date"
+    t.date     "sign_date"
+    t.date     "delivery_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150116025530) do
     t.float    "amount"
     t.string   "description"
     t.string   "recipient"
-    t.datetime "date"
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
@@ -189,9 +189,9 @@ ActiveRecord::Schema.define(version: 20150116025530) do
     t.datetime "updated_at"
     t.integer  "document",               default: 0
     t.string   "check_number"
-    t.datetime "check_elaboration_date"
-    t.datetime "check_sign_date"
-    t.datetime "check_delivery_date"
+    t.date     "check_elaboration_date"
+    t.date     "check_sign_date"
+    t.date     "check_delivery_date"
     t.integer  "check_delivery_status"
   end
 
@@ -202,14 +202,13 @@ ActiveRecord::Schema.define(version: 20150116025530) do
     t.float    "amount"
     t.integer  "origin",      default: 0
     t.string   "description"
-    t.datetime "date"
+    t.date     "date"
     t.string   "organism"
     t.string   "document"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing",   default: 0
-    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
   end

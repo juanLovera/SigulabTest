@@ -19,7 +19,7 @@ class IncomesController < ApplicationController
     # Check Date
     unless params[:income].nil?
       begin
-        params[:income][:date] = DateTime.parse(params[:income][:date])
+        params[:income][:date] = Date.parse(params[:income][:date])
       rescue ArgumentError
         params[:income][:date] = nil
       end
@@ -44,7 +44,7 @@ class IncomesController < ApplicationController
     # Check Date
     unless params[:income].nil?
       begin
-        params[:income][:date] = DateTime.parse(params[:income][:date])
+        params[:income][:date] = Date.parse(params[:income][:date])
       rescue ArgumentError
         params[:income][:date] = nil
       end

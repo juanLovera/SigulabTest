@@ -33,6 +33,8 @@ es:
         organism: "Organismo"
         document: "Documento"
         date: "Fecha"
+        doc_code: "Número de Documento"
+        doc_date: "Fecha de Documento"
       commitment:
         amount: "Monto"
         sae_code: "Código SAE"

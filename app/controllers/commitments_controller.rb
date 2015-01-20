@@ -19,7 +19,7 @@ class CommitmentsController < ApplicationController
     # Check Date
     unless params[:commitment].nil?
       begin
-        params[:commitment][:date] = DateTime.parse(params[:commitment][:date])
+        params[:commitment][:date] = Date.parse(params[:commitment][:date])
       rescue ArgumentError
         params[:commitment][:date] = nil
       end
@@ -44,7 +44,7 @@ class CommitmentsController < ApplicationController
     # Check Date
     unless params[:commitment].nil?
       begin
-        params[:commitment][:date] = DateTime.parse(params[:commitment][:date])
+        params[:commitment][:date] = Date.parse(params[:commitment][:date])
       rescue ArgumentError
         params[:commitment][:date] = nil
       end

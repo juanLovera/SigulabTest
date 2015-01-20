@@ -23,5 +23,12 @@ class Execution < ActiveRecord::Base
   validates_date :check_elaboration_date, if: "!check_elaboration_date.blank?"
   validates_date :check_sign_date, if: "!check_sign_date.blank?"
   validates_date :check_delivery_date, if: "!check_delivery_date.blank?"
+
+private
+
+def start_must_be_before_end_time
+    errors.add(:check_elaboration_date, "must be before end time") unless
+        ":check_elaboration_date <= :check_sign_date"
+end 
 	  
 end

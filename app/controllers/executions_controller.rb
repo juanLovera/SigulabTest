@@ -22,7 +22,7 @@ class ExecutionsController < ApplicationController
     # Check Date
     unless params[:execution].nil?
       begin
-        params[:execution][:check_elaboration_date] = DateTime.parse(params[:execution][:check_elaboration_date])
+        params[:execution][:check_elaboration_date] = Date.parse(params[:execution][:check_elaboration_date])
       rescue ArgumentError
         params[:execution][:check_elaboration_date] = nil
       end
@@ -49,7 +49,7 @@ class ExecutionsController < ApplicationController
     # Check Date
     unless params[:execution].nil?
       begin
-        params[:execution][:check_elaboration_date] = DateTime.parse(params[:execution][:check_elaboration_date])
+        params[:execution][:check_elaboration_date] = Date.parse(params[:execution][:check_elaboration_date])
       rescue ArgumentError
         params[:execution][:check_elaboration_date] = nil
       end
@@ -74,7 +74,7 @@ class ExecutionsController < ApplicationController
     def purge_date(date)
       return date if date.blank?
       begin
-        date = DateTime.parse(date)
+        date = Date.parse(date)
       rescue ArgumentError
         return nil
       end
