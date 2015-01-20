@@ -9,12 +9,12 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Presupuesto', budget_path %></li>
-			<li class="active">Ejecuciones</li>
+			<li class="active"> Ejecuciones de <%= @execution.commitment.description %></li>
 		</ol>
 	</div>
 
 	<div class="col-xs-12">
-		<h2><center>Ejecuciones</center></h2>
+		<h2><center> Ejecuciones de <%= @execution.commitment.description %> </center></h2>
 	</div>
 
 	<div class="col-xs-12">
@@ -33,9 +33,8 @@
 						<thead>
 							<tr>
 								<th>Fecha de Elaboración</th>
+								<th>Número de Documento</th>
 								<th>Dependencia</th>
-								<th>Compromiso Asociado</th>
-								<th>Código</th>
 								<th class="text-right">Monto</th>
 							</tr>
 						</thead>
@@ -44,9 +43,8 @@
 				      		<% @executions.each do |i| %>
 								<tr>
 									<td><%= i.check_elaboration_date %></td>
-									<td><%= i.commitment.lab.sae_name %></td>
-									<td><%= link_to i.commitment.description, i.commitment %></td>
-				        			<td><%= link_to i.code, i %></td>
+									<td><%= link_to i.code, i %></td>
+									<td><%= i.commitment.lab.sae_name %></td>							
 									<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>
 							<% end %>
@@ -56,22 +54,14 @@
 				</div>
 			</div>
 		</body>
-	</div>
 
-	<div class="col-xs-12">
 		<br></br>
 		<% if @sum > 0 %>
-			<div class="well">
-				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
-					<tbody>
-						<tr class="success">
-							<td class="text-center" colspan="4"><h4>Monto Total Ejecutado</h4></td>
-							<td class="text-right" style="vertical-align: middle;"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="well" align="right">
+				<h4>Monto Total Ejecutado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
 			</div>
 		<% end %>
+
 	</div>
 
 </div>
