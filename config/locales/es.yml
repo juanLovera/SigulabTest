@@ -39,7 +39,7 @@ es:
         amount: "Monto"
         sae_code: "Código SAE"
         description: "Descripción"
-        code: "Código"
+        code: "Número de Documento"
         recipient: "Beneficiario"
         date: "Fecha"
       execution:
@@ -48,7 +48,7 @@ es:
         check_elaboration_date: "Fecha de elaboración"
         check_sign_date: "Fecha de firma"
         check_delivery_date: "Fecha de entrega"
-        code: "Código"
+        code: "Número de documento"
     errors:
       models:
         income:

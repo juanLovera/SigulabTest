@@ -36,7 +36,8 @@ class Income < ActiveRecord::Base
   validates_date :date, if: "!date.blank?"
   validates :doc_date, presence: true  
   validates_date :doc_date, if: "!doc_date.blank?"
-  validates :doc_code, presence: true  
+  validates :doc_code, presence: true
+  validates :doc_code, numericality: { greater_than: 0 }, if: "!doc_code.blank?"
 
   validates :organism, length: {maximum: 512}
   
