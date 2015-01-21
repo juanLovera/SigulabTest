@@ -40,5 +40,6 @@ class Income < ActiveRecord::Base
   validates :doc_code, numericality: { greater_than: 0 }, if: "!doc_code.blank?"
 
   validates :organism, length: {maximum: 512}
+  validates :document, presence: true
   
 end

@@ -211,6 +211,7 @@ ActiveRecord::Schema.define(version: 20150120223334) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing",   default: 0
+    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
   end

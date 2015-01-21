@@ -27,6 +27,7 @@ class Execution < ActiveRecord::Base
 
   validate :elaboration_sign, if: "!check_sign_date.blank?"
   validate :sign_delivery, if: "!check_delivery_date.blank?"
+  validate :valid_amount, if: "!check_amount.blank?"
  
   def elaboration_sign
     if check_elaboration_date > check_sign_date
@@ -38,10 +39,20 @@ class Execution < ActiveRecord::Base
     if check_sign_date > check_delivery_date
       errors.add(:check_sign_date, "no puede ser posterior a la fecha de entrega")
     end
+<<<<<<< HEAD
   end 
 
   def annul
     check_annulled = true
   end
 	  
+=======
+  end
+
+  def valid_amount
+    if check_amount > commitment.amount
+      errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado")
+    end 
+  end
+>>>>>>> a886d20a8721862a3a99314c5fdaeb2836e4434b
 end
