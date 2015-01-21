@@ -67,8 +67,8 @@
 				<div class='col-xs-4'>
 					<%= i.text_field :check_number, class: 'form-control' %>
 				</div>
-	  			<% if !@execution.check_annulled? %>        
-					<%= link_to edit_execution_path, :check_annulled => true, id: @execution.id do %>
+	  			<% if !@execution.check_annulled? %>
+					<%= link_to edit_execution_path, controller: :executions, action: 'annul', id: @execution.id do %>
 						<button type="button" class="btn btn-danger" onclick="return confirm('¿Está seguro de anular el cheque?')"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp; Anular Cheque</button>
 					<% end %>
   	  			<% else %>
