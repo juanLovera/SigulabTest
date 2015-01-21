@@ -53,8 +53,10 @@
 		<%= link_to edit_commitment_path do %>
 			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Compromiso</button>
 		<% end %>
+        <% if @sum < @commitment.amount %>
 		<%= link_to controller: :executions, action: 'new', cid: @commitment.id do %>
 			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Ejecución</button>
+		<% end %>
 		<% end %>
 		<%= link_to controller: :executions, action: 'list', cid: @commitment.id do %>
 			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Listar Ejecuciones</button>
