@@ -202,20 +202,15 @@ ActiveRecord::Schema.define(version: 20150120223334) do
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
-    t.integer  "origin",               default: 0
+    t.integer  "origin",      default: 0
     t.string   "description"
     t.date     "date"
     t.string   "organism"
     t.string   "document"
-    t.string   "unit"
-    t.integer  "resource",             default: 0
-    t.string   "variation"
-    t.string   "resource_description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
-    t.integer  "financing",            default: 0
-    t.string   "doccode"
+    t.integer  "financing",   default: 0
     t.string   "doc_code"
     t.date     "doc_date"
   end

@@ -4,7 +4,6 @@ class ReporteIncomes < Prawn::Document
   def initialize(insumes)
   	super :page_layout => :landscape
   	header
-  	text_content
     @products = insumes
   end
  
