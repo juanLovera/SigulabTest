@@ -65,10 +65,12 @@
 				<% end %>
                 </td>
 			</tr>
-			<tr>
-				<td class="col-xs-5 text-right">Observaciones:</td>
-        		<td class="col-xs-7"><%= @execution.remarks unless @execution.remarks.blank? %>  </td>
-			</tr>
+			<% if !@execution.remarks.blank? -%>			
+				<tr>
+					<td class="col-xs-5 text-right">Observaciones:</td>
+        			<td class="col-xs-7"><%= @execution.remarks unless @execution.remarks.blank? %>  </td>
+				</tr>
+			<% end %>
 			<tr class="success">
 				<td class="col-xs-5 text-right">Monto:</td>
 				<td class="col-xs-7"><%= number_to_currency(@execution.check_amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
