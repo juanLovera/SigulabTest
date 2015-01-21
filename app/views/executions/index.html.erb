@@ -9,12 +9,12 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Presupuesto', budget_path %></li>
-			<li class="active">Resumen de Ejecuciones</li>
+			<li class="active">Ejecuciones</li>
 		</ol>
 	</div>
 
 	<div class="col-xs-12">
-		<h2><center>Resumen de Ejecuciones</center></h2>
+		<h2><center>Ejecuciones</center></h2>
 	</div>
 
 	<div class="col-xs-12">
@@ -61,8 +61,8 @@
 		<br></br>
 
 		<% if @sum > 0 %>
-			<div class="well">
-				<center><h4>Monto Total Ejecutado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4></center>
+			<div class="well" align="right">
+				<h4>Monto Total Ejecutado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
 			</div>
 		<% end %>
 	</div>
