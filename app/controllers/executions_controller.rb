@@ -3,7 +3,12 @@ class ExecutionsController < ApplicationController
 
   def index
     @executions = Execution.all
+<<<<<<< HEAD
     @sum = @executions.sum(:check_amount)   
+=======
+    @sum = @executions.sum(:check_amount)
+    
+>>>>>>> 07a70b1bd9b66b6493f7de2be1342fea282126fd
   end
 
   def show
@@ -17,6 +22,11 @@ class ExecutionsController < ApplicationController
     @execution = Execution.find(params[:cid])
     @executions = Execution.where("commitment_id=?",params[:cid])
     @sum = @executions.sum(:check_amount)
+
+    @commitments = Commitment.find(params[:cid])
+
+    @sum_commitment = @commitments.amount
+
   end
   
   def new
