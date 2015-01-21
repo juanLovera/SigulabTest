@@ -75,27 +75,34 @@ class ExecutionsController < ApplicationController
     end
     @execution = Execution.find(params[:id])
     @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)    
-    
-    if @execution.update_attributes(execution_params)
-      redirect_to action: 'index'
-    else
-      @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)
+
+    @oldamount = @execution.check_amount    
+    @executions = Execution.where("commitment_id=?",@execution.commitment_id)
+    @executed = @executions.sum(:check_amount) - @oldamount
+
+    if params[:execution][:check_amount].to_i > @commitment.amount - @executed
+      @execution.executable_amount
       render 'edit'
-    end
+    else 
+      if @execution.update_attributes(execution_params)
+        redirect_to action: 'index'
+      else
+        @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)
+        render 'edit'
+      end
+    end    
   end
 
   def annul
-    puts "tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"    
     @execution = Execution.find(params[:id])
     @execution.update_attribute(:check_annulled, true)
-    puts "HOOOOOOOOOOOOOOOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    redirect_to action: 'index'
+    redirect_to :back
   end
   
   private
   
     def execution_params
-      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :check_sign_date, :check_delivery_date)
+      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date)
     end
     
     def purge_date(date)
