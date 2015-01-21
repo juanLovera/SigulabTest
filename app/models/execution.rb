@@ -45,6 +45,10 @@ class Execution < ActiveRecord::Base
     check_annulled = true
   end
 	  
+  def executable_amount
+      errors.add(:check_amount, "no puede ser mayor al saldo pendiente del compromiso")
+  end
+
   def valid_amount
     if check_amount > commitment.amount
       errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado")

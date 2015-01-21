@@ -42,15 +42,21 @@ class ExecutionsController < ApplicationController
     end
     
     @execution = Execution.new(execution_params)
-    
-    if @execution.save
-      redirect_to action: 'index'
-    else
-      if params[:cid]
-	    @commitment = Commitment.find(params[:cid])
-	  end
+
+    @commitment = Commitment.find(params[:cid])    
+    @executions = Execution.where("commitment_id=?",params[:cid])
+    @executed = @executions.sum(:check_amount)
+    if @execution.check_amount > @commitment.amount - @executed
+      @execution.executable_amount
       render 'new'
-    end
+    else 
+      if @execution.save
+        redirect_to action: 'index'
+      else
+        render 'new'        
+      end
+    end    
+    
   end
   
   def edit
