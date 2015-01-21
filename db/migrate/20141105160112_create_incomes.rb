@@ -11,6 +11,10 @@ class CreateIncomes < ActiveRecord::Migration
       t.string :organism
       t.string :document
       t.string :financing
+      t.string :unit
+      t.column :resource, :integer, default: 0
+      t.string :variation
+      t.string :resource_description
       
       t.timestamps
     end

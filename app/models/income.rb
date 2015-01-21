@@ -22,6 +22,16 @@ class Income < ActiveRecord::Base
   ]
   end
 
+  enum resource: [:project, :goal, :expenses, :incomes]
+  def self.resource_str
+  [
+    'Proyecto',
+    'Meta',
+    'Gasto',
+    'Inversiones'
+  ]
+  end
+
   mount_uploader :document, AttachmentUploader # Tells rails to use this uploader for this model.
   
   belongs_to :lab
@@ -41,5 +51,9 @@ class Income < ActiveRecord::Base
 
   validates :organism, length: {maximum: 512}
   validates :document, presence: true
+
+  validates :unit, length: {maximum: 512}
+  validates :variation, length: {maximum: 512}
+  validates :resource_description, length: {maximum: 1024}
   
 end
