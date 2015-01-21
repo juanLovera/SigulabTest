@@ -39,5 +39,9 @@ class Execution < ActiveRecord::Base
       errors.add(:check_sign_date, "no puede ser posterior a la fecha de entrega")
     end
   end 
+
+  def annul
+    check_annulled = true
+  end
 	  
 end
