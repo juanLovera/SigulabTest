@@ -41,20 +41,13 @@ class Execution < ActiveRecord::Base
     end
   end 
 
-<<<<<<< HEAD
-=======
   def annul
     check_annulled = true
   end
 	  
->>>>>>> 07a70b1bd9b66b6493f7de2be1342fea282126fd
   def valid_amount
     if check_amount > commitment.amount
       errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado")
     end 
   end
-<<<<<<< HEAD
-
-=======
->>>>>>> 07a70b1bd9b66b6493f7de2be1342fea282126fd
 end
