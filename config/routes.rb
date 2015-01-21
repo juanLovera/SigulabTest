@@ -49,9 +49,13 @@ Rails.application.routes.draw do
   get 'administration/budget/(:action)', to: 'budget', as: :budget
   get 'administration/(:action)', to: 'administration', as: :administration
   get "/executions/list", to: "executions#list", :as => "executions/list"
+
   resources :incomes
   resources :commitments
-  resources :executions
+  resources :executions do 
+    get 'annul', on: :member
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
