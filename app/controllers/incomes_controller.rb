@@ -8,6 +8,14 @@ class IncomesController < ApplicationController
 
   def show
     @income = Income.find(params[:id])
+  
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReporteIncomes.new(@income)
+        send_data pdf.render, filename: 'MOD-01.pdf', type: 'application/pdf'
+      end
+    end
   end
   
   def new
