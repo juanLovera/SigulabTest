@@ -74,13 +74,18 @@ class ExecutionsController < ApplicationController
   
   def update
     # Check Date
+    binding.pry
     unless params[:execution].nil?
-      begin
-        params[:execution][:check_elaboration_date] = Date.parse(params[:execution][:check_elaboration_date])
-      rescue ArgumentError
-        params[:execution][:check_elaboration_date] = nil
+      if !params[:execution][:check_elaboration_date].nil?
+        begin
+          params[:execution][:check_elaboration_date] = Date.parse(params[:execution][:check_elaboration_date])
+        rescue ArgumentError
+          params[:execution][:check_elaboration_date] = nil
+        end
       end
     end
+
+    binding.pry
 
     @execution = Execution.find(params[:id])
     @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)    
@@ -94,6 +99,7 @@ class ExecutionsController < ApplicationController
       render 'edit'
     else 
       if @execution.update_attributes(execution_params)
+        binding.pry
         redirect_to action: 'index'
       else
         @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)
@@ -111,7 +117,7 @@ class ExecutionsController < ApplicationController
   private
   
     def execution_params
-      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :document, :document_name)
+      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :document, :document_name, :check_sign_date, :check_delivery_date, :remarks)
     end
     
     def purge_date(date)

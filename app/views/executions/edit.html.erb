@@ -44,6 +44,7 @@
 				</div>
 			</div>
 			
+	  			<% if !@execution.check_annulled? %>
 			<div class="form-group">
 				<label for='execution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
@@ -65,7 +66,7 @@
 					
 			<div class="form-group">
 				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
-	  			<% if !@execution.check_annulled? %>
+
 					<div class='col-xs-4'>
 						<%= i.text_field :check_number, class: 'form-control' %>
 					</div>
@@ -110,6 +111,31 @@
 				</div>
 			</div>				
   	  			<% else %>
+
+			<div class="form-group">
+				<label for='execution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @execution.code rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<div class="input-group">
+						<input class="form-control" placeholder="<%= @execution.check_amount rescue nil %>" disabled>
+						<span class="input-group-addon">Bs.</span>
+					</div>
+				</div>
+			</div>	
+
+			<hr />		
+					
+			<div class="form-group">
+				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
+
+
+
 					<div class='col-xs-4'>
 						<input class="form-control" placeholder="<%= @execution.check_number rescue nil %>" disabled>
 					<label for='execution_check_number' class="col-xs-3 control-label text-left" align="left">  <span style="color:#FF0000"> Anulado </span></label> 						
@@ -126,14 +152,14 @@
 			<div class="form-group">
 				<label for='execution_check_sign_date' class="col-xs-3 control-label text-right">Fecha de Firma</label>
 				<div class='col-xs-4'>
-						<input class="form-control" placeholder="<%= @execution.sign.strftime("%d/%m/%Y") rescue nil %>" disabled>				
+						<input class="form-control" placeholder="<%= @execution.check_sign_date.strftime("%d/%m/%Y") rescue nil %>" disabled>				
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label for='execution_check_delivery_date' class="col-xs-3 control-label text-right">Fecha de Entrega</label>
 				<div class='col-xs-4'>
-						<input class="form-control" placeholder="<%= @execution.delivery.strftime("%d/%m/%Y") rescue nil %>" disabled>
+						<input class="form-control" placeholder="<%= @execution.check_delivery_date.strftime("%d/%m/%Y") rescue nil %>" disabled>
 				</div>
 			</div>
 
