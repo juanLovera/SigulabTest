@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122000744) do
+ActiveRecord::Schema.define(version: 20150122032532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,6 +195,7 @@ ActiveRecord::Schema.define(version: 20150122000744) do
     t.integer  "check_delivery_status"
     t.boolean  "check_annulled",         default: false
     t.string   "remarks"
+    t.string   "document_name"
   end
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree

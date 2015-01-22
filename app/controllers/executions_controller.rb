@@ -28,6 +28,14 @@ class ExecutionsController < ApplicationController
     if params[:cid]
       @commitment = Commitment.find(params[:cid])
       @execution.commitment_id = params[:cid]
+
+      if @commitment.order_buy?
+        @execution.document = "reception_report"
+        @execution.document_name = "Informe de Recepción"
+      else
+        @execution.document = "according_service"
+        @execution.document_name = "Conformidad de Servicio"
+      end
     end
   end
   
@@ -61,7 +69,15 @@ class ExecutionsController < ApplicationController
   
   def edit
     @execution = Execution.find(params[:id])
-    @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)    
+    @commitment = Commitment.find(Execution.find(params[:id]).commitment_id) 
+
+    if @commitment.order_buy?
+      @execution.document = "reception_report"
+      @execution.document_name = "Informe de Recepción"
+    else
+      @execution.document = "according_service"
+      @execution.document_name = "Conformidad de Servicio"
+    end   
   end
   
   def update
@@ -102,7 +118,7 @@ class ExecutionsController < ApplicationController
   private
   
     def execution_params
-      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date)
+      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :document, :document_name)
     end
     
     def purge_date(date)

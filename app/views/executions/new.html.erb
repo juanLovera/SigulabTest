@@ -39,16 +39,17 @@
 			<div class="form-group">
 				<label for='commitment' class="col-xs-3 control-label text-right"> Código del Compromiso</label>
 				<div class='col-xs-4'>
-                  <%= i.text_field :commitment_id, class: "form-control", :style => "background-color:#E8E8E8;" %>
+      <%= i.text_field :commitment_id, class: "form-control", :style => "background-color:#E8E8E8;" %>
 				</div>
 			</div>
 
 			<%= hidden_field_tag "cid", params[:cid] %>
 		
 			<div class="form-group">
-				<label for='execution_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
+				<label for='execution_document' class="col-xs-3 control-label text-right">Documento </label>
 				<div class="col-xs-4">
-					<%= i.select(:document, options_for_select(Execution.document_str.zip(Execution.documents.keys)), {}, {class: "form-control"} ) %> 
+					<input class="form-control" placeholder="<%= @execution.document_name rescue nil %>" disabled>
+<!--					<%= i.select(:document, options_for_select(Execution.document_str.zip(Execution.documents.keys)), {}, {class: "form-control"} ) %> -->
 				</div>
 			</div>
 			
