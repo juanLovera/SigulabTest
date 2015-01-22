@@ -20,10 +20,10 @@
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Documento:</td>
-				<td class="col-xs-7"><%= Execution.document_str[Execution.documents[@execution.document]] %></td>
+				<td class="col-xs-7"><%= @execution.document_name %></td>
 			</tr>			
 			<tr>
-				<td class="col-xs-5 text-right">Código del Documento:</td>
+				<td class="col-xs-5 text-right">Número de Documento:</td>
 				<td class="col-xs-7"><%= @execution.code %></td>
 			</tr>
 			<tr>
