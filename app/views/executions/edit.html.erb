@@ -76,7 +76,7 @@
 			<div class="form-group">
 				<label for='execution_check_elaboration_date' class="col-xs-3 control-label text-right">Fecha de Elaboración <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :check_elaboration_date, value: (@execution.check_elaboration_date.strftime("%d/%m/%Y")), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
+					<%= i.text_field :check_elaboration_date, value: (@execution.check_elaboration_date.strftime("%d/%m/%Y") unless @execution.check_elaboration_date.blank?), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
 				</div>
 			</div>
 			

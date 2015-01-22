@@ -45,11 +45,15 @@
 
 			<%= hidden_field_tag "cid", params[:cid] %>
 		
+
 			<div class="form-group">
 				<label for='execution_document' class="col-xs-3 control-label text-right">Documento </label>
 				<div class="col-xs-4">
-					<input class="form-control" placeholder="<%= @execution.document_name rescue nil %>" disabled>
-<!--					<%= i.select(:document, options_for_select(Execution.document_str.zip(Execution.documents.keys)), {}, {class: "form-control"} ) %> -->
+				<% if @commitment.order_buy? %>					
+					<%=  i.text_field :document_name, :value => "Informe de Recepción", class: "form-control", :style => "background-color:#E8E8E8;" %>
+				<% else %>
+					<%=  i.text_field :document_name, :value => "Conformidad de Servicio", class: "form-control", :style => "background-color:#E8E8E8;" %>			
+				<% end %>					
 				</div>
 			</div>
 			

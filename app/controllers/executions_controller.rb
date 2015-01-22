@@ -28,14 +28,6 @@ class ExecutionsController < ApplicationController
     if params[:cid]
       @commitment = Commitment.find(params[:cid])
       @execution.commitment_id = params[:cid]
-
-      if @commitment.order_buy?
-        @execution.document = "reception_report"
-        @execution.document_name = "Informe de Recepción"
-      else
-        @execution.document = "according_service"
-        @execution.document_name = "Conformidad de Servicio"
-      end
     end
   end
   
@@ -54,30 +46,30 @@ class ExecutionsController < ApplicationController
     @commitment = Commitment.find(params[:cid])    
     @executions = Execution.where("commitment_id=?",params[:cid])
     @executed = @executions.sum(:check_amount)
-    if @execution.check_amount > @commitment.amount - @executed
-      @execution.executable_amount
-      render 'new'
-    else 
+    if !@execution.check_amount.blank?
+      if @execution.check_amount > @commitment.amount - @executed
+        @execution.executable_amount
+
+        render 'new'
+      else 
+        if @execution.save
+          redirect_to action: 'index'
+        else
+          render 'new'        
+        end
+      end
+    else
       if @execution.save
         redirect_to action: 'index'
       else
         render 'new'        
-      end
-    end    
-    
+      end   
+    end   
   end
   
   def edit
     @execution = Execution.find(params[:id])
     @commitment = Commitment.find(Execution.find(params[:id]).commitment_id) 
-
-    if @commitment.order_buy?
-      @execution.document = "reception_report"
-      @execution.document_name = "Informe de Recepción"
-    else
-      @execution.document = "according_service"
-      @execution.document_name = "Conformidad de Servicio"
-    end   
   end
   
   def update
@@ -89,6 +81,7 @@ class ExecutionsController < ApplicationController
         params[:execution][:check_elaboration_date] = nil
       end
     end
+
     @execution = Execution.find(params[:id])
     @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)    
 
