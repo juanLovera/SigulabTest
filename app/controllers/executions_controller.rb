@@ -3,19 +3,19 @@ class ExecutionsController < ApplicationController
 
   def index
     @executions = Execution.all
-    @sum = @executions.sum(:check_amount)   
+    @sum = @executions.where("check_annulled=false").sum(:check_amount)
   end
 
   def show
     @execution = Execution.find(params[:id])
     @executions = Execution.where("commitment_id=?",params[:cid])
-    @sum = @executions.sum(:check_amount)
+    @sum = @executions.where("check_annulled=false").sum(:check_amount)
   end
 
   def list
     @execution = Execution.find(params[:cid])
     @executions = Execution.where("commitment_id=?",params[:cid])
-    @sum = @executions.sum(:check_amount)
+    @sum = @executions.where("check_annulled=false").sum(:check_amount)
 
     @commitments = Commitment.find(params[:cid])
 
@@ -45,11 +45,10 @@ class ExecutionsController < ApplicationController
 
     @commitment = Commitment.find(params[:cid])    
     @executions = Execution.where("commitment_id=?",params[:cid])
-    @executed = @executions.sum(:check_amount)
+    @executed = @executions.where("check_annulled=false").sum(:check_amount)
     if !@execution.check_amount.blank?
       if @execution.check_amount > @commitment.amount - @executed
         @execution.executable_amount
-
         render 'new'
       else 
         if @execution.save
@@ -74,7 +73,6 @@ class ExecutionsController < ApplicationController
   
   def update
     # Check Date
-    binding.pry
     unless params[:execution].nil?
       if !params[:execution][:check_elaboration_date].nil?
         begin
@@ -85,21 +83,18 @@ class ExecutionsController < ApplicationController
       end
     end
 
-    binding.pry
-
     @execution = Execution.find(params[:id])
     @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)    
 
     @oldamount = @execution.check_amount    
     @executions = Execution.where("commitment_id=?",@execution.commitment_id)
-    @executed = @executions.sum(:check_amount) - @oldamount
+    @executed = @executions.where("check_annulled=false").sum(:check_amount) - @oldamount
 
     if params[:execution][:check_amount].to_i > @commitment.amount - @executed
       @execution.executable_amount
       render 'edit'
     else 
       if @execution.update_attributes(execution_params)
-        binding.pry
         redirect_to action: 'index'
       else
         @commitment = Commitment.find(Execution.find(params[:id]).commitment_id)

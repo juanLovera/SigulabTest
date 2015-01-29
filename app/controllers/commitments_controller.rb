@@ -9,7 +9,7 @@ class CommitmentsController < ApplicationController
   def show
     @commitment = Commitment.find(params[:id])
     @executions = Execution.where("commitment_id=?",params[:id])
-    @sum = @executions.sum(:check_amount)
+    @sum = @executions.where("check_annulled=false").sum(:check_amount)
   end
   
   def new
