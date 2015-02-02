@@ -1,0 +1,78 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li class="active"><%= @project.id%></li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tr>
+				<td class="col-xs-5 text-right">Número de Proyecto:</td>
+				<td class="col-xs-7"><%= @project.project_number %>  </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Número de Contrato:</td>
+				<td class="col-xs-7"><%= @project.contract %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Título del Proyecto:</td>
+				<td class="col-xs-7"><%= @project.title %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Responsable Técnico:</td>
+				<td class="col-xs-7"><%= @project.responsible %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Administrador del Proyecto:</td>
+				<td class="col-xs-7"><%= Project.admin_str[Project.admins[@project.admin]] %></td>
+			</tr>
+			<tr>
+			    <td class="col-xs-5 text-right">Código SAE:</td>
+				<td class="col-xs-7"><%= @project.sae_code %></td>
+ 		    </tr>
+			<tr>
+				<td class="col-xs-5 text-right">Distribución del monto:</td>
+				<td class="col-xs-7">  </td>
+			</tr>
+ 		    <tr>
+				<td class="col-xs-5 text-right">Equipos:</td>
+				<td class="col-xs-7"><%= number_to_currency(@project.equipments, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+  			</tr>
+ 		    <tr>
+				<td class="col-xs-5 text-right">Servicios:</td>
+				<td class="col-xs-7"><%= number_to_currency(@project.services, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+  			</tr>  			
+ 		    <tr>
+				<td class="col-xs-5 text-right">Infraestructura:</td>
+				<td class="col-xs-7"><%= number_to_currency(@project.infrastructure, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+  			</tr>  			
+ 		    <tr>
+				<td class="col-xs-5 text-right">Personal:</td>
+				<td class="col-xs-7"><%= number_to_currency(@project.hhrr, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+  			</tr>  			
+ 		    <tr>
+				<td class="col-xs-5 text-right">Consumibles:</td>
+				<td class="col-xs-7"><%= number_to_currency(@project.consumables, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+  			</tr>  			
+			<tr class="success">
+				<td class="col-xs-5 text-right">Monto asignado:</td>
+				<td class="col-xs-7"><%= number_to_currency(@project.amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+			</tr>  			
+ 		    <tr>
+				<td class="col-xs-5 text-right">Fecha de Ingreso de los Recursos:</td>
+				<td class="col-xs-7"><%= @project.incoming_date %></td>
+  			</tr>  			  			
+ 		    <tr>
+				<td class="col-xs-5 text-right">Estatus:</td>
+				<td class="col-xs-7"><%= Project.status_str[Project.statuses[@project.status]] %></td>
+  			</tr>  			  			
+		</table>
+	</div>
+	<div class="col-xs-12">
+		<%= link_to edit_project_path do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Proyecto</button>
+		<% end %>
+	</div>
+</div>

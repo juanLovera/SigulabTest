@@ -25,6 +25,7 @@ es:
       income: "Ingreso"
       commitment: "Compromiso"
       execution: "Ejecución"
+      project: "Proyecto"
     attributes:
       income:
         amount: "Monto"
@@ -49,6 +50,21 @@ es:
         check_sign_date: "Fecha de firma"
         check_delivery_date: "Fecha de entrega"
         code: "Número de documento"
+      project:
+        project_number: "Número del proyecto"
+        contract: "Número del contrato"
+        title: "Título del proyecto"
+        responsible: "Responsable técnico"
+        admin: "Administrador del proyecto"
+        sae_code: "Código SAE"
+        amount: "Monto asignado"
+        equipments: "Equipos"
+        hhrr: "Personal"
+        infrastructure: "Infraestructura"
+        services: "Servicios"
+        consumables: "Consumibles"
+        incoming_date: "Fecha de ingreso de los recursos"
+        status: "Estatus"
     errors:
       models:
         income:

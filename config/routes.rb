@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   resources :executions do 
     get 'annul', on: :member
   end
+  resources :projects
 
 
   # Example of regular route:
