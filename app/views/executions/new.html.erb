@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<label for='commitment' class="col-xs-3 control-label text-right"> Código del Compromiso</label>
 				<div class='col-xs-4'>
-      <%= i.text_field :commitment_id, class: "form-control", :style => "background-color:#E8E8E8;" %>
+      <%= i.text_field :commitment_id, class: "form-control", :readonly => true  %>
 				</div>
 			</div>
 
@@ -50,9 +50,9 @@
 				<label for='execution_document' class="col-xs-3 control-label text-right">Documento </label>
 				<div class="col-xs-4">
 				<% if @commitment.order_buy? %>					
-					<%=  i.text_field :document_name, :value => "Informe de Recepción", class: "form-control", :style => "background-color:#E8E8E8;" %>
+					<%=  i.text_field :document_name, :value => "Informe de Recepción", class: "form-control", :readonly => true  %>
 				<% else %>
-					<%=  i.text_field :document_name, :value => "Conformidad de Servicio", class: "form-control", :style => "background-color:#E8E8E8;" %>			
+					<%=  i.text_field :document_name, :value => "Conformidad de Servicio", class: "form-control", :readonly => true  %>			
 				<% end %>					
 				</div>
 			</div>
