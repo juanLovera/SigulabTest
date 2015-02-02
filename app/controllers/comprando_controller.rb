@@ -1,5 +1,5 @@
 class ComprandoController < ApplicationController
-   layout "application_compras"
+   layout 'bootlayout'
 
    def solicitudCompra
    end
