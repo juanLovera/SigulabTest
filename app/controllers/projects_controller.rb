@@ -3,9 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all.order("project_number ASC")
-    # Total de monto en proyectos
-    # Pendiente excluir proyectos anulados o finalizados
-    @sum = @projects.sum(:amount)
+    @sum = @projects.where("NOT(status=3) AND NOT(status=4)").sum(:amount)
   end
 
   def new
