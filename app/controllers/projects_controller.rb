@@ -2,7 +2,10 @@ class ProjectsController < ApplicationController
   layout 'bootlayout'
 
   def index
-    @projects = Project.all.order("incoming_date DESC")
+    @projects = Project.all.order("project_number ASC")
+    # Total de monto en proyectos
+    # Pendiente excluir proyectos anulados o finalizados
+    @sum = @projects.sum(:amount)
   end
 
   def new

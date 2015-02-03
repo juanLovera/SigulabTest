@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   enum status: [:pending, :executing, :reformulating, :finished, :annulled]
   def self.status_str
   [
-    'Por aprobar',
+    'En espera de recursos',
     'En ejecución',
     'En reformulación',
     'Finalizado',
