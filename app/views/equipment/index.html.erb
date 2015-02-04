@@ -36,34 +36,25 @@
     <thead>
     <table class="tg">
       <tr>
+        <th></th>
         <th class="tg-093g">Nombre</th>
         <th class="tg-hgcj">Número de Bien Nacional</th>
         
         <th class="tg-hgcj">Ubicación</th>
         <th class="tg-hgcj">Responsable</th>
         <th class="tg-hgcj">Status</th>
-  <!--   <th class="tg-093g">Brand</th>
-
-        <th class="tg-hgcj">Ultima Calibración</th>
-        <th>Serial</th>
-        <th class="tg-hgcj">Modelo</th>
-        <th>Use</th>
-        <th>Adquisition date</th>
-        <th>Buy order</th>
-        <th>Cost</th>
-        <th>Bill</th>
-        <th>Investigation</th>
-        <th>Teaching</th>
-        <th>Extention</th>
-        <th>Management</th>
-        <th>Calibrated</th> -->
       </tr>
     </thead>
 
     <tbody>
       <% @equipment.each do |equipment| %>
         <tr>
-      
+        <!-- Bueno aqui obvio no me deja usar el check_box porque no es un form pero ese
+             es el campo que quiero cambiar a true si se marca el checkbox -->
+
+          <td class="tg-s6z2"><input class="js-equipment" value="<%= equipment.id %>" name="equipments" type="checkbox" ></input></td>
+          <!-- Gracias Mary! -->
+
           <td class="tg-s6z2"><%=  link_to equipment.name, equipment  %></td>
               <td class="tg-s6z2"><%= equipment.national_good %></td>
        
@@ -71,19 +62,6 @@
           <td class="tg-s6z2"><%= equipment.location %></td>
           <td class="tg-qpa3"><%= equipment.responsible %></td>
           <td class="tg-s6z2"><%= equipment.status %></td>
-      <!--       <td class="tg-s6z2"><%= equipment.brand %></td> 
-          <td class="tg-s6z2"><%= equipment.last_calibration %></td>
-          <td class="tg-s6z2"><%= equipment.model %></td>
-          <td><%= equipment.serial %></td>
-          <td><%= equipment.buy_order %></td>
-          <td><%= equipment.cost %></td>
-          <td><%= equipment.bill %></td>
-          <td><%= equipment.adquisition_date %></td>
-          <td><%= equipment.investigation %></td>
-          <td><%= equipment.teaching %></td>
-          <td><%= equipment.extention %></td>
-          <td><%= equipment.management %></td>
-          <td><%= equipment.calibrated %></td> -->
         </tr>
       <% end %>
     </tbody>
@@ -96,6 +74,8 @@
   <% if can? :create, @equipment %>
     <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo equipo', new_equipment_path , 'data-no-turbolink' => true%> |
   <% end %>
+  <i class="fa fa-exchange"></i><%= link_to ' Solicitar Préstamo ', new_loan_path %> | 
+    <i class="fa fa-phone"></i><%= link_to ' Solicitar Servicio ', new_application_url %> |
   <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
   <br><br><br><br><br><br>
   

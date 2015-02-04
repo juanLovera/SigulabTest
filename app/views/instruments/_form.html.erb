@@ -1,3 +1,6 @@
+<%= javascript_include_tag 'bootstrap-datepicker.js' %>
+<%= javascript_include_tag 'bootstrap-datepicker.es.js' %>
+
 <%= form_for(@instrument) do |f| %>
   <% if @instrument.errors.any? %>
     <div id="error_explanation">
@@ -27,7 +30,7 @@
 
           <tr>
             <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :model %></td>
+            <td class="col-xs-7"><%= f.text_field :brand %></td>
           </tr> 
 
           <tr>
@@ -47,7 +50,7 @@
 
           <tr>
             <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
-            <td class="col-xs-7"><%= f.select(:status, [['EN BUEN ESTADO'], ['DAÑADO'], ['EN REPARACIÓN']] ) %></td>
+             <td class="col-xs-7"><%= f.select(:status, [['En buen estado'], ['Dañado'], ['En reparación']] ) %></td>
           </tr> 
 
           <tr>
@@ -64,7 +67,7 @@
 
           <tr>
             <td class="col-xs-5 text-right"><strong>Última Calibración:</strong></td>
-            <td class="col-xs-7"> <%= f.text_field :last_calibration, :class => "datepicker" %></td> </td>
+            <td class="col-xs-7"><%= f.text_field :last_calibration, :class => 'bootlayout-date'%></td> </td>
           </tr>
 
           <tr>
@@ -82,7 +85,7 @@
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
-            <td class="col-xs-7"><%= f.number_field(:cost, min: 0, :step => 'any') %>&nbsp;BS.</td> 
+            <td class="col-xs-7"><%= f.number_field(:cost, min: 0, :step => 'any') %>&nbsp;Bs.</td> 
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Orden de Compra:</strong></td>
@@ -90,7 +93,7 @@
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "datepicker" %></td> 
+            <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "bootlayout-date" %></td> 
           </tr>
     
           <tr>
@@ -102,7 +105,7 @@
             <%= f.check_box :extention %>
             <%= 'Extensión' %><br>
             <%= f.check_box :management %>
-            <%= 'Gestión' %></td></tr>
+            <%= 'Apoyo administrativo' %></td></tr>
           
         
            <tr>

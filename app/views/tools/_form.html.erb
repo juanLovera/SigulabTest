@@ -66,7 +66,7 @@
 
           <tr>
             <td class="col-xs-5 text-right"><strong>Pertenece a un juego:</strong></td>
-            <td class="col-xs-7"> <%= f.select(:from_set,[['NO',false], ['SÍ', true]]) %></td>
+            <td class="col-xs-7">  <%= f.text_field :from_set %> </td>
           </tr>
        
           <tr>
@@ -75,7 +75,7 @@
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
-            <td class="col-xs-7"><%= f.number_field(:cost, min: 0, :step => 'any') %>&nbsp;BS.</td> 
+            <td class="col-xs-7"><%= f.number_field(:cost, min: 0, :step => 'any') %>&nbsp;Bs.</td> 
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Orden de Compra:</strong></td>
@@ -95,7 +95,7 @@
             <%= f.check_box :extention %>
             <%= 'Extensión' %><br>
             <%= f.check_box :management %>
-            <%= 'Gestión' %> </td>
+            <%= 'Apoyo administrativo' %> </td>
           </tr><br>
           
     <tr>

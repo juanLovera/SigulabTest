@@ -1,17 +1,16 @@
 class EquipmentController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
 
   # GET /equipment
   # GET /equipment.json
   def index
-	if params[:search]
-		@equipment_all = Equipment.search(params[:search])
-		@equipment = Equipment.where(:showable => true).search(params[:search])
-	else
-		@equipment_all = Equipment.where(:showable => true).all.order('created_at DESC')
-		@equipment = Equipment.all.order('created_at DESC')
-	end
+  	if params[:search]
+  		@equipment_all = Equipment.search(params[:search])
+  		@equipment = Equipment.where(:showable => true).search(params[:search])
+  	else
+  		@equipment_all = Equipment.where(:showable => true).all.order('created_at DESC')
+  		@equipment = Equipment.all.order('created_at DESC')
+  	end
   end
 
   # GET /equipment/1

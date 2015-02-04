@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :donations
+
+  resources :applications
+
+  resources :loans
+
   resources :specifications
 
   resources :requisitions
@@ -15,6 +21,8 @@ Rails.application.routes.draw do
 
   get 'informe_recomendacion/index'
 
+  post 'loans/new'
+
   resources :invitations
   resources :services
   resources :items
@@ -30,6 +38,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   
   get "inventario" => "statics#inventario", :as => "inventario"
+  get "prestamos" => "statics#prestamos", :as => "prestamos"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
@@ -56,7 +65,7 @@ Rails.application.routes.draw do
     get 'annul', on: :member
   end
   resources :projects
-
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

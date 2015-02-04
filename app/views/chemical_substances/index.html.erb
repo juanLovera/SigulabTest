@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
 <ol class="breadcrumb">
   <li> <%=link_to 'Inicio', controller: 'statics'%></li>
   <li> <%=link_to 'Inventario', inventario_url %></li>
@@ -27,90 +32,48 @@
 
         </style> 
 
-      <div id="search">
-  		<%= form_tag(chemical_substances_path, :method => "get", id: "search-form") do %>
-  			<%= text_field_tag :search, params[:search], placeholder: "Nombre de la Sustancia" %>
-  			<%= submit_tag "Buscar", :class => 'btn btn-success btn-sm', :name => nil %>
-  			
-<!-- 			<%= text_field_tag :searchDep, params[:searchDep], placeholder: "Buscar en Dependencia" %> -->
-  <!-- 			<%= select_tag(:columna, options_for_select(@chemical_substances.columns.map{|c| [c.name] }),:selected => "name") %> -->
-<!--   			<%= select_tag params[:column],options_for_select([['Nombre',"name"],['Dependencia',"dependency"]]),:selected => "name" %> -->
-<!--   			<%= submit_tag "Buscar", :class => 'btn btn-success btn-sm', :name => nil %> -->
-  		<% end %>
-      </div>
-      <br>
+      <body id="dt_example" class="ex_highlight_row">
+        <div id="container">
+          <div id="demo">
 
-      <thead>
-        <table class="tg">
-        <tr>
-          <th class="tg-093g">Nombre</th>
-          <th class="tg-093g">Estado de la Materia</th>
-          <th class="tg-093g">Cantidad</th>
-          <th class="tg-hgcj">  </th>
-          <th class="tg-hgcj">Ubicación</th>
-          <th class="tg-hgcj">Responsable</th>
-      
-         <!--  
-              <th class="tg-hgcj">Status</th> 
-         <th>Purity</th>
-          <th class="tg-hgcj">Fecha Expiración</th> 
-          <th class="tg-hgcj">CAS</th>
-          <th>Matter states</th>
-          <th>Controlled</th>
-     
-          <th>Ri7</th>
-          <th>Ri4</th>
-          <th>Toxic</th>
-          <th>Oxidant</th>
-          <th>Explosive</th>
-          <th>Irritating</th>
-          <th>Inflamable</th>
-          <th>Corrosive</th>
-          <th>Nocive</th>
-          <th>Investigation</th>
-          <th>Teaching</th>
-          <th>Extention</th> -->
-         
-        </tr>
-      </thead>
+            <%= form_tag (new_loan_path) do %>
+            
+              <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                <thead>
+                  <tr>
+                    <% if @sum > 0 %>
+                      <th></th>
+                    <% end %>
+                    <th class="tg-093g">Nombre</th>
+                    <th class="tg-093g">Estado de la Materia</th>
+                    <th class="tg-093g">Cantidad</th>
+                    <th class="tg-093g">Medida</th>
+                    <th class="tg-hgcj">Ubicación</th>
+                    <th class="tg-hgcj">Responsable</th>
+                   
+                  </tr>
+                </thead>
 
-      <tbody>
-        <% @chemical_substances.each do |chemical_substance| %>
-          <tr>
-            <td class="tg-s6z2"><%= link_to chemical_substance.name, chemical_substance %></td>
-           <td class="tg-s6z2"><%= chemical_substance.matter_states %></td>
-           <td class="tg-s6z2"><%= chemical_substance.quantity %></td>
-           <td class="tg-s6z2"><%= chemical_substance.meassure %></td>
-          <td class="tg-s6z2"><%= chemical_substance.location %></td>
-          <td class="tg-qpa3"><%= chemical_substance.responsible %></td>
-          
-  <!--     <td class="tg-qpa3"><%= chemical_substance.status %></td>      
-          <td><%= chemical_substance.purity %></td>
-          <td><%= chemical_substance.matter_states %></td>
-          <td><%= chemical_substance.controlled %></td>  
-          <td class="tg-s6z2"><%= chemical_substance.expiration_date %></td> 
-          <td class="tg-s6z2"><%= chemical_substance.cas %></td>
-          <td><%= chemical_substance.quantity %></td>
-          <td><%= chemical_substance.rI7 %></td>
-          <td><%= chemical_substance.rI4 %></td>
-          <td><%= chemical_substance.toxic %></td>
-          <td><%= chemical_substance.oxidant %></td>
-          <td><%= chemical_substance.explosive %></td>
-          <td><%= chemical_substance.irritating %></td>
-          <td><%= chemical_substance.inflamable %></td>
-          <td><%= chemical_substance.corrosive %></td>
-          <td><%= chemical_substance.nocive %></td>
-          <td><%= chemical_substance.investigation %></td>
-          <td><%= chemical_substance.teaching %></td>
-          <td><%= chemical_substance.extention %></td> -->
-
-          
-          
-
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+                <tbody>
+                  <% @chemical_substances.each do |chemical_substance| %>
+                    <tr>
+                      <% if @sum > 0 %>
+                        <td class="tg-s6z2"><%= check_box_tag "item_ids[]", chemical_substance.id2 %></td>
+                      <% end %>
+                      <td class="tg-s6z2"><%= link_to chemical_substance.name, chemical_substance %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.matter_states %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.quantity %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.meassure %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.location %></td>
+                      <td class="tg-qpa3"><%= chemical_substance.responsible %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </body>
 
     <br>
 
@@ -118,9 +81,38 @@
     <% if can? :create, @chemical_substance %>
       <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Sustancia', new_chemical_substance_path, 'data-no-turbolink' => true %> | 
     <%end%>
+    <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo ', :class => "linkButton" %> | 
+    <i class="fa fa-phone"></i><%= link_to ' Solicitar Servicio ', new_application_path %> | 
     <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
+    <% end %>
     <br><br><br><br><br><br><br>
     
 
   </div>
  </div>
+
+ <style>
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+ </style>

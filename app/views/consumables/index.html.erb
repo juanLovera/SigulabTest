@@ -30,47 +30,36 @@
 			<%= submit_tag "Buscar",:class => 'btn btn-success btn-sm', :name => nil %>
 		<% end %>
 	</div>
+
   <br>
+
+  <%= form_tag (new_loan_path) do %>
+
    <table class="tg">
     <thead>
       <tr>
+        <% if @sum > 0 %>
+          <th></th>
+        <% end %>
         <th class="tg-093g">Nombre</th>
-         <th class="tg-hgcj">Cantidad</th>
-      <!--  <th class="tg-hgcj">Descripción</th> -->
-        
-          
-      
+        <th class="tg-hgcj">Cantidad</th>
         <th class="tg-hgcj">Ubicación</th>
-      <!--   <th>Use</th> -->
         <th class="tg-hgcj">Responsable</th>
-         <th class="tg-093g">Material</th>
-  <!--       <th>Investigation</th>
-        <th>Teaching</th>
-        <th>Extention</th>
-        <th>Management</th> -->
-
+        <th class="tg-093g">Material</th>
       </tr>
     </thead>
 
     <tbody>
       <% @consumables.each do |consumable| %>
         <tr>
-          <td class="tg-s6z2"><%= link_to consumable.name, consumable %></td>
-          <td class="tg-qpa3"><%= consumable.quantity %></td>
-          <!--  <td class="tg-s6z2"><%= consumable.description %></td> -->
-    <!--      -->
-          
-    
-          <td class="tg-qpa3"><%= consumable.location %></td>
-  <!--          -->
+         <% if @sum > 0 %>
+            <td class="tg-s6z2"><%= check_box_tag "item_ids[]", consumable.id2 %></td>
+           <% end %> 
+         <td class="tg-s6z2"><%= link_to consumable.name, consumable %></td>
+         <td class="tg-qpa3"><%= consumable.quantity %></td>
+         <td class="tg-qpa3"><%= consumable.location %></td>
          <td class="tg-s6z2"><%= consumable.responsible %></td>
          <td class="tg-qpa3"><%= consumable.material %></td>
-  <!--         <td><%= consumable.investigation %></td>
-          <td><%= consumable.teaching %></td>
-          <td><%= consumable.extention %></td>
-          <td><%= consumable.management %></td> -->
-
-
         </tr>
       <% end %>
     </tbody>
@@ -80,6 +69,37 @@
   <% if can? :create, @consumable %>
     <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Consumible', new_consumable_path, 'data-no-turbolink' => true %> | 
   <%end%>
+  <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo ', :class => "linkButton" %> | 
+  <i class="fa fa-phone"></i><%= link_to ' Solicitar Servicio ', new_application_url %> |
   <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
+  <% end %>
   <br><br><br><br>
 </div>
+
+
+ <style>
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+ </style>
+
