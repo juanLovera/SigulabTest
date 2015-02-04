@@ -163,11 +163,35 @@
 				</div>	
 
 				<div class="form-group">
+
 					<label for='annulled_date' class="hidden_option1 col-xs-3 control-label text-right" >Fecha de anulación <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<%= i.text_field :annulled_date, class: 'hidden_option1 bootlayout-date form-control' %>						
 	       		    </div>					
 				</div>	
+
+					<label for='project_observation' class="col-xs-3 control-label text-right">Observaciones</label>
+					<div class='col-xs-4'>
+						<%= i.text_area :observation, class: 'form-control' %>
+					</div>
+				</div>
+
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='num_cuenta' class="col-xs-3 control-label text-right">Número de cuenta <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :num_cuenta, class: 'form-control' %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='banco' class="col-xs-3 control-label text-right">Banco <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:banco, options_for_select(Project.banco_str.zip(Project.bancos.keys), @project.banco), {}, {class: "form-control"} ) %>
+	       		    </div>
+				</div>
 
 				<% else %>
 
@@ -310,6 +334,31 @@
 				</div>	  			
   			<% end %>				
 
+				</div>
+
+				<div class="form-group">
+					<label for='project_observation' class="col-xs-3 control-label text-right">Observaciones</label>
+					<div class='col-xs-4'>
+						<%= i.text_area :observation, class: 'form-control', :readonly => true %>
+					</div>
+				</div>
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='num_cuenta' class="col-xs-3 control-label text-right">Número de cuenta <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :num_cuenta, class: 'form-control', :readonly => true %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='banco' class="col-xs-3 control-label text-right">Banco <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:banco, options_for_select(Project.banco_str.zip(Project.bancos.keys), @project.banco), {}, {class: "form-control", :disabled => true} ) %>
+	       		    </div>
+				</div>
+				
 				<% end %>
 				
 				<div class="form-group">

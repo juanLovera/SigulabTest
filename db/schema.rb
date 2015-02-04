@@ -298,6 +298,7 @@ ActiveRecord::Schema.define(version: 20150204045015) do
     t.string   "other_desc"
     t.float    "other_amount",   default: 0.0
     t.date     "annulled_date"
+    t.string   "num_cuenta"
   end
 
   create_table "quotes", force: true do |t|
