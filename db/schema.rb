@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150204033351) do
+=======
+ActiveRecord::Schema.define(version: 20150204021255) do
+>>>>>>> 3e6bbc558029d08549c0dd3c1b8f75c874b4b6af
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -296,9 +300,15 @@ ActiveRecord::Schema.define(version: 20150204033351) do
     t.datetime "updated_at"
     t.integer  "admin",          default: 0
     t.integer  "status",         default: 0
+<<<<<<< HEAD
     t.text     "observation"
     t.integer  "banco"
     t.string   "num_cuenta"
+=======
+    t.float    "furniture",      default: 0.0
+    t.string   "other_desc"
+    t.float    "other_amount",   default: 0.0
+>>>>>>> 3e6bbc558029d08549c0dd3c1b8f75c874b4b6af
   end
 
   create_table "quotes", force: true do |t|
