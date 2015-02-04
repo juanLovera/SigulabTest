@@ -23,8 +23,16 @@ class Project < ActiveRecord::Base
       errors.add(:incoming_date, "no puede estar en blanco para cambiar el status")
   end
 
+  def annulled_date_required
+      errors.add(:annulled_date, "no puede estar en blanco para cambiar el status a Anulado")
+  end
+
   def greater_zero?
   	  return other_amount > 0.00;
+  end
+
+  def chequeo?
+      return status == "annulled";
   end
 
   validates :project_number, presence: true
@@ -52,5 +60,6 @@ class Project < ActiveRecord::Base
   validates :other_amount, presence: true
   validates_numericality_of :other_amount, :greater_than_or_equal_to => 0, if: "!other_amount.blank?"
   validates :other_desc, presence: true, if: "greater_zero?"
+  validates :annulled_date, presence: true, if: 'chequeo?'
 
 end

@@ -158,10 +158,19 @@
 				<div class="form-group">
 					<label for='status' class="col-xs-3 control-label text-right">Estatus <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
-						<%= i.select(:status, options_for_select(Project.status_str.zip(Project.statuses.keys), @project.status), {}, {class: "form-control"} ) %>
+						<%= i.select(:status, options_for_select(Project.status_str.zip(Project.statuses.keys), @project.status), {selected: @project.status}, {class: "form-control"} ) %>
 	       		    </div>
-				</div>				
+				</div>	
+
+				<div class="form-group">
+					<label for='annulled_date' class="hidden_option1 col-xs-3 control-label text-right" >Fecha de anulación <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :annulled_date, class: 'hidden_option1 bootlayout-date form-control' %>						
+	       		    </div>					
+				</div>	
+
 				<% else %>
+
 				<div class="form-group">
 					<label for='project_number' class="col-xs-3 control-label text-right">Número del Proyecto <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
@@ -195,7 +204,7 @@
 				<div class="form-group">
 					<label for='admin' class="col-xs-3 control-label text-right">Administrador del proyecto <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
-						<%= i.select(:admin, options_for_select(Project.admin_str.zip(Project.admins.keys), @project.admin), {}, {class: "form-control", :disabled => true } ) %>
+						<%= i.select(:admin, options_for_select(Project.admin_str.zip(Project.admins.keys), @project.admin), {selected: @project.admin}, {class: "form-control", :disabled => true } ) %>
 	       		    </div>
 				</div>				
 
@@ -290,7 +299,17 @@
 					<div class='col-xs-4'>
 						<%= i.select(:status, options_for_select(Project.status_str.zip(Project.statuses.keys), @project.status), {}, {class: "form-control", :disabled => true } ) %>
 	       		    </div>
-				</div>				
+				</div>	
+
+  			<% if @project.status=="annulled" %> 
+				<div class="form-group">
+					<label for='annulledd_date' class="col-xs-3 control-label text-right">Fecha de anulación <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @project.annulled_date rescue nil %>" disabled>						
+					</div>
+				</div>	  			
+  			<% end %>				
+
 				<% end %>
 				
 				<div class="form-group">
@@ -310,3 +329,10 @@
 			</div>
 		</div>
 	</div>
+
+
+<style>
+.hidden_option1{
+    display: none;
+  }
+</style>

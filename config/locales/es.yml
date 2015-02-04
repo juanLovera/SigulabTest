@@ -68,6 +68,7 @@ es:
         furniture: "Mobiliario"
         other_desc: "Otro concepto"
         other_amount: "Monto de otro concepto"
+        annulled_date: "Fecha de anulación"
     errors:
       models:
         income:
