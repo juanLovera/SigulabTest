@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombreitem:</strong>
+  <%= @donation.nombreItem %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @donation.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @donation.modelo %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @donation.cantidad %>
+</p>
+
+<p>
+  <strong>Unidadmedida:</strong>
+  <%= @donation.unidadMedida %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @donation.tipo %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>
