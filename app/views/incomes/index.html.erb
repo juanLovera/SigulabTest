@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administracion', administration_path %></li>
+			<li class="active">Ingresos</li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-hover">
+			<tr>
+				<th>ID</th>
+				<th>Lab</th>
+				<th>Fecha</th>
+				<th>Descripcion</th>
+				<th>Monto</th>
+			</tr>
+			<% @incomes.each do |i| %>
+				<tr>
+					<td><%= i.id %></td>
+					<td><%= i.lab.name %></td>
+					<td><%= i.date.strftime('%m/%d/%Y') %></td>
+					<td><%= link_to i.description, i %></td>
+					<td><%= number_to_currency(i.amount, :unit => "Bs.F. ") %></td>
+				</tr>
+			<% end %>
+			<% if @sum > 0 %>
+				<tr class="success">
+					<td class="text-center" colspan="4"><h4>Monto Total Asignado</h4></td>
+					<td style="vertical-align: middle;"><%= number_to_currency(@sum, :unit => "Bs.F. ") %></td>
+				</tr>
+			<% else %>
+				<tr class="warning">
+					<td class="text-center" colspan="5"><h4>No hay ingresos registrados</h4></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<%= link_to new_income_path do %>
+			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Solicitud de Modificacion Presupuestaria</button>
+		<% end %>
+	</div>
+</div>

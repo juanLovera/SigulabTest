@@ -1,0 +1,83 @@
+
+<div class="grid_4 push_2" id="login">
+	 <h4>Introduzca su USBID y contraseña</h4>   
+         <hr>
+
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	 <div class="required"><%= f.label :username, "USB-ID" %><br />
+	  <%= f.text_field :username, autofocus: true %></div>
+	<br>
+	  <div class="required"><%= f.label :contraseña, "Contraseña" %><br />
+	    <%= f.password_field :password, autocomplete: "off", autofocus: true %></div>
+
+	  <% if devise_mapping.rememberable? -%>
+	    <div class="login"><%= f.check_box :remember_me %> <%= f.label :remember_me, "Recordarme" %></div><br>
+	  <% end -%>
+
+	  <div><%= f.submit "Iniciar sesión" %></div>
+	<% end %>
+	<div id="mover">
+	<br>
+<%= render "devise/shared/links" %>
+</div>
+	<br>
+</div>
+
+
+<style>
+#login  {
+
+  padding: 15px;
+  width: 340px;
+  min-height: 15em;
+  background: #eee;
+  position: relative;
+  left:100px;
+  border: 0;
+  border-radius:15px;
+
+}
+
+#mover1 {
+
+
+position: relative;
+top: 320px;
+right: 330px;
+
+}
+
+
+#login h2 {
+
+  padding: 3px 0;
+  font: normal 400 17px Georgia, "Times New Roman", Times, serif;
+  color: #333;
+}
+
+
+#user_login {
+
+  background: #ffd; 
+  letter-spacing: 1px;
+  border-width: 1px;
+  width: 240px;
+  height:30px;
+}
+
+#user_password {
+
+background: #ffd; 
+letter-spacing: 1px;
+border-width: 1px;
+width: 240px;
+height:25px;
+border-radius:3px;
+
+}
+
+
+</style>
+
+
+

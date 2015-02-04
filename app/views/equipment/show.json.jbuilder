@@ -1,0 +1,1 @@
+json.extract! @equipment, :id, :name, :brand, :model, :serial, :national_good, :status, :last_calibration, :use, :responsible, :location, :adquisition_date, :buy_order, :cost, :bill, :investigation, :teaching, :extention, :management, :calibrated, :created_at, :updated_at

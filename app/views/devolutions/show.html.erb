@@ -1,0 +1,200 @@
+<div class="grid_12">
+      <ol class="breadcrumb">
+          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+      <li> <%=link_to 'Compras', compras_url %></li>
+      <li> <%=link_to 'Especificaciones Técnicas', specifications_url %></li>
+          <li> <%=link_to 'Solicitud', solicitud_url %></li>
+          <li class="active"> Nota de Devolución </a></li>
+      </ol>
+</div>
+
+<div class="grid_12">
+  <div id="tittle">
+  <table id="devolutionTable" class="table table-bordered">
+    <thead>
+
+         <tr>
+           <th>Número de Registro</th>
+           <td><%= @devolution.numRegistro %></td>
+         </tr>
+         <% if @devolution.requisicion == true %>
+             <tr>
+               <th>Requisición</th>
+               <td><%= @devolution.numRequisicion %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.autorizacion == true %>
+             <tr>
+               <th>Autorización</th>
+               <td><%= @devolution.numAutorizacion %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.certificacion == true %>
+             <tr>
+               <th>Certificación</th>
+               <td><%= @devolution.numCertificacion %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.solicitud == true %>
+             <tr>
+               <th>Solicitud de Servicio</th>
+               <td><%= @devolution.numSolicitud %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.informe == true %>
+             <tr>
+               <th>Informe de Recepción</th>
+               <td><%= @devolution.numInforme %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.otro == true %>
+             <tr>
+               <th>Requisición</th>
+               <td><%= @devolution.numOtro %></td>
+             </tr>
+         <% end %>
+         <tr>
+           <th>Unidad solicitante</th>
+           <td><%= @devolution.unidadSolicitante %></td>
+         </tr>
+         <tr>
+           <th  id="fila_completa">Causa de la devolución</th>
+           <td  id="fila_completa"></td>
+         </tr>
+         <% if @devolution.disponibilidad == true %>
+             <tr>
+               <th>Disponibilidad presupuestaria insuficiente</th>
+               <td>Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.idioma == true %>
+             <tr>
+               <th>Registro en idioma distinto al español</th>
+               <td>Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.discriminado == true %>
+             <tr>
+               <th>Registro no discriminado por ítems</th>
+               <td>Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.firma == true %>
+             <tr>
+               <th>Registro sin la firma y/o sello de la Unidad Responsable</th>
+               <td>Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.carencia == true %>
+             <tr>
+               <th>Carencia de información indispensable del proveedor del bien o servicio:</th>
+               <td>
+                   <% if @devolution.nombre == true %>
+                        <%= "Nombre" %><br>
+                   <% end %>
+                   <% if @devolution.direccion == true %>
+                        <%= "Dirección Fiscal" %><br>
+                   <% end %>
+                   <% if @devolution.datos == true %>
+                        <%= "Datos Bancarios" %><br>
+                   <% end %>
+                   <% if @devolution.rif == true %>
+                        <%= "RIF" %><br>
+                   <% end %>
+                   <% if @devolution.telefonos == true %>
+                        <%= "Teléfonos" %><br>
+                   <% end %>
+                   <% if @devolution.persona == true %>
+                        <%= "Persona Contacto" %><br>
+                   <% end %>
+                   <% if @devolution.otroCarencia == true %>
+                        <%= "Otro" %>
+                   <% end %>
+               </td>
+             </tr>
+         <% end %>
+
+         <% if @devolution.contacto == true %>
+             <tr>
+               <th>Contrato Fonacit, si aplica</th>
+               <td>Falta</td>
+             </tr>
+         <% end %>
+         <% if @devolution.copia == true %>
+             <tr>
+               <th>Copia del Acta del Consejo Directo que autorice la Contratación Pública (Compras mayores de 2500 UT), si es aplicable</th>
+               <td>Falta</td>
+             </tr>
+         <% end %>
+         <% if @devolution.factura == true %>
+             <tr>
+               <th>Factura, Proforma o Cotización  a nombre de la USB, indicando  la condición de entrega.</th>
+               <td>Falta</td>
+             </tr>
+         <% end %>
+         <% if @devolution.foto == true %>
+             <tr>
+               <th>Foto Referencial del Material y/o Equipo solicitado</th>
+               <td>Falta</td>
+             </tr>
+         <% end %>
+
+         <tr>
+           <th>Observaciones</th>
+           <td><%= @devolution.observaciones %></td>
+         </tr>
+    </thead>
+   </table>
+   <%= link_to '<button type="button" class="btn btn-primary"> Agregar otra nota de devolución </button>'.html_safe, new_devolution_path %> <br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Descargar nota de devolución  </button>'.html_safe,
+                                             devolution_path(@devolution, :format => 'pdf') %> <br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Modificar </button>'.html_safe, edit_devolution_path(@devolution) %><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Eliminar </button>'.html_safe, @devolution,method: :delete,
+       data: { confirm: '¿Está seguro que desea eliminar la Nota de devolución?' } %></td><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Finalizar </button>'.html_safe, devolutions_path %><br>
+  </div>
+</div>
+
+
+
+<style>
+
+
+
+#devolutionTable th, td, tr{
+  border-color:#7A7070;
+  font-size: 14px;
+  
+}
+
+#devolutionTable th {
+background-color: #F2F8F7;
+vertical-align: middle;
+
+}
+
+
+.table-bordered {
+
+  border-color:#7A7070;
+  border-bottom: #7A7070;
+
+}
+
+.table-bordered>tbody>tr>td {
+
+  border-color:#7A7070;
+  background-color: #F2F8F7;
+  border-bottom: #7A7070;
+
+}
+
+
+#devolutionTable td:nth-child(even) {
+
+border-color:#7A7070;
+
+
+}
+
+</style>

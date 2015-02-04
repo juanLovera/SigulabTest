@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<div class="grid_12">
+      <ol class="breadcrumb">
+          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+			 <li> <%=link_to 'Compras', compras_url %></li>
+       <li> <%=link_to 'Especificaciones Técnicas', specifications_url %></li>
+          <li> <%=link_to 'Solicitud', solicitud_url %></li>
+        <li class="active">  Detalle de Especificación </a></l
+      </ol>
+</div>
+
+
+   <%= stylesheet_link_tag 'application_compras', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+<body>
+<div class="grid_12" id="tittle" >
+	<h1>Especificaciones Técnicas</h1>
+   <br>
+   <div class="grid_2 push_3">
+		<h4><%= link_to ' Bien / Consumible ', new_item_path %></h4>
+   </div>
+   <div class="grid_2 push_5">
+		<h4><%= link_to 'Consultar bienes', items_path %><br></h4>
+   </div>
+   <br><br>
+   <div class="grid_2 push_3">
+		<h4><%= link_to 'Servicio', new_service_path %></h4>
+   </div>
+   <div class="grid_2 push_5">
+		<h4><%= link_to 'Consultar servicios', services_path %></h4>
+   </div>
+   <br><br> <br><br> 
+   <div id=volver class="grid_3 push_4 text-center">
+		<%= link_to '<button type="button" class="btn btn-primary" id="volver"> Volver a la página anterior </button>'.html_safe, solicitud_url %>
+   </div>
+
+</div>
+</body>
+<style>
+
+h1 {
+
+position: relative; 
+right: 20px;
+text-align: center;
+}
+
+#volver {
+
+  height: 35px;
+
+}
+
+
+a:visited { 
+  color:#333;
+  font-size: 14px;
+}
+
+
+h4 {
+  font-size: 14px;
+  text-align: left;
+  position: relative;
+}
+
+
+</style>
+
+</html>

@@ -1,0 +1,1 @@
+json.extract! @tool, :id, :name, :brand, :type, :national_good, :status, :use, :responsible, :location, :material, :bill, :from_set, :investigation, :teaching, :extention, :management, :created_at, :updated_at

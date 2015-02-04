@@ -1,0 +1,15 @@
+<h1>Nuevo Equipo</h1>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li> <%=link_to 'Equipos y mobiliarios', equipment_index_path %></li>
+	<li class="active"> Nuevo </li>
+</ol>
+<div id = "table2">
+</div>
+<br>
+
+<%= render 'form' %>
+
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', equipment_index_path , 'data-no-turbolink' => true%>
+<br><br><br><br>

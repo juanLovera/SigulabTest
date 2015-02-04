@@ -1,0 +1,69 @@
+
+<div class="grid_12">
+      <ol class="breadcrumb">
+          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+       <li> <%=link_to 'Compras', compras_url %></li>
+        <li class="active">Especificaciones Técnicas</a></li>
+      </ol>
+</div>
+
+<div class="grid_12">
+  <div id="tittle">
+  <table id="specificactionTable" class="table table-bordered">
+    <thead>
+       <tr>
+       <th>Número de especificación</th>
+       <td><%= @specificaction.id %></td>
+     </tr>
+     <tr>
+       <th>Nombre de especificación</th>
+       <td><%= @specificaction.nombre %></td>
+     </tr>
+    </thead>
+   </table>
+   <%= link_to '<button type="button" class="btn btn-primary"> Agregar otra Especificación </button>'.html_safe, new_specification_path(@specificaction) %><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Modificar </button>'.html_safe, edit_specification_path(@specification) %><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Eliminar </button>'.html_safe, @specification,method: :delete,
+       data: { confirm: '¿Está seguro que desea eliminar el Acto Motivado?' } %></td><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Finalizar </button>'.html_safe, specification_path %><br>
+  </div>
+</div>
+
+
+
+<style>
+
+
+
+#specificactionTable th, td, tr{
+  border-color:#7A7070;
+  font-size: 14px;
+ 
+}
+
+#specificationTable th {
+background-color: #F2F8F7;
+}
+
+
+.table-bordered {
+
+  border-color:#7A7070;
+
+}
+
+.table-bordered>tbody>tr>td {
+
+  border-color:#7A7070;
+  background-color: #F2F8F7;
+
+}
+
+
+#specificationTable td:nth-child(even) {
+
+border-color:#7A7070;
+
+}
+
+</style>

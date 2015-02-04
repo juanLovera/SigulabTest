@@ -1,0 +1,15 @@
+<div class="grid_12">
+      <ol class="breadcrumb">
+          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+			 <li> <%=link_to 'Compras', compras_url %></li>
+			 <li> <%=link_to 'Especificaciones Técnicas', specifications_url %></li>
+          <li> <%=link_to 'Solicitud', solicitud_url %></li>
+        <li class="active">Acto Motivado </a></li>
+      </ol>
+</div>
+<div class="grid_12 push_5">
+
+	<h3>Modificar Acto Motivado</h3>
+
+</div>
+	<%= render 'form' %>

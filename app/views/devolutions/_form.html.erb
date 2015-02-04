@@ -1,0 +1,348 @@
+<div class="grid_12 push_1">
+    <%= form_for(@devolution) do |f| %>
+      <% if @devolution.errors.any? %>
+        <h2>Rellene todos los campos obligatorios</h2>
+        <br>
+      <% end %>
+
+      <div class="field">
+        <br><br><br>
+        <div class="grid_12 push_2">
+            <div class="grid_3" >
+                <span class="red">*</span>
+                <%= f.label 'Número de Registro', :align => :middle %><br>
+            </div>
+            <div class="grid_3">
+                <%= f.text_field :numRegistro, :align => :middle, :placeholder => "\#" %>
+                <br><br><br>
+            </div>
+        </div>
+
+        <div id="campos_pequenos" class="grid_12">
+            <div class="grid_3">
+                <%= f.check_box :requisicion, :align => :texttop %>
+                <%= f.label 'Requisición' %>
+            </div>
+            <div class="grid_1 pull_1 text-right">
+                <%= f.label 'Nro:', :align => :botton %>
+            </div>
+            <div class="grid_1 pull_1">
+                <%= f.text_field :numRequisicion %>
+            </div>
+            
+            <div class="grid_3">
+                <%= f.check_box :autorizacion, :align => :texttop %>
+                <%= f.label 'Autorización de Pago' %>
+            </div>
+            <div class="grid_1 pull_1 text-right">
+                <%= f.label 'Nro:', :align => :botton %>
+            </div>
+            <div class="grid_1 pull_1">
+                <%= f.text_field :numAutorizacion %>
+            </div>
+            <br><br><br><br>
+        </div>
+
+        <div id="campos_pequenos" class="grid_12">
+            <div class="grid_3">
+                <%= f.check_box :certificacion, :align => :texttop %>
+                <%= f.label 'Certificación' %>
+            </div>
+            <div class="grid_1 pull_1 text-right">
+                <%= f.label 'Nro:', :align => :botton %>
+            </div>
+            <div class="grid_1 pull_1">
+                <%= f.text_field :numCertificacion %>
+            </div>
+            
+            <div class="grid_3">
+                <%= f.check_box :solicitud, :align => :texttop %>
+                <%= f.label 'Solicitud de Servicio' %>
+            </div>
+            <div class="grid_1 pull_1 text-right">
+                <%= f.label 'Nro:', :align => :botton %>
+            </div>
+            <div class="grid_1 pull_1">
+                <%= f.text_field :numSolicitud %>
+            </div>
+            <br><br><br><br>
+        </div>
+
+        <div id="campos_pequenos" class="grid_12">
+            <div class="grid_3">
+                <%= f.check_box :informe, :align => :texttop %>
+                <%= f.label 'Informe de Recepción' %>
+            </div>
+            <div class="grid_1 pull_1 text-right">
+                <%= f.label 'Nro:', :align => :botton %>
+            </div>
+            <div class="grid_1 pull_1">
+                <%= f.text_field :numInforme %>
+            </div>
+            
+            <div class="grid_3">
+                <%= f.check_box :otro, :align => :texttop %>
+                <%= f.label 'Otro' %>
+            </div>
+            <div class="grid_1 pull_1 text-right">
+                <%= f.label 'Nro:', :align => :botton %>
+            </div>
+            <div class="grid_1 pull_1">
+                <%= f.text_field :numOtro %>
+            </div>
+            <br><br><br><br>
+        </div>
+
+        <br><br><br>
+        <div class="grid_12 push_2">
+            <div class="grid_3" >
+                <span class="red">*</span>
+                <%= f.label 'Unidad Solicitante', :align => :middle %><br>
+            </div>
+            <div class="grid_3">
+                <%= f.text_field :unidadSolicitante, :align => :middle, :placeholder => "Nombre de la Unidad" %>
+                <br><br><br>
+            </div>
+        </div>
+
+        <div class="grid_12 push_4">
+            <h4>Causa de la devolución</h4> <br>
+        </div>
+
+        <div class="grid_12">
+            <div class="grid_5">
+                <%= f.check_box :disponibilidad, :align => :texttop %>
+                <%= f.label 'Disponibilidad presupuestaria insuficiente' %>
+            </div>
+            <div class="grid_5 text-center">
+                <%= f.label 'Carencia de Documentos:' %> 
+            </div>
+            <br><br>
+        </div>
+
+        <div class="grid_12">
+            <div class="grid_5">
+                <%= f.check_box :idioma, :align => :texttop %>
+                <%= f.label 'Registro en idioma distinto al español' %>
+            </div>
+            <div class="grid_5">
+                <%= f.check_box :contacto, :align => :texttop %>
+                <%= f.label 'Contrato Fonacit, si aplica' %>
+            </div>
+            <br><br>
+        </div>
+
+        <div class="grid_12">
+            <div class="grid_5">
+                <%= f.check_box :discriminado, :align => :texttop %>
+                <%= f.label 'Registro no discriminado por ítems' %>
+            </div>
+            <div class="grid_5">
+                <%= f.check_box :copia, :align => :texttop %>
+                <%= f.label 'Copia del Acta del Consejo Directo que autorice' %>
+                <%= f.label ' la Contratación Pública (Compras mayores de' %>
+                <%= f.label ' 2500 UT), si es aplicable' %>
+            </div>
+            <br><br>
+        </div>
+
+        <div class="grid_12">
+            <div class="grid_5">
+                <%= f.check_box :firma, :align => :texttop %>
+                <%= f.label 'Registro sin la firma y/o sello de la' %>
+                <%= f.label 'Unidad Responsable' %>
+            </div>
+            <div class="grid_5">
+                <%= f.check_box :factura, :align => :texttop %>
+                <%= f.label 'Factura, Proforma o Cotización  a nombre de la' %>
+                <%= f.label 'USB, indicando  la condición de entrega.' %>
+            </div>
+            <br><br>
+        </div>
+
+        <div class="grid_12">
+            <div class="grid_5">
+                <%= f.check_box :carencia, :align => :texttop %>
+                <%= f.label "Carencia de información indispensable del" %>
+                <%= f.label " proveedor del bien o servicio:" %>
+            </div>
+            <div class="grid_5">
+                <%= f.check_box :foto, :align => :texttop %>
+                <%= f.label 'Foto Referencial del Material y/o Equipo' %>
+                <%= f.label ' solicitado' %>
+            </div>
+            <br><br><br><br>
+        </div>
+
+        <div class="grid_12 push_1">
+            <div class="grid_2">
+                <%= f.check_box :nombre, :align => :texttop %>
+                <%= f.label 'Nombre' %>
+            </div>
+            <div class="grid_2">
+                <%= f.check_box :rif, :align => :texttop %>
+                <%= f.label 'RIF' %>
+            </div><br><br>
+        </div>
+
+        <div class="grid_12 push_1">
+            <div class="grid_2">
+                <%= f.check_box :direccion, :align => :texttop %>
+                <%= f.label 'Dirección Fiscal' %>
+            </div>
+            <div class="grid_2">
+                <%= f.check_box :telefonos, :align => :texttop %>
+                <%= f.label 'Teléfonos' %>
+            </div><br><br>
+        </div>
+
+        <div class="grid_12 push_1">
+            <div class="grid_2">
+                <%= f.check_box :datos, :align => :texttop %>
+                <%= f.label 'Datos Bancarios' %>
+            </div>
+            <div class="grid_2">
+                <%= f.check_box :persona, :align => :texttop %>
+                <%= f.label 'Persona Contacto' %>
+            </div><br><br>
+        </div>
+
+        <div class="grid_12 push_1">
+            <div class="grid_2">
+                <%= f.check_box :otroCarencia, :align => :texttop %>
+                <%= f.label 'Otro' %>
+            </div><br><br>
+        </div>
+
+        <div id="campos_grandes" class="grid_12 push_2">
+            <br>
+            <div class="grid_3" >
+                <%= f.label 'Observaciones', :align => :middle %><br>
+            </div>
+            <div class="grid_3">
+                <%= f.text_area :observaciones, :align => :middle, :placeholder => "Indique en caso de que exista alguna" %>
+                <br><br><br>
+            </div>
+        </div>
+
+      </div>
+      <div class="grid_4 push_3 text-center">
+      <div class="actions">
+         <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+      </div>
+    <% end %>
+    <br><%= link_to '<button type="button" class="btn btn-primary"> Volver a la página anterior </button>'.html_safe, controller: "devolutions" %>
+    </div>
+</div>
+
+
+<style>
+
+input[type="submit"] {
+
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+border: 1px solid transparent;
+border-radius: 4px;
+
+
+}
+
+.field {
+    font-size: 14px
+}
+
+#campos_pequenos input[type="text"], textarea, input[type="number"] {
+    display: block;
+    width: 100px;
+    height: 24px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    text-align: left;
+}
+
+#campos_grandes input[type="text"], textarea, input[type="number"] {
+    display: block;
+    width: 400px;
+    height: 54px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    text-align: left;
+}
+
+input[type="text"], textarea, input[type="number"] {
+
+display: block;
+width: 200px;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.red {
+
+font-size: 20px;
+color: red;
+
+}
+
+
+input[type="text"]:focus, textarea:focus, input[type="number"]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.field_with_errors {
+    background-color: red;
+    border-radius: 4px;
+}
+
+h2 {
+
+position:relative;
+text-align: center;
+right: 60px;
+color:red;
+font-size: 20px;
+
+}
+
+h4 {
+    position: relative;
+}
+
+
+
+</style>
+

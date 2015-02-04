@@ -1,0 +1,70 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administracion', administration_path %></li>
+			<li><%= link_to 'Ingresos', incomes_path %></li>
+			<li class="active"><%= @income.id%></li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tr>
+				<th class="active text-center" colspan="2"><h2><%= @income.description %></h2></th>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">ID:</td>
+				<td class="col-xs-7"><%= @income.id %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Laboratorio:</td>
+				<td class="col-xs-7"><%= @income.lab.name %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha:</td>
+				<td class="col-xs-7"><%= @income.date.strftime('%m/%d/%Y') %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Origen:</td>
+				<td class="col-xs-7">
+					<% case @income.origin %>
+						<% when 'ordinary' %>
+							Presupuesto Ordinario
+						<% when 'extraordinary' %>
+							Presupuesto Extraordinario
+						<% when 'projects' %>
+							Projectos
+						<% when 'reformulation' %>
+							Reformulación de Presupuesto
+					<% end %> 
+				</td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Organismo:</td>
+				<td class="col-xs-7"><%= @income.organism %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Según Documento:</td>
+				<td class="col-xs-7"><%= @income.document %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Financiamiento:</td>
+				<td class="col-xs-7"><%= @income.financing %></td>
+			</tr>
+			<tr class="success">
+				<td class="col-xs-5 text-right">Monto:</td>
+				<td class="col-xs-7"><%= number_to_currency(@income.amount, :unit => "Bs.F. ") %></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<%= link_to edit_income_path do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ingreso</button>
+		<% end %>
+		<%= link_to action: 'destroy' do %>
+			<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Eliminar Ingreso</button>
+		<% end %>
+	</div>
+</div>

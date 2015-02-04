@@ -1,0 +1,126 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li class="active"> Sustancias Químicas </li>
+</ol>  
+
+<class="LaLa">
+  <div id="LeDivQuimicas">
+
+    <h1><i class="fa fa-flask"></i> Sustancias Químicas</h1>
+
+
+  <div id = "table2">
+    </div>
+     <br>
+
+        <style type="text/css">
+       
+        .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}
+        .tg td{font-family:Arial, sans-serif;font-size:15px;padding: 12px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
+        .tg th{font-family:Arial, sans-serif;font-size:16px;font-weight:normal;padding:15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#6358F2;}
+        .tg .tg-qpa3{font-family:Arial, Helvetica, sans-serif !important;;text-align:center}
+        .tg .tg-s6z2{text-align:center}
+        .tg .tg-093g{font-weight:bold;text-align:center;}
+        .tg .tg-hgcj{font-weight:bold;text-align:center;}
+        .tg .tg-092g{color:#FFFFFF;background-color:#FFFFFF;font-weight:bold;text-align:left;font-size:14px;font-style: oblique; border-width:0px; padding: 4px; line-height:1.4em;}
+
+        </style> 
+
+      <div id="search">
+  		<%= form_tag(chemical_substances_path, :method => "get", id: "search-form") do %>
+  			<%= text_field_tag :search, params[:search], placeholder: "Nombre de la Sustancia" %>
+  			<%= submit_tag "Buscar", :class => 'btn btn-success btn-sm', :name => nil %>
+  		<% end %>
+      </div>
+      <br>
+
+      <body id="dt_example" class="ex_highlight_row">
+        <div id="container">
+          <div id="demo">
+
+            <%= form_tag (new_loan_path) do %>
+            
+              <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                <thead>
+                  <tr>
+                    <% if @sum > 0 %>
+                    	<th></th>
+                    <% end %>
+                    <th class="tg-093g">Nombre</th>
+                    <th class="tg-093g">Estado de la Materia</th>
+                    <th class="tg-093g">Cantidad</th>
+                    <th class="tg-093g">Medida</th>
+                    <th class="tg-hgcj">Ubicación</th>
+                    <th class="tg-hgcj">Responsable</th>
+                   
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @chemical_substances.each do |chemical_substance| %>
+                    <tr>
+                      <% if @sum > 0 %>
+                        <td class="tg-s6z2"><%= check_box_tag "item_ids[]", chemical_substance.id2 %></td>
+                      <% end %>
+                      <td class="tg-s6z2"><%= link_to chemical_substance.name, chemical_substance %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.matter_states %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.quantity %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.meassure %></td>
+                      <td class="tg-s6z2"><%= chemical_substance.location %></td>
+                      <td class="tg-qpa3"><%= chemical_substance.responsible %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </body>
+
+    <br>
+
+
+    <% if can? :create, @chemical_substance %>
+      <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Sustancia', new_chemical_substance_path, 'data-no-turbolink' => true %> | 
+    <%end%>
+    <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo ', :class => "linkButton" %> | 
+    <i class="fa fa-phone"></i><%= link_to ' Solicitar Servicio ', new_application_path %> | 
+    <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
+    <% end %>
+    <br><br><br><br><br><br><br>
+    
+
+  </div>
+ </div>
+
+ <style>
+
+.linkButton { 
+	 text-decoration: none;
+	 text-align: right;
+	 color: #384157;
+	 font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+ </style>

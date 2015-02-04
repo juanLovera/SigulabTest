@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body>
+<table id="specificationTable" class="table table-hover" >
+	  <thead>
+		 <tr>
+		   <th align="left">No. de Especificación</th>
+		   <th align="left">Nombre</th>
+		 </tr>
+	  </thead>
+
+	  <tbody>
+		 <% @specifications.each do |specification| %>
+	  		<tr>
+		     <td style="text-decoration:underline; color:black"><%= link_to specification.id, solicitud_url %></td>
+		     <td><%= specification.nombre %></td>
+		   </tr>
+		 <% end %>
+		 <% if @sumSpecifications == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay especificaciones técnicas registradas</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+</body>
+
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+
+#specificationTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+      font-size: 14px;
+  }
+
+#specificationTable th td tr{
+ border-color:black;
+ }
+
+
+.table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#specificationTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>
