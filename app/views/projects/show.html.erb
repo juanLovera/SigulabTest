@@ -55,6 +55,16 @@
 				<td class="col-xs-5 text-right">Consumibles:</td>
 				<td class="col-xs-7"><%= number_to_currency(@project.consumables, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
   			</tr>  			
+ 		    <tr>
+				<td class="col-xs-5 text-right">Mobiliario:</td>
+				<td class="col-xs-7"><%= number_to_currency(@project.furniture, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+  			</tr>  			
+  			<% if !@project.other_desc.blank? %>
+  			<tr>
+				<td class="col-xs-5 text-right"> <%= @project.other_desc%>: </td>
+				<td class="col-xs-7"><%= number_to_currency(@project.other_amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+  			</tr>  			
+  			<% end %>  			
 			<tr class="success">
 				<td class="col-xs-5 text-right"> <font size=4> Monto asignado: </font> </td>
 				<td class="col-xs-7"> <font size=4> <%= number_to_currency(@project.amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</font> </td>

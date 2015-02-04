@@ -65,6 +65,9 @@ es:
         consumables: "Consumibles"
         incoming_date: "Fecha de ingreso de los recursos"
         status: "Estatus"
+        furniture: "Mobiliario"
+        other_desc: "Otro concepto"
+        other_amount: "Monto de otro concepto"
     errors:
       models:
         income:

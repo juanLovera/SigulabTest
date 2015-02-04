@@ -58,7 +58,19 @@ function calculateAmount() {
 	} else {
 		consumables = parseFloat($('#project_consumables').val()) };
 
-	total = equipments+services+infrastructure+hhrr+consumables;
+	if (isNaN(parseFloat($('#project_furniture').val()))) {
+		$('#project_furniture').val(0);
+    	furniture = 0;
+	} else {
+		furniture = parseFloat($('#project_furniture').val()) };		
+
+	if (isNaN(parseFloat($('#project_other_amount').val()))) {
+		$('#project_other_amount').val(0);
+    	other_amount = 0;
+	} else {
+		other_amount = parseFloat($('#project_other_amount').val()) };
+
+	total = equipments+services+infrastructure+hhrr+consumables+furniture+other_amount;
 
 	$('#project_amount').val(total);
 
