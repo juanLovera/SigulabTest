@@ -73,11 +73,7 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:project_number, :contract, :title, :responsible, 
       	                              :admin, :sae_code, :amount, :equipments, :services, 
       	                              :infrastructure, :hhrr, :consumables, :incoming_date,
-<<<<<<< HEAD
-                     	              :status, :observation, :num_cuenta, :banco)
-=======
-                     	              :status, :other_desc, :other_amount)
->>>>>>> 3e6bbc558029d08549c0dd3c1b8f75c874b4b6af
+                     	                :status, :observation, :num_cuenta, :banco, :other_desc, :other_amount)
     end
 
 end

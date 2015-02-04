@@ -65,15 +65,12 @@ es:
         consumables: "Consumibles"
         incoming_date: "Fecha de ingreso de los recursos"
         status: "Estatus"
-<<<<<<< HEAD
         observation: "Observación"
         banco: "Banco"
         num_cuenta: "Número de cuenta"
-=======
         furniture: "Mobiliario"
         other_desc: "Otro concepto"
         other_amount: "Monto de otro concepto"
->>>>>>> 3e6bbc558029d08549c0dd3c1b8f75c874b4b6af
     errors:
       models:
         income:
@@ -89,7 +86,6 @@ es:
     submit:
        create: "Crear"
        update: "Actualizar"
-  #hello: "Hello world"
 
   errors:
     messages:
