@@ -37,24 +37,13 @@
    <table class="tg">
     <thead>
       <tr>
+        <th></th>
         <th class="tg-093g">Nombre</th>
         <th class="tg-hgcj">Marca</th>
         <th class="tg-hgcj">Número de Bien Nacional</th>
        
         <th class="tg-hgcj">Ubicación</th>
         <th class="tg-hgcj">Responsable</th>
-  <!--       <th>Model</th> 
-   <th class="tg-hgcj">Status</th>
-        <th>Measurement unit</th>
-        <th>Capacity</th>
-        <th>Material</th>
-        <th>Use</th> 
-        <th>Last calibration</th>
-        <th>National good</th>
-        <th>Investigation</th>
-        <th>Teaching</th>
-        <th>Extention</th>
-        <th>Management</th> -->
 
       </tr>
     </thead>
@@ -62,26 +51,14 @@
     <tbody>
       <% @instruments.each do |instrument| %>
         <tr>
+          <td class="tg-s6z2"><%= check_box_tag "instrument[]",instrument.id %></td>
           <td class="tg-s6z2"><%= link_to instrument.name, instrument %></td>
           <td class="tg-qpa3"><%= instrument.brand %></td>
           <td class="tg-qpa3"><%= instrument.national_good %></td>
          
           <td class="tg-qpa3"><%= instrument.location %></td>
          <td class="tg-s6z2"><%= instrument.responsible %></td>
-  <!--         <td><%= instrument.model %></td>
-   <td class="tg-qpa3"><%= instrument.status %></td> 
-          <td><%= instrument.measurement_unit %></td>
-          <td><%= instrument.capacity %></td>
-          <td><%= instrument.material %></td>
-          <td><%= instrument.last_calibration %></td>
-          <td><%= instrument.national_good %></td>
-          <td><%= instrument.investigation %></td>
-          <td><%= instrument.teaching %></td>
-          <td><%= instrument.extention %></td>
-          <td><%= instrument.management %></td> -->
-
-
-        </tr>
+          </tr>
       <% end %>
     </tbody>
   </table>
@@ -90,6 +67,8 @@
   <% if can? :create, @instrument %>
     <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Instrumento', new_instrument_path , 'data-no-turbolink' => true %> | 
   <%end%>
+  <i class="fa fa-exchange"></i><%= link_to ' Solicitar Préstamo ', new_loan_path %> | 
+    <i class="fa fa-phone"></i><%= link_to ' Solicitar Servicio ', new_application_url %> | 
   <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
   <br><br><br><br><br><br><br><br><br>
   

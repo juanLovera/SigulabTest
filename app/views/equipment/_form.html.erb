@@ -27,8 +27,7 @@
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Serial:</strong></td>
-            <td class="col-xs-7"><%= f.text_field(:serial) %>
-            <span class="red">*</span></td>
+            <td class="col-xs-7"><%= f.text_field(:serial) %></td>
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Número de Bien Nacional:</strong></td>
@@ -50,15 +49,15 @@
            <tr>
             <td class="col-xs-5 text-right"><strong>Dimensiones:</strong></td>
             <td class="col-xs-7">
-            <strong>Alto:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</strong>
+            <strong>Ancho:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</strong>
             <%= f.number_field(:length, min: 0, :step => 'any') %>
-            <%= f.select(:measurelength, [['M'], ['MM']] ) %><br><br>
-            <strong>Ancho:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </strong>
+            <%= f.select(:measurelength, [['m'], ['cm'], ['mm'], ['in']] ) %><br><br>
+            <strong>Largo:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </strong>
              <%= f.number_field(:width, min: 0, :step => 'any') %>
-            <%= f.select(:measurewidth, [['M'], ['MM']] ) %><br><br>
+            <%= f.select(:measurewidth, [['m'], ['cm'], ['mm'], ['in']] ) %><br><br>
             <strong>Profundidad:</strong>
             <%= f.number_field(:depth, min: 0, :step => 'any') %>
-            <%= f.select(:measuredepth, [['M'], ['MM']] ) %>
+            <%= f.select(:measuredepth, [['m'], ['cm'], ['mm'], ['in']] ) %>
             </td>
           </tr>
            
@@ -90,7 +89,7 @@
       </tr>
       <tr>
           <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
-          <td class="col-xs-7"> <%= f.text_field :cost %>&nbsp;BS.</td>
+          <td class="col-xs-7"> <%= f.text_field :cost %>&nbsp;Bs.</td>
         </td>
       </tr>
        <tr>
@@ -108,7 +107,7 @@
          <%= f.check_box :extention %>
          <%= 'Extensión' %>
          <%= f.check_box :management %>
-         <%= 'Gestión' %><br>
+         <%= 'Apoyo administrativo' %><br>
       </tr>
 
            <tr>

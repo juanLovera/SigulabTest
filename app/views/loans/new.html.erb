@@ -1,0 +1,99 @@
+<%= stylesheet_link_tag 'style.css' %>
+<%= javascript_include_tag 'jquery.accordion.js' %>
+<%= javascript_include_tag 'jquery.easing.1.3.js' %>
+<%= javascript_include_tag 'desplegable.js' %>
+
+<h1>Nueva Solicitud</h1>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li class="active"> Nuevo Préstamo </li>
+</ol>
+
+<div id = "table2">
+</div>
+<br>
+<div class="col-xs-12">
+  <div class="col-xs-6">
+    <div class="wrapper">
+        <div id="st-accordion" class="st-accordion" text-align="left">
+            <ul>
+                <li>
+                    <a href="#">Préstamo<span class="st-arrow"></span></a>
+                    <div class="st-content">
+                        <%= render 'form' %>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Servicio<span class="st-arrow"></span></a>
+                    <div class="st-content">
+                        <%= render 'form2' %>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+  <thead>
+      <table id="itemTable" class="table table-hover">
+        <tr>
+          <th class="tg-hgcj"> Código del Bien</th>
+          <th class="tg-093g">Nombre</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @sustancias.each do |sustancia| %>
+          <tr>
+            <td class="tg-s6z2"><%= sustancia.id2 %></td>
+            <td class="tg-s6z2"><%=  sustancia.name  %></td>
+          </tr>
+        <% end %>
+        <% @equipment.each do |equipment| %>
+          <tr>
+            <td class="tg-s6z2"><%= equipment.id2 %></td>
+            <td class="tg-s6z2"><%=  equipment.name  %></td>
+          </tr>
+        <% end %>
+        <% @tools.each do |tool| %>
+          <tr>
+            <td class="tg-s6z2"><%= tool.id2 %></td>
+            <td class="tg-s6z2"><%=  tool.name  %></td>
+          </tr>
+        <% end %>
+        <% @consumables.each do |consumable| %>
+          <tr>
+            <td class="tg-s6z2"><%= consumable.id2 %></td>
+            <td class="tg-s6z2"><%=  consumable.name  %></td>
+          </tr>
+        <% end %>
+        <% @instruments.each do |instrument| %>
+          <tr>
+            <td class="tg-s6z2"><%= instrument.id2 %></td>
+            <td class="tg-s6z2"><%=  instrument.name  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </thead>
+  </div>
+</div>
+  <br>
+<div class="col-xs-12">
+  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás', inventario_url %>
+  <br><br><br><br>
+</div><br><br>
+
+<noscript>
+  <style>
+    .st-accordion ul li{
+      height:100%;
+    }
+    .st-accordion ul li > a span{
+      visibility:hidden;
+    }
+  </style>
+</noscript>
+
+

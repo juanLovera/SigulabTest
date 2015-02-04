@@ -1,6 +1,6 @@
 class InstrumentsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
+
   # GET /instruments
   # GET /instruments.json
   def index

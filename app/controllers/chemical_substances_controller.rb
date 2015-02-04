@@ -1,17 +1,18 @@
 class ChemicalSubstancesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_chemical_substance, only: [:show, :edit, :update, :destroy, :search, :hide]
 
   # GET /chemical_substances
   # GET /chemical_substances.json
   def index
   	if params[:search]
-		@chemical_substances = ChemicalSubstance.where(:showable => true).search(params[:search])
-# 		@chemical_substances_all=ChemicalSubstance.search(params[:search],params[:column])
-	else
-		@chemical_substances = ChemicalSubstance.where(:showable => true).order('created_at DESC')
-# 		@chemical_substances_all=ChemicalSubstance.all.order('created_at DESC')
-	end
+  		@chemical_substances = ChemicalSubstance.where(:showable => true).search(params[:search])
+   		@chemical_substances_all=ChemicalSubstance.search(params[:search],params[:column])
+  	else
+  		@chemical_substances = ChemicalSubstance.where(:showable => true).order('created_at DESC')
+   		@chemical_substances_all=ChemicalSubstance.all.order('created_at DESC')
+  	end
+    @sum = ChemicalSubstance.count
+    @items = params[:item_ids]
   end
 
   # GET /chemical_substances/1
@@ -32,6 +33,8 @@ class ChemicalSubstancesController < ApplicationController
   # POST /chemical_substances.json
   def create
     @chemical_substance = ChemicalSubstance.new(chemical_substance_params)
+    @sum = ChemicalSubstance.count
+    @chemical_substance.id2 = "SQ-" + "#{@sum + 1}"
 
     respond_to do |format|
       if @chemical_substance.save

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body>
+<table id="applicationsTable" class="table table-hover" >
+	  <thead>
+		 <tr>
+		   <th align="left">Identificador</th>
+		   <th align="left">Fecha Requerida</th>
+		   <th align="left">Descripción</th>
+		 </tr>
+	  </thead>
+
+	  <tbody>
+		 <% @applications.each do |application| %>
+	  		<tr>
+		     <td style="text-decoration:underline; color:black"><%= link_to application.id, application %></td>
+		     <td><%= application.fechaRequerida %></td>
+		     <td><%= application.descripcion %></td>
+		   </tr>
+		 <% end %>
+		 <% if @sumSolicitudes == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay solicitudes registradas</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+</body>
+
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+
+#applicationsTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+      font-size: 14px;
+  }
+
+#applicationsTable th td tr{
+ border-color:black;
+ }
+
+
+.table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#applicationsTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>

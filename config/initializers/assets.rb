@@ -16,3 +16,11 @@ Rails.application.config.assets.precompile += %w( demo_table_jui.css )
 Rails.application.config.assets.precompile += %w( examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css )
 Rails.application.config.assets.precompile += %w( jquery.dataTables.js )
 Rails.application.config.assets.precompile += %w( tabla.js )
+
+Rails.application.config.assets.precompile += %w( style.css )
+Rails.application.config.assets.precompile += %w( jquery.accordion.js )
+Rails.application.config.assets.precompile += %w( jquery.easing.1.3.js )
+Rails.application.config.assets.precompile += %w( desplegable.js )
+
+Rails.application.config.assets.precompile += %w( bootstrap-datepicker.js )
+Rails.application.config.assets.precompile += %w( bootstrap-datepicker.es.js )

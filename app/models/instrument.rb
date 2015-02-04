@@ -7,6 +7,8 @@ class Instrument < ActiveRecord::Base
 	validates :location, :presence => {:message => "no puede ser blanco"}
 	validates :responsible, :presence => {:message => "no puede ser blanco"}
 	validates :measurement_unit, :presence => {:message => "no puede ser blanco"}
+	validates_presence_of :id2
+	validates_uniqueness_of :id2
 	before_save :uppercase_fields
 	before_update :uppercase_fields
 	
@@ -19,7 +21,6 @@ class Instrument < ActiveRecord::Base
 	def uppercase_fields
 		self.name=UnicodeUtils.upcase(self.name, :es)
 		self.brand=UnicodeUtils.upcase(self.brand, :es)
-		self.model=UnicodeUtils.upcase(self.model, :es)
 		self.measurement_unit=UnicodeUtils.upcase(self.measurement_unit, :es)
 		self.material=UnicodeUtils.upcase(self.material, :es)
 		self.status=UnicodeUtils.upcase(self.status, :es)
