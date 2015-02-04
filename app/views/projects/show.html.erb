@@ -66,7 +66,23 @@
  		    <tr>
 				<td class="col-xs-5 text-right">Estatus:</td>
 				<td class="col-xs-7"><%= Project.status_str[Project.statuses[@project.status]] %></td>
-  			</tr>  			  			
+  			</tr>
+  			<% if !@project.observation.blank? -%>
+		      <tr>
+			    <td class="col-xs-5 text-right">Observaciones:</td>
+                <td class="col-xs-7"><%= @project.observation %></td>
+			  </tr>
+			<% end %>	
+ 		    <tr>
+				<td class="col-xs-5 text-right">Número de cuenta:</td>
+				<td class="col-xs-7"><%= @project.num_cuenta %></td>
+  			</tr>
+  			<tr>
+				<td class="col-xs-5 text-right">Banco:</td>
+				<td class="col-xs-7"><%= Project.banco_str[Project.bancos[@project.banco]] %></td>
+  			</tr>
+
+
 		</table>
 	</div>
 	<div class="col-xs-12">

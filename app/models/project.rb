@@ -19,6 +19,21 @@ class Project < ActiveRecord::Base
   ]
   end
 
+
+  enum banco: [:canarias, :caribe, :venezuela, :banesco, :descuento, :exterior, :mercantil, :bicentenario]
+  def self.banco_str
+  [
+    'Banco Canarias de Venezuela',
+    'Bancaribe', 
+    'Banco de Venezuela',  
+    'Banesco', 
+    'Banco Occidental de Descuento', 
+    'Banco Exterior',
+    'Banco Mercantil',
+    'Banco Bicentenario'
+  ]
+  end
+
   def incoming_date_required
       errors.add(:incoming_date, "no puede estar en blanco para cambiar el status")
   end  
@@ -43,5 +58,8 @@ class Project < ActiveRecord::Base
   validates_numericality_of :hhrr, :greater_than_or_equal_to => 0, if: "!hhrr.blank?"
   validates :consumables, presence: true
   validates_numericality_of :consumables, :greater_than_or_equal_to => 0, if: "!consumables.blank?"
+  validates :banco, presence: true
+  validates :num_cuenta, length: { is: 20 }, numericality: { only_integer: true }, if: "!num_cuenta.blank?"
+
 
 end

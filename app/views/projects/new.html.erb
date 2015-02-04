@@ -143,6 +143,31 @@
 			</div>
 
 			<div class="form-group">
+				<label for='project_observation' class="col-xs-3 control-label text-right">Observaciones</label>
+				<div class='col-xs-4'>
+					<%= i.text_area :observation, class: 'form-control' %>
+				</div>
+			</div>
+
+
+			<hr />	
+
+			<div class="form-group">
+				<label for='num_cuenta' class="col-xs-3 control-label text-right">Número de cuenta <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :num_cuenta, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='banco' class="col-xs-3 control-label text-right">Banco <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.select(:banco, options_for_select(Project.banco_str.zip(Project.bancos.keys)), {:include_blank => true}, {class: "form-control"} ) %>
+       		    </div>
+			</div>
+
+
+			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Proyecto</button>
 					<%= link_to projects_path, class: "btn btn-default btn-danger" do %>

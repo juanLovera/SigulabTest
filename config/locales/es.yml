@@ -65,6 +65,9 @@ es:
         consumables: "Consumibles"
         incoming_date: "Fecha de ingreso de los recursos"
         status: "Estatus"
+        observation: "Observación"
+        banco: "Banco"
+        num_cuenta: "Número de cuenta"
     errors:
       models:
         income:
