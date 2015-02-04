@@ -76,18 +76,28 @@ function calculateAmount() {
 
 }
 
-$(document).ready(function(){
-    $("#project_status").change(function(){
-        if($("#project_status").val() == "annulled"){
-          $(".hidden_option1").fadeIn('fast');   
-        }            
-    });        
-});
+function changeAnnulledDate() {
 
-$(document).ready(function(){
-    $("#project_status").change(function(){
-        if($("#project_status").val() != "annulled"){
-          $(".hidden_option1").fadeOut('fast');   
-        }            
-    });        
-});
+	if ($('#project_status').val()== "annulled") {
+		$(".hidden_option1").fadeIn('fast');
+	} else {
+		$(".hidden_option1").fadeOut('fast');		
+	}
+
+}
+
+//$(document).ready(function(){
+//    $("#project_status").change(function(){
+//        if($("#project_status").val() == "annulled"){
+//          $(".hidden_option1").fadeIn('fast');   
+//        }            
+//    });        
+//});
+
+//$(document).ready(function(){
+//    $("#project_status").change(function(){
+//        if($("#project_status").val() != "annulled"){
+//          $(".hidden_option1").fadeOut('fast');   
+//        }            
+//    });        
+//});

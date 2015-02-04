@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204045015) do
+ActiveRecord::Schema.define(version: 20150204183455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -299,6 +299,8 @@ ActiveRecord::Schema.define(version: 20150204045015) do
     t.float    "other_amount",   default: 0.0
     t.date     "annulled_date"
     t.string   "num_cuenta"
+    t.string   "observation"
+    t.integer  "banco"
   end
 
   create_table "quotes", force: true do |t|
