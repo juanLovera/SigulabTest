@@ -19,6 +19,10 @@ class Project < ActiveRecord::Base
   ]
   end
 
+  def incoming_date_required
+      errors.add(:incoming_date, "no puede estar en blanco para cambiar el status")
+  end  
+
   validates :project_number, presence: true
   validates :project_number, numericality: { greater_than: 0 }, if: "!project_number.blank?"
   validates :contract, presence: true
@@ -28,19 +32,16 @@ class Project < ActiveRecord::Base
   validates :admin, presence: true
   validates :sae_code, presence: true
   validates :amount, presence: true
-  validates :amount, numericality: { greater_than_or_equal_to: 0 }, if: "!amount.blank?"
+  validates_numericality_of :amount, :greater_than_or_equal_to => 0, if: "!amount.blank?"
   validates :equipments, presence: true
-  validates :equipments, numericality: { greater_than_or_equal_to: 0 }, if: "!equipments.blank?"
+  validates_numericality_of :equipments, :greater_than_or_equal_to => 0, if: "!equipments.blank?"
   validates :services, presence: true
-  validates :services, numericality: { greater_than_or_equal_to: 0 }, if: "!services.blank?"
+  validates_numericality_of :services, :greater_than_or_equal_to => 0, if: "!services.blank?"
   validates :infrastructure, presence: true
-  validates :infrastructure, numericality: { greater_than_or_equal_to: 0 }, if: "!infrastructure.blank?"
+  validates_numericality_of :infrastructure, :greater_than_or_equal_to => 0, if: "!infrastructure.blank?"
   validates :hhrr, presence: true
-  validates :hhrr, numericality: { greater_than_or_equal_to: 0 }, if: "!hhrr.blank?"
+  validates_numericality_of :hhrr, :greater_than_or_equal_to => 0, if: "!hhrr.blank?"
   validates :consumables, presence: true
-  validates :consumables, numericality: { greater_than_or_equal_to: 0 }, if: "!consumables.blank?"
-  validates :incoming_date, presence: true  
-  validates_date :incoming_date, if: "!incoming_date.blank?"
-  validates :status, presence: true
+  validates_numericality_of :consumables, :greater_than_or_equal_to => 0, if: "!consumables.blank?"
 
 end
