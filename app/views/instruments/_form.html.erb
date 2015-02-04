@@ -1,3 +1,6 @@
+<%= javascript_include_tag 'bootstrap-datepicker.js' %>
+<%= javascript_include_tag 'bootstrap-datepicker.es.js' %>
+
 <%= form_for(@instrument) do |f| %>
   <% if @instrument.errors.any? %>
     <div id="error_explanation">
@@ -64,7 +67,7 @@
 
           <tr>
             <td class="col-xs-5 text-right"><strong>Última Calibración:</strong></td>
-            <td class="col-xs-7"> <%= f.text_field :last_calibration, :class => "datepicker" %></td> </td>
+            <td class="col-xs-7"><%= f.text_field :last_calibration, :class => 'bootlayout-date'%></td> </td>
           </tr>
 
           <tr>
@@ -90,7 +93,7 @@
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "datepicker" %></td> 
+            <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "bootlayout-date" %></td> 
           </tr>
     
           <tr>

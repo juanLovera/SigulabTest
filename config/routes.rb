@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :donations
+
   resources :applications
 
   resources :loans

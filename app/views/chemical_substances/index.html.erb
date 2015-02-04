@@ -32,14 +32,6 @@
 
         </style> 
 
-      <div id="search">
-  		<%= form_tag(chemical_substances_path, :method => "get", id: "search-form") do %>
-  			<%= text_field_tag :search, params[:search], placeholder: "Nombre de la Sustancia" %>
-  			<%= submit_tag "Buscar", :class => 'btn btn-success btn-sm', :name => nil %>
-  		<% end %>
-      </div>
-      <br>
-
       <body id="dt_example" class="ex_highlight_row">
         <div id="container">
           <div id="demo">
@@ -50,7 +42,7 @@
                 <thead>
                   <tr>
                     <% if @sum > 0 %>
-                    	<th></th>
+                      <th></th>
                     <% end %>
                     <th class="tg-093g">Nombre</th>
                     <th class="tg-093g">Estado de la Materia</th>
@@ -102,10 +94,10 @@
  <style>
 
 .linkButton { 
-	 text-decoration: none;
-	 text-align: right;
-	 color: #384157;
-	 font-weight: bold;
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
      background: none repeat scroll 0px 0px transparent;
      border: none;
 }
