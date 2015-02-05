@@ -85,19 +85,3 @@ function changeAnnulledDate() {
 	}
 
 }
-
-//$(document).ready(function(){
-//    $("#project_status").change(function(){
-//        if($("#project_status").val() == "annulled"){
-//          $(".hidden_option1").fadeIn('fast');   
-//        }            
-//    });        
-//});
-
-//$(document).ready(function(){
-//    $("#project_status").change(function(){
-//        if($("#project_status").val() != "annulled"){
-//          $(".hidden_option1").fadeOut('fast');   
-//        }            
-//    });        
-//});

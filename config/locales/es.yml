@@ -36,6 +36,7 @@ es:
         date: "Fecha"
         doc_code: "Número de Documento"
         doc_date: "Fecha de Documento"
+        financing: "Fuente de Financiamiento"
       commitment:
         amount: "Monto"
         sae_code: "Código SAE"
