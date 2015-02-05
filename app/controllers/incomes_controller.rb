@@ -31,7 +31,15 @@ class IncomesController < ApplicationController
         params[:income][:date] = nil
       end
     end
+
+binding.pry
+
+    if params[:income][:resource] == ""
+    	params[:income][:resource] = 0
+    end
     
+binding.pry
+
     @income = Income.new(income_params)
   
     if @income.save
@@ -58,6 +66,11 @@ class IncomesController < ApplicationController
         params[:income][:date] = nil
       end
     end
+
+    if params[:income][:resource] == ""
+    	params[:income][:resource] = 0
+    end
+
     @income = Income.find(params[:id])
     
     if @income.update_attributes(income_params)
