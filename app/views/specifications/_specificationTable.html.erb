@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-  
-</head>
-<body>
-<table id="specificationTable" class="table table-hover" >
+
+<table id="example" class="table table-hover" >
 	  <thead>
 		 <tr>
-		   <th align="left">No. de Especificación</th>
-		   <th align="left">Nombre</th>
+		   <th align="left">Nro</th>
+		   <th align="left">Tipo</th>
+		   <th align="left" style="width: 60%;">Nombre</th>
+                   <th align="left">Estado</th>
+		   <th align="left"></th>
 		 </tr>
 	  </thead>
 
 	  <tbody>
-		 <% @specifications.each do |specification| %>
+		 <% @specifications.each_with_index do |specification,index| %>
 	  		<tr>
-		     <td style="text-decoration:underline; color:black"><%= link_to specification.id, solicitud_url %></td>
-		     <td><%= specification.nombre %></td>
+		     <td><%= index+1 %></td>
+		     <td><%= specification.tipo %></td>
+		     <td style="width: 60%;"><%= specification.nombre %></td>
+	             <td style="padding-top:15px;"><span style="font-size:12px;" class="label label-warning">Incompleta</span></td>
+		     <td style="text-align:right">
+		     <%= link_to '<button type="button" class="btn btn-primary">Completar</button>'.html_safe,  {:controller => "comprando", :action => "seleccionarEspecificacion", :specification => specification.id } %></td>
 		   </tr>
 		 <% end %>
 		 <% if @sumSpecifications == 0 %>
@@ -26,8 +28,16 @@
 		 <% end %>
 	  </tbody>
 	</table>
-</body>
-
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
 <style>
 
 a:visited { 

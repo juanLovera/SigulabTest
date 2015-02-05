@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>  
-</head>
-<body>
 
-	<table id="serviceTable"  class="table table-hover">
+
+	<table id="example"  class="table table-hover">
 	  <thead>
 		 <tr>
+		   <th>Nro</th>
 		   <th>Nombre</th>
 		   <th>Descripción</th>
          <th>Tipo de servicio</th>
+ <th></th>
 		 </tr>
 	  </thead>
 	  <tbody>
-		 <% @services.each do |service| %>
+		 <% @services.each_with_index do |service, index| %>
 		   <tr>
-		     <td style="text-decoration:underline; color:black"><%= link_to service.nombre, service %></td>
-		     <td><%= service.numeroBien%></td>
+		     <td><%= index+1 %></td>
+		     <td><%= service.nombre %></td>
+		     <td><%= service.descripcion %></td>
            <td><%= service.tipo%></td>
+<td style="text-decoration:none; color:black; text-align: right"><%= link_to 'Editar', service %></td>
 		   </tr>
 		 <% end %>
 		 <% if @sumService == 0 %>
@@ -27,7 +27,16 @@
 		 <% end %>
 	  </tbody>
 	</table>
-</body>
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
 
 <style>
 

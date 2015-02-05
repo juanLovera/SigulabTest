@@ -55,9 +55,9 @@ class ReporteServices < Prawn::Document
 
  
   def items_rows
-    [['Tipo', 'Descripción', 'Nombre', 'Número', 'Ubicacion']] +
+    [['Tipo', 'Descripción', 'Nombre', 'Número de BN', 'Ubicacion']] +
       @services.map do |service|
-      [service.tipo, service.descripcion, service.nombre, service.numeroBien, service.ubicacion]
+      [service.tipo, service.descripcion, service.nombre, service.numero, service.ubicacion]
     end
   end
 

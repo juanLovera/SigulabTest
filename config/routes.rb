@@ -31,6 +31,12 @@ Rails.application.routes.draw do
   resources :tools
   resources :instruments
   resources :equipment
+  resources :recommendations
+  resources :comprando do
+    collection do
+        get 'seleccionarEspecificacion', as: :seleccionarEspecificacion
+    end
+end
 
   devise_for :users,
               :controllers => {:registrations => "my_devise/registrations"}

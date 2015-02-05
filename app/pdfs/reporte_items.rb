@@ -52,9 +52,11 @@ class ReporteItems < Prawn::Document
   end
  
   def items_rows
+    
     [['Tipo','Nombre','Descripción','Dimensiones','Cantidad']] +
       @items.map do |item|
-      [item.tipo, item.nombre, item.descripcion, item.dimensiones, item.cantidad]
+       dimensiones = "Alto: #{item.dimensiones_alto} #{item.unidad_alto}, Ancho: #{item.dimensiones_ancho} #{item.unidad_ancho}, Largo: #{item.dimensiones_largo} #{item.unidad_largo}"
+      [item.tipo, item.nombre, item.descripcion, dimensiones, item.cantidad]
     end
   end
 

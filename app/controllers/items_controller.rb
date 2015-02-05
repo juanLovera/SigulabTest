@@ -7,15 +7,26 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     if current_user
-   	 @items = Item.where(:user_id => current_user.username).all
-     @sumItem = Item.where(:user_id => current_user.username).count
+   	 @items = Item.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+     @sumItem = Item.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
     end
+    specification = Specification.find(session[:specification_sel_id])
     respond_to do |format|
       format.html
       format.pdf do
         pdf = ReporteItems.new(@items)
-        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+        nombre = "Especificacion_#{session[:specification_sel_id]}.pdf"
+        send_data pdf.render, filename: nombre, type: 'application/pdf'
       end
+      format.xml do
+      specification.p1 = 2
+        specification.p2 = 1
+        specification.save
+        session[:specification_p2] = 1
+        session[:specification_p1] = 2
+      redirect_to "/items?pdf=1"
+      end
+
     end
   end
 
@@ -42,7 +53,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.save
 
-        format.html { redirect_to @item, notice: 'Se ha creado el item exitosamente.' }
+        format.html { redirect_to items_url, notice: 'Se ha creado el item exitosamente.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -83,6 +94,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:nombre, :tipo, :descripcion, :dimensiones, :cantidad, :unidad)
+      params.require(:item).permit(:nombre, :tipo, :descripcion, :dimensiones_largo, :dimensiones_alto, :dimensiones_ancho, :cantidad, :unidad_ancho, :unidad_largo, :unidad_alto, :specification_id)
     end
 end

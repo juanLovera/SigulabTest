@@ -32,14 +32,10 @@ class IncomesController < ApplicationController
       end
     end
 
-binding.pry
-
     if params[:income][:resource] == ""
     	params[:income][:resource] = 0
     end
     
-binding.pry
-
     @income = Income.new(income_params)
   
     if @income.save

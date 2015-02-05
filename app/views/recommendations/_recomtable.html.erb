@@ -1,0 +1,86 @@
+<div class="grid_12">
+
+	<table id="example" class="table table-hover">
+	  <thead>
+		 <tr>
+		   <th>Nro</th>
+		   <th>Código de identificación</th>
+		 </tr>
+	  </thead>
+	  <tbody>
+		 <% @recommendations.each_with_index do |rec,index| %>
+		   <tr>
+		     <td><%= index+1 %></td>
+		     <td><%= rec.codigo %></td>
+	
+		   </tr>
+		 <% end %>
+		 <% if @sumRec == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No existe carta de recomendación registrada</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+
+</div>
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+
+#quoteTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+      font-size: 14px;
+  }
+
+#quoteTable th td tr{
+ border-color:black;
+ }
+
+
+.table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#quoteTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>

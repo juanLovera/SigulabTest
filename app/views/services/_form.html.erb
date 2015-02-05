@@ -1,43 +1,41 @@
-# encoding: utf-8
 <div class="grid_12 push_5">
   <%= form_for(@service) do |f| %>
-  <% if @service.errors.any? %>
-      <h2>Rellene todos los campos obligatorios</h2>
-      <br>
-  <% end %>
-	<div class ="table">
+    <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @service.errors.full_messages.first if @service.errors.any? %> </span>
+	<table style="margin-left:-130px; margin-top:15px;"><tr><td>
+                   <div class="field">
+         <span class="red">*</span>
+    		 <%= f.label "Nro de bien nacional del equipo" %><br>
+          <%= f.text_field :numero %>
+  		 </div></td><td>
+                    <div class="field">
+         <span class="red">*</span>
+    		 <%= f.label "Nombre del equipo" %><br>
+          <%= f.text_field :nombre %>
+  		 </div></td></tr><tr><td>
+              		 <div class="field">
+         <span class="red">*</span>
+    		 <%= f.label "Ubicación del equipo"  %><br>
+    		 <%= f.text_area :ubicacion %>
+  		 </div></td><td>
  		   <div class="field">
          <span class="red">*</span>
     		 <%= f.label "Tipo de servicio" %><br>
           <%= f.collection_select :tipo, Service::TipoServicio, :to_s, :to_s, 
           :include_blank => true %>
-  		 </div>
+                   </div></td></tr><tr><td colspan="2">
        <div class="field">
          <span class="red">*</span>
          <%= f.label "Descripción del Servicio" %><br>
-          <%= f.text_area :descripcion, :placeholder => "Máximo 100 caracteres" %>
-       </div>
-        <div class="field">
-         <span class="red">*</span>
-    		 <%= f.label "Nombre del equipo" %><br>
-          <%= f.text_field :nombre %>
-  		 </div>
-       <div class="field">
-         <span class="red">*</span>
-    		 <%= f.label "Número del bien" %><br>
-          <%= f.text_field :numeroBien %>
-  		 </div>
-  		 <div class="field">
-         <span class="red">*</span>
-    		 <%= f.label "Ubicación del equipo"  %><br>
-    		 <%= f.text_area :ubicacion %>
-  		 </div><br>
+          <%= f.text_area :descripcion, :maxlength => 160, :style => "width:425px; height:80px;", :placeholder => "Máximo 160 caracteres" %>
+       </div></td></tr><tr><td colspan="2" style="padding-left:140px;">
+
+<br><%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
   		 <div class="actions">
-       <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' } %>
+       <%= f.submit "Aceptar", :style => "float:left; ", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' } %>
   		 </div><br>
        <% end %>
-  		 <%= link_to '<button type="button" class="btn btn-primary"> Volver a la página anterior </button>'.html_safe,    especificacionesTecnicas_url %><br>
-	</div>
+  		 <%= link_to '<button type="button" style="margin-left:10px; margin-top:-41px;" class="btn btn-primary"> Cancelar </button>'.html_safe,    services_url %><br>
+	</td></tr></table>
 </div>
 
 <style>
@@ -126,4 +124,3 @@ display: table;
 }
 
 </style>
-
