@@ -1,7 +1,7 @@
 <%= form_for(@donation) do |f| %>
   <% if @donation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+      <h2><%= pluralize(@donation.errors.count, "error(es)") %> prohíben que esta donación sea guardada:</h2>
 
       <ul>
       <% @donation.errors.full_messages.each do |message| %>
@@ -11,31 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombreItem %><br>
-    <%= f.text_field :nombreItem %>
-  </div>
-  <div class="field">
-    <%= f.label :marca %><br>
-    <%= f.text_field :marca %>
-  </div>
-  <div class="field">
-    <%= f.label :modelo %><br>
-    <%= f.text_field :modelo %>
-  </div>
-  <div class="field">
-    <%= f.label :cantidad %><br>
-    <%= f.text_field :cantidad %>
-  </div>
-  <div class="field">
-    <%= f.label :unidadMedida %><br>
-    <%= f.text_field :unidadMedida %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo %><br>
-    <%= f.text_field :tipo %>
-  </div>
-  <div class="actions">
+<div class ="Informacion">
+
+<div class="col-xs-12">
+        <table class="table table-striped">
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :nombreItem %>
+            <span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :marca %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :modelo %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :cantidad %>
+            <span class="red">*</span></td>
+          </tr>  
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Unidad de Medida:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :unidadMedida %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
+            <td class="col-xs-7"><%= f.select(:tipo, [ ['Equipos/Mobiliarios'],['Instrumetos de Medición'],
+              ['Herramientas'], ['Materiales'], ['Consumibles'] ] ) %></td>
+          </tr>
+
+    <tr>
+
+    <td class="col-xs-5 text-right">
+      <div class="actions">
     <%= f.submit %>
+        </div>
+    </tr>
+
+           </table>
+
+      </div>
+    <br>
+    <br><br>
   </div>
+
 <% end %>

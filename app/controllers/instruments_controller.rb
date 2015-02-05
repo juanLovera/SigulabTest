@@ -12,6 +12,7 @@ class InstrumentsController < ApplicationController
 		@instruments = Instrument.where(:showable => true).all.order('created_at DESC')
 		@instruments_all = Instrument.all.order('created_at DESC')
 	end
+  @sum = Instrument.count
   end
 
   # GET /instruments/1

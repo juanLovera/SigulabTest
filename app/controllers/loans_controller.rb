@@ -6,7 +6,6 @@ class LoansController < ApplicationController
   def index
     @loans = Loan.all
     @sumSolicitudes = Loan.all.count
-    binding.pry
   end
 
   # GET /loans/1
@@ -29,7 +28,6 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
-    binding.pry
     @loan = Loan.new
     @equipment = Equipment.where(id2: params[:item_ids])
     @instruments = Instrument.where(id2: params[:item_ids])
