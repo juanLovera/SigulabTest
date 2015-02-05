@@ -71,6 +71,7 @@ class Project < ActiveRecord::Base
   validates :consumables, presence: true
   validates_numericality_of :consumables, :greater_than_or_equal_to => 0, if: "!consumables.blank?"
   validates :banco, presence: true
+  validates :num_cuenta, presence: true
   validates :num_cuenta, length: { is: 20 }, numericality: { only_integer: true }, if: "!num_cuenta.blank?"
   validates :furniture, presence: true
   validates_numericality_of :furniture, :greater_than_or_equal_to => 0, if: "!furniture.blank?"
