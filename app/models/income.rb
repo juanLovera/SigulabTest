@@ -55,5 +55,8 @@ class Income < ActiveRecord::Base
   validates :unit, length: {maximum: 512}
   validates :variation, length: {maximum: 512}
   validates :resource_description, length: {maximum: 1024}
+
+  validates :financing, presence: true
+  validates :organism, presence: true
   
 end
