@@ -1,0 +1,2604 @@
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-05 18:57:45 -0430
+
+ActiveRecord::NoDatabaseError (FATAL:  database "sigulab" does not exist
+Run `$ bin/rake db:create db:migrate` to create your database):
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:898:in `rescue in connect'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:888:in `connect'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:568:in `initialize'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.1.4) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.4) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.2ms)
+  [1m[36m (47.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (31.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateLabs (20141015213605)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (90.0ms)[0m  [1mCREATE TABLE "labs" ("id" serial primary key, "name" character varying(255)) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141015213605"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20141024232547)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (9.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "usbid" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (6.7ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (4.2ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141024232547"]]
+  [1m[36m (3.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnToUsers (20141024232818)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "users" ADD COLUMN "username" character varying(255)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141024232818"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveColumnFromUsers (20141024232834)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "users" DROP "usbid"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141024232834"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEquipment (20141103191120)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (9.2ms)[0m  [1mCREATE TABLE "equipment" ("id" serial primary key, "name" character varying(255), "brand" character varying(255), "model" character varying(255), "serial" character varying(255), "national_good" integer, "status" character varying(255), "last_calibration" date, "use" text, "responsible" character varying(255), "location" character varying(255), "adquisition_date" date, "buy_order" character varying(255), "cost" float, "bill" character varying(255), "investigation" boolean, "teaching" boolean, "extention" boolean, "management" boolean, "calibrated" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141103191120"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateInstruments (20141103191808)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (10.4ms)[0m  [1mCREATE TABLE "instruments" ("id" serial primary key, "name" character varying(255), "brand" character varying(255), "model" character varying(255), "measurement_unit" character varying(255), "capacity" float, "material" character varying(255), "use" character varying(255), "status" character varying(255), "location" character varying(255), "last_calibration" date, "responsible" character varying(255), "national_good" integer, "investigation" boolean, "teaching" boolean, "extention" boolean, "management" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141103191808"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTools (20141103192301)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (15.3ms)[0m  [1mCREATE TABLE "tools" ("id" serial primary key, "name" character varying(255), "brand" character varying(255), "type" character varying(255), "national_good" integer, "status" character varying(255), "use" character varying(255), "responsible" character varying(255), "location" character varying(255), "material" character varying(255), "bill" character varying(255), "from_set" boolean, "investigation" boolean, "teaching" boolean, "extention" boolean, "management" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141103192301"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateConsumables (20141103192923)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (7.9ms)[0m  [1mCREATE TABLE "consumables" ("id" serial primary key, "name" character varying(255), "description" character varying(255), "dimentions" character varying(255), "material" character varying(255), "quantity" character varying(255), "location" character varying(255), "use" character varying(255), "responsible" character varying(255), "investigation" boolean, "teaching" boolean, "extention" boolean, "management" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141103192923"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateChemicalSubstances (20141103195104)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (41.2ms)[0m  [1mCREATE TABLE "chemical_substances" ("id" serial primary key, "name" character varying(255), "purity" character varying(255), "matter_states" character varying(255), "quantity" character varying(255), "meassure" character varying(255), "cas" character varying(255), "status" character varying(255), "responsible" character varying(255), "location" character varying(255), "expiration_date" date, "controlled" boolean, "rI7" boolean, "rI4" boolean, "toxic" boolean, "oxidant" boolean, "explosive" boolean, "irritating" boolean, "inflamable" boolean, "corrosive" boolean, "nocive" boolean, "investigation" boolean, "teaching" boolean, "extention" boolean, "management" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141103195104"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCommitments (20141104200633)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (9.4ms)[0m  [1mCREATE TABLE "commitments" ("id" serial primary key, "lab_id" integer, "code" character varying(255), "amount" float, "description" character varying(255), "recipient" character varying(255), "date" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141104200633"]]
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateExecutions (20141104201235)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "executions" ("id" serial primary key, "commitment_id" integer, "code" character varying(255), "amount" float, "date" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (39.2ms)[0m  CREATE  INDEX  "index_executions_on_commitment_id" ON "executions"  ("commitment_id")
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141104201235"]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Migrating to CreateChecks (20141104223346)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.3ms)[0m  CREATE TABLE "checks" ("id" serial primary key, "execution_id" integer, "check_number" character varying(255), "amount" float, "elaboration_date" timestamp, "sign_date" timestamp, "delivery_date" timestamp, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (7.2ms)[0m  [1mCREATE  INDEX  "index_checks_on_execution_id" ON "checks"  ("execution_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141104223346"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddAdministratorToUser (20141105124545)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD COLUMN "administrator" boolean[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105124545"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddTechnicianToUser (20141105125545)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "users" ADD COLUMN "technician" boolean[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105125545"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddLabBossToUser (20141105125634)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "users" ADD COLUMN "labBoss" boolean[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105125634"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddSaeCodeToLabs (20141105154113)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (8.5ms)[0m  [1mALTER TABLE "labs" ADD COLUMN "sae_code" character varying(255)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105154113"]]
+  [1m[36m (30.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddSaeNameToLabs (20141105155701)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "labs" ADD COLUMN "sae_name" character varying(255)[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105155701"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateIncomes (20141105160112)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (49.5ms)[0m  [1mCREATE TABLE "incomes" ("id" serial primary key, "lab_id" integer, "amount" float, "origin" integer DEFAULT 0, "description" character varying(255), "date" timestamp, "organism" character varying(255), "document" character varying(255), "financing" character varying(255), "unit" character varying(255), "resource" integer DEFAULT 0, "variation" character varying(255), "resource_description" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105160112"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateItems (20141105205523)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (12.5ms)[0m  [1mCREATE TABLE "items" ("id" serial primary key, "nombre" character varying(255), "tipo" character varying(255), "descripcion" text, "dimensiones" character varying(255), "cantidad" integer, "unidad" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105205523"]]
+  [1m[36m (4.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateServices (20141105205857)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (42.3ms)[0m  [1mCREATE TABLE "services" ("id" serial primary key, "nombre" character varying(255), "numeroBien" character varying(255), "tipo" character varying(255), "descripcion" text, "ubicacion" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105205857"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddNumeroBienItem (20141105205914)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "items" ADD COLUMN "numeroBien" character varying(255)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105205914"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateInvitations (20141105210046)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (9.4ms)[0m  [1mCREATE TABLE "invitations" ("id" serial primary key, "nombreEmpresa" character varying(255), "direccion" character varying(255), "correo" character varying(255), "telefono" character varying(255), "telefonoAdicional" character varying(255), "responsable" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105210046"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveUseFromEquipment (20141105234752)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "equipment" DROP "use"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141105234752"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddLenghtToEquipment (20141106000846)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "lenght" decimal[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106000846"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Migrating to AddDepthToEquipment (20141106001011)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "depth" decimal[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106001011"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddWidthToEquipment (20141106001046)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "width" decimal[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106001046"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddMeassureToEquipment (20141106001109)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "meassure" character varying(255)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106001109"]]
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveDimentionsFromConsumables (20141106001414)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "consumables" DROP "dimentions"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106001414"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveUseFromConsumables (20141106001439)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "consumables" DROP "use"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106001439"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveUseFromInstruments (20141106001506)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "instruments" DROP "use"[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106001506"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveUseFromTools (20141106001831)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mALTER TABLE "tools" DROP "use"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106001831"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveAdministratorFromUsers (20141106235038)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" DROP "administrator"[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106235038"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddDirectorToUsers (20141106235311)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD COLUMN "director" boolean[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106235311"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddAcquisitionToUsers (20141106235639)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "users" ADD COLUMN "acquisition" boolean[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106235639"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddAcquisitionAnalistToUsers (20141106235655)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD COLUMN "acquisition_analist" boolean[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106235655"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Migrating to AddImportAnalistToUsers (20141106235817)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "users" ADD COLUMN "import_analist" boolean[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106235817"]]
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddImportToUsers (20141106235830)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD COLUMN "import" boolean[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141106235830"]]
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddManageToUsers (20141107000025)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD COLUMN "manage" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000025"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddManageAnalistToUsers (20141107000039)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD COLUMN "manage_analist" boolean[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000039"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddQualityAnalistToUsers (20141107000257)
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD COLUMN "quality_analist" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000257"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddQualityToUsers (20141107000309)
+  [1m[35m (5.7ms)[0m  BEGIN
+  [1m[36m (3.1ms)[0m  [1mALTER TABLE "users" ADD COLUMN "quality" boolean[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000309"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddGsmpToUsers (20141107000325)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "users" ADD COLUMN "gsmp" boolean[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000325"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddDirectorateToUsers (20141107000459)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD COLUMN "directorate" boolean[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000459"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddLabassistantToUsers (20141107000605)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD COLUMN "labassistant" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000605"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddSectionBossToUsers (20141107000927)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD COLUMN "section_boss" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107000927"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddProyResponsibleToUsers (20141107001136)
+  [1m[35m (1.8ms)[0m  BEGIN
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "users" ADD COLUMN "proy_responsible" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107001136"]]
+  [1m[36m (5.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddExternalToUsers (20141107001322)
+  [1m[35m (1.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD COLUMN "external" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141107001322"]]
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeTypesChemicalSubstances (20141111064036)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "chemical_substances" DROP "purity"[0m
+  [1m[35m (3.3ms)[0m  ALTER TABLE "chemical_substances" DROP "quantity"
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "purity" float[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "chemical_substances" ADD COLUMN "quantity" float
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141111064036"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Migrating to CreateActs (20141112221640)
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (37.0ms)[0m  CREATE TABLE "acts" ("id" serial primary key, "numRegistro" character varying(255), "proveedor" character varying(255), "bienServicio" character varying(255), "tesis" character varying(255), "responsable" character varying(255), "justificacion" character varying(255), "providencia" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141112221640"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+Migrating to AddBillAndBuyOrderToChemicalSubstances (20141115181449)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "chemical_substances" ADD COLUMN "cost" decimal
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "bill" character varying(255)[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "chemical_substances" ADD COLUMN "buy_order" character varying(255)
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "adquisition_date" date[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141115181449"]]
+  [1m[36m (4.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddShowableandRemoveManagementFromChemicalSubstances (20141115210210)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (19.6ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "showable" boolean DEFAULT 't'[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "chemical_substances" DROP "management"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141115210210"]]
+  [1m[35m (3.5ms)[0m  COMMIT
+Migrating to CreateDevolutions (20141115224547)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (16.9ms)[0m  CREATE TABLE "devolutions" ("id" serial primary key, "numRegistro" character varying(255), "numRequisicion" character varying(255), "requisicion" boolean, "numAutorizacion" character varying(255), "autorizacion" boolean, "numCertificacion" character varying(255), "certificacion" boolean, "numSolicitud" character varying(255), "solicitud" boolean, "numInforme" character varying(255), "informe" boolean, "numOtro" character varying(255), "otro" boolean, "disponibilidad" boolean, "idioma" boolean, "discriminado" boolean, "firma" boolean, "carencia" boolean, "nombre" boolean, "direccion" boolean, "datos" boolean, "rif" boolean, "telefonos" boolean, "persona" boolean, "otroCarencia" boolean, "contacto" boolean, "copia" boolean, "factura" boolean, "foto" boolean, "observaciones" text, "unidadSolicitante" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141115224547"]]
+  [1m[35m (3.1ms)[0m  COMMIT
+Migrating to CreateQuotes (20141116154606)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (8.5ms)[0m  CREATE TABLE "quotes" ("id" serial primary key, "nombre" character varying(255), "attachment" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141116154606"]]
+  [1m[35m (28.4ms)[0m  COMMIT
+Migrating to AddUseridToInvitations (20141117041756)
+  [1m[36m (1.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "invitations" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141117041756"]]
+  [1m[35m (3.5ms)[0m  COMMIT
+Migrating to AddUseridToItems (20141117181944)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "items" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141117181944"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Migrating to AddUseridToServices (20141117181952)
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "services" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141117181952"]]
+  [1m[35m (4.3ms)[0m  COMMIT
+Migrating to AddUseridToActs (20141117182038)
+  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "acts" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141117182038"]]
+  [1m[35m (2.7ms)[0m  COMMIT
+Migrating to AddUseridToQuotes (20141117182048)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "quotes" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141117182048"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Migrating to AddBillAndBuyOrderToConsumables (20141118070709)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "consumables" ADD COLUMN "cost" decimal
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "consumables" ADD COLUMN "bill" character varying(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "consumables" ADD COLUMN "buy_order" character varying(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "consumables" ADD COLUMN "adquisition_date" date[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141118070709"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeDecriptionTypeToTextInConsumables (20141118071604)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "consumables" DROP "description"[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "consumables" ADD COLUMN "description" text
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141118071604"]]
+  [1m[35m (7.9ms)[0m  COMMIT
+Migrating to ChangeTypesEquipments (20141118075833)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "equipment" DROP "cost"
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "equipment" DROP "lenght"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "equipment" DROP "depth"
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "equipment" DROP "width"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "equipment" DROP "meassure"
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "cost" decimal[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "equipment" ADD COLUMN "length" float
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "depth" float[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "equipment" ADD COLUMN "width" float
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "measurelength" character varying(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "equipment" ADD COLUMN "measuredepth" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "measurewidth" character varying(255)[0m
+  [1m[35m (21.3ms)[0m  ALTER TABLE "equipment" ADD COLUMN "showable" boolean DEFAULT 't'
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141118075833"]]
+  [1m[35m (37.2ms)[0m  COMMIT
+Migrating to AddShowableToConsumables (20141118082250)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (18.4ms)[0m  ALTER TABLE "consumables" ADD COLUMN "showable" boolean DEFAULT 't'
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141118082250"]]
+  [1m[35m (2.4ms)[0m  COMMIT
+Migrating to AddUserIdToDevolutions (20141120205435)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "devolutions" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141120205435"]]
+  [1m[35m (1.9ms)[0m  COMMIT
+Migrating to CreateRequisitions (20141120212009)
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (15.3ms)[0m  CREATE TABLE "requisitions" ("id" serial primary key, "solicitante" character varying(255), "consumidor" character varying(255), "partida" character varying(255), "autor" character varying(255), "observacion" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141120212009"]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Migrating to AddUserIdToRequisitions (20141120215815)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "requisitions" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141120215815"]]
+  [1m[35m (5.2ms)[0m  COMMIT
+Migrating to AddBillAndBuyOrderAndShowableToInstruments (20141120224629)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "instruments" ADD COLUMN "cost" decimal
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "instruments" ADD COLUMN "bill" character varying(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "instruments" ADD COLUMN "buy_order" character varying(255)
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "instruments" ADD COLUMN "adquisition_date" date[0m
+  [1m[35m (17.6ms)[0m  ALTER TABLE "instruments" ADD COLUMN "showable" boolean DEFAULT 't'
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141120224629"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+Migrating to AddSaeCodeToIncomes (20141121030120)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "incomes" ADD COLUMN "sae_code" character varying(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121030120"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Migrating to AddSaeCodeToCommitments (20141121032311)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "commitments" ADD COLUMN "sae_code" character varying(255)
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121032311"]]
+  [1m[35m (4.3ms)[0m  COMMIT
+Migrating to ChangeFinancingOfIncomes (20141121034115)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "incomes" DROP "financing"
+  [1m[36m (13.5ms)[0m  [1mALTER TABLE "incomes" ADD COLUMN "financing" integer DEFAULT 0[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141121034115"]]
+  [1m[36m (10.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddBillAndBuyOrderAndShowableAndChangeTypeFromSetOfTools (20141121045937)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "tools" ADD COLUMN "cost" decimal[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "tools" ADD COLUMN "buy_order" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "tools" ADD COLUMN "adquisition_date" date[0m
+  [1m[35m (20.7ms)[0m  ALTER TABLE "tools" ADD COLUMN "showable" boolean DEFAULT 't'
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "tools" DROP "from_set"[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "tools" ADD COLUMN "from_set" boolean
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121045937"]]
+  [1m[35m (4.1ms)[0m  COMMIT
+Migrating to AddObservationsToCommitments (20141121051410)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "commitments" ADD COLUMN "observations" text
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121051410"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Migrating to AddDependencyToAllInventario (20141121051448)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "equipment" ADD COLUMN "dependency" character varying(255)
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "dependency" character varying(255)[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "consumables" ADD COLUMN "dependency" character varying(255)
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "instruments" ADD COLUMN "dependency" character varying(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "tools" ADD COLUMN "dependency" character varying(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121051448"]]
+  [1m[35m (2.8ms)[0m  COMMIT
+Migrating to AddDocumentToCommitments (20141121124418)
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (10.3ms)[0m  ALTER TABLE "commitments" ADD COLUMN "document" integer DEFAULT 0
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121124418"]]
+  [1m[35m (4.6ms)[0m  COMMIT
+Migrating to CreateSpecifications (20141121135738)
+  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "specifications" ("id" serial primary key, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121135738"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+Migrating to AddUserIdToSpecifications (20141121135952)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "specifications" ADD COLUMN "user_id" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121135952"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Migrating to AddNombreToSpecifications (20141121140129)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (7.1ms)[0m  ALTER TABLE "specifications" ADD COLUMN "nombre" character varying(255)
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121140129"]]
+  [1m[35m (2.4ms)[0m  COMMIT
+Migrating to AddSpecificationIdToActs (20141121145158)
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  ALTER TABLE "acts" ADD COLUMN "specification_id" character varying(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121145158"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+Migrating to AddDocumentToExecutions (20141121145521)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (16.4ms)[0m  ALTER TABLE "executions" ADD COLUMN "document" integer DEFAULT 0
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141121145521"]]
+  [1m[35m (2.5ms)[0m  COMMIT
+Migrating to FinishFieldsOfExecution (20141121161335)
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "executions" RENAME COLUMN "amount" TO "check_amount"
+  [1m[36m (3.9ms)[0m  [1mALTER TABLE "executions" ADD COLUMN "check_number" character varying(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "executions" ADD COLUMN "check_elaboration_date" timestamp
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "executions" ADD COLUMN "check_sign_date" timestamp[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "executions" ADD COLUMN "check_delivery_date" timestamp
+  [1m[36m (2.7ms)[0m  [1mALTER TABLE "executions" ADD COLUMN "check_delivery_status" integer[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141121161335"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Migrating to AddDoccodeToIncomes (20150116014345)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "incomes" ADD COLUMN "doccode" character varying(255)[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150116014345"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddDocCodeToIncomes (20150116021226)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "incomes" ADD COLUMN "doc_code" character varying(255)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150116021226"]]
+  [1m[36m (5.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddDocDateToIncomes (20150116025530)
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "incomes" ADD COLUMN "doc_date" date[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150116025530"]]
+  [1m[36m (3.9ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeDatesFormatInChecks (20150120022400)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (53.5ms)[0m  [1mALTER TABLE "checks" ALTER COLUMN "created_at" TYPE date[0m
+  [1m[35m (19.1ms)[0m  ALTER TABLE "checks" ALTER COLUMN "updated_at" TYPE date
+  [1m[36m (14.9ms)[0m  [1mALTER TABLE "checks" ALTER COLUMN "sign_date" TYPE date[0m
+  [1m[35m (13.6ms)[0m  ALTER TABLE "checks" ALTER COLUMN "delivery_date" TYPE date
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150120022400"]]
+  [1m[35m (3.7ms)[0m  COMMIT
+Migrating to ChangeDatesFormatInChecks2 (20150120023847)
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "checks" ALTER COLUMN "created_at" TYPE date
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "checks" ALTER COLUMN "updated_at" TYPE date[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "checks" ALTER COLUMN "sign_date" TYPE date
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "checks" ALTER COLUMN "delivery_date" TYPE date[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150120023847"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeDatesFormatInCommitments (20150120024006)
+  [1m[35m (2.0ms)[0m  BEGIN
+  [1m[36m (72.2ms)[0m  [1mALTER TABLE "commitments" ALTER COLUMN "date" TYPE date[0m
+  [1m[35m (16.8ms)[0m  ALTER TABLE "checks" ALTER COLUMN "created_at" TYPE timestamp
+  [1m[36m (21.2ms)[0m  [1mALTER TABLE "checks" ALTER COLUMN "updated_at" TYPE timestamp[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150120024006"]]
+  [1m[36m (4.2ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeDatesFormatInExecutions (20150120024331)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (20.9ms)[0m  [1mALTER TABLE "checks" ALTER COLUMN "elaboration_date" TYPE date[0m
+  [1m[35m (15.6ms)[0m  ALTER TABLE "executions" ALTER COLUMN "check_elaboration_date" TYPE date
+  [1m[36m (17.2ms)[0m  [1mALTER TABLE "executions" ALTER COLUMN "check_sign_date" TYPE date[0m
+  [1m[35m (12.3ms)[0m  ALTER TABLE "executions" ALTER COLUMN "check_delivery_date" TYPE date
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150120024331"]]
+  [1m[35m (3.0ms)[0m  COMMIT
+Migrating to ChangeDatesFormatInIncomes (20150120024825)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (13.0ms)[0m  ALTER TABLE "incomes" ALTER COLUMN "date" TYPE date
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150120024825"]]
+  [1m[35m (15.1ms)[0m  COMMIT
+Migrating to AddCheckAnnulledToExecutions (20150120215020)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (19.2ms)[0m  ALTER TABLE "executions" ADD COLUMN "check_annulled" boolean DEFAULT 'f'
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150120215020"]]
+  [1m[35m (3.4ms)[0m  COMMIT
+Migrating to AddRemarksToExecutions (20150120223334)
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "executions" ADD COLUMN "remarks" character varying(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150120223334"]]
+  [1m[35m (4.6ms)[0m  COMMIT
+Migrating to AddUnitAndVariationAndResourceDescriptionToIncomes (20150121235135)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "incomes" ADD COLUMN "unit" character varying(255)
+PG::DuplicateColumn: ERROR:  column "unit" of relation "incomes" already exists
+: ALTER TABLE "incomes" ADD COLUMN "unit" character varying(255)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddResourceToIncomes (20150122000744)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "incomes" ADD COLUMN "resource" integer DEFAULT 0[0m
+PG::DuplicateColumn: ERROR:  column "resource" of relation "incomes" already exists
+: ALTER TABLE "incomes" ADD COLUMN "resource" integer DEFAULT 0
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDocumentNameToExecutions (20150122032532)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "executions" ADD COLUMN "document_name" character varying(255)[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150122032532"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLoans (20150122085125)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (12.8ms)[0m  [1mCREATE TABLE "loans" ("id" serial primary key, "fechaEntrega" character varying(255), "ubicacion" character varying(255), "fechaTope" character varying(255), "condiciones" character varying(255), "medida" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150122085125"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveFechasFromLoans (20150122090134)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "loans" DROP "fechaEntrega"[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "loans" DROP "fechaTope"
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150122090134"]]
+  [1m[35m (1.9ms)[0m  COMMIT
+Migrating to AddColumnFechasToLoans (20150122090333)
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "loans" ADD COLUMN "fechaEntrega" date
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "loans" ADD COLUMN "fechaTope" date[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150122090333"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateApplications (20150122122138)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "applications" ("id" serial primary key, "fechaRequerida" character varying(255), "descripcion" character varying(255), "uso" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150122122138"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddUnidadMedidaToLoans (20150122132452)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "loans" ADD COLUMN "unidadMedida" character varying(255)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150122132452"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddSolicitado (20150122193359)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.5ms)[0m  [1mALTER TABLE "loans" ADD COLUMN "solicitado" boolean[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "applications" ADD COLUMN "solicitado" boolean
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150122193359"]]
+  [1m[35m (4.4ms)[0m  COMMIT
+Migrating to ChangeColumn (20150122193843)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "loans" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "loans" ALTER COLUMN "solicitado" SET DEFAULT 'f'[0m
+  [1m[35m (5.8ms)[0m  ALTER TABLE "applications" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "applications" ALTER COLUMN "solicitado" SET DEFAULT 'f'[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150122193843"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveColumn (20150122200239)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "loans" DROP "solicitado"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "applications" DROP "solicitado"
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150122200239"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+Migrating to AddColumn (20150122200509)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "equipment" ADD COLUMN "solicitado" boolean
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "instruments" ADD COLUMN "solicitado" boolean[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "consumables" ADD COLUMN "solicitado" boolean
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "solicitado" boolean[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "tools" ADD COLUMN "solicitado" boolean
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150122200509"]]
+  [1m[35m (4.3ms)[0m  COMMIT
+Migrating to ChangeColumnAgain (20150122201753)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "equipment" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "equipment" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "instruments" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "instruments" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "consumables" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "consumables" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (2.9ms)[0m  [1mALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "tools" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "tools" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150122201753"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddForeingEquipment (20150123023154)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "numSolicitud" integer[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150123023154"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeTableDefault (20150123082149)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "equipment" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "equipment" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "instruments" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (1.1ms)[0m  ALTER TABLE "instruments" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "consumables" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (3.8ms)[0m  ALTER TABLE "consumables" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "tools" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "tools" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150123082149"]]
+  [1m[35m (3.7ms)[0m  COMMIT
+Migrating to AddColumnBoolServicio (20150123105248)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "equipment" ADD COLUMN "solicitados" boolean
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "instruments" ADD COLUMN "solicitados" boolean[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "consumables" ADD COLUMN "solicitados" boolean
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "solicitados" boolean[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "tools" ADD COLUMN "solicitados" boolean
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150123105248"]]
+  [1m[35m (4.2ms)[0m  COMMIT
+Migrating to TableDefault (20150128191939)
+  [1m[36m (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "equipment" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "equipment" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "instruments" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "instruments" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "consumables" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (1.9ms)[0m  [1mALTER TABLE "consumables" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "tools" ALTER COLUMN "solicitado" TYPE boolean
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "tools" ALTER COLUMN "solicitado" SET DEFAULT 't'[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150128191939"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to TableDefault2 (20150128192117)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "equipment" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "equipment" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "instruments" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "instruments" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "consumables" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "consumables" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "chemical_substances" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "tools" ALTER COLUMN "solicitado" TYPE boolean[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "tools" ALTER COLUMN "solicitado" SET DEFAULT 'f'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150128192117"]]
+  [1m[35m (3.6ms)[0m  COMMIT
+Migrating to AddColumnId (20150131200149)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "equipment" ADD COLUMN "id2" character varying(255)
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "instruments" ADD COLUMN "id2" character varying(255)[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "consumables" ADD COLUMN "id2" character varying(255)
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "chemical_substances" ADD COLUMN "id2" character varying(255)[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "tools" ADD COLUMN "id2" character varying(255)
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "equipment" DROP "solicitado"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "instruments" DROP "solicitado"
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "consumables" DROP "solicitado"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "chemical_substances" DROP "solicitado"
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "tools" DROP "solicitado"[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150131200149"]]
+  [1m[36m (4.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProjects (20150131212050)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (53.8ms)[0m  [1mCREATE TABLE "projects" ("id" serial primary key, "project_number" integer, "contract" integer, "title" character varying(255), "responsible" character varying(255), "admin" character varying(255), "sae_code" character varying(255), "amount" integer, "equipments" integer, "services" integer, "infrastructure" integer, "hhrr" integer, "consumables" integer, "incoming_date" date, "status" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150131212050"]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeAdminProject (20150201230123)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE "projects" DROP "admin"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "projects" DROP "status"
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "amount" TYPE integer[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "projects" ALTER COLUMN "amount" SET DEFAULT 0
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "equipments" TYPE integer[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "projects" ALTER COLUMN "equipments" SET DEFAULT 0
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "services" TYPE integer[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "projects" ALTER COLUMN "services" SET DEFAULT 0
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "infrastructure" TYPE integer[0m
+  [1m[35m (4.5ms)[0m  ALTER TABLE "projects" ALTER COLUMN "infrastructure" SET DEFAULT 0
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "hhrr" TYPE integer[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "projects" ALTER COLUMN "hhrr" SET DEFAULT 0
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "consumables" TYPE integer[0m
+  [1m[35m (3.4ms)[0m  ALTER TABLE "projects" ALTER COLUMN "consumables" SET DEFAULT 0
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150201230123"]]
+  [1m[35m (4.4ms)[0m  COMMIT
+Migrating to AddAdminProject (20150201230930)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (15.3ms)[0m  ALTER TABLE "projects" ADD COLUMN "admin" integer DEFAULT 0
+  [1m[36m (9.7ms)[0m  [1mALTER TABLE "projects" ADD COLUMN "status" integer DEFAULT 0[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150201230930"]]
+  [1m[36m (4.6ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeAmountIntegerFloat (20150203220805)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (46.2ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "amount" TYPE float[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "projects" ALTER COLUMN "amount" SET DEFAULT 0
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150203220805"]]
+  [1m[35m (3.2ms)[0m  COMMIT
+Migrating to ChangeAmountsIntegerFloat (20150203221017)
+  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (51.4ms)[0m  ALTER TABLE "projects" ALTER COLUMN "equipments" TYPE float
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "equipments" SET DEFAULT 0[0m
+  [1m[35m (15.6ms)[0m  ALTER TABLE "projects" ALTER COLUMN "services" TYPE float
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "services" SET DEFAULT 0[0m
+  [1m[35m (20.0ms)[0m  ALTER TABLE "projects" ALTER COLUMN "hhrr" TYPE float
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "hhrr" SET DEFAULT 0[0m
+  [1m[35m (19.2ms)[0m  ALTER TABLE "projects" ALTER COLUMN "consumables" TYPE float
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "consumables" SET DEFAULT 0[0m
+  [1m[35m (13.6ms)[0m  ALTER TABLE "projects" ALTER COLUMN "infrastructure" TYPE float
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "projects" ALTER COLUMN "infrastructure" SET DEFAULT 0[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150203221017"]]
+  [1m[36m (7.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddProjectAmountFields (20150204021255)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (20.9ms)[0m  [1mALTER TABLE "projects" ADD COLUMN "furniture" float DEFAULT 0[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "projects" ADD COLUMN "other_desc" character varying(255)
+  [1m[36m (25.7ms)[0m  [1mALTER TABLE "projects" ADD COLUMN "other_amount" float DEFAULT 0[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150204021255"]]
+  [1m[36m (4.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldnameToProjects (20150204033351)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "projects" ADD COLUMN "num_cuenta" character varying(255)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150204033351"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddAnnulledDateProjects (20150204045015)
+  [1m[35m (3.9ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "projects" ADD COLUMN "annulled_date" date[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150204045015"]]
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddColumnLoansTable (20150204064358)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "loans" ADD COLUMN "descripcion" character varying(255)[0m
+  [1m[35m (1.2ms)[0m  ALTER TABLE "loans" ADD COLUMN "uso" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150204064358"]]
+  [1m[35m (3.9ms)[0m  COMMIT
+Migrating to CreateDonations (20150204161542)
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (6.3ms)[0m  CREATE TABLE "donations" ("id" serial primary key, "nombreItem" character varying(255), "marca" character varying(255), "modelo" character varying(255), "cantidad" character varying(255), "unidadMedida" character varying(255), "tipo" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150204161542"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Migrating to AddObservationProject (20150204183009)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "projects" ADD COLUMN "observation" character varying(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150204183009"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+Migrating to AddBankProject (20150204183455)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "projects" ADD COLUMN "banco" integer
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150204183455"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-05 19:00:39 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#inventario as HTML
+  Rendered statics/inventario.html.erb within layouts/application (10.3ms)
+  Rendered shared/_header.html.erb (27.2ms)
+  [1m[35mUser Load (3.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered shared/_navbar.html.erb (16.9ms)
+  Rendered shared/_footer.html.erb (25.4ms)
+Completed 200 OK in 1763ms (Views: 1736.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:41 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:00:42 -0430
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-05 19:00:45 -0430
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (37.2ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (1.6ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 485ms (Views: 446.8ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-02-05 19:00:52 -0430
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmLenLMdDfQevtDIwQoTmzVsqXeGMqKFnMuxxyI/UJY=", "user"=>{"username"=>"nelson", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Iniciar sesión"}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."username" = 'nelson'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 401 Unauthorized in 40ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmLenLMdDfQevtDIwQoTmzVsqXeGMqKFnMuxxyI/UJY=", "user"=>{"username"=>"nelson", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Iniciar sesión"}
+  Rendered devise/shared/_links.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.4ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (1.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 525ms (Views: 437.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:00:53 -0430
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-02-05 19:00:59 -0430
+Processing by MyDevise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (36.2ms)
+  Rendered shared/_header.html.erb (1.4ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 574ms (Views: 572.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:00 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:01:01 -0430
+
+
+Started POST "/users" for 127.0.0.1 at 2015-02-05 19:01:30 -0430
+Processing by MyDevise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmLenLMdDfQevtDIwQoTmzVsqXeGMqKFnMuxxyI/UJY=", "user"=>{"username"=>"nelson", "email"=>"nelsonsaturno@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "director"=>"1", "directorate"=>"1", "gsmp"=>"1", "acquisition"=>"1", "acquisition_analist"=>"0", "import"=>"1", "import_analist"=>"0", "manage"=>"1", "manage_analist"=>"0", "quality"=>"1", "quality_analist"=>"0", "labBoss"=>"1", "labassistant"=>"0", "section_boss"=>"1", "proy_responsible"=>"0", "technician"=>"0", "external"=>"0"}, "commit"=>"Registrarse!"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'nelsonsaturno@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "users" ("acquisition", "acquisition_analist", "created_at", "director", "directorate", "email", "encrypted_password", "external", "gsmp", "import", "import_analist", "labBoss", "labassistant", "manage", "manage_analist", "proy_responsible", "quality", "quality_analist", "section_boss", "technician", "updated_at", "username") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22) RETURNING "id"  [["acquisition", "t"], ["acquisition_analist", "f"], ["created_at", "2015-02-05 23:31:30.684089"], ["director", "t"], ["directorate", "t"], ["email", "nelsonsaturno@gmail.com"], ["encrypted_password", "$2a$10$y80GjQ2/6PZzNF9WyxMUYuxaKC2YbyC6Lpmi5fbrJ4p3/r0w3VD86"], ["external", "f"], ["gsmp", "t"], ["import", "t"], ["import_analist", "f"], ["labBoss", "t"], ["labassistant", "f"], ["manage", "t"], ["manage_analist", "f"], ["proy_responsible", "f"], ["quality", "t"], ["quality_analist", "f"], ["section_boss", "t"], ["technician", "f"], ["updated_at", "2015-02-05 23:31:30.684089"], ["username", "nelson"]]
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "current_sign_in_ip" = $2, "last_sign_in_at" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2015-02-05 23:31:30.699989"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_at", "2015-02-05 23:31:30.699989"], ["last_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-02-05 23:31:30.701593"]]
+  [1m[35m (4.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 259ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-05 19:01:30 -0430
+Processing by StaticsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered statics/index.html.erb within layouts/application (4.3ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_navbar.html.erb (1.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 479ms (Views: 477.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:31 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:01:32 -0430
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-05 19:01:34 -0430
+Processing by StaticsController#inventario as HTML
+  Rendered statics/inventario.html.erb within layouts/application (3.1ms)
+  Rendered shared/_header.html.erb (1.8ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered shared/_navbar.html.erb (3.9ms)
+  Rendered shared/_footer.html.erb (1.0ms)
+Completed 200 OK in 342ms (Views: 340.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-05 19:01:36 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "chemical_substances"[0m
+  [1m[35mChemicalSubstance Load (1.7ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered chemical_substances/index.html.erb within layouts/application (175.1ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 556ms (Views: 503.9ms | ActiveRecord: 28.8ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:37 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:01:37 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:37 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-05 19:01:37 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-05 19:01:37 -0430
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-05 19:02:08 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "chemical_substances"
+  [1m[36mChemicalSubstance Load (0.6ms)[0m  [1mSELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered chemical_substances/index.html.erb within layouts/application (55.9ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 473ms (Views: 468.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:09 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:02:10 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2015-02-05 19:02:11 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-05 19:02:11 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-05 19:02:11 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-05 19:02:12 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-05 19:03:41 -0430
+Processing by StaticsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered statics/index.html.erb within layouts/application (3.3ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 318ms (Views: 316.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+Processing by AdministrationController#index as HTML
+  Rendered administration/index.html.erb within layouts/bootlayout (1.8ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered shared/_navbar.html.erb (3.8ms)
+  Rendered shared/_footer.html.erb (0.9ms)
+Completed 200 OK in 159ms (Views: 157.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+Processing by AdministrationController#index as HTML
+  Rendered administration/index.html.erb within layouts/bootlayout (1.7ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered shared/_navbar.html.erb (3.4ms)
+  Rendered shared/_footer.html.erb (0.9ms)
+Completed 200 OK in 139ms (Views: 138.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:44 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:03:45 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:03:45 -0430
+
+
+Started GET "/administration/budget" for 127.0.0.1 at 2015-02-05 19:03:47 -0430
+Processing by BudgetController#index as HTML
+  Rendered budget/index.html.erb within layouts/bootlayout (4.5ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered shared/_navbar.html.erb (3.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 151ms (Views: 149.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/commitments" for 127.0.0.1 at 2015-02-05 19:03:48 -0430
+Processing by CommitmentsController#index as HTML
+  [1m[36m (1.2ms)[0m  [1mSELECT SUM("commitments"."amount") AS sum_id FROM "commitments"[0m
+  [1m[35mCommitment Load (0.8ms)[0m  SELECT "commitments".* FROM "commitments"   ORDER BY date ASC
+  Rendered commitments/index.html.erb within layouts/bootlayout (68.5ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered shared/_navbar.html.erb (3.2ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 267ms (Views: 207.5ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:49 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:49 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:49 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:49 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-05 19:03:49 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-05 19:03:49 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-05 19:03:49 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/application (3.3ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_navbar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 358ms (Views: 356.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+Processing by StaticsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered statics/index.html.erb within layouts/application (2.2ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 403ms (Views: 401.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:57 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:03:58 -0430
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-05 19:05:30 -0430
+Processing by StaticsController#inventario as HTML
+  Rendered statics/inventario.html.erb within layouts/application (0.9ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered shared/_navbar.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 332ms (Views: 330.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-05 19:05:32 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "chemical_substances"[0m
+  [1m[35mChemicalSubstance Load (0.8ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered chemical_substances/index.html.erb within layouts/application (54.9ms)
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered shared/_navbar.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 406ms (Views: 402.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:33 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:33 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-05 19:05:33 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-05 19:05:33 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-05 19:05:33 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-05 19:05:33 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-05 19:05:33 -0430
+
+
+Started POST "/loans/new" for 127.0.0.1 at 2015-02-05 19:05:36 -0430
+Processing by LoansController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmLenLMdDfQevtDIwQoTmzVsqXeGMqKFnMuxxyI/UJY=", "example_length"=>"10", "commit"=>" Solicitar Préstamo "}
+  Rendered loans/_form.html.erb (15.6ms)
+  Rendered loans/_form2.html.erb (4.9ms)
+  [1m[35mChemicalSubstance Load (2.0ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."id2" IS NULL
+  [1m[36mEquipment Load (1.3ms)[0m  [1mSELECT "equipment".* FROM "equipment"  WHERE "equipment"."id2" IS NULL[0m
+  [1m[35mTool Load (0.8ms)[0m  SELECT "tools".* FROM "tools"  WHERE "tools"."id2" IS NULL
+  [1m[36mConsumable Load (0.8ms)[0m  [1mSELECT "consumables".* FROM "consumables"  WHERE "consumables"."id2" IS NULL[0m
+  [1m[35mInstrument Load (0.9ms)[0m  SELECT "instruments".* FROM "instruments"  WHERE "instruments"."id2" IS NULL
+  Rendered loans/new.html.erb within layouts/application (122.2ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered shared/_navbar.html.erb (3.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 6182ms (Views: 611.1ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:42 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:43 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:05:44 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:05:44 -0430
+
+
+Started POST "/loans/new" for 127.0.0.1 at 2015-02-05 19:17:37 -0430
+Processing by LoansController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmLenLMdDfQevtDIwQoTmzVsqXeGMqKFnMuxxyI/UJY=", "example_length"=>"10", "commit"=>" Solicitar Préstamo "}
+  Rendered loans/_form.html.erb (58.2ms)
+  Rendered loans/_form2.html.erb (2.1ms)
+  [1m[35mChemicalSubstance Load (0.9ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."id2" IS NULL
+  [1m[36mEquipment Load (0.9ms)[0m  [1mSELECT "equipment".* FROM "equipment"  WHERE "equipment"."id2" IS NULL[0m
+  [1m[35mTool Load (1.2ms)[0m  SELECT "tools".* FROM "tools"  WHERE "tools"."id2" IS NULL
+  [1m[36mConsumable Load (2.1ms)[0m  [1mSELECT "consumables".* FROM "consumables"  WHERE "consumables"."id2" IS NULL[0m
+  [1m[35mInstrument Load (0.5ms)[0m  SELECT "instruments".* FROM "instruments"  WHERE "instruments"."id2" IS NULL
+  Rendered loans/new.html.erb within layouts/application (128.7ms)
+  Rendered shared/_header.html.erb (2.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered shared/_navbar.html.erb (24.3ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 6368ms (Views: 512.9ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:44 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:17:45 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:17:45 -0430
+
+
+Started GET "/assets/down.png" for 127.0.0.1 at 2015-02-05 19:17:45 -0430
+
+
+Started POST "/loans" for 127.0.0.1 at 2015-02-05 19:17:53 -0430
+Processing by LoansController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmLenLMdDfQevtDIwQoTmzVsqXeGMqKFnMuxxyI/UJY=", "loan"=>{"fechaEntrega"=>"", "ubicacion"=>"", "fechaTope"=>"", "condiciones"=>"", "medida"=>"", "unidadMedida"=>"Un"}, "commit"=>"Crear"}
+Unpermitted parameters: unidadMedida
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered loans/_form.html.erb (5.3ms)
+  Rendered loans/_form2.html.erb (10.2ms)
+  Rendered loans/new.html.erb within layouts/application (85.8ms)
+Completed 500 Internal Server Error in 93ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    44:       </thead>
+    45: 
+    46:       <tbody>
+    47:         <% @sustancias.each do |sustancia| %>
+    48:           <tr>
+    49:             <td class="tg-s6z2"><%= sustancia.id2 %></td>
+    50:             <td class="tg-s6z2"><%=  sustancia.name  %></td>
+  app/views/loans/new.html.erb:47:in `_app_views_loans_new_html_erb___3746383049251670043_70319557347540'
+  app/controllers/loans_controller.rb:49:in `block (2 levels) in create'
+  app/controllers/loans_controller.rb:44:in `create'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.6ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (18.2ms)
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-05 19:21:26 -0430
+Processing by StaticsController#inventario as HTML
+  Rendered statics/inventario.html.erb within layouts/application (4.0ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered shared/_navbar.html.erb (31.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 424ms (Views: 417.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:21:27 -0430
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "chemical_substances"[0m
+  [1m[35mChemicalSubstance Load (0.7ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered chemical_substances/index.html.erb within layouts/application (38.1ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_navbar.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 346ms (Views: 333.8ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-05 19:21:30 -0430
+
+
+Started GET "/applications/new" for 127.0.0.1 at 2015-02-05 19:21:32 -0430
+Processing by ApplicationsController#new as HTML
+  Rendered applications/_form.html.erb (10.7ms)
+  [1m[35mEquipment Load (0.6ms)[0m  SELECT "equipment".* FROM "equipment"  WHERE "equipment"."solicitados" = 't'  ORDER BY created_at DESC
+  [1m[36mInstrument Load (1.4ms)[0m  [1mSELECT "instruments".* FROM "instruments"  WHERE "instruments"."solicitados" = 't'  ORDER BY created_at DESC[0m
+  [1m[35mTool Load (1.6ms)[0m  SELECT "tools".* FROM "tools"  WHERE "tools"."solicitados" = 't'  ORDER BY created_at DESC
+  [1m[36mConsumable Load (0.7ms)[0m  [1mSELECT "consumables".* FROM "consumables"  WHERE "consumables"."solicitados" = 't'  ORDER BY created_at DESC[0m
+  [1m[35mChemicalSubstance Load (2.1ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."id2" IS NULL
+  Rendered applications/new.html.erb within layouts/application (65.7ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered shared/_navbar.html.erb (4.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 6347ms (Views: 410.5ms | ActiveRecord: 27.1ms)
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-05 19:23:30 -0430
+Processing by StaticsController#inventario as HTML
+  Rendered statics/inventario.html.erb within layouts/application (3.9ms)
+  Rendered shared/_header.html.erb (0.7ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered shared/_navbar.html.erb (27.1ms)
+  Rendered shared/_footer.html.erb (1.1ms)
+Completed 200 OK in 334ms (Views: 325.8ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-05 19:23:32 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM "chemical_substances"[0m
+  [1m[35mChemicalSubstance Load (0.8ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered chemical_substances/index.html.erb within layouts/application (47.9ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  Rendered shared/_navbar.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 365ms (Views: 352.8ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:32 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:32 -0430
+
+
+Started POST "/loans/new" for 127.0.0.1 at 2015-02-05 19:23:34 -0430
+Processing by LoansController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wmLenLMdDfQevtDIwQoTmzVsqXeGMqKFnMuxxyI/UJY=", "example_length"=>"10", "commit"=>" Solicitar Préstamo "}
+  Rendered loans/_form.html.erb (10.0ms)
+  Rendered loans/_form2.html.erb (1.6ms)
+  [1m[35mChemicalSubstance Load (0.9ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."id2" IS NULL
+  [1m[36mEquipment Load (1.4ms)[0m  [1mSELECT "equipment".* FROM "equipment"  WHERE "equipment"."id2" IS NULL[0m
+  [1m[35mTool Load (1.3ms)[0m  SELECT "tools".* FROM "tools"  WHERE "tools"."id2" IS NULL
+  [1m[36mConsumable Load (3.1ms)[0m  [1mSELECT "consumables".* FROM "consumables"  WHERE "consumables"."id2" IS NULL[0m
+  [1m[35mInstrument Load (0.5ms)[0m  SELECT "instruments".* FROM "instruments"  WHERE "instruments"."id2" IS NULL
+  Rendered loans/new.html.erb within layouts/application (73.8ms)
+  Rendered shared/_header.html.erb (0.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered shared/_navbar.html.erb (10.0ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 5338ms (Views: 492.5ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:39 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-05 19:23:40 -0430
+
+
+Started GET "/assets/down.png" for 127.0.0.1 at 2015-02-05 19:23:40 -0430

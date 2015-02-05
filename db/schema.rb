@@ -38,13 +38,6 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "updated_at"
   end
 
-  create_table "cas", id: false, force: true do |t|
-    t.string "usbid",     limit: 15, null: false
-    t.string "nombres",   limit: 20, null: false
-    t.string "apellidos", limit: 20, null: false
-    t.string "cedula",    limit: 8,  null: false
-  end
-
   create_table "checks", force: true do |t|
     t.integer  "execution_id"
     t.string   "check_number"
@@ -179,23 +172,6 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "updated_at"
   end
 
-  create_table "empleado", id: false, force: true do |t|
-    t.string  "usbid",         limit: 15,                              null: false
-    t.string  "correo",        limit: 30
-    t.string  "direccion",     limit: 50
-    t.string  "cargo",         limit: 30,                              null: false
-    t.string  "ano_ingreso",   limit: 4,                               null: false
-    t.string  "tipo_empleado", limit: 15,                              null: false
-    t.string  "status",        limit: 30,  default: "Inactivo",        null: false
-    t.string  "telefono",      limit: 12
-    t.string  "tipo_usuario",  limit: 20,                              null: false
-    t.string  "area_laboral",  limit: 30
-    t.string  "extension",     limit: 200
-    t.string  "laboratorio",   limit: 100
-    t.integer "visibilidad",               default: 1,                 null: false
-    t.string  "imagen",        limit: 100, default: "images/user.png"
-  end
-
   create_table "equipment", force: true do |t|
     t.string   "name"
     t.string   "brand"
@@ -249,17 +225,6 @@ ActiveRecord::Schema.define(version: 20150204183455) do
   end
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
-
-  create_table "formacion", id: false, force: true do |t|
-    t.string "usbid",     limit: 15,  null: false
-    t.string "formacion", limit: 100, null: false
-    t.string "ano_for",   limit: 4
-  end
-
-  create_table "habilidad", id: false, force: true do |t|
-    t.string "usbid",     limit: 15,  null: false
-    t.string "habilidad", limit: 100, null: false
-  end
 
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
@@ -335,21 +300,6 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "user_id"
   end
 
-  create_table "laboratorio", id: false, force: true do |t|
-    t.string  "codigo",          limit: 10,                   null: false
-    t.string  "nombre",          limit: 100,                  null: false
-    t.string  "sede",            limit: 15,                   null: false
-    t.string  "ubicacion",       limit: 100,                  null: false
-    t.string  "correo",          limit: 50,                   null: false
-    t.string  "pagweb",          limit: 50,   default: "N/P", null: false
-    t.string  "telefono",        limit: 12,                   null: false
-    t.string  "fax",             limit: 12,                   null: false
-    t.string  "caracteristicas", limit: 2000,                 null: false
-    t.string  "jefe",            limit: 50,                   null: false
-    t.integer "visibilidad",                  default: 1,     null: false
-    t.string  "imagen",          limit: 100
-  end
-
   create_table "labs", force: true do |t|
     t.string "name"
     t.string "sae_code"
@@ -395,12 +345,6 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.integer  "banco"
   end
 
-  create_table "publicacion", id: false, force: true do |t|
-    t.string "usbid",       limit: 15,  null: false
-    t.string "publicacion", limit: 100, null: false
-    t.string "ano_pub",     limit: 4
-  end
-
   create_table "quotes", force: true do |t|
     t.string   "nombre"
     t.string   "attachment"
@@ -429,15 +373,6 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-  end
-
-  create_table "servicio", id: false, force: true do |t|
-    t.string  "codigo",          limit: 10,               null: false
-    t.string  "nombre",          limit: 100,              null: false
-    t.string  "imagen",          limit: 100
-    t.string  "laboratorio",     limit: 10,               null: false
-    t.string  "caracteristicas", limit: 2000,             null: false
-    t.integer "visibilidad",                  default: 1, null: false
   end
 
   create_table "specifications", force: true do |t|
@@ -508,12 +443,5 @@ ActiveRecord::Schema.define(version: 20150204183455) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "usuario", id: false, force: true do |t|
-    t.string "usbid",     limit: 15, null: false
-    t.string "nombres",   limit: 20, null: false
-    t.string "apellidos", limit: 20, null: false
-    t.string "cedula",    limit: 8,  null: false
-  end
 
 end
