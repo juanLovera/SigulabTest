@@ -1,34 +1,60 @@
 <p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li> <%=link_to 'Donaciones', donations_path %></li>
+  <li class="active"> Ver Donación </li>
+</ol>
 
-<p>
-  <strong>Nombreitem:</strong>
-  <%= @donation.nombreItem %>
-</p>
+<div class ="Informacion">
+  <div class="col-xs-12">
+    <table class="table table-striped">
 
-<p>
-  <strong>Marca:</strong>
-  <%= @donation.marca %>
-</p>
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+      <td class="col-xs-7"> <%= @donation.nombreItem %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Modelo:</strong>
-  <%= @donation.modelo %>
-</p>
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+      <td class="col-xs-7"> <%= @donation.marca %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Cantidad:</strong>
-  <%= @donation.cantidad %>
-</p>
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
+      <td class="col-xs-7"> <%= @donation.modelo %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Unidadmedida:</strong>
-  <%= @donation.unidadMedida %>
-</p>
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+      <td class="col-xs-7"> <%= @donation.cantidad %>
+      </td>
+    </tr>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @donation.tipo %>
-</p>
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Unidad de Medida:</strong></td>
+      <td class="col-xs-7"> <%= @donation.unidadMedida %>
+      </td>
+    </tr>
 
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
+      <td class="col-xs-7"> <%= @donation.tipo %>
+      </td>
+    </tr>
+
+    </div>
+  </table>
+
+<br><br>
+<% if can? :update, @donation %>
+<i class="fa fa-cog"></i><%= link_to ' Editar', edit_donation_path(@donation) %> |
+<% end %>
+<% if can? :hide, @instrument %>
+      <i class="fa fa-times fa-1x"></i><%= link_to 'Eliminar', @instrument, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta donación?' } %> |
+<% end %>
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', donations_path %>
+<br><br><br><br>

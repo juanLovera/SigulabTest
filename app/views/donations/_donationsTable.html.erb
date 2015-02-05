@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body>
+<table id="donationsTable" class="table table-hover" >
+	  <thead>
+		 <tr>
+		   <th align="left">Nombre</th>
+		   <th align="left">Marca</th>
+		   <th align="left">Cantidad</th>
+		   <th align="left">Tipo</th>
+		 </tr>
+	  </thead>
+
+	  <tbody>
+		 <% @donations.each do |donation| %>
+	  		<tr>
+		     <td style="text-decoration:underline; color:black"><%= link_to donation.nombreItem, donation %></td>
+		     <td><%= donation.marca %></td>
+		     <td><%= donation.cantidad %></td>
+		     <td><%= donation.tipo %></td>
+		   </tr>
+		 <% end %>
+		 <% if @sumDonations == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay donaciones registradas</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+</body>
+
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+
+#donationsTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+      font-size: 14px;
+  }
+
+#donationsTable th td tr{
+ border-color:black;
+ }
+
+
+.table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#donationsTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>
