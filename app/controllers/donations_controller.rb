@@ -5,6 +5,7 @@ class DonationsController < ApplicationController
   # GET /donations.json
   def index
     @donations = Donation.all
+    @sum = Donation.count
   end
 
   # GET /donations/1

@@ -6,6 +6,7 @@ class LoansController < ApplicationController
   def index
     @loans = Loan.all
     @sumSolicitudes = Loan.all.count
+    @sum = Loan.count
   end
 
   # GET /loans/1
@@ -19,11 +20,6 @@ class LoansController < ApplicationController
         send_data pdf.render, filename: 'SolicitudPrestamo.pdf', type: 'application/pdf'
       end
     end
-    @equipment = Equipment.update_all(:solicitado => false)
-    @instrumentos = Instrument.update_all(:solicitado => false)
-    @herramientas = Tool.update_all(:solicitado => false)
-    @consumibles = Consumable.update_all(:solicitado => false)
-    @sustanciasqui = ChemicalSubstance.update_all(:solicitado => false)
   end
 
   # GET /loans/new

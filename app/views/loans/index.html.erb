@@ -1,9 +1,64 @@
-<div class="col-xs-12">
-  <h1>Solicitudes de Préstamo</h1>
-</div><br>
-<div class="col-xs-12">
-  <%= render 'loansTable' %>
-  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
-</div>
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li class="active"> Prestamos </li>
+</ol>  
+
+
+
+
+<div id="LeDivIntrumentos">
+  <h1><i class="fa fa-exchange"></i> Solicitudes de Préstamo</h1>
 
   <br>
+      <body class="ex_highlight_row">
+        <div id="container">
+          <div id="demo">
+
+            <%= form_tag (new_loan_path) do %>
+            
+              <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                <thead>
+                  <tr>
+                    <th class="tg-093g">ID de Préstamo</th>
+                    <th class="tg-093g">Ubicación</th>
+                    <th class="tg-093g">Fecha de Entrega</th>
+                    <th class="tg-hgcj">Fecha de Devolución</th>
+                   
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @loans.each do |loan| %>
+                    <tr>
+                      <% if @sum > 0 %>
+                      <% end %>
+                      <td class="tg-s6z2"><%= link_to loan.id, loan %></td>
+                      <td class="tg-s6z2"><%= loan.ubicacion %></td>
+                      <td class="tg-s6z2"><%= loan.fechaEntrega %></td>
+                      <td class="tg-s6z2"><%= loan.fechaTope %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </body>
+
+
+   <br>
+
+    <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
+    <% end %>
+    <br><br><br><br><br><br><br>
+    
+
+  </div>
+ </div>
+
