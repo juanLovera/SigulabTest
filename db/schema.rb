@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "specification_id"
   end
 
+  create_table "applications", force: true do |t|
+    t.string   "fechaRequerida"
+    t.string   "descripcion"
+    t.string   "uso"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "checks", force: true do |t|
     t.integer  "execution_id"
     t.string   "check_number"
@@ -75,6 +83,8 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.date     "adquisition_date"
     t.boolean  "showable",         default: true
     t.string   "dependency"
+    t.boolean  "solicitados"
+    t.string   "id2"
   end
 
   create_table "commitments", force: true do |t|
@@ -110,6 +120,8 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.text     "description"
     t.boolean  "showable",         default: true
     t.string   "dependency"
+    t.boolean  "solicitados"
+    t.string   "id2"
   end
 
   create_table "devolutions", force: true do |t|
@@ -149,6 +161,17 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "user_id"
   end
 
+  create_table "donations", force: true do |t|
+    t.string   "nombreItem"
+    t.string   "marca"
+    t.string   "modelo"
+    t.string   "cantidad"
+    t.string   "unidadMedida"
+    t.string   "tipo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "equipment", force: true do |t|
     t.string   "name"
     t.string   "brand"
@@ -178,6 +201,9 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "measurewidth"
     t.boolean  "showable",         default: true
     t.string   "dependency"
+    t.integer  "numSolicitud"
+    t.boolean  "solicitados"
+    t.string   "id2"
   end
 
   create_table "executions", force: true do |t|
@@ -244,6 +270,8 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.date     "adquisition_date"
     t.boolean  "showable",         default: true
     t.string   "dependency"
+    t.boolean  "solicitados"
+    t.string   "id2"
   end
 
   create_table "invitations", force: true do |t|
@@ -275,6 +303,19 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string "name"
     t.string "sae_code"
     t.string "sae_name"
+  end
+
+  create_table "loans", force: true do |t|
+    t.string   "ubicacion"
+    t.string   "condiciones"
+    t.string   "medida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "fechaEntrega"
+    t.date     "fechaTope"
+    t.string   "unidadMedida"
+    t.string   "descripcion"
+    t.string   "uso"
   end
 
   create_table "projects", force: true do |t|
@@ -362,6 +403,8 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.boolean  "showable",         default: true
     t.boolean  "from_set"
     t.string   "dependency"
+    t.boolean  "solicitados"
+    t.string   "id2"
   end
 
   create_table "users", force: true do |t|
