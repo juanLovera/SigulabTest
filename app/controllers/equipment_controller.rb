@@ -4,13 +4,13 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-  	if params[:search]
-  		@equipment_all = Equipment.search(params[:search])
-  		@equipment = Equipment.where(:showable => true).search(params[:search])
-  	else
-  		@equipment_all = Equipment.where(:showable => true).all.order('created_at DESC')
-  		@equipment = Equipment.all.order('created_at DESC')
-  	end
+    @equipments = Equipment.all
+  if params[:search]
+    @equipments = Equipment.search(params[:search])
+  else
+    @equipments = Equipment.all.order('created_at DESC')
+  end
+  @sum = Equipment.count
   end
 
   # GET /equipment/1

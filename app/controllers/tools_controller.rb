@@ -10,6 +10,7 @@ class ToolsController < ApplicationController
 	else
 		@tools = Tool.all.order('created_at DESC')
 	end
+  @sum = Tool.count
   end
 
   # GET /tools/1
