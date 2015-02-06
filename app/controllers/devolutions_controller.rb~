@@ -43,7 +43,7 @@ class DevolutionsController < ApplicationController
 
     respond_to do |format|
       if @devolution.save
-        format.html { redirect_to devolutions_url, notice: 'Devolution was successfully created.' }
+        format.html { redirect_to @devolution, notice: 'Devolution was successfully created.' }
         format.json { render :show, status: :created, location: @devolution }
       else
         format.html { render :new }
