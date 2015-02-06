@@ -79,10 +79,6 @@ class ProjectsController < ApplicationController
         @project.incoming_date_required
         render 'edit'
       else 
-        if (params[:project][:status] == "finished") && (@project.errors==0)
-          params[:project][:status] = nil
-          render 'edit'
-        else 
           if params[:project][:annulled_date] == "" && params[:project][:status] == "annulled"
             params[:project][:annulled_date] = nil
             @project.annulled_date_required
@@ -96,7 +92,7 @@ class ProjectsController < ApplicationController
           end
         end
       end
-    end
+
 
   private
   

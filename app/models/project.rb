@@ -8,13 +8,12 @@ class Project < ActiveRecord::Base
   ]
   end
 
-  enum status: [:pending, :executing, :reformulating, :finished, :annulled]
+  enum status: [:pending, :executing, :reformulating, :annulled]
   def self.status_str
   [
     'En espera de recursos',
     'En ejecución',
     'En reformulación',
-    'Finalizado',
     'Anulado'
   ]
   end
