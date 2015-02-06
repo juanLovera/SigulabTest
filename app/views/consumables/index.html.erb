@@ -57,11 +57,10 @@
 
   <br>
   <% if can? :create, @consumable %>
-    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Consumible', new_consumable_path, 'data-no-turbolink' => true %> | 
+    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Consumible', new_consumable_path, 'data-no-turbolink' => true, :class => 'linkButton' %> | 
   <%end%>
-  <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo ', :class => "linkButton" %> | 
-  <i class="fa fa-phone"></i><%= link_to ' Solicitar Servicio ', new_application_url %> |
-  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
+  <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo/Servicio ', :class => "linkButton" %> | 
+  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
   <% end %>
   <br><br><br><br>
 </div>

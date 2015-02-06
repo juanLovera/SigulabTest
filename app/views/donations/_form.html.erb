@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    'bootlayout-date', media: 'all', 'data-turbolinks-track' => true %>
 <%= form_for(@donation) do |f| %>
   <% if @donation.errors.any? %>
     <div id="error_explanation">
@@ -41,6 +42,21 @@
           <tr>
             <td class="col-xs-5 text-right"><strong>Unidad de Medida:</strong></td>
             <td class="col-xs-7"> <%= f.text_field :unidadMedida %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>No. Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :numDocumento %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha del Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :fechaDocumento, :class => "bootlayout-date" %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Valor Estimado:</strong></td>
+            <td class="col-xs-7"><%= f.number_field(:estimado, min: 0, :step => 'any') %> Bs.</td>
           </tr>
 
           <tr>

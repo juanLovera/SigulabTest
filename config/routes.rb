@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   get 'informe_recomendacion/index'
 
+  get 'loans/index2'
+
+  get 'loans/show2'
+
   post 'loans/new'
 
   resources :invitations

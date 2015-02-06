@@ -1,5 +1,3 @@
-<%= javascript_include_tag 'bootlayout-date' %>
-
 <%= form_for(@chemical_substance) do |f| %>
       <% if @chemical_substance.errors.any? %>
         <div id="error_explanation">
@@ -128,7 +126,7 @@
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "bootlayout-date" %></td> 
+            <td class="col-xs-7"><%= f.text_field :adquisition_date, class: "bootlayout-date" %></td> 
           </tr>
           
           <tr>
