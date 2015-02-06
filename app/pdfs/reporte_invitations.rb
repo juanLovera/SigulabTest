@@ -45,7 +45,9 @@ class ReporteInvitations < Prawn::Document
 
   def info 
     move_down 20
-  	 text "#{@invitation.nombreEmpresa}"
+
+  	 text "#{@invitation.nombre} (Rif: #{@invitation.rif})"
+
     text "#{@invitation.direccion}"
     text "Presente.-"
   end
@@ -88,7 +90,7 @@ class ReporteInvitations < Prawn::Document
    :align => :justify,:indent_paragraphs => 40, :inline_format => true
    
 	move_down 5
-   text "Para cualquier información adicional comunicarse a #{@invitation.telefonoAdicional} ", :align => :justify, :indent_paragraphs => 40
+   text "Para cualquier información adicional comunicarse a #{@invitation.telefono_Adicional} ", :align => :justify, :indent_paragraphs => 40
 
    move_down 5
    text "Agradeciendo su receptividad y respuesta a esta solicitud, se despide de usted.", :align => :justify,:indent_paragraphs => 40

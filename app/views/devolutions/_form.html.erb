@@ -5,233 +5,183 @@
         <br>
       <% end %>
 
-      <div class="field">
-        <br><br><br>
-        <div class="grid_12 push_2">
-            <div class="grid_3" >
-                <span class="red">*</span>
-                <%= f.label 'Número de Registro', :align => :middle %><br>
-            </div>
-            <div class="grid_3">
-                <%= f.text_field :numRegistro, :align => :middle, :placeholder => "\#" %>
-                <br><br><br>
-            </div>
-        </div>
+      <div class="field"><br/>
+        <table><tr><td style="padding-left:65px;padding-right:10px;"><span class="red">*</span>
+                <%= f.label 'Número de Registro', :align => :middle %></td>
+                <td><%= f.text_field :numRegistro, :align => :middle, :style => "width:150px;" %></td><td style="padding-left:100px;padding-right:10px;">
 
-        <div id="campos_pequenos" class="grid_12">
-            <div class="grid_3">
+            <span class="red">*</span>
+                <%= f.label 'Unidad Solicitante', :align => :middle %>
+                
+                </td><td>
+            
+                <%= f.text_field :unidadSolicitante, :align => :middle, :style => "width:150px;margin-bottom:10px;"  %>
+            
+                </td></tr>
+        </table>
+           
+            <table><tr><td>
                 <%= f.check_box :requisicion, :align => :texttop %>
                 <%= f.label 'Requisición' %>
-            </div>
-            <div class="grid_1 pull_1 text-right">
-                <%= f.label 'Nro:', :align => :botton %>
-            </div>
-            <div class="grid_1 pull_1">
-                <%= f.text_field :numRequisicion %>
-            </div>
+            </td><td style="padding-right:10px;">
             
-            <div class="grid_3">
+                <%= f.label 'Nro:', :align => :botton %>
+            </td><td style="padding-right:20px;">
+            
+                <%= f.text_field :numRequisicion, :style => "width:150px;margin-bottom:10px;"  %>
+            </td><td style="padding-right:30px;">
+            
+            
                 <%= f.check_box :autorizacion, :align => :texttop %>
                 <%= f.label 'Autorización de Pago' %>
-            </div>
-            <div class="grid_1 pull_1 text-right">
+            </td><td style="padding-right:10px;">
+            
                 <%= f.label 'Nro:', :align => :botton %>
-            </div>
-            <div class="grid_1 pull_1">
-                <%= f.text_field :numAutorizacion %>
-            </div>
-            <br><br><br><br>
-        </div>
+            </td><td>
+            
+                <%= f.text_field :numAutorizacion, :style => "width:150px;margin-bottom:10px;"  %>
+            </td></tr><tr><td>
+            
+        
 
-        <div id="campos_pequenos" class="grid_12">
-            <div class="grid_3">
+ 
+            
                 <%= f.check_box :certificacion, :align => :texttop %>
                 <%= f.label 'Certificación' %>
-            </div>
-            <div class="grid_1 pull_1 text-right">
-                <%= f.label 'Nro:', :align => :botton %>
-            </div>
-            <div class="grid_1 pull_1">
-                <%= f.text_field :numCertificacion %>
-            </div>
+            </td><td>
             
-            <div class="grid_3">
+                <%= f.label 'Nro:', :align => :botton %>
+            </td><td>
+            
+                <%= f.text_field :numCertificacion, :style => "width:150px;margin-bottom:10px;"  %>
+            </td><td>
+            
+            
                 <%= f.check_box :solicitud, :align => :texttop %>
                 <%= f.label 'Solicitud de Servicio' %>
-            </div>
-            <div class="grid_1 pull_1 text-right">
+            </td><td>
+            
                 <%= f.label 'Nro:', :align => :botton %>
-            </div>
-            <div class="grid_1 pull_1">
-                <%= f.text_field :numSolicitud %>
-            </div>
-            <br><br><br><br>
-        </div>
+            </td><td>
+            
+                <%= f.text_field :numSolicitud, :style => "width:150px;margin-bottom:10px;"  %>
+            </td></tr><tr><td style="padding-right:20px;">
 
-        <div id="campos_pequenos" class="grid_12">
-            <div class="grid_3">
+        
+
+
+            
                 <%= f.check_box :informe, :align => :texttop %>
                 <%= f.label 'Informe de Recepción' %>
-            </div>
-            <div class="grid_1 pull_1 text-right">
-                <%= f.label 'Nro:', :align => :botton %>
-            </div>
-            <div class="grid_1 pull_1">
-                <%= f.text_field :numInforme %>
-            </div>
+            </td><td>
             
-            <div class="grid_3">
+                <%= f.label 'Nro:', :align => :botton %>
+            </td><td>
+            
+                <%= f.text_field :numInforme, :style => "width:150px;margin-bottom:10px;"  %>
+            </td><td>
+            
+            
                 <%= f.check_box :otro, :align => :texttop %>
                 <%= f.label 'Otro' %>
-            </div>
-            <div class="grid_1 pull_1 text-right">
+            </td><td>
+            
                 <%= f.label 'Nro:', :align => :botton %>
-            </div>
-            <div class="grid_1 pull_1">
-                <%= f.text_field :numOtro %>
-            </div>
-            <br><br><br><br>
-        </div>
-
-        <br><br><br>
-        <div class="grid_12 push_2">
-            <div class="grid_3" >
-                <span class="red">*</span>
-                <%= f.label 'Unidad Solicitante', :align => :middle %><br>
-            </div>
-            <div class="grid_3">
-                <%= f.text_field :unidadSolicitante, :align => :middle, :placeholder => "Nombre de la Unidad" %>
-                <br><br><br>
-            </div>
-        </div>
-
-        <div class="grid_12 push_4">
-            <h4>Causa de la devolución</h4> <br>
-        </div>
-
-        <div class="grid_12">
-            <div class="grid_5">
+            </td><td>
+            
+                <%= f.text_field :numOtro, :style => "width:150px;margin-bottom:10px;"  %>
+            </td></tr></table>
+        <br/>
+        
+           <h4>Causa de la devolución</h4> <br>
+        
+        
+        <table style="width:750px;"><tr><td style="padding-right:20px;">
                 <%= f.check_box :disponibilidad, :align => :texttop %>
                 <%= f.label 'Disponibilidad presupuestaria insuficiente' %>
-            </div>
-            <div class="grid_5 text-center">
-                <%= f.label 'Carencia de Documentos:' %> 
-            </div>
-            <br><br>
-        </div>
+            </td><td>
 
-        <div class="grid_12">
-            <div class="grid_5">
-                <%= f.check_box :idioma, :align => :texttop %>
+                          <%= f.check_box :idioma, :align => :texttop %>
                 <%= f.label 'Registro en idioma distinto al español' %>
-            </div>
-            <div class="grid_5">
-                <%= f.check_box :contacto, :align => :texttop %>
-                <%= f.label 'Contrato Fonacit, si aplica' %>
-            </div>
-            <br><br>
-        </div>
+</td></tr><tr><td>      
 
-        <div class="grid_12">
-            <div class="grid_5">
                 <%= f.check_box :discriminado, :align => :texttop %>
                 <%= f.label 'Registro no discriminado por ítems' %>
-            </div>
-            <div class="grid_5">
-                <%= f.check_box :copia, :align => :texttop %>
-                <%= f.label 'Copia del Acta del Consejo Directo que autorice' %>
-                <%= f.label ' la Contratación Pública (Compras mayores de' %>
-                <%= f.label ' 2500 UT), si es aplicable' %>
-            </div>
-            <br><br>
-        </div>
-
-        <div class="grid_12">
-            <div class="grid_5">
+                
+</td><td>                      
+                      
                 <%= f.check_box :firma, :align => :texttop %>
                 <%= f.label 'Registro sin la firma y/o sello de la' %>
                 <%= f.label 'Unidad Responsable' %>
-            </div>
-            <div class="grid_5">
-                <%= f.check_box :factura, :align => :texttop %>
-                <%= f.label 'Factura, Proforma o Cotización  a nombre de la' %>
-                <%= f.label 'USB, indicando  la condición de entrega.' %>
-            </div>
-            <br><br>
-        </div>
+        </td></tr></table>
+    
+    <br/><br/>
+    
+    
+    
+                <%= f.label 'Carencia de Documentos:' %> 
+            
+<table style="width:700px; margin-left: 35px;"><tr><td>
+ 
 
-        <div class="grid_12">
-            <div class="grid_5">
-                <%= f.check_box :carencia, :align => :texttop %>
-                <%= f.label "Carencia de información indispensable del" %>
-                <%= f.label " proveedor del bien o servicio:" %>
-            </div>
-            <div class="grid_5">
-                <%= f.check_box :foto, :align => :texttop %>
+                <%= f.check_box :contacto, :align => :texttop %>
+                <%= f.label 'Contrato Fonacit (si aplica)' %>
+   </td><td>   
+                <%= f.check_box :copia, :align => :texttop %>
+                <b>Copia del Acta del Consejo Directo que autorice
+               <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la Contratación Pública (Compras mayores de
+              <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2500 UT - si aplica)</b>
+   </td></tr><tr><td style="padding-right:30px;">
+                <%= f.check_box :factura, :align => :texttop %>
+                <b>Factura, Proforma o Cotización a nombre<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de la
+                USB, indicando  la condición de entrega</b>
+            </td><td>
+  <%= f.check_box :foto, :align => :texttop %>
                 <%= f.label 'Foto Referencial del Material y/o Equipo' %>
                 <%= f.label ' solicitado' %>
-            </div>
-            <br><br><br><br>
-        </div>
 
-        <div class="grid_12 push_1">
-            <div class="grid_2">
+            </td></tr></table>
+         <br/>       <br/><br/>
+                
+                <%= f.label "Carencia de información indispensable del" %>
+                <%= f.label " proveedor del bien o servicio:" %>
+                    
+<br/><br/>
+
+<table style="width:700px;margin-left: 100px;"><tr><td>
                 <%= f.check_box :nombre, :align => :texttop %>
                 <%= f.label 'Nombre' %>
-            </div>
-            <div class="grid_2">
+        </td><td>
                 <%= f.check_box :rif, :align => :texttop %>
                 <%= f.label 'RIF' %>
-            </div><br><br>
-        </div>
-
-        <div class="grid_12 push_1">
-            <div class="grid_2">
-                <%= f.check_box :direccion, :align => :texttop %>
+            
+  </td><td>
+  <%= f.check_box :direccion, :align => :texttop, :style => "margin-left:-300px;" %>
                 <%= f.label 'Dirección Fiscal' %>
-            </div>
-            <div class="grid_2">
-                <%= f.check_box :telefonos, :align => :texttop %>
-                <%= f.label 'Teléfonos' %>
-            </div><br><br>
-        </div>
+          </td></tr><tr><td>      <%= f.check_box :telefonos, :align => :texttop %>
+<%= f.label 'Teléfonos' %></td><td style="margin-left:-30px;">
 
-        <div class="grid_12 push_1">
-            <div class="grid_2">
-                <%= f.check_box :datos, :align => :texttop %>
+  
+  <%= f.check_box :datos, :align => :texttop %>
                 <%= f.label 'Datos Bancarios' %>
-            </div>
-            <div class="grid_2">
-                <%= f.check_box :persona, :align => :texttop %>
+        </td><td>              <%= f.check_box :persona, :align => :texttop, :style => "margin-left:-300px;" %>
                 <%= f.label 'Persona Contacto' %>
-            </div><br><br>
-        </div>
-
-        <div class="grid_12 push_1">
-            <div class="grid_2">
+          </td></tr><tr><td>
                 <%= f.check_box :otroCarencia, :align => :texttop %>
                 <%= f.label 'Otro' %>
-            </div><br><br>
-        </div>
+                
+                
+        </td><td><%= f.text_field :otro_especifico %></td></tr><tr><td>
+                <%= f.label 'Observaciones', :align => :middle %></td><td>
+                <%= f.text_area :observaciones, :align => :middle, :style => "width:410px; height:80px; margin-top:10px; margin-bottom:20px;", :placeholder => "Indique en caso de que exista alguna" %>
+</td></tr></table>
 
-        <div id="campos_grandes" class="grid_12 push_2">
-            <br>
-            <div class="grid_3" >
-                <%= f.label 'Observaciones', :align => :middle %><br>
-            </div>
-            <div class="grid_3">
-                <%= f.text_area :observaciones, :align => :middle, :placeholder => "Indique en caso de que exista alguna" %>
-                <br><br><br>
-            </div>
-        </div>
-
-      </div>
       <div class="grid_4 push_3 text-center">
       <div class="actions">
-         <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+         <%= f.submit "Aceptar", :style => "float:left; margin-right:10px;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
       </div>
     <% end %>
-    <br><%= link_to '<button type="button" class="btn btn-primary"> Volver a la página anterior </button>'.html_safe, controller: "devolutions" %>
+    <br><%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-52px;"> Volver a la página anterior </button>'.html_safe, controller: "devolutions" %>
     </div>
 </div>
 

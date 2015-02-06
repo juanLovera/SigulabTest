@@ -6,8 +6,8 @@ class ActsController < ApplicationController
   # GET /acts.json
   def index
     if current_user
-    	@acts = Act.where(:user_id => current_user.username).all
-      @sumActs = Act.where(:user_id => current_user.username).count
+    	@acts = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+      @sumActs = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
   	 end
   end
 
@@ -38,10 +38,22 @@ class ActsController < ApplicationController
   def create
     @act = Act.new(act_params)
     @act.user_id = current_user.username
-
+    @act.specification_id = session[:specification_sel_id]
+    specification = Specification.find(session[:specification_sel_id])
+       specification.p2 = 2
+       specification.p3 = 2
+       specification.p4 = 0
+       specification.p5 = 2
+       specification.p6 = 1
+       session[:specification_p3] = specification.p3
+    session[:specification_p2] = specification.p2
+    session[:specification_p4] = specification.p4
+    session[:specification_p5] = specification.p5
+    session[:specification_p6] = specification.p6
+    specification.save
     respond_to do |format|
       if @act.save
-        format.html { redirect_to @act, notice: 'Act was successfully created.' }
+        format.html { redirect_to acts_url, notice: 'Act was successfully created.' }
         format.json { render :show, status: :created, location: @act }
       else
         format.html { render :new }

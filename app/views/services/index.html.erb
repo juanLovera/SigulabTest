@@ -1,36 +1,11 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= render 'menu' %>
+<div style="text-align: right; height: 45px; margin-top: 12px;">
+	<% if session['specification_p1'] != 2 %><%= link_to '<button type="button" class="btn btn-success"> <span style="font-size:10px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar Servicio </button>'.html_safe, new_service_path %><% end %> <% if session['specification_p1'] == 2 %><%= link_to '<button type="button" class="btn btn-primary"> Descargar solicitud </button>'.html_safe, services_path(@service, :format => 'pdf') %> <% else %> <%= link_to '<button type="button" class="btn btn-primary"> Descargar solicitud </button>'.html_safe, services_path(@service, :format => 'xml'), :onclick => "return confirm('¿Está seguro que desea generar la solicitud? Luego de hacerlo no podrá agregar ni modificar más elementos.')" %> <% end %>
+	</div>
 
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<div class="grid_12">
-      <ol class="breadcrumb">
-          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
-			 <li> <%=link_to 'Compras', compras_url %></li>
-			 <li> <%=link_to 'Especificaciones Técnicas', specifications_url %></li>
-          <li> <%=link_to 'Solicitud', solicitud_url %></li>
-         <li> <%=link_to 'Detalle Especificación', especificacionesTecnicas_url %></li>
-        <li class="active">Servicio </a></li>
-      </ol>
-</div>
- 
-
-  <div class="grid_12">
-    
-	  	 <div class="grid_5">
-	  	   <h3>Especificaciones de Servicios</h3><br>
-		 </div>
-		 <div class="grid_3 push_4 text-right" id="agregar">
-		     <%= link_to 'Agregar otro servicio'.html_safe, new_service_path %> <br>
-		     <%= link_to 'Descargar solicitud'.html_safe, services_path(@service, :format => 'pdf') %> 
-		 </div>
 		<%= render 'servicetable' %>
-		<%= link_to '<button type="button" class="btn btn-primary"> Agregar otro servicio </button>'.html_safe, new_service_path %><br><br>
-		<%= link_to '<button type="button" class="btn btn-primary"> Descargar solicitud  </button>'.html_safe,
-			 services_path(@service, :format => 'pdf') %> <br><br>
-		<%= link_to '<button type="button" class="btn btn-primary"> Volver a especificaciones técnicas </button>'.
-			html_safe, especificacionesTecnicas_url %>
 
 	</div>
 </body>
@@ -47,4 +22,10 @@ h3 {
 }
 
 </style>
+<script>
+if (window.location.search.replace("?", "") == "pdf=1")
+{
+window.location.href = "services.pdf";
+}
+</script>
 
