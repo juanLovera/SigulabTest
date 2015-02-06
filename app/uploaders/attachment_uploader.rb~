@@ -17,7 +17,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   end
 
   def filename 
-  if original_filename && model.class.to_s.underscore == "quote"
+  if original_filename && "#{model.class.to_s.underscore}" == "quote"
     nombre = "nca"
     "#{nombre}.#{file.extension}"
   end

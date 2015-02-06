@@ -6,7 +6,7 @@ class Service < ActiveRecord::Base
   validates_presence_of :nombre, :message => "del equipo no puede estar en blanco."
   validates_presence_of :ubicacion, :message => "del equipo no puede estar en blanco."
   validates_presence_of :tipo, :message => "de servicio no puede estar en blanco."
-  validates_presence_of :descripcion, :message => "del servicio no puede estar en blanco."
+  validates :descripcion, presence: false
   belongs_to :user
 
 end

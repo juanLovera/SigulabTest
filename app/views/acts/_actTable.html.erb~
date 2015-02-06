@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  
-</head>
-<body>
 <table id="example" class="table table-hover" >
 	  <thead>
 		 <tr>
-		   <th align="left">No. Registro</th>
-		   <th align="left">Unidad Solicitante</th>
-		   <th align="left">Observaciones</th>
+		   <th align="left">Proveedor</th>
+		   <th align="left">Bien y/o Servicio</th>
+		   <th align="left">Justificación</th>
+		   <th align="left">Responsable</th>
 		 </tr>
 	  </thead>
 
 	  <tbody>
-		 <% @devolutions.each do |devolution| %>
+		 <% @acts.each do |act| %>
 	  		<tr>
-		     <td><%= devolution.unidadSolicitante %></td>
-		     <td><%= devolution.observaciones %></td>
-                     <td style="text-decoration:none; color:black; text-align: right"><a href="/devolutions/<%= devolution.id %>.pdf">Descargar</a> - <%= link_to 'Editar', devolution %></td>
+		     
+		     <td><%= act.bienServicio %></td>
+		     <td><%= act.justificacion %></td>
+		     <td><%= act.responsable %></td>
+                     <td style="text-decoration:none; color:black; text-align: right"><a href="/acts/<%= act.id %>.pdf"><button type="button" class="btn btn-primary"> Descargar </button></a> <%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, act %>  
 		   </tr>
 		 <% end %>
-		 <% if @sumDevolution == 0 %>
+		 <% if @sumActs == 0 %>
 		 	<tr class="warning">
-				<td class="text-center" colspan="5"><h4>No hay notas de devolución registradas</h4></td>
+				<td class="text-center" colspan="5"><h4>No hay Actos Motivados registrados</h4></td>
 			</tr>
 		 <% end %>
 	  </tbody>

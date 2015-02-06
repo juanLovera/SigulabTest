@@ -9,7 +9,13 @@ class ActsController < ApplicationController
     	@acts = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
       @sumActs = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
   	 end
-respond_to do |format|
+  end
+
+  # GET /acts/1
+  # GET /acts/1.json
+  def show
+    @acts = Act.find(params[:id])
+    respond_to do |format|
       format.html
       format.pdf do
                @act= Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
@@ -32,13 +38,6 @@ respond_to do |format|
               redirect_to "/acts?pdf=1"
       end
     end
-  end
-
-  # GET /acts/1
-  # GET /acts/1.json
-  def show
-    @acts = Act.find(params[:id])
-    
   end
 
   # GET /acts/new

@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
   validates_numericality_of :dimensiones_alto, :greater_than_or_equal_to => 0, :message => "debe ser un número mayor que 0"
   validates :dimensiones_ancho, presence: false
   validates_numericality_of :dimensiones_ancho, :greater_than_or_equal_to => 0, :message => "debe ser un número mayor que 0"
-  validates_presence_of :descripcion, :message =>"del Item no puede estar en blanco"
+  validates :descripcion, presence: false
   
   belongs_to :user
 

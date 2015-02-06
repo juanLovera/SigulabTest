@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  
-</head>
-<body>
 <table id="example" class="table table-hover" >
 	  <thead>
 		 <tr>
@@ -21,7 +15,7 @@
 		     <td><%= act.bienServicio %></td>
 		     <td><%= act.justificacion %></td>
 		     <td><%= act.responsable %></td>
-                     <td style="text-decoration:none; color:black; text-align: right"><a href="/acts/<%= act.id %>.pdf">Descargar</a> - <%= link_to 'Editar', act %></td>     
+                     <td style="text-decoration:none; color:black; text-align: right"><%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, act %>  
 		   </tr>
 		 <% end %>
 		 <% if @sumActs == 0 %>
