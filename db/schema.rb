@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204183465) do
+ActiveRecord::Schema.define(version: 20150206030644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,6 +229,15 @@ ActiveRecord::Schema.define(version: 20150204183465) do
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
+  create_table "fecha_entregas", force: true do |t|
+    t.string   "ubicacion"
+    t.string   "fechaTope"
+    t.string   "condiciones"
+    t.string   "medida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
@@ -343,12 +352,12 @@ ActiveRecord::Schema.define(version: 20150204183465) do
     t.string   "title"
     t.string   "responsible"
     t.string   "sae_code"
-    t.float    "amount",         default: 0.0
-    t.float    "equipments",     default: 0.0
-    t.float    "services",       default: 0.0
-    t.float    "infrastructure", default: 0.0
-    t.float    "hhrr",           default: 0.0
-    t.float    "consumables",    default: 0.0
+    t.decimal  "amount",         default: 0.0
+    t.decimal  "equipments",     default: 0.0
+    t.decimal  "services",       default: 0.0
+    t.decimal  "infrastructure", default: 0.0
+    t.decimal  "hhrr",           default: 0.0
+    t.decimal  "consumables",    default: 0.0
     t.date     "incoming_date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -356,7 +365,7 @@ ActiveRecord::Schema.define(version: 20150204183465) do
     t.integer  "status",         default: 0
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
-    t.float    "other_amount",   default: 0.0
+    t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
     t.string   "num_cuenta"
     t.string   "observation"

@@ -80,7 +80,7 @@
 					<label for='equipments' class="col-xs-3 control-label text-right">Equipos <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :equipments, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.equipments, format: "%n", delimiter: " ", separator: ".") %>
+							<%= i.text_field :equipments, class: 'form-control', :onblur => "calculateAmount();" %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 					<label for='services' class="col-xs-3 control-label text-right">Servicios <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :services, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.services, format: "%n", delimiter: " ", separator: ".") %>
+							<%= i.text_field :services, class: 'form-control', :onblur => "calculateAmount();" %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -100,7 +100,7 @@
 					<label for='infrastructure' class="col-xs-3 control-label text-right">Infraestructura <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :infrastructure, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.infrastructure, format: "%n", delimiter: " ", separator: ".") %>
+							<%= i.text_field :infrastructure, class: 'form-control', :onblur => "calculateAmount();" %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -110,7 +110,7 @@
 					<label for='hhrr' class="col-xs-3 control-label text-right">Personal <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :hhrr, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.hhrr, format: "%n", delimiter: " ", separator: ".") %>
+							<%= i.text_field :hhrr, class: 'form-control', :onblur => "calculateAmount();" %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -120,7 +120,7 @@
 					<label for='consumables' class="col-xs-3 control-label text-right">Consumibles <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :consumables, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.consumables, format: "%n", delimiter: " ", separator: ".")%>
+							<%= i.text_field :consumables, class: 'form-control', :onblur => "calculateAmount();" %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -130,7 +130,7 @@
 				<label for='furniture' class="col-xs-3 control-label text-right"> <%= i.text_field :other_desc, class: 'form-control text-right', placeholder: 'Otro (especifique)' %> </label>
 				<div class='col-xs-4'>
 					<div class="input-group">
-						<%= i.text_field :other_amount, class: 'form-control', :value => number_to_currency(i.object.other_amount, format: "%n", delimiter: " ", separator: "."), :onblur => 'calculateAmount();' %>
+						<%= i.text_field :other_amount, class: 'form-control' %>
 						<span class="input-group-addon">Bs.</span>
 					</div>
 				</div>
@@ -140,7 +140,7 @@
 					<label for='amount' class="col-xs-3 control-label text-right">Monto asignado (Bs) <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :amount, class: 'form-control', :readonly => true, :value => number_to_currency(i.object.amount, format: "%n", delimiter: " ", separator: ".") %>
+							<%= i.text_field :amount, class: 'form-control', :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -252,7 +252,7 @@
 					<label for='equipments' class="col-xs-3 control-label text-right">Equipos <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :equipments, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.equipments, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :equipments, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -262,7 +262,7 @@
 					<label for='services' class="col-xs-3 control-label text-right">Servicios <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :services, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.services, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :services, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -272,7 +272,7 @@
 					<label for='infrastructure' class="col-xs-3 control-label text-right">Infraestructura <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :infrastructure, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.infrastructure, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :infrastructure, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -282,7 +282,7 @@
 					<label for='hhrr' class="col-xs-3 control-label text-right">Personal <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :hhrr, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.hhrr, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :hhrr, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -292,7 +292,7 @@
 					<label for='consumables' class="col-xs-3 control-label text-right">Consumibles <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :consumables, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.consumables, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :consumables, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -302,7 +302,7 @@
 					<label for='furniture' class="col-xs-3 control-label text-right">Mobiliario <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :furniture, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.furniture, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :furniture, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -318,7 +318,7 @@
 					</label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :other_amount, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.other_amount, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :other_amount, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>
@@ -329,7 +329,7 @@
 					<label for='amount' class="col-xs-3 control-label text-right">Monto asignado (Bs) <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">
-							<%= i.text_field :amount, class: 'form-control', :readonly => true, :value => number_to_currency(i.object.amount, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<%= i.text_field :amount, class: 'form-control', :readonly => true, :readonly => true %>
 							<span class="input-group-addon">Bs.</span>
 						</div>
 					</div>

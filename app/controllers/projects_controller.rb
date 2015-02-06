@@ -52,24 +52,8 @@ class ProjectsController < ApplicationController
       unless params[:project].nil?
         begin
           params[:project][:incoming_date] = Date.parse(params[:project][:incoming_date])
-          params[:project][:equipments] = (params[:project][:equipments]).to_f
-          params[:project][:services] = (params[:project][:services]).to_f
-          params[:project][:infrastructure] = (params[:project][:infrastructure]).to_f
-          params[:project][:hhrr] = (params[:project][:hhrr]).to_f
-          params[:project][:consumables] = (params[:project][:consumables]).to_f
-          params[:project][:furniture] = (params[:project][:furniture]).to_f
-          params[:project][:amount] = (params[:project][:amount]).to_f
-          params[:project][:other_amount] = (params[:project][:amount]).to_f
         rescue ArgumentError
           params[:project][:incoming_date] = nil
-          params[:project][:equipments] = nil
-          params[:project][:services] = nil
-          params[:project][:infrastructure] = nil
-          params[:project][:hhrr] = nil
-          params[:project][:consumables] = nil
-          params[:project][:furniture] = nil
-          params[:project][:amount] = nil
-          params[:project][:other_amount] = nil
         end
       end
 
