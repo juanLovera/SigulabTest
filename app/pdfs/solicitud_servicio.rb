@@ -32,7 +32,7 @@ def initialize(instruments)
 end
 
    def tittle 
-      [[{:content => "Solicitud De Prestamos", :rowspan => 2, :size => 20, :background_color => "DDDDDD"  },
+      [[{:content => "Solicitud De Servicios", :rowspan => 2, :size => 20, :background_color => "DDDDDD"  },
         {:content => "Registro No.", :background_color => "DDDDDD"}],
         [{:content => "0001", :background_color => "FFFFFF", :align => :center}]]
    end

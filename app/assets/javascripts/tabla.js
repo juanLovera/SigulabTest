@@ -1,7 +1,7 @@
 $(document).ready(function() {
 				$('#example').dataTable( {
 					"bJQueryUI": true,
-					"sPaginationType": "full_numbers"
-					
+					"sPaginationType": "full_numbers",
+					"bRetrieve": true
 				} );
 			} );
