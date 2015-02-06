@@ -41,6 +41,8 @@ class EquipmentController < ApplicationController
         format.json { render json: @equipment.errors, status: :unprocessable_entity }
       end
     end
+    @equipment.id2 = "EQ-" + "#{@equipment.id}"
+    @equipment.save
   end
 
   # PATCH/PUT /equipment/1

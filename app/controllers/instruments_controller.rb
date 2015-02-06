@@ -43,6 +43,8 @@ class InstrumentsController < ApplicationController
         format.json { render json: @instrument.errors, status: :unprocessable_entity }
       end
     end
+    @instrument.id2 = "IN-" + "#{@instrument.id}"
+    @instrument.save
   end
 
   # PATCH/PUT /instruments/1

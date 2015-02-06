@@ -29,7 +29,7 @@ class LoansController < ApplicationController
     @instruments = Instrument.where(id2: params[:item_ids])
     @tools = Tool.where(id2: params[:item_ids])
     @consumables = Consumable.where(id2: params[:item_ids])
-    @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
+    @sustancias = ChemicalSubstance.all
   end
 
   # GET /loans/1/edit
@@ -40,7 +40,7 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(loan_params)
-
+    
     respond_to do |format|
       if @loan.save
         format.html { redirect_to @loan, notice: 'Se ha creado exitosamente la solicitud de préstamo.' }
