@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.integer   "specification_id"
+    t.string   "specification_id"
   end
 
   create_table "applications", force: true do |t|
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "uso"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "cas", id: false, force: true do |t|
+    t.string "usbid",     limit: 15, null: false
+    t.string "nombres",   limit: 20, null: false
+    t.string "apellidos", limit: 20, null: false
+    t.string "cedula",    limit: 8,  null: false
   end
 
   create_table "checks", force: true do |t|
@@ -138,7 +145,6 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.boolean  "informe"
     t.string   "numOtro"
     t.boolean  "otro"
-    t.string   "otro_especifico"
     t.boolean  "disponibilidad"
     t.boolean  "idioma"
     t.boolean  "discriminado"
@@ -151,17 +157,15 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.boolean  "telefonos"
     t.boolean  "persona"
     t.boolean  "otroCarencia"
-    t.string   "descripcion"
     t.boolean  "contacto"
     t.boolean  "copia"
     t.boolean  "factura"
     t.boolean  "foto"
+    t.text     "observaciones"
     t.string   "unidadSolicitante"
-    t.string   "observaciones"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.integer  "specification_id"
   end
 
   create_table "donations", force: true do |t|
@@ -173,6 +177,23 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "tipo"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "empleado", id: false, force: true do |t|
+    t.string  "usbid",         limit: 15,                              null: false
+    t.string  "correo",        limit: 30
+    t.string  "direccion",     limit: 50
+    t.string  "cargo",         limit: 30,                              null: false
+    t.string  "ano_ingreso",   limit: 4,                               null: false
+    t.string  "tipo_empleado", limit: 15,                              null: false
+    t.string  "status",        limit: 30,  default: "Inactivo",        null: false
+    t.string  "telefono",      limit: 12
+    t.string  "tipo_usuario",  limit: 20,                              null: false
+    t.string  "area_laboral",  limit: 30
+    t.string  "extension",     limit: 200
+    t.string  "laboratorio",   limit: 100
+    t.integer "visibilidad",               default: 1,                 null: false
+    t.string  "imagen",        limit: 100, default: "images/user.png"
   end
 
   create_table "equipment", force: true do |t|
@@ -229,6 +250,17 @@ ActiveRecord::Schema.define(version: 20150204183455) do
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
+  create_table "formacion", id: false, force: true do |t|
+    t.string "usbid",     limit: 15,  null: false
+    t.string "formacion", limit: 100, null: false
+    t.string "ano_for",   limit: 4
+  end
+
+  create_table "habilidad", id: false, force: true do |t|
+    t.string "usbid",     limit: 15,  null: false
+    t.string "habilidad", limit: 100, null: false
+  end
+
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
@@ -237,16 +269,17 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.date     "date"
     t.string   "organism"
     t.string   "document"
+    t.string   "unit"
+    t.integer  "resource",             default: 0
+    t.string   "variation"
+    t.string   "resource_description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing",            default: 0
+    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
-    t.string   "unit"
-    t.string   "variation"
-    t.string   "resource_description"
-    t.integer  "resource",             default: 0
   end
 
   create_table "instruments", force: true do |t|
@@ -278,36 +311,43 @@ ActiveRecord::Schema.define(version: 20150204183455) do
   end
 
   create_table "invitations", force: true do |t|
-    t.string   "nombre"
-    t.string   "rif"
+    t.string   "nombreEmpresa"
     t.string   "direccion"
     t.string   "correo"
     t.string   "telefono"
-    t.string   "telefono_Adicional"
+    t.string   "telefonoAdicional"
     t.string   "responsable"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.integer  "specification_id"
-    t.integer  "quote_id"
   end
 
-   create_table "items", force: true do |t|
+  create_table "items", force: true do |t|
     t.string   "nombre"
     t.string   "tipo"
     t.text     "descripcion"
-    t.integer  "dimensiones_alto"
-    t.integer  "dimensiones_ancho"
-    t.integer  "dimensiones_largo"
+    t.string   "dimensiones"
     t.integer  "cantidad"
-    t.string   "unidad_alto"
-    t.string   "unidad_ancho"
-    t.string   "unidad_largo"
+    t.string   "unidad"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "numeroBien"
     t.string   "user_id"
-    t.integer  "specification_id"
+  end
+
+  create_table "laboratorio", id: false, force: true do |t|
+    t.string  "codigo",          limit: 10,                   null: false
+    t.string  "nombre",          limit: 100,                  null: false
+    t.string  "sede",            limit: 15,                   null: false
+    t.string  "ubicacion",       limit: 100,                  null: false
+    t.string  "correo",          limit: 50,                   null: false
+    t.string  "pagweb",          limit: 50,   default: "N/P", null: false
+    t.string  "telefono",        limit: 12,                   null: false
+    t.string  "fax",             limit: 12,                   null: false
+    t.string  "caracteristicas", limit: 2000,                 null: false
+    t.string  "jefe",            limit: 50,                   null: false
+    t.integer "visibilidad",                  default: 1,     null: false
+    t.string  "imagen",          limit: 100
   end
 
   create_table "labs", force: true do |t|
@@ -349,54 +389,26 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.float    "other_amount",   default: 0.0
-    t.date     "annulled_date"
     t.string   "num_cuenta"
+    t.date     "annulled_date"
     t.string   "observation"
     t.integer  "banco"
+  end
+
+  create_table "publicacion", id: false, force: true do |t|
+    t.string "usbid",       limit: 15,  null: false
+    t.string "publicacion", limit: 100, null: false
+    t.string "ano_pub",     limit: 4
   end
 
   create_table "quotes", force: true do |t|
     t.string   "nombre"
     t.string   "attachment"
-    t.string   "ataname"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.integer  "specification_id"
-  end
-  
-  create_table "itemsquotes", force: true do |t|
-    t.integer "id_item"
-    t.string  "nombre_item"
-    t.integer "id_oferta"
-    t.integer "compra"
-    t.integer  "specification_id"
   end
 
-  create_table "recommendations", force: true do |t|
-    t.text     "codigo"
-    t.text     "via"
-    t.integer  "specification_id"
-    t.integer  "user_id"
-  end
-  
-  create_table "recommendations_empresas", force:true do |t|
-    t.integer   "quote_id"
-    t.integer   "id_informe"
-    t.integer   "opcion_numero"
-    t.text      "empresa"
-    t.integer   "calidad_pro"
-    t.integer   "disponibilidad_pro"
-    t.integer   "proveedor_unico"
-    t.integer   "calidad_ser"
-    t.integer   "garantia"
-    t.integer   "servicio_post"
-    t.integer   "cumplimiento_esp"
-    t.integer   "precio"
-    t.integer   "tiempo"
-    t.integer   "cumplio_req"
-  end
-  
   create_table "requisitions", force: true do |t|
     t.string   "solicitante"
     t.string   "consumidor"
@@ -410,14 +422,22 @@ ActiveRecord::Schema.define(version: 20150204183455) do
 
   create_table "services", force: true do |t|
     t.string   "nombre"
-    t.string   "numero"
+    t.string   "numeroBien"
     t.string   "tipo"
     t.text     "descripcion"
     t.string   "ubicacion"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.integer  "specification_id"
+  end
+
+  create_table "servicio", id: false, force: true do |t|
+    t.string  "codigo",          limit: 10,               null: false
+    t.string  "nombre",          limit: 100,              null: false
+    t.string  "imagen",          limit: 100
+    t.string  "laboratorio",     limit: 10,               null: false
+    t.string  "caracteristicas", limit: 2000,             null: false
+    t.integer "visibilidad",                  default: 1, null: false
   end
 
   create_table "specifications", force: true do |t|
@@ -425,15 +445,8 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "updated_at"
     t.string   "user_id"
     t.string   "nombre"
-    t.string   "tipo"
-    t.integer  "p1"
-    t.integer  "p2"
-    t.integer  "p3"
-    t.integer  "p4"
-    t.integer  "p5"
-    t.integer  "p6"
-    t.integer  "p7"
   end
+
   create_table "tools", force: true do |t|
     t.string   "name"
     t.string   "brand"
@@ -495,5 +508,12 @@ ActiveRecord::Schema.define(version: 20150204183455) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "usuario", id: false, force: true do |t|
+    t.string "usbid",     limit: 15, null: false
+    t.string "nombres",   limit: 20, null: false
+    t.string "apellidos", limit: 20, null: false
+    t.string "cedula",    limit: 8,  null: false
+  end
 
 end
