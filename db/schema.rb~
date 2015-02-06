@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204183455) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150204183465) do
+=======
+ActiveRecord::Schema.define(version: 20150206030644) do
+>>>>>>> 0609809e77b2a627ed7590ed8cb6a41f24634b4a
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.string   "specification_id"
+    t.integer  "specification_id"
   end
 
   create_table "applications", force: true do |t|
@@ -229,6 +233,18 @@ ActiveRecord::Schema.define(version: 20150204183455) do
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
+<<<<<<< HEAD
+=======
+  create_table "fecha_entregas", force: true do |t|
+    t.string   "ubicacion"
+    t.string   "fechaTope"
+    t.string   "condiciones"
+    t.string   "medida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+>>>>>>> 0609809e77b2a627ed7590ed8cb6a41f24634b4a
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
@@ -292,7 +308,7 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.integer  "quote_id"
   end
 
-   create_table "items", force: true do |t|
+  create_table "items", force: true do |t|
     t.string   "nombre"
     t.string   "tipo"
     t.text     "descripcion"
@@ -308,6 +324,14 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "numeroBien"
     t.string   "user_id"
     t.integer  "specification_id"
+  end
+
+  create_table "itemsquotes", force: true do |t|
+    t.integer "id_item"
+    t.string  "nombre_item"
+    t.integer "id_oferta"
+    t.integer "compra"
+    t.integer "specification_id"
   end
 
   create_table "labs", force: true do |t|
@@ -335,12 +359,12 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "title"
     t.string   "responsible"
     t.string   "sae_code"
-    t.float    "amount",         default: 0.0
-    t.float    "equipments",     default: 0.0
-    t.float    "services",       default: 0.0
-    t.float    "infrastructure", default: 0.0
-    t.float    "hhrr",           default: 0.0
-    t.float    "consumables",    default: 0.0
+    t.decimal  "amount",         default: 0.0
+    t.decimal  "equipments",     default: 0.0
+    t.decimal  "services",       default: 0.0
+    t.decimal  "infrastructure", default: 0.0
+    t.decimal  "hhrr",           default: 0.0
+    t.decimal  "consumables",    default: 0.0
     t.date     "incoming_date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -348,7 +372,11 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.integer  "status",         default: 0
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
+<<<<<<< HEAD
     t.float    "other_amount",   default: 0.0
+=======
+    t.decimal  "other_amount",   default: 0.0
+>>>>>>> 0609809e77b2a627ed7590ed8cb6a41f24634b4a
     t.date     "annulled_date"
     t.string   "num_cuenta"
     t.string   "observation"
@@ -364,39 +392,31 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.string   "user_id"
     t.integer  "specification_id"
   end
-  
-  create_table "itemsquotes", force: true do |t|
-    t.integer "id_item"
-    t.string  "nombre_item"
-    t.integer "id_oferta"
-    t.integer "compra"
-    t.integer  "specification_id"
-  end
 
   create_table "recommendations", force: true do |t|
-    t.text     "codigo"
-    t.text     "via"
-    t.integer  "specification_id"
-    t.integer  "user_id"
+    t.text    "codigo"
+    t.text    "via"
+    t.integer "specification_id"
+    t.integer "user_id"
   end
-  
-  create_table "recommendations_empresas", force:true do |t|
-    t.integer   "quote_id"
-    t.integer   "id_informe"
-    t.integer   "opcion_numero"
-    t.text      "empresa"
-    t.integer   "calidad_pro"
-    t.integer   "disponibilidad_pro"
-    t.integer   "proveedor_unico"
-    t.integer   "calidad_ser"
-    t.integer   "garantia"
-    t.integer   "servicio_post"
-    t.integer   "cumplimiento_esp"
-    t.integer   "precio"
-    t.integer   "tiempo"
-    t.integer   "cumplio_req"
+
+  create_table "recommendations_empresas", force: true do |t|
+    t.integer "quote_id"
+    t.integer "id_informe"
+    t.integer "opcion_numero"
+    t.text    "empresa"
+    t.integer "calidad_pro"
+    t.integer "disponibilidad_pro"
+    t.integer "proveedor_unico"
+    t.integer "calidad_ser"
+    t.integer "garantia"
+    t.integer "servicio_post"
+    t.integer "cumplimiento_esp"
+    t.integer "precio"
+    t.integer "tiempo"
+    t.integer "cumplio_req"
   end
-  
+
   create_table "requisitions", force: true do |t|
     t.string   "solicitante"
     t.string   "consumidor"
@@ -434,6 +454,7 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.integer  "p6"
     t.integer  "p7"
   end
+
   create_table "tools", force: true do |t|
     t.string   "name"
     t.string   "brand"
@@ -492,8 +513,5 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

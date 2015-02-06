@@ -12,6 +12,7 @@ class ConsumablesController < ApplicationController
   		@consumables_all = Consumable.all.order('created_at DESC')
   	end
     @sum = Consumable.count
+    @items = params[:item_ids]
   end
 
   # GET /consumables/1
@@ -32,7 +33,6 @@ class ConsumablesController < ApplicationController
   # POST /consumables.json
   def create
     @consumable = Consumable.new(consumable_params)
-    @consumable.id2 = "CO-" + "#{@consumable.id}00"
 
     respond_to do |format|
       if @consumable.save
