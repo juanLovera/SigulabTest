@@ -33,7 +33,6 @@ class ConsumablesController < ApplicationController
   # POST /consumables.json
   def create
     @consumable = Consumable.new(consumable_params)
-    @consumable.id2 = "CO-" + "#{@consumable.id}00"
 
     respond_to do |format|
       if @consumable.save

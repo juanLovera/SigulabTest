@@ -4,7 +4,6 @@ class Consumable < ActiveRecord::Base
 	validates :dependency, :presence => {:message => "no puede ser blanco"}
 	validates :location, :presence => {:message => "no puede ser blanco"}
 	validates :responsible, :presence => {:message => "no puede ser blanco"}
-	validates_presence_of :id2
 	validates_uniqueness_of :id2
 	
 	def self.search(query)

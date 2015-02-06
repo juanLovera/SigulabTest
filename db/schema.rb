@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204183455) do
+ActiveRecord::Schema.define(version: 20150204183465) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-    t.string   "specification_id"
+    t.integer  "specification_id"
   end
 
   create_table "applications", force: true do |t|
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.boolean  "informe"
     t.string   "numOtro"
     t.boolean  "otro"
+    t.string   "otro_especifico"
     t.boolean  "disponibilidad"
     t.boolean  "idioma"
     t.boolean  "discriminado"
@@ -150,15 +151,17 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.boolean  "telefonos"
     t.boolean  "persona"
     t.boolean  "otroCarencia"
+    t.string   "descripcion"
     t.boolean  "contacto"
     t.boolean  "copia"
     t.boolean  "factura"
     t.boolean  "foto"
-    t.text     "observaciones"
     t.string   "unidadSolicitante"
+    t.string   "observaciones"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.integer  "specification_id"
   end
 
   create_table "donations", force: true do |t|
@@ -234,17 +237,16 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.date     "date"
     t.string   "organism"
     t.string   "document"
-    t.string   "unit"
-    t.integer  "resource",             default: 0
-    t.string   "variation"
-    t.string   "resource_description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing",            default: 0
-    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
+    t.string   "unit"
+    t.string   "variation"
+    t.string   "resource_description"
+    t.integer  "resource",             default: 0
   end
 
   create_table "instruments", force: true do |t|
@@ -276,28 +278,44 @@ ActiveRecord::Schema.define(version: 20150204183455) do
   end
 
   create_table "invitations", force: true do |t|
-    t.string   "nombreEmpresa"
+    t.string   "nombre"
+    t.string   "rif"
     t.string   "direccion"
     t.string   "correo"
     t.string   "telefono"
-    t.string   "telefonoAdicional"
+    t.string   "telefono_Adicional"
     t.string   "responsable"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.integer  "specification_id"
+    t.integer  "quote_id"
   end
 
   create_table "items", force: true do |t|
     t.string   "nombre"
     t.string   "tipo"
     t.text     "descripcion"
-    t.string   "dimensiones"
+    t.integer  "dimensiones_alto"
+    t.integer  "dimensiones_ancho"
+    t.integer  "dimensiones_largo"
     t.integer  "cantidad"
-    t.string   "unidad"
+    t.string   "unidad_alto"
+    t.string   "unidad_ancho"
+    t.string   "unidad_largo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "numeroBien"
     t.string   "user_id"
+    t.integer  "specification_id"
+  end
+
+  create_table "itemsquotes", force: true do |t|
+    t.integer "id_item"
+    t.string  "nombre_item"
+    t.integer "id_oferta"
+    t.integer "compra"
+    t.integer "specification_id"
   end
 
   create_table "labs", force: true do |t|
@@ -339,8 +357,8 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.float    "other_amount",   default: 0.0
-    t.string   "num_cuenta"
     t.date     "annulled_date"
+    t.string   "num_cuenta"
     t.string   "observation"
     t.integer  "banco"
   end
@@ -348,9 +366,35 @@ ActiveRecord::Schema.define(version: 20150204183455) do
   create_table "quotes", force: true do |t|
     t.string   "nombre"
     t.string   "attachment"
+    t.string   "ataname"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.integer  "specification_id"
+  end
+
+  create_table "recommendations", force: true do |t|
+    t.text    "codigo"
+    t.text    "via"
+    t.integer "specification_id"
+    t.integer "user_id"
+  end
+
+  create_table "recommendations_empresas", force: true do |t|
+    t.integer "quote_id"
+    t.integer "id_informe"
+    t.integer "opcion_numero"
+    t.text    "empresa"
+    t.integer "calidad_pro"
+    t.integer "disponibilidad_pro"
+    t.integer "proveedor_unico"
+    t.integer "calidad_ser"
+    t.integer "garantia"
+    t.integer "servicio_post"
+    t.integer "cumplimiento_esp"
+    t.integer "precio"
+    t.integer "tiempo"
+    t.integer "cumplio_req"
   end
 
   create_table "requisitions", force: true do |t|
@@ -366,13 +410,14 @@ ActiveRecord::Schema.define(version: 20150204183455) do
 
   create_table "services", force: true do |t|
     t.string   "nombre"
-    t.string   "numeroBien"
+    t.string   "numero"
     t.string   "tipo"
     t.text     "descripcion"
     t.string   "ubicacion"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.integer  "specification_id"
   end
 
   create_table "specifications", force: true do |t|
@@ -380,6 +425,14 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.datetime "updated_at"
     t.string   "user_id"
     t.string   "nombre"
+    t.string   "tipo"
+    t.integer  "p1"
+    t.integer  "p2"
+    t.integer  "p3"
+    t.integer  "p4"
+    t.integer  "p5"
+    t.integer  "p6"
+    t.integer  "p7"
   end
 
   create_table "tools", force: true do |t|
@@ -440,8 +493,5 @@ ActiveRecord::Schema.define(version: 20150204183455) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

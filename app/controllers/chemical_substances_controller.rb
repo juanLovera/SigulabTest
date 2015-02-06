@@ -34,7 +34,6 @@ class ChemicalSubstancesController < ApplicationController
   def create
     @chemical_substance = ChemicalSubstance.new(chemical_substance_params)
     @sum = ChemicalSubstance.count
-    @chemical_substance.id2 = "SQ-" + "#{@sum + 1}"
 
     respond_to do |format|
       if @chemical_substance.save
@@ -45,6 +44,8 @@ class ChemicalSubstancesController < ApplicationController
         format.json { render json: @chemical_substance.errors, status: :unprocessable_entity }
       end
     end
+    @chemical_substance.id2 = "SQ-" + "#{@chemical_substance.id}"
+    @chemical_substance.save
   end
 
   # PATCH/PUT /chemical_substances/1

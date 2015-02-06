@@ -41,6 +41,8 @@ class ToolsController < ApplicationController
         format.json { render json: @tool.errors, status: :unprocessable_entity }
       end
     end
+    @tool.id2 = "HE-" + "#{@tool.id}"
+    @tool.save
   end
 
   # PATCH/PUT /tools/1
