@@ -299,6 +299,33 @@
 				</div>			
 
 				<div class="form-group">
+					<label for='furniture' class="col-xs-3 control-label text-right">Mobiliario <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :furniture, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.furniture, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>			
+
+
+				<div class="form-group">
+           		<% if !@project.other_desc.blank? %>					
+					<label for='other_amount' class="col-xs-3 control-label text-right">@project.other_desc <span style="color:#FF0000">*</span>
+           		<% else %>				
+					<label for='other_amount' class="col-xs-3 control-label text-right">Otros conceptos <span style="color:#FF0000">*</span>   
+           		<% end %>				
+					</label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :other_amount, class: 'form-control', :onblur => "calculateAmount();", :value => number_to_currency(i.object.other_amount, format: "%n", delimiter: " ", separator: "."), :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>		
+
+
+				<div class="form-group">
 					<label for='amount' class="col-xs-3 control-label text-right">Monto asignado (Bs) <span style="color:#FF0000">*</span></label>
 					<div class='col-xs-4'>
 						<div class="input-group">

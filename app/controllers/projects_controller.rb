@@ -41,13 +41,13 @@ class ProjectsController < ApplicationController
   end    
 
     def edit
-binding.pry
+
       @project = Project.find(params[:id])
-binding.pry
+
     end
     
     def update
-binding.pry
+
       # Check Date
       unless params[:project].nil?
         begin
@@ -72,26 +72,27 @@ binding.pry
           params[:project][:other_amount] = nil
         end
       end
-binding.pry
+
       @project = Project.find(params[:id])
-binding.pry
+
       if params[:project][:incoming_date].nil? && (not (params[:project][:status] == "pending"))      
         @project.incoming_date_required
         render 'edit'
       else 
-        if params[:project][:annulled_date] == "" && params[:project][:status] == "annulled"
-          params[:project][:annulled_date] = nil
-          @project.annulled_date_required
-          render 'edit'
-        else
-          if @project.update_attributes(project_params)
-            redirect_to project_url(@project)
-          else
+          if params[:project][:annulled_date] == "" && params[:project][:status] == "annulled"
+            params[:project][:annulled_date] = nil
+            @project.annulled_date_required
             render 'edit'
+          else
+            if @project.update_attributes(project_params)
+              redirect_to project_url(@project)
+            else
+              render 'edit'
+            end
           end
         end
       end
-    end
+
 
   private
   
