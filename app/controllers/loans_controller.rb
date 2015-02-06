@@ -19,11 +19,6 @@ class LoansController < ApplicationController
         send_data pdf.render, filename: 'SolicitudPrestamo.pdf', type: 'application/pdf'
       end
     end
-    @equipment = Equipment.update_all(:solicitado => false)
-    @instrumentos = Instrument.update_all(:solicitado => false)
-    @herramientas = Tool.update_all(:solicitado => false)
-    @consumibles = Consumable.update_all(:solicitado => false)
-    @sustanciasqui = ChemicalSubstance.update_all(:solicitado => false)
   end
 
   # GET /loans/new
@@ -43,7 +38,6 @@ class LoansController < ApplicationController
   # POST /loans
   # POST /loans.json
   def create
-    binding.pry
     @loan = Loan.new(loan_params)
 
     respond_to do |format|
