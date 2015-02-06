@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
 <%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
 <%= javascript_include_tag 'jquery.dataTables.js' %>
 <%= javascript_include_tag 'tabla.js' %>
@@ -68,11 +69,10 @@
 
 
     <% if can? :create, @chemical_substance %>
-      <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Sustancia', new_chemical_substance_path, 'data-no-turbolink' => true %> | 
+      <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Sustancia', new_chemical_substance_path, 'data-no-turbolink' => true, :class => 'linkButton'%> | 
     <%end%>
     <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo ', :class => "linkButton" %> | 
-    <i class="fa fa-phone"></i><%= link_to ' Solicitar Servicio ', new_application_path %> | 
-    <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url %>
+    <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
     <% end %>
     <br><br><br><br><br><br><br>
     
@@ -100,6 +100,24 @@
 .linkButton:focus {
     outline: thin dotted;
     outline-offset: -2px;
+}
+
+#LeDivQuimicas {
+    background-image        : url('/assets/chemical.png');
+    background-size         : 520px;  
+    background-repeat       : no-repeat; 
+    background-position   : bottom right; 
+    background-color        : #FFFFFF;
+
+}
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
 }
 
  </style>

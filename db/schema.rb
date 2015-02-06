@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206030644) do
+ActiveRecord::Schema.define(version: 20150206030652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -444,10 +444,16 @@ ActiveRecord::Schema.define(version: 20150206030644) do
     t.integer  "p7"
   end
 
+  create_table "table_items_solicituds", force: true do |t|
+    t.integer  "codItem"
+    t.integer  "codSolicitud"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tools", force: true do |t|
     t.string   "name"
     t.string   "brand"
-    t.string   "type"
     t.integer  "national_good"
     t.string   "status"
     t.string   "responsible"
@@ -466,8 +472,8 @@ ActiveRecord::Schema.define(version: 20150206030644) do
     t.boolean  "showable",         default: true
     t.boolean  "from_set"
     t.string   "dependency"
-    t.boolean  "solicitados"
     t.string   "id2"
+    t.string   "tipo"
   end
 
   create_table "users", force: true do |t|
