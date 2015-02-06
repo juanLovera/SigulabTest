@@ -4,47 +4,47 @@
       <h2>Rellene todos los campos obligatorios</h2>
       <br>
     <% end %>
-  <div class ="table">
-      <div class="field">
+      
+      <table style="margin-left:-150px;"><tr><td style="padding-right:10px;">
+
           <span class="red">*</span>
        <%= f.label "Número de registro" %><br>
        <%= f.text_field :numRegistro %>
-      </div>
-      <div class="field">
-              <span class="red">*</span>
+</td><td>
+       <span class="red">*</span>
        <%= f.label "Nombre del Proveedor" %><br>
        <%= f.text_field :proveedor, :placeholder => "Nombre del Proveedor" %>
-      </div>
-      <div class="field">
-          <span class="red">*</span>
+</td></tr><tr><td style="padding-top:10px;">
+       
+       <span class="red">*</span>
        <%= f.label "Bien y/o Servicio" %><br>
        <%= f.text_field :bienServicio, :placeholder => "Indique el nombre" %>
-      </div>
-      <div class="field">
-          <span class="red">*</span>
+</td><td style="padding-top:10px;">
+       
+       <span class="red">*</span>
        <%= f.label "Será usado en:" %><br>
-       <%= f.text_field :tesis, :placeholder => "Tésis, Proyecto, etc." %>
-      </div>
-      <div class="field">
-        <span class="red">*</span>
+       <%= f.collection_select :tesis, Act::Uso, :to_s, :to_s, 
+          :include_blank => true %>
+</td></tr><tr><td style="padding-top:10px;">
+       <span class="red">*</span>
        <%= f.label "Nombre del Responsable" %><br>
        <%= f.text_field :responsable, :placeholder => "Nombre del solicitante" %>
-      </div>
-      <div class="field">
-          <span class="red">*</span>
+</td><td style="padding-top:10px;">
+       
+       <span class="red">*</span>
        <%= f.label "Justificación" %><br>
        <%= f.text_field :justificacion, :placeholder => "Razón de solicitud" %>
-      </div>
-      <div class="field">
-        <span class="red">*</span>
+</td></tr><tr><td style="padding-top:10px;"> 
+       <span class="red">*</span>
        <%= f.label "Providencia" %><br>
        <%= f.text_field :providencia, :placeholder => "Providencia de fondos" %>
-      </div>
-      <div class="actions">
-       <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+</td></tr></table>
+       
+       <div class="actions">
+       <%= f.submit "Aceptar", :style => "float:left; margin-right:10px;margin-top:7px;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
       </div>
     <% end %>
-    <br><%= link_to '<button type="button" class="btn btn-primary"> Volver a la página anterior </button>'.html_safe, controller: "acts" %>
+    <br><%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-41px;">Volver</button>'.html_safe, controller: "acts" %>
    </div>
 </div>
 
@@ -90,6 +90,22 @@ border-radius: 4px;
 font-size: 20px;
 color: red;
 
+}
+
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width: 220px;
+    height: 35px;
+    maxlength:100;
+    font-size: 14px;
 }
 
 

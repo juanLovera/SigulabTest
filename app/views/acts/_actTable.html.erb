@@ -4,7 +4,7 @@
   
 </head>
 <body>
-<table id="actTable" class="table table-hover" >
+<table id="example" class="table table-hover" >
 	  <thead>
 		 <tr>
 		   <th align="left">Proveedor</th>
@@ -17,10 +17,11 @@
 	  <tbody>
 		 <% @acts.each do |act| %>
 	  		<tr>
-		     <td style="text-decoration:underline; color:black"><%= link_to act.proveedor, act %></td>
+		     
 		     <td><%= act.bienServicio %></td>
 		     <td><%= act.justificacion %></td>
 		     <td><%= act.responsable %></td>
+                     <td style="text-decoration:none; color:black; text-align: right"><a href="/acts/<%= act.id %>.pdf">Descargar</a> - <%= link_to 'Editar', act %></td>     
 		   </tr>
 		 <% end %>
 		 <% if @sumActs == 0 %>
@@ -32,6 +33,17 @@
 	</table>
 </body>
 
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
+
 <style>
 
 a:visited { 
@@ -40,19 +52,19 @@ a:visited {
 	font-size: 110%;
 }
 
-
-#actTable th {
+#invitationTable th {
       background-color: #94E79E;
       border-color:#7A7070;
-      font-size: 14px;
+     font-size: 14px;
   }
 
-#actTable th td tr{
+#invitationTable th, td, tr{
  border-color:black;
  }
 
 
-.table-hover {
+
+ .table-hover {
 
 border-color:#7A7070;
 
@@ -68,7 +80,7 @@ border-color:#7A7070;
 background-color: #ffff99;
 }
 
-#actTable tr:nth-child(even) {
+#invitationTable tr:nth-child(even) {
 
 background-color: #F2F8F7;
 

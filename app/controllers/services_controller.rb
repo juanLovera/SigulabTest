@@ -7,14 +7,24 @@ class ServicesController < ApplicationController
   # GET /services/json
   def index
     if current_user
-    	@services = Service.where(:user_id => current_user.username).all
-      @sumService = Service.where(:user_id => current_user.username).count
+    	@services = Service.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+      @sumService = Service.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
 	 end
+specification = Specification.find(session[:specification_sel_id])
     respond_to do |format|
       format.html
       format.pdf do
         pdf = ReporteServices.new(@services)
-        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+        nombre = "Especificacion_#{session[:specification_sel_id]}.pdf"
+        send_data pdf.render, filename: nombre, type: 'application/pdf'
+      end
+	format.xml do
+      specification.p1 = 2
+        specification.p2 = 1
+        specification.save
+        session[:specification_p2] = 1
+        session[:specification_p1] = 2
+      redirect_to "/services?pdf=1"
       end
     end
   end
@@ -37,7 +47,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to services_url, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -78,6 +88,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:nombre, :numeroBien, :tipo, :descripcion, :ubicacion)
+      params.require(:service).permit(:nombre, :numero, :tipo, :descripcion, :ubicacion, :specification_id)
     end
 end

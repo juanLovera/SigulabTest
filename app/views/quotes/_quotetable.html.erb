@@ -1,18 +1,20 @@
 <div class="grid_12">
 
-  <br/><br>
-	<table id="quoteTable" class="table table-hover">
+	<table id="example" class="table table-hover">
 	  <thead>
 		 <tr>
+		   <th>Nro</th>
 		   <th>Nombre</th>
-		   <th>Link de descarga</th>
+		   <th>Link de descarga</th><th></th>
 		 </tr>
 	  </thead>
 	  <tbody>
-		 <% @quotes.each do |quote| %>
+		 <% @quotes.each_with_index do |quote,index| %>
 		   <tr>
-		     <td><%= link_to quote.nombre, quote %></td>
-		     <td><%= link_to "Descargar oferta", quote.attachment_url %></td>
+		     <td><%= index+1 %></td>
+		     <td><%= quote.nombre %></td>
+		     <td><a href='uploads/quote/attachment/<%= quote.id %>/Oferta_Especificacion_<%= session['specification_sel_id'] %>_Empresa_<%= quote.nombre %>.pdf'>Descargar Oferta</a></td>
+<td style="text-decoration:none; color:black; text-align: right"><%= link_to 'Editar', quote %></td> 
 		   </tr>
 		 <% end %>
 		 <% if @sumQuotes == 0 %>
@@ -24,7 +26,16 @@
 	</table>
 
 </div>
-
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
 <style>
 
 a:visited { 

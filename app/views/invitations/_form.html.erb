@@ -1,46 +1,49 @@
-
 <div class="grid_12 push_5">
 	<%= form_for(@invitation) do |f| %>
-	  <% if @invitation.errors.any? %>
-	  	<h2>Rellene todos los campos obligatorios</h2>
-	  	<br>
-	  <% end %>
-	<div class ="table">
-		  <div class="field">
-          <span class="red">*</span>
-			 <%= f.label "Nombre de la empresa" %><br>
-			 <%= f.text_field :nombreEmpresa, :placeholder => "Empresa a invitar" %>
+	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @invitation.errors.full_messages.first if @invitation.errors.any? %> </span>
+                <table style="margin-left:-130px;"><tr><td colspan="2"><h4>Datos de la Empresa</h4></td></tr><tr><td style="padding-right:10px;">
+		  <div class="field"><span class="red">*</span>
+			 <%= f.label "RIF" %><br>
+			 <%= f.text_field :rif, :placeholder => "J-00000000-0" %>
+		  </div></td><td style="margin-top:-5px;">
+                      <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Nombre" %><br>
+			 <%= f.text_field :nombre, :placeholder => "Empresa a invitar" %>
 		  </div>
+                        </td></tr><tr><td colspan="2">
+                            <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Dirección" %><br>
+			 <%= f.text_area :direccion, :placeholder => "Dirección física de la empresa", :style => "width:410px; height:80px;" %>
+		  </div>
+                        </td></tr><tr><td colspan="2"><h4>Datos del Solicitante</h4></td></tr><tr><td style="padding-right:10px;">
 		  <div class="field">
           <span class="red">*</span>
 			 <%= f.label "Nombre del responsable" %><br>
 			 <%= f.text_field :responsable, :placeholder => "Nombre del solicitante" %>
-		  </div>
-		  <div class="field">
-          		<span class="red">*</span>
-			 <%= f.label "Contacto de la empresa" %><br>
-			 <%= f.text_field :direccion, :placeholder => "telefono o correo" %>
-		  </div>
+		  </div></td><td>
 		  <div class="field">
           <span class="red">*</span>
-			 <%= f.label "Correo del responsable" %><br>
-			 <%= f.text_field :correo, :placeholder => "Correo del solicitante" %>
-		  </div>
+			 <%= f.label "Correo" %><br>
+			 <%= f.text_field :correo, :placeholder => "usuario@usb.ve" %>
+		  </div></td></tr><tr><td style="padding-right:10px;">
 		  <div class="field">
           <span class="red">*</span>
-			 <%= f.label "Teléfono del solicitante" %><br>
-			 <%= f.text_field :telefono, :placeholder => "Teléfono del solicitante" %>
-		  </div>
+			 <%= f.label "Teléfono" %><br>
+			 <%= f.text_field :telefono, :placeholder => "02121234567" %>
+                  </div></td><td style="padding-top:20px;">
 		  <div class="field">
 			 <%= f.label "Teléfono adicional" %><br>
-			 <%= f.text_field :telefonoAdicional %><br>
-		  </div>
+			 <%= f.text_field :telefono_Adicional, :placeholder => "02121234567" %><br>
+		  </div></td></tr><tr><td colspan="2" style=" padding-left:120px;">
+                            <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
 		  <div class="actions">
-			 <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+			 <%= f.submit "Aceptar", :style => "float:left;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
 		  </div>
 		<% end %>
-		<br><%= link_to '<button type="button" class="btn btn-primary"> Volver a la página anterior </button>'.html_safe, controller: "invitations" %>
-   </div>
+		<%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-10px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "invitations" %>
+   </td></tr></table>
 </div>
 
 
@@ -110,5 +113,4 @@ font-size: 20px;
 
 
 </style>
-
 

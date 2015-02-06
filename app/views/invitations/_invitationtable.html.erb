@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  
-</head>
-<body>
-<table id="invitationTable" class="table table-hover" >
+
+<table id="example" class="table table-hover" >
 	  <thead>
 		 <tr>
+		   <th align="left">Nro</th>
 		   <th align="left">Nombre de la empresa</th>
 		   <th align="left">Responsable</th>
 		   <th align="left">Correo del responsable</th>
+<th align="left"></th>
 		 </tr>
 	  </thead>
 
 	  <tbody>
-		 <% @invitations.each do |invitation| %>
+		 <% @invitations.each_with_index do |invitation,index| %>
 	  		<tr>
-		     <td style="text-decoration:underline; color:black"><%= link_to invitation.nombreEmpresa, invitation %></td>
+		     <td><%= index+1 %></td>
+		     <td><%= invitation.nombre %></td>
 		     <td><%= invitation.responsable %></td>
-		     <td><%= invitation.correo %></td>     
+		     <td><%= invitation.correo %></td>
+<td style="text-decoration:none; color:black; text-align: right"><a href="/invitations/<%= invitation.id %>.pdf">Descargar</a> - <%= link_to 'Editar', invitation %></td>     
 		   </tr>
 		 <% end %>
 		 <% if @sumInvitation == 0 %>
@@ -28,7 +27,16 @@
 		 <% end %>
 	  </tbody>
 	</table>
-</body>
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
 
 <style>
 

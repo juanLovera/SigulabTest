@@ -1,58 +1,60 @@
 
-  <script src="js/bootstrap.min.js" type="text/javascript"></script>
-
 <div class="grid_12 push_5">
    <%= form_for(@item) do |f| %>
-   <% if @item.errors.any? %>
-      <h2>Rellene todos los campos obligatorios</h2>
-      <br>
-   <% end %>
-	<div class ="table">
+    <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @item.errors.full_messages.first if @item.errors.any? %> </span>
+	<table style="margin-left:-130px; margin-top:15px;">
+            <tr><td style="padding-right:25px;">
     <div class="field">
        <span class="red">*</span>
      <%= f.label "Tipo del Bien/Consumible" %><br>
      <%= f.collection_select :tipo, Item::TipoItem, :to_s, :to_s, 
           :include_blank => true %>
-    </div>
+    </div></td><td>
 	  <div class="field">
        <span class="red">*</span>
 		 <%= f.label "Nombre del Bien/Consumible" %><br>
 		 <%= f.text_field :nombre, :placeholder => "Nombre del consumible" %>
-	  </div>
-	  <div class="field">
-       <span class="red">*</span>
-		 <%= f.label "Descripción del ítem" %><br>
-		 <%= f.text_area :descripcion, :placeholder => "Máximo 100 caracteres" %>
-	  </div>
-	  <div class="field">
-		 <%= f.label "Dimensiones del ítem" %><br>
-		 <%= f.text_field :dimensiones, :placeholder => "Largo * Ancho * Profundidad " %>
-	  </div>
-	  <div class="field">
+	  </div></td><tr><td style="padding-right:25px;">
+            	  <div class="field">
        <span class="red">*</span>
 		 <%= f.label "Cantidad" %><br>
-		 <%= f.number_field :cantidad, :placeholder => "Cantidad de ítems" %>
-	  </div>
-	  <div class="field">
+		 <%= f.text_field :cantidad, :placeholder => "Cantidad de ítems" %>
+	  </div></td><td>
+            <div class="field" style="width:300px">
+                <span class="red">*</span>
+		 <%= f.label "Dimensiones del ítem" %><br>
+		 <%= f.text_field :dimensiones_largo, :placeholder => "Largo", :style => "width:80px; margin-bottom:5px; margin-right:5px; float:left; " %>
+                 <%= f.collection_select :unidad_largo, Item::UnidadMedida, :to_s, :to_s, 
+          :include_blank => true %><br/>
+                 <%= f.text_field :dimensiones_alto, :placeholder => "Alto", :style => "width:80px; margin-bottom:5px; margin-right:5px; float:left; " %>
+                 <%= f.collection_select :unidad_alto, Item::UnidadMedida, :to_s, :to_s,
+          :include_blank => true %><br/>
+                 <%= f.text_field :dimensiones_ancho, :placeholder => "Ancho", :style => "width:80px; margin-right:5px; float:left; " %>
+                 <%= f.collection_select :unidad_ancho, Item::UnidadMedida, :to_s, :to_s,
+          :include_blank => true %>
+            </div></td></tr><tr><td colspan="2">
+            <div class="field">
        <span class="red">*</span>
-		 <%= f.label "Unidad de medida" %><br>
-		 <%= f.text_field :unidad, :placeholder => "Tamaño y medida" %>
-	  </div>
-     <br>
+		 <%= f.label "Descripción del ítem" %><br>
+		 <%= f.text_area :descripcion, :maxlength => 160, :style => "width:425px; height:80px;", :placeholder => "Máximo 160 caracteres" %>
+	  </div></td></tr>
+<%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
+            <tr><td colspan="2" style="padding-left:140px;"><br>
 	  <div class="actions">
-		 <%= f.submit "Aceptar" ,data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' } %><br>
+		 <%= f.submit "Aceptar", :style => "float:left; margin-right:10px;" ,data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' } %><br>
 	  </div>
    <% end %>
-	</div>
-	<%= link_to '<button type="button" class="btn btn-primary"> Volver a la página anterior </button>'.html_safe, 
-  especificacionesTecnicas_url %>
+	
+	<%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-41px;"> Cancelar </button>'.html_safe, 
+  items_url %></td></tr>
+</table>
 </div>
-
 <style>
 
 label{
   font-size: 12px
 }
+
 
 select {
     padding:3px;
@@ -70,6 +72,24 @@ select {
     font-size: 14px;
 }
 
+#item_unidad_largo, #item_unidad_alto, #item_unidad_ancho {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width: 80px;
+    margin-bottom:5px;
+    height: 35px;
+    maxlength:100;
+    font-size: 14px;
+    
+    
+}
 
 input[type="submit"] {
 

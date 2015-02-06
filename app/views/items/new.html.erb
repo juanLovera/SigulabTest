@@ -1,34 +1,21 @@
-<div class="grid_12">
-      <ol class="breadcrumb">
-          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
-			 <li> <%=link_to 'Compras', compras_url %></li>
-			 <li> <%=link_to 'Especificaciones Técnicas', specifications_url %></li>
-          <li> <%=link_to 'Solicitud', solicitud_url %></li>
-         <li> <%=link_to 'Detalle Especificación', especificacionesTecnicas_url %></li>
-        <li class="active">Item </a></li>
-      </ol>
+<%= render 'menu' %>
+
+<div style="text-align:center; margin-bottom:20px;">
+	<h3>Especificaciones técnicas de un Bien o Consumible</h3>
 </div>
 
-<div class="grid_12 push_5">
+	<%= render 'form' %>
 
-	<h3>Especificaciones técnicas de un ítem</h3>
-<br>
 
 </div>
-
-
-<%= render 'form' %>
 
 <style>
 
 h3 {
 
 position:relative;
-right: 100px;
+left: 50px;
 
 }
 
 </style>
-
-
-
