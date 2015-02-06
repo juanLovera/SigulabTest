@@ -79,7 +79,13 @@ class QuotesController < ApplicationController
        specification.p3 = 2
        session[:specification_p3] = specification.p3
     session[:specification_p2] = specification.p2
+    ct = Quote.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+    if ct > 1
+      specification.p5 = 0
+      session[:specification_p5] = specification.p5
+    end
     specification.save
+   
      end
     respond_to do |format|
      

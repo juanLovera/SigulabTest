@@ -9,19 +9,36 @@ class ActsController < ApplicationController
     	@acts = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
       @sumActs = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
   	 end
+respond_to do |format|
+      format.html
+      format.pdf do
+               @act= Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+		pdf = ReporteActs.new(@act)
+      		  send_data pdf.render, filename: 'Acto_Motivado.pdf', type: 'application/pdf'
+	      end
+       format.xml do
+              specification = Specification.find(session[:specification_sel_id])
+       specification.p2 = 2
+       specification.p3 = 2
+       specification.p4 = 0
+       specification.p5 = 2
+       specification.p6 = 1
+       session[:specification_p3] = specification.p3
+    session[:specification_p2] = specification.p2
+    session[:specification_p4] = specification.p4
+    session[:specification_p5] = specification.p5
+    session[:specification_p6] = specification.p6
+    specification.save
+              redirect_to "/acts?pdf=1"
+      end
+    end
   end
 
   # GET /acts/1
   # GET /acts/1.json
   def show
     @acts = Act.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = ReporteActs.new(@act)
-        send_data pdf.render, filename: 'Acto_Motivado.pdf', type: 'application/pdf'
-      end
-    end
+    
   end
 
   # GET /acts/new
@@ -39,18 +56,7 @@ class ActsController < ApplicationController
     @act = Act.new(act_params)
     @act.user_id = current_user.username
     @act.specification_id = session[:specification_sel_id]
-    specification = Specification.find(session[:specification_sel_id])
-       specification.p2 = 2
-       specification.p3 = 2
-       specification.p4 = 0
-       specification.p5 = 2
-       specification.p6 = 1
-       session[:specification_p3] = specification.p3
-    session[:specification_p2] = specification.p2
-    session[:specification_p4] = specification.p4
-    session[:specification_p5] = specification.p5
-    session[:specification_p6] = specification.p6
-    specification.save
+   
     respond_to do |format|
       if @act.save
         format.html { redirect_to acts_url, notice: 'Act was successfully created.' }

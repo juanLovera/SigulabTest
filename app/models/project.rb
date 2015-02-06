@@ -19,17 +19,40 @@ class Project < ActiveRecord::Base
   end
 
 
-  enum banco: [:canarias, :caribe, :venezuela, :banesco, :descuento, :exterior, :mercantil, :bicentenario]
+  enum banco: [:banco100, :caribe, :activo, :agricola, :bicentenario, :caroni, :venezuela, :tesoro,
+               :espirito, :exterior, :industrial, :internacional, :mercantil, :bnc, :occidental,
+               :plaza, :provincial, :sofitasa, :venezolano, :bancrecer, :banesco, :bangente, :banplus, 
+               :fondo, :citibank, :delsur, :mibanco]
+
   def self.banco_str
   [
-    'Banco Canarias de Venezuela',
-    'Bancaribe', 
+    '100% Banco',
+    'Bancaribe',     
+    'Banco Activo',
+    'Banco Agrícola de Venezuela',
+    'Banco Bicentenario',
+    'Banco Caroní',
     'Banco de Venezuela',  
-    'Banesco', 
+    'Banco del Tesoro',
+    'Banco Espirito Santo',
+    'Banco Exterior',    
+    'Banco Industrial de Venezuela',
+    'Banco Internacional de Desarrollo',    
+    'Banco Mercantil',    
+    'Banco Nacional de Crédito',
     'Banco Occidental de Descuento', 
-    'Banco Exterior',
-    'Banco Mercantil',
-    'Banco Bicentenario'
+    'Banco Plaza',
+    'Banco Provincial',
+    'Banco Sofitasa',
+    'Banco Venezolano de Crédito',
+    'Bancrecer',
+    'Banesco',
+    'Bangente',
+    'Banplus',
+    'BFC Banco Fondo Común',
+    'Citibank',
+    'Del Sur Banco Universal',
+    'Mi Banco - Banco Microfinanciero'
   ]
   end
 

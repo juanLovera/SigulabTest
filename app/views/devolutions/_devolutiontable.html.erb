@@ -4,7 +4,7 @@
   
 </head>
 <body>
-<table id="devolutionTable" class="table table-hover" >
+<table id="example" class="table table-hover" >
 	  <thead>
 		 <tr>
 		   <th align="left">No. Registro</th>
@@ -16,9 +16,9 @@
 	  <tbody>
 		 <% @devolutions.each do |devolution| %>
 	  		<tr>
-		     <td style="text-decoration:underline; color:black"><%= link_to devolution.numRegistro, devolution %></td>
 		     <td><%= devolution.unidadSolicitante %></td>
 		     <td><%= devolution.observaciones %></td>
+                     <td style="text-decoration:none; color:black; text-align: right"><a href="/devolutions/<%= devolution.id %>.pdf"><button type="button" class="btn btn-primary">Descargar</button></a> <%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, devolution %> </td>
 		   </tr>
 		 <% end %>
 		 <% if @sumDevolution == 0 %>
@@ -30,6 +30,17 @@
 	</table>
 </body>
 
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
+
 <style>
 
 a:visited { 
@@ -38,13 +49,13 @@ a:visited {
 	font-size: 110%;
 }
 
-#devolutionTable th {
+#invitationTable th {
       background-color: #94E79E;
       border-color:#7A7070;
      font-size: 14px;
   }
 
-#devolutionTable th, td, tr{
+#invitationTable th, td, tr{
  border-color:black;
  }
 
@@ -62,11 +73,11 @@ border-color:#7A7070;
 
 }
 
-#devolutionTable tr:hover {
+.table-hover>tbody>tr:hover {
 background-color: #ffff99;
 }
 
-#devolutionTable tr:nth-child(even) {
+#invitationTable tr:nth-child(even) {
 
 background-color: #F2F8F7;
 

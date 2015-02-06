@@ -18,6 +18,21 @@ class RecommendationsController < ApplicationController
 		nombre = "Informe_Recomendacion_Especificacion_#{session[:specification_sel_id]}.pdf"
 		send_data pdf.render, filename: nombre, type: 'application/pdf'
 	      end
+	      format.xml do
+              specification = Specification.find(session[:specification_sel_id])
+	       specification.p2 = 2
+	       specification.p3 = 2
+	       specification.p4 = 2
+	       specification.p5 = 0
+	       specification.p6 = 1
+	       session[:specification_p3] = specification.p3
+	    session[:specification_p2] = specification.p2
+	    session[:specification_p4] = specification.p4
+	    session[:specification_p5] = specification.p5
+	    session[:specification_p6] = specification.p6
+	    specification.save
+              redirect_to "/recommendations?pdf=1"
+      end
       end
    	
   end
@@ -30,7 +45,12 @@ class RecommendationsController < ApplicationController
 
   # GET /quotes/new
   def new
-    @recommendation = Recommendation.new
+        num = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+	if num != 0
+	@recommendation = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+        else
+    	@recommendation = Recommendation.new
+        end
     @quotes = Quote.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
     @itemsquotes = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
   end
@@ -42,6 +62,11 @@ class RecommendationsController < ApplicationController
   # POST /quotes
   # POST /quotes.json
   def create
+        num = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+	if num != 0
+		@recommendation = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+		@recommendation.destroy
+        end
     @recommendation = Recommendation.new(recommendation_params)
     @recommendation.user_id = current_user.username
     @recommendation.specification_id = session[:specification_sel_id]
@@ -72,18 +97,7 @@ class RecommendationsController < ApplicationController
       end
     end
     end
-     specification = Specification.find(session[:specification_sel_id])
-       specification.p2 = 2
-       specification.p3 = 2
-       specification.p4 = 2
-       specification.p5 = 0
-       specification.p6 = 1
-       session[:specification_p3] = specification.p3
-    session[:specification_p2] = specification.p2
-    session[:specification_p4] = specification.p4
-    session[:specification_p5] = specification.p5
-    session[:specification_p6] = specification.p6
-    specification.save
+
     respond_to do |format|
      
         format.html { redirect_to recommendations_url, notice: 'Recommendation was successfully created.' }
@@ -95,23 +109,16 @@ class RecommendationsController < ApplicationController
   # PATCH/PUT /quotes/1
   # PATCH/PUT /quotes/1.json
   def update
-    respond_to do |format|
-      if @Recommendation.update(Recommendation_params)
-        format.html { redirect_to quotes_url, notice: 'Recommendation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @Recommendation }
-      else
-        format.html { render :edit }
-        format.json { render json: @Recommendation.errors, status: :unprocessable_entity }
-      end
-    end
+    create
   end
 
   # DELETE /quotes/1
   # DELETE /quotes/1.json
   def destroy
-    @Recommendation.destroy
+    @recommendation = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+    @recommendation.destroy
     respond_to do |format|
-      format.html { redirect_to quotes_url, notice: 'Recommendation was successfully destroyed.' }
+      format.html { redirect_to recommendations_url, notice: 'Recommendation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
