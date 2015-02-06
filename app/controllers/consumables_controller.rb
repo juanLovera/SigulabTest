@@ -1,6 +1,6 @@
 class ConsumablesController < ApplicationController
   before_action :set_consumable, only: [:show, :edit, :update, :destroy]
-
+  layout 'bootlayout'
   # GET /consumables
   # GET /consumables.json
   def index

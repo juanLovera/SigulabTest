@@ -1,6 +1,6 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :edit, :update, :destroy, :item_ids]
-
+  layout 'bootlayout'
   # GET /loans
   # GET /loans.json
   def index
@@ -23,13 +23,12 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
-    binding.pry
     @loan = Loan.new
     @equipment = Equipment.where(id2: params[:item_ids])
     @instruments = Instrument.where(id2: params[:item_ids])
     @tools = Tool.where(id2: params[:item_ids])
     @consumables = Consumable.where(id2: params[:item_ids])
-    @sustancias = ChemicalSubstance.all
+    @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
   end
 
   # GET /loans/1/edit

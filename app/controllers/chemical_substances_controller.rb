@@ -1,6 +1,6 @@
 class ChemicalSubstancesController < ApplicationController
   before_action :set_chemical_substance, only: [:show, :edit, :update, :destroy, :search, :hide]
-
+  layout 'bootlayout'
   # GET /chemical_substances
   # GET /chemical_substances.json
   def index
