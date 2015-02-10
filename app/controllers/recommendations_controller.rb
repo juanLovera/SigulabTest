@@ -40,7 +40,10 @@ class RecommendationsController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
-     @Recommendation_empresas = Recommendation_empresas.where(:quote_id => params[:id]).all
+     @recommendation = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+     @empresas_todas = Invitation.where(:specification_id => session[:specification_sel_id]).all
+     @empresas = RecommendationsEmpresa.where(:id_informe => @recommendation.id).all
+     @itemsquote = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
   end
 
   # GET /quotes/new

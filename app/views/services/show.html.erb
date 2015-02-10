@@ -9,31 +9,33 @@
 	</div>
 
 
-<div class="grid_12">
-	<div id="tittle">
-  	<table id="serviceTable" class="table table-bordered">
- 	  <thread>
+<div class="col-xs-12">
+
+  <table id="actTable" class="table table-striped">
+   <tr>
+				<th class="active text-center" colspan="2"><h2>Servicio</h2></th>
+			</tr>
       <tr>
-        <th style='width:50%'>Tipo de servicio</th>
-        <td><%=@service.tipo%></td>
+        <td class="col-xs-5 text-right">Tipo de servicio</td>
+        <td class="col-xs-7"><%=@service.tipo%></td>
       </tr>
       <tr>
-        <th style='width:50%'>Descripción del Servicio</th>
-        <td><%=@service.descripcion%></td>
+        <td class="col-xs-5 text-right">Descripción del Servicio</td>
+        <td class="col-xs-7"><%=@service.descripcion%></td>
       </tr>
      	 <tr>
-       	<th style='width:50%'>Nombre del Equipo</th>
-       	<td><%=@service.nombre%></td>
+       	<td class="col-xs-5 text-right">Nombre del Equipo</td>
+       	<td class="col-xs-7"><%=@service.nombre%></td>
     	</tr>
      	 <tr>
-       	<th style='width:50%'>Número del bién</th>
-       	<td><%=@service.numero%></td>
+       	<td class="col-xs-5 text-right">Número del bién</td>
+       	<td class="col-xs-7"><%=@service.numero%></td>
     	</tr>
     	<tr>
-       	<th style='width:50%'>Ubicación</th>
-       	<td><%=@service.ubicacion%></td>
+       	<td class="col-xs-5 text-right">Ubicación</td>
+       	<td class="col-xs-7"><%=@service.ubicacion%></td>
     	</tr>
- 	 </thread>
+ 	
 	</table>
 
 	</div>
