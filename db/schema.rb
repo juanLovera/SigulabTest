@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150204183465) do
+ActiveRecord::Schema.define(version: 20150206030644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,18 +229,6 @@ ActiveRecord::Schema.define(version: 20150204183465) do
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
-<<<<<<< HEAD
-=======
-  create_table "fecha_entregas", force: true do |t|
-    t.string   "ubicacion"
-    t.string   "fechaTope"
-    t.string   "condiciones"
-    t.string   "medida"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
->>>>>>> 0609809e77b2a627ed7590ed8cb6a41f24634b4a
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
@@ -369,11 +356,7 @@ ActiveRecord::Schema.define(version: 20150204183465) do
     t.integer  "status",         default: 0
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
-<<<<<<< HEAD
-    t.float    "other_amount",   default: 0.0
-=======
     t.decimal  "other_amount",   default: 0.0
->>>>>>> 0609809e77b2a627ed7590ed8cb6a41f24634b4a
     t.date     "annulled_date"
     t.string   "num_cuenta"
     t.string   "observation"
