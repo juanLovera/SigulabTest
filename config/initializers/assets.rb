@@ -24,3 +24,4 @@ Rails.application.config.assets.precompile += %w( desplegable.js )
 
 Rails.application.config.assets.precompile += %w( bootstrap-datepicker.js )
 Rails.application.config.assets.precompile += %w( bootstrap-datepicker.es.js )
+Rails.application.config.assets.precompile += %w( datepicker3.css )

@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'statics.css.scss' %>
+
 <h1><i class="fa fa-database"></i> Inventario</h1>
 
 <ol class="breadcrumb">
@@ -23,8 +25,27 @@
 
 	<p align="center">
 	<td><font size = "5"><i class="fa fa-list"></i><%= link_to ' Solicitudes de Préstamo', loans_url %></td><br><br>
-	<td><i class="fa fa-align-left"></i><%= link_to ' Solicitudes de Servicio', applications_url %></td><br><br>
+	<td><i class="fa fa-align-left"></i><%= link_to ' Solicitudes de Servicio', loans_url %></td><br><br>
 	<td><i class="fa fa-gift"></i><%= link_to ' Donaciones', donations_url %></td><br><br></p>
 
 </div>
 
+<style>
+
+
+#table2 {
+    border: 1px solid black;
+    opacity: 0.2;
+    border-width:thin;
+}
+
+#invetario{
+  	position 				: relative;
+    left 					: 880px;
+    font-size               : 17px;
+    font-style 				: oblique;
+    opacity					:0.5;
+    font-family 			: "Times New Roman", Georgia, Serif;
+    }
+
+</style>

@@ -8,7 +8,8 @@ class Tool < ActiveRecord::Base
 	validates_uniqueness_of :id2
 	before_save :uppercase_fields
 	before_update :uppercase_fields
-	
+	has_many :table_items_solicitud
+
 	def self.search
 		query=UnicodeUtils.upcase(query, :es)
 		where("name like ?", "%#{query}%") 
@@ -18,7 +19,7 @@ class Tool < ActiveRecord::Base
 	def uppercase_fields
 		self.name=UnicodeUtils.upcase(self.name, :es)
 		self.brand=UnicodeUtils.upcase(self.brand, :es)
-		self.type=UnicodeUtils.upcase(self.type, :es)
+		self.tipo=UnicodeUtils.upcase(self.tipo, :es)
 		self.status=UnicodeUtils.upcase(self.status, :es)
 		self.responsible=UnicodeUtils.upcase(self.responsible, :es)
 		self.location=UnicodeUtils.upcase(self.location, :es)

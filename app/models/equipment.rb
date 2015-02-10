@@ -8,6 +8,7 @@ class Equipment < ActiveRecord::Base
 	validates :location, :presence => {:message => "no puede ser blanco"}
 	validates :responsible, :presence => {:message => "no puede ser blanco"}
 	validates_uniqueness_of :id2
+	has_many :table_items_solicitud
 	
 	def self.search(query)
 		query=UnicodeUtils.upcase(query, :es)

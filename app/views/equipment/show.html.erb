@@ -105,14 +105,57 @@
 
 <br><br>
 <% if can? :update, @equipment %>
-  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_equipment_path(@equipment) , 'data-no-turbolink' => true%> |
+  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_equipment_path(@equipment) , 'data-no-turbolink' => true, :class => 'linkButton' %> |
 <% end %>
 <% if can? :create, @equipment %>
-    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo equipo', new_equipment_path %> |
+    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo equipo', new_equipment_path, :class => 'linkButton' %> |
 <% end %>
 <% if can? :hide, @equipment %>
-      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @equipment, method: :delete, data: { confirm: '¿Estás seguro?' } %> |
-<!--       <i class="fa fa-times"></i><%= link_to ' Ocultar', equipment_index_path %> |  -->
+      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @equipment, method: :delete, data: { confirm: '¿Estás seguro?' }, :class => 'linkButton' %> |
 <%end%>
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', equipment_index_path %>
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', equipment_index_path, :class => 'linkButton' %>
 <br><br><br><br>
+
+
+<style>
+
+#LeDivEquipos {
+    background-image        : url('/assets/equipment2.png');
+    background-size         : 230px;  
+    background-repeat       : no-repeat; 
+    background-position     : bottom right;  
+    background-color        : #FFFFFF;
+}
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+</style>

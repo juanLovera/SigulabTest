@@ -41,6 +41,24 @@
     </tr>
 
     <tr>
+      <td class="col-xs-5 text-right"><strong>No. Documento:</strong></td>
+      <td class="col-xs-7"> <%= @donation.numDocumento %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Fecha del Documento:</strong></td>
+      <td class="col-xs-7"> <%= @donation.fechaDocumento %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Valor Estimado:</strong></td>
+      <td class="col-xs-7"><%= @donation.estimado%> Bs.
+      </td>
+    </tr>
+
+    <tr>
       <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
       <td class="col-xs-7"> <%= @donation.tipo %>
       </td>
@@ -50,11 +68,43 @@
   </table>
 
 <br><br>
-<% if can? :update, @donation %>
-<i class="fa fa-cog"></i><%= link_to ' Editar', edit_donation_path(@donation) %> |
-<% end %>
-<% if can? :hide, @instrument %>
-      <i class="fa fa-times fa-1x"></i><%= link_to 'Eliminar', @instrument, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta donación?' } %> |
-<% end %>
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', donations_path %>
+<i class="fa fa-cog"></i><%= link_to ' Editar', edit_donation_path(@donation), :class => 'linkButton' %> | 
+<i class="fa fa-times fa-1x"></i><%= link_to 'Ocultar', @donation, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta donación?' }, :class => 'linkButton' %> | 
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', donations_path, :class => 'linkButton' %>
 <br><br><br><br>
+
+<style>
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+</style>
+

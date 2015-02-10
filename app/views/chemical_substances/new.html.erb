@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+
 <h1>Nueva Sustancia Química</h1>
 <ol class="breadcrumb">
 	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
@@ -12,5 +14,41 @@
 
 <%= render 'form' %>
 
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', chemical_substances_path %>
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', chemical_substances_path, :class => 'linkButton' %>
 <br><br><br><br>
+
+<style>
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+</style>
+

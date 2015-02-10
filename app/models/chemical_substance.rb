@@ -9,6 +9,7 @@ class ChemicalSubstance < ActiveRecord::Base
 	validates_uniqueness_of :id2
 	before_validation :uppercase_fields
 	before_update :uppercase_fields
+	has_many :table_items_solicitud
 	
 	def self.search(query)
 		query=UnicodeUtils.upcase(query, :es)

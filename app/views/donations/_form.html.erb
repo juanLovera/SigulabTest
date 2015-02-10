@@ -44,6 +44,21 @@
           </tr>
 
           <tr>
+            <td class="col-xs-5 text-right"><strong>No. Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :numDocumento %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha del Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :fechaDocumento, :class => "bootlayout-date" %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Valor Estimado:</strong></td>
+            <td class="col-xs-7"><%= f.number_field(:estimado, min: 0, :step => 'any') %> Bs.</td>
+          </tr>
+
+          <tr>
             <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
             <td class="col-xs-7"><%= f.select(:tipo, [ ['Equipos/Mobiliarios'],['Instrumetos de Medición'],
               ['Herramientas'], ['Materiales'], ['Consumibles'] ] ) %></td>
