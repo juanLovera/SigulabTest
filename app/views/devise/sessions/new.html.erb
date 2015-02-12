@@ -5,10 +5,10 @@
 
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 	 <div class="required"><%= f.label :username, "USB-ID" %><br />
-	  <%= f.text_field :username, autofocus: true %></div>
+	  <%= f.text_field :username, autofocus: true, class: 'form-control', id: "field" %></div>
 	<br>
 	  <div class="required"><%= f.label :contraseña, "Contraseña" %><br />
-	    <%= f.password_field :password, autocomplete: "off", autofocus: true %></div>
+	    <%= f.password_field :password, autocomplete: "off", class: 'form-control', id: "field" %></div>
 
 	  <% if devise_mapping.rememberable? -%>
 	    <div class="login"><%= f.check_box :remember_me %> <%= f.label :remember_me, "Recordarme" %></div><br>
@@ -76,6 +76,7 @@ border-radius:3px;
 
 }
 
+	#field { width: 240px; height: 25px;}
 
 </style>
 
