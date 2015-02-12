@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   layout 'bootlayout'
 
+  before_filter :authenticate_user!
+
   def index
     @projects = Project.all.order("project_number ASC")
     @sum = @projects.where("NOT(status=3) AND NOT(status=4)").sum(:amount)
