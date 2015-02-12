@@ -1,6 +1,8 @@
 class IncomesController < ApplicationController
   layout 'bootlayout'
 
+  before_filter :authenticate_user!
+
   def index
     @incomes = Income.all.order("date ASC")
     @sum = @incomes.sum(:amount)
