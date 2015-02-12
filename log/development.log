@@ -1,0 +1,4050 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-12 09:27:09 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (115.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#index as HTML
+  Rendered statics/index.html.erb within layouts/application (13.7ms)
+  Rendered shared/_header.html.erb (3.5ms)
+  Rendered shared/_navbar.html.erb (5.3ms)
+  Rendered shared/_footer.html.erb (3.5ms)
+Completed 200 OK in 2224ms (Views: 2166.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:14 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:27:15 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:27:16 -0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-12 09:27:20 -0430
+Processing by ProjectsController#index as HTML
+  [1m[35m (37.7ms)[0m  SELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))
+  [1m[36mProject Load (1.1ms)[0m  [1mSELECT "projects".* FROM "projects"   ORDER BY project_number ASC[0m
+  Rendered projects/index.html.erb within layouts/bootlayout (178.6ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (4.5ms)
+  Rendered shared/_footer.html.erb (1.4ms)
+Completed 200 OK in 484ms (Views: 349.1ms | ActiveRecord: 116.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-12 09:27:20 -0430
+Processing by ProjectsController#index as HTML
+  [1m[35m (0.8ms)[0m  SELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects"   ORDER BY project_number ASC[0m
+  Rendered projects/index.html.erb within layouts/bootlayout (45.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (1.1ms)
+Completed 200 OK in 203ms (Views: 199.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+
+Started GET "/assets/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+
+Started GET "/fonts/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.woff"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.6ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.2ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (23.6ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (179.2ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.ttf" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.ttf"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (35.9ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (148.6ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.svg" for 127.0.0.1 at 2015-02-12 09:27:21 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.svg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.0ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (134.0ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:27:22 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 09:27:28 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (1.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 217ms (Views: 211.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:27:28 -0430
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:27:31 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (32.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 205ms (Views: 201.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:27:31 -0430
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (11.6ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 211ms (Views: 208.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:29:16 -0430
+
+
+Started PATCH "/projects/2" for 127.0.0.1 at 2015-02-12 09:29:24 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8WEBAKLIMDGZ7W0/4gLg58lAOT/ThZQQlNHvj2J5p7E=", "project"=>{"title"=>"Creación de un laboratorio de biomecatrónica y tecnologías inalámbricas emergentes", "sae_code"=>"1.05.03.11", "equipments"=>"739654.0", "services"=>"65700.0", "infrastructure"=>"35800.0", "hhrr"=>"0", "consumables"=>"156260.0", "furniture"=>"0", "other_amount"=>"0", "amount"=>"997414.0", "observation"=>"", "num_cuenta"=>"01050614030614257980"}, "id"=>"2"}
+Completed 500 Internal Server Error in 2ms
+
+TypeError (no implicit conversion of nil into String):
+  app/controllers/projects_controller.rb:54:in `parse'
+  app/controllers/projects_controller.rb:54:in `update'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.1ms)
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (7.7ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 159ms (Views: 155.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:29:35 -0430
+
+
+Started PATCH "/projects/2" for 127.0.0.1 at 2015-02-12 09:29:37 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8WEBAKLIMDGZ7W0/4gLg58lAOT/ThZQQlNHvj2J5p7E=", "project"=>{"title"=>"Creación de un laboratorio de biomecatrónica y tecnologías inalámbricas emergentes", "sae_code"=>"1.05.03.11", "equipments"=>"739654.0", "services"=>"65700.0", "infrastructure"=>"35800.0", "hhrr"=>"0", "consumables"=>"156260.0", "furniture"=>"0", "other_amount"=>"0", "amount"=>"997414.0", "observation"=>"", "num_cuenta"=>"01050614030614257980"}, "id"=>"2"}
+Completed 500 Internal Server Error in 1ms
+
+TypeError (no implicit conversion of nil into String):
+  app/controllers/projects_controller.rb:54:in `parse'
+  app/controllers/projects_controller.rb:54:in `update'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 09:29:42 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 156ms (Views: 153.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:29:43 -0430
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:29:45 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (7.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 200ms (Views: 197.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:29:45 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:29:45 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:29:45 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 09:33:45 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (42.7ms)
+  Rendered shared/_header.html.erb (3.0ms)
+  Rendered shared/_navbar.html.erb (14.4ms)
+  Rendered shared/_footer.html.erb (2.9ms)
+Completed 200 OK in 368ms (Views: 296.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:33:46 -0430
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:33:49 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (23.5ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (5.2ms)
+  Rendered shared/_footer.html.erb (1.0ms)
+Completed 200 OK in 179ms (Views: 175.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:33:49 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:33:49 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:33:49 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 09:36:15 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 248ms (Views: 206.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:36:16 -0430
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:36:18 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (13.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 169ms (Views: 166.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:36:19 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:36:19 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:36:19 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (3.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 148ms (Views: 145.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:39:06 -0430
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:39:08 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (12.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 160ms (Views: 157.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:39:09 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:39:09 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:39:09 -0430
+
+
+Started GET "/projects/3/edit" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProject Load (0.5ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (12.6ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 160ms (Views: 157.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:05 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:06 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:06 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:06 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:42:06 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:42:06 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:42:06 -0430
+
+
+Started PATCH "/projects/3" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8WEBAKLIMDGZ7W0/4gLg58lAOT/ThZQQlNHvj2J5p7E=", "project"=>{"project_number"=>"201303223", "contract"=>"201300509", "title"=>"Fortalecimiento del Laboratorio Docente de Aulas Computarizadas de la Universidad Simón Bolívar", "responsible"=>"Prof. Carolina Chang", "admin"=>"marquez", "sae_code"=>"1.05.03.11", "equipments"=>"914160.0", "services"=>"17128.0", "infrastructure"=>"2200.0", "hhrr"=>"0", "consumables"=>"66000.0", "other_desc"=>"", "other_amount"=>"0", "amount"=>"999488.0", "incoming_date"=>"29/10/2013", "status"=>"executing", "annulled_date"=>"", "observation"=>"", "num_cuenta"=>"01050615040632902534", "banco"=>"mercantil"}, "id"=>"3"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/3
+Completed 302 Found in 14ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProject Load (0.5ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered projects/show.html.erb within layouts/bootlayout (4.2ms)
+  Rendered shared/_header.html.erb (0.3ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 199ms (Views: 196.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:42:10 -0430
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (7.2ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 150ms (Views: 147.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:14 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:42:15 -0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-12 09:51:31 -0430
+Processing by ProjectsController#index as HTML
+  [1m[35m (0.9ms)[0m  SELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT "projects".* FROM "projects"   ORDER BY project_number ASC[0m
+  Rendered projects/index.html.erb within layouts/bootlayout (73.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 216ms (Views: 211.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:51:31 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:51:31 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:51:31 -0430
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2015-02-12 09:51:32 -0430
+Processing by ProjectsController#new as HTML
+  Rendered projects/new.html.erb within layouts/bootlayout (14.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 158ms (Views: 156.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:51:33 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:51:33 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:51:33 -0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-12 09:52:10 -0430
+Processing by ProjectsController#index as HTML
+  [1m[35m (0.7ms)[0m  SELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects"   ORDER BY project_number ASC[0m
+  Rendered projects/index.html.erb within layouts/bootlayout (42.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 195ms (Views: 191.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 09:52:10 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 09:52:10 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 09:52:10 -0430
+
+
+Started GET "/administration/budget" for 127.0.0.1 at 2015-02-12 10:07:35 -0430
+Processing by BudgetController#index as HTML
+  Rendered budget/index.html.erb within layouts/bootlayout (3.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 210ms (Views: 209.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:07:35 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:07:35 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:07:35 -0430
+
+
+Started GET "/incomes" for 127.0.0.1 at 2015-02-12 10:07:38 -0430
+Processing by IncomesController#index as HTML
+  [1m[35m (0.9ms)[0m  SELECT SUM("incomes"."amount") AS sum_id FROM "incomes"
+  [1m[36mIncome Load (0.9ms)[0m  [1mSELECT "incomes".* FROM "incomes"   ORDER BY date ASC[0m
+  Rendered incomes/index.html.erb within layouts/bootlayout (41.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 288ms (Views: 195.0ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-12 10:07:38 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-12 10:07:38 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:07:38 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:07:38 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:07:38 -0430
+
+
+Started GET "/incomes/new" for 127.0.0.1 at 2015-02-12 10:07:41 -0430
+Processing by IncomesController#new as HTML
+  [1m[35mLab Load (49.9ms)[0m  SELECT "labs".* FROM "labs"
+  Rendered incomes/new.html.erb within layouts/bootlayout (106.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 280ms (Views: 221.3ms | ActiveRecord: 52.9ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:07:41 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:07:41 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:07:41 -0430
+
+
+Started GET "/administration/budget" for 127.0.0.1 at 2015-02-12 10:17:52 -0430
+Processing by BudgetController#index as HTML
+  Rendered budget/index.html.erb within layouts/bootlayout (2.0ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 143ms (Views: 141.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:17:52 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:17:52 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:17:52 -0430
+
+
+Started GET "/commitments" for 127.0.0.1 at 2015-02-12 10:17:54 -0430
+Processing by CommitmentsController#index as HTML
+  [1m[36m (0.9ms)[0m  [1mSELECT SUM("commitments"."amount") AS sum_id FROM "commitments"[0m
+  [1m[35mCommitment Load (0.7ms)[0m  SELECT "commitments".* FROM "commitments"   ORDER BY date ASC
+  Rendered commitments/index.html.erb within layouts/bootlayout (40.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 291ms (Views: 194.3ms | ActiveRecord: 87.1ms)
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-12 10:17:55 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-12 10:17:55 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:17:55 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:17:55 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:17:55 -0430
+
+
+Started GET "/commitments/new" for 127.0.0.1 at 2015-02-12 10:17:56 -0430
+Processing by CommitmentsController#new as HTML
+  [1m[36mLab Load (0.7ms)[0m  [1mSELECT "labs".* FROM "labs"[0m
+  Rendered commitments/new.html.erb within layouts/bootlayout (31.3ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 321ms (Views: 318.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:17:56 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:17:56 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:17:56 -0430
+
+
+Started GET "/executions/new" for 127.0.0.1 at 2015-02-12 10:18:45 -0430
+Processing by ExecutionsController#new as HTML
+  Rendered executions/new.html.erb within layouts/bootlayout (22.7ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined method `order_buy?' for nil:NilClass):
+    49: 			<div class="form-group">
+    50: 				<label for='execution_document' class="col-xs-3 control-label text-right">Documento </label>
+    51: 				<div class="col-xs-4">
+    52: 				<% if @commitment.order_buy? %>					
+    53: 					<%=  i.text_field :document_name, :value => "Informe de Recepción", class: "form-control", :readonly => true  %>
+    54: 				<% else %>
+    55: 					<%=  i.text_field :document_name, :value => "Conformidad de Servicio", class: "form-control", :readonly => true  %>			
+  app/views/executions/new.html.erb:52:in `block in _app_views_executions_new_html_erb___1893354108206276271_43050960'
+  app/views/executions/new.html.erb:23:in `_app_views_executions_new_html_erb___1893354108206276271_43050960'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.7ms)
+
+
+Started GET "/commitments" for 127.0.0.1 at 2015-02-12 10:18:52 -0430
+Processing by CommitmentsController#index as HTML
+  [1m[35m (0.6ms)[0m  SELECT SUM("commitments"."amount") AS sum_id FROM "commitments"
+  [1m[36mCommitment Load (0.7ms)[0m  [1mSELECT "commitments".* FROM "commitments"   ORDER BY date ASC[0m
+  Rendered commitments/index.html.erb within layouts/bootlayout (39.7ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 184ms (Views: 180.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-12 10:18:52 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-12 10:18:52 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:18:52 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:18:52 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:18:52 -0430
+
+
+Started GET "/administration/budget" for 127.0.0.1 at 2015-02-12 10:18:56 -0430
+Processing by BudgetController#index as HTML
+  Rendered budget/index.html.erb within layouts/bootlayout (2.6ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 143ms (Views: 142.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administration/budget" for 127.0.0.1 at 2015-02-12 10:18:56 -0430
+Processing by BudgetController#index as HTML
+  Rendered budget/index.html.erb within layouts/bootlayout (1.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 140ms (Views: 139.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:18:57 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:18:57 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:18:57 -0430
+
+
+Started GET "/executions" for 127.0.0.1 at 2015-02-12 10:18:58 -0430
+Processing by ExecutionsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (check_annulled=false)
+  [1m[36mExecution Load (0.6ms)[0m  [1mSELECT "executions".* FROM "executions"[0m
+  Rendered executions/index.html.erb within layouts/bootlayout (40.0ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 207ms (Views: 203.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-12 10:18:59 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-12 10:18:59 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 10:18:59 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 10:18:59 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 10:18:59 -0430
+
+
+Started GET "/executions/1" for 127.0.0.1 at 2015-02-12 10:19:01 -0430
+Processing by ExecutionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mExecution Load (24.3ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 27ms
+
+ActiveRecord::RecordNotFound (Couldn't find Execution with 'id'=1):
+  app/controllers/executions_controller.rb:10:in `show'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-12 11:08:14 -0430
+Processing by ProjectsController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))[0m
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"   ORDER BY project_number ASC
+  Rendered projects/index.html.erb within layouts/bootlayout (55.6ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 199ms (Views: 195.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:14 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:14 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:08:14 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:08:14 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 11:08:14 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:08:16 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 157ms (Views: 155.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:08:17 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:08:17 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 11:08:17 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:08:38 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.3ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 157ms (Views: 153.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:38 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:38 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:38 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:38 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:08:39 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:08:39 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.6ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 165ms (Views: 162.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:08:48 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:10:37 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (14.0ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 164ms (Views: 161.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:10:37 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:10:38 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 155ms (Views: 152.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:01 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:02 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:11:02 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:11:02 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 237ms (Views: 234.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:11:53 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.6ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 154ms (Views: 151.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:12:04 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 165ms (Views: 162.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:14:12 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.3ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 203ms (Views: 199.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:14:42 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:14:56 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 156ms (Views: 154.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:14:57 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 157ms (Views: 154.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:15:06 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.0ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 164ms (Views: 161.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:15:16 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.7ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 156ms (Views: 153.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:25 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:26 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:26 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:15:26 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:15:26 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:15:48 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 157ms (Views: 154.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:15:49 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:16:52 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 155ms (Views: 152.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:16:53 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 218ms (Views: 215.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:16:59 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 153ms (Views: 151.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:19:04 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.7ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 203ms (Views: 200.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:19:16 -0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-12 11:19:34 -0430
+Processing by ProjectsController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))[0m
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"   ORDER BY project_number ASC
+  Rendered projects/index.html.erb within layouts/bootlayout (47.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 243ms (Views: 239.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:34 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-12 11:19:34 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:19:34 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:19:34 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 11:19:34 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:26:16 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.2ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 153ms (Views: 151.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:26:17 -0430
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2015-02-12 11:26:17 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:26:17 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 160ms (Views: 157.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:27:45 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:30:14 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (10.2ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 167ms (Views: 163.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:30:15 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (10.7ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 168ms (Views: 165.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:30:45 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 157ms (Views: 154.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:17 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:18 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:31:18 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:31:18 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 164ms (Views: 160.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:31:25 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (1.1ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 160ms (Views: 157.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:33 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:31:34 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:31:34 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (8.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 157ms (Views: 153.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:31:41 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:31:48 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (1.8ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 204ms (Views: 201.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:48 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:48 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:48 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:48 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:48 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:31:49 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 192ms (Views: 189.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:32:21 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:32:36 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (4.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 206ms (Views: 202.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:32:37 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 159ms (Views: 156.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:32:53 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.2ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 199ms (Views: 196.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:34:09 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:34:19 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.8ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (8.7ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 158ms (Views: 154.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:34:20 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:35:05 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 156ms (Views: 153.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:35:06 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.2ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 156ms (Views: 153.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:35:17 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.6ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 154ms (Views: 151.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:35:52 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:35:53 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:35:53 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 201ms (Views: 198.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:36:57 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:41:35 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.4ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 155ms (Views: 152.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/assets/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+
+Started GET "/fonts/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.woff"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.0ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (11.4ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (206.5ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.ttf" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.ttf"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (29.9ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (181.8ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.svg" for 127.0.0.1 at 2015-02-12 11:41:36 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.svg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.9ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (135.6ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:41:51 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 181ms (Views: 178.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:41:52 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (9.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 166ms (Views: 163.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:42:15 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:42:42 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.6ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 155ms (Views: 153.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:42:43 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.5ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 158ms (Views: 155.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:02 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:43:03 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:43:03 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:43:30 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (14.1ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 163ms (Views: 160.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:30 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:30 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:30 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:43:30 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:30 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:30 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:43:31 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:44:28 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (8.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 206ms (Views: 202.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:44:29 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:46:13 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 159ms (Views: 156.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:46:14 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.0ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 158ms (Views: 155.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:46:43 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.0ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 163ms (Views: 160.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:46:56 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.8ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 156ms (Views: 154.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:47:09 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.7ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 160ms (Views: 157.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:14 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:48:15 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:48:15 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:48:30 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (6.7ms)
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 153ms (Views: 150.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:30 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:30 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:30 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:48:30 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:30 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:30 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:48:31 -0430
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered projects/show.html.erb within layouts/bootlayout (7.0ms)
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 171ms (Views: 168.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/assets/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+
+Started GET "/fonts/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-12 11:51:23 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.woff"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.5ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (161.7ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.ttf" for 127.0.0.1 at 2015-02-12 11:51:24 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.ttf"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.9ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (153.4ms)
+
+
+Started GET "/fonts/glyphicons-halflings-regular.svg" for 127.0.0.1 at 2015-02-12 11:51:24 -0430
+
+ActionController::RoutingError (No route matches [GET] "/fonts/glyphicons-halflings-regular.svg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/josefigueredo/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.6ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/josefigueredo/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (141.2ms)

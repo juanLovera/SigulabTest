@@ -38,48 +38,48 @@
   			<% if @project.equipments>0 %>  		  			  			  						
  		    <tr>
 				<td class="col-xs-5 text-right">Equipos:</td>
-				<td class="col-xs-7">Bs. <%= number_to_currency(@project.equipments, format: "%n", delimiter: ".", separator: ",") %> </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.equipments, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
   			</tr>
   			<% end %>  			    			
   			<% if @project.services>0 %>  		  			  			  			
  		    <tr>
 				<td class="col-xs-5 text-right">Servicios:</td>
-				<td class="col-xs-7">Bs. <%= number_to_currency(@project.services, format: "%n", delimiter: ".", separator: ",") %> </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.services, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
   			</tr>  	
   			<% end %>  					
   			<% if @project.infrastructure>0 %>  		  			  			
  		    <tr>
 				<td class="col-xs-5 text-right">Infraestructura:</td>
-				<td class="col-xs-7">Bs. <%= number_to_currency(@project.infrastructure, format: "%n", delimiter: ".", separator: ",") %> </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.infrastructure, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
   			</tr>  			
   			<% end %>  			  			
   			<% if @project.hhrr>0 %>  		  			
  		    <tr>
 				<td class="col-xs-5 text-right">Personal:</td>
-				<td class="col-xs-7">Bs. <%= number_to_currency(@project.hhrr, format: "%n", delimiter: ".", separator: ",") %> </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.hhrr, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
   			</tr>  			
   			<% end %>  			  			
   			<% if @project.consumables>0 %>  			
  		    <tr>
 				<td class="col-xs-5 text-right">Consumibles:</td>
-				<td class="col-xs-7">Bs. <%= number_to_currency(@project.consumables, format: "%n", delimiter: ".", separator: ",") %> </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.consumables, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
   			</tr>  			
   			<% end %>  			
   			<% if @project.furniture>0 %>
  		    <tr>
 				<td class="col-xs-5 text-right">Mobiliario:</td>
-				<td class="col-xs-7">Bs. <%= number_to_currency(@project.furniture, format: "%n", delimiter: ".", separator: ",") %> </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.furniture, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
   			</tr>  			
   			<% end %>
   			<% if !@project.other_desc.blank? %>
   			<tr>
 				<td class="col-xs-5 text-right"> <%= @project.other_desc%>: </td>
-				<td class="col-xs-7">Bs. <%= number_to_currency(@project.other_amount, format: "%n", delimiter: ".", separator: ",") %> </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.other_amount, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
   			</tr>  			
   			<% end %>  			
 			<tr class="success">
-				<td class="col-xs-5 text-right"> <font size=4> Monto asignado: </font> </td>
-				<td class="col-xs-7">Bs. <font size=4> <%= number_to_currency(@project.amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</font> </td>
+				<td class="col-xs-5 text-right"> <font size=3.6> Monto asignado: </font> </td>
+				<td class="col-xs-7" ><div id="span1"> <font size=3.6> Bs. </div> <div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@project.amount, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>				
 			</tr>  			
   			<% if !@project.incoming_date.blank? -%>						
  		    <tr>
@@ -122,3 +122,8 @@
 		<% end %>
 	</div>
 </div>
+
+<style>
+	#span1 { width: 25px; float: left; height:100%; }
+    #span2 { width: 110px; float: left; height:50%;}
+</style>
