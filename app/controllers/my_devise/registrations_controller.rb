@@ -1,6 +1,8 @@
 # app/controllers/my_devise/registrations_controller.rb
 class MyDevise::RegistrationsController < Devise::RegistrationsController
 
+  skip_before_filter :require_login
+
 	def update
 		super
 	end

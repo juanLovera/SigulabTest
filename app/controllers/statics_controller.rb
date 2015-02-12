@@ -1,5 +1,6 @@
 class StaticsController < ApplicationController
-   layout "application"
+   layout "appindex"
+
 	def index
 	end
 
