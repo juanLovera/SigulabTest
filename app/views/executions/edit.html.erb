@@ -1,0 +1,192 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', budget_path %></li>
+      <li><%= link_to 'Compromisos', commitments_path %></li>
+			<li class="active">Editar Ejecucion</li>
+		</ol>
+	</div>
+  <% if @execution.errors.any? %>
+		<div class="col-xs-12" role="alert">
+			<div class="alert alert-danger">
+				<ul>
+					<% @execution.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>	
+			</div>
+		</div>
+	<% end %>
+	<div class="col-xs-12">
+		<%= form_for @execution, url: {action: 'update'}, id: @execution.id, html: { class: 'form-horizontal' } do |i| %>	
+
+			<div class="form-group">
+				<label for='execution_dependency' class="col-xs-3 control-label text-right">Dependencia</label>
+				<div class='col-xs-4'>
+					<input class="form-control" placeholder="<%= @execution.commitment.lab.sae_name rescue nil %>" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='execution_commitment' class="col-xs-3 control-label text-right">Compromiso Asociado</label>
+				<div class='col-xs-4'>
+					<input class="form-control" placeholder="<%= @execution.commitment.description rescue nil %>" disabled>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='execution_document' class="col-xs-3 control-label text-right">Documento </label>
+				<div class="col-xs-4">
+					<input class="form-control" placeholder="<%= @execution.document_name rescue nil %>" disabled>
+<!--					<%= i.select(:document, options_for_select(Execution.document_str.zip(Execution.documents.keys)), {}, {class: "form-control"} ) %> -->
+				</div>
+			</div>
+			
+	  			<% if !@execution.check_annulled? %>
+			<div class="form-group">
+				<label for='execution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :code, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<div class="input-group">
+						<%= i.text_field :check_amount, class: 'form-control' %>
+						<span class="input-group-addon">Bs.</span>
+					</div>
+				</div>
+			</div>	
+
+			<hr />		
+					
+			<div class="form-group">
+				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
+
+					<div class='col-xs-4'>
+						<%= i.text_field :check_number, class: 'form-control' %>
+					</div>
+					<%= link_to annul_execution_path(@execution) do %>
+						<button type="button" class="btn btn-danger" onclick="return confirm('¿Está seguro de anular el cheque?')"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp; Anular Cheque</button>
+					<% end %>
+			</div>					
+			<div class="form-group">
+				<label for='execution_check_elaboration_date' class="col-xs-3 control-label text-right">Fecha de Elaboración <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :check_elaboration_date, value: (@execution.check_elaboration_date.strftime("%d/%m/%Y") unless @execution.check_elaboration_date.blank?), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='execution_check_sign_date' class="col-xs-3 control-label text-right">Fecha de Firma</label>
+				<div class='col-xs-4'>
+					<%= i.text_field :check_sign_date, value: (@execution.check_sign_date.strftime("%d/%m/%Y") unless @execution.check_sign_date.blank?), class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='execution_check_delivery_date' class="col-xs-3 control-label text-right">Fecha de Entrega</label>
+				<div class='col-xs-4'>
+					<%= i.text_field :check_delivery_date, value: (@execution.check_delivery_date.strftime("%d/%m/%Y") unless @execution.check_delivery_date.blank?), class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_remarks' class="col-xs-3 control-label text-right">Observaciones</label>
+				<div class='col-xs-4'>
+					<%= i.text_area :remarks, class: 'form-control' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar la ejecución?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Ejecución</button>
+					<%= link_to executions_path, class: "btn btn-default btn-danger" do %>
+						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+					<% end %>
+				</div>
+			</div>				
+  	  			<% else %>
+
+			<div class="form-group">
+				<label for='execution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @execution.code rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<div class="input-group">
+						<input class="form-control" placeholder="<%= @execution.check_amount rescue nil %>" disabled>
+						<span class="input-group-addon">Bs.</span>
+					</div>
+				</div>
+			</div>	
+
+			<hr />		
+					
+			<div class="form-group">
+				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
+
+
+
+					<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @execution.check_number rescue nil %>" disabled>
+					<label for='execution_check_number' class="col-xs-3 control-label text-left" align="left">  <span style="color:#FF0000"> Anulado </span></label> 						
+					</div>  	  			
+
+			</div>					
+			<div class="form-group">
+				<label for='execution_check_elaboration_date' class="col-xs-3 control-label text-right">Fecha de Elaboración <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @execution.check_elaboration_date.strftime("%d/%m/%Y") rescue nil %>" disabled>					
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='execution_check_sign_date' class="col-xs-3 control-label text-right">Fecha de Firma</label>
+				<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @execution.check_sign_date.strftime("%d/%m/%Y") rescue nil %>" disabled>				
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='execution_check_delivery_date' class="col-xs-3 control-label text-right">Fecha de Entrega</label>
+				<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @execution.check_delivery_date.strftime("%d/%m/%Y") rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_remarks' class="col-xs-3 control-label text-right">Observaciones</label>
+				<div class='col-xs-4'>
+					<%= i.text_area :remarks, class: 'form-control' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar la ejecución?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Ejecución</button>
+					<%= link_to executions_path, class: "btn btn-default btn-danger" do %>
+						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+					<% end %>
+				</div>
+			</div>				
+	  			<% end %>
+
+			
+
+		<% end %>
+	</div>
+	<div class="col-xs-12">
+		<div class="well">
+			<span style="color:#FF0000">*</span> Los campos son obligatorios.
+		</div>
+	</div>
+</div>

@@ -1,0 +1,86 @@
+<%= render 'menu' %>
+<br/>
+<div style="text-align: right; height: 45px; margin-top: 12px;">
+        <% if session['specification_p2'] != 2 %>
+	<%= link_to '<button type="button" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Modificar </button>'.html_safe, edit_invitation_path(@invitation) %>
+   <%= link_to '<button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar </button>'.html_safe, @invitation,method: :delete,
+       data: { confirm: '¿Está seguro que desea eliminar el servicio?' } %><% else %>Ya no puede editar porque se generó la solicitud. <%= link_to '<button type="button" class="btn btn-primary"> Volver </button>'.html_safe, invitations_url %><% end %>
+	</div>
+
+
+
+
+<div class="col-xs-12">
+
+  <table id="actTable" class="table table-striped">
+   <tr>
+				<th class="active text-center" colspan="2"><h2>Carta de Invitación</h2></th>
+			</tr>
+<td class="col-xs-5 text-right">Nombre de la empresa</td>
+		   <td class="col-xs-7"><%= @invitation.nombre %></td>
+		 </tr>
+		 <tr>
+		   <td class="col-xs-5 text-right">Responsable del proyecto</td>
+		   <td class="col-xs-7"><%= @invitation.responsable %></td>
+		 </tr>
+		 <tr>
+		   <td class="col-xs-5 text-right">Correo del solicitante</td>
+		   <td class="col-xs-7"><%= @invitation.correo %></td>
+		 </tr>
+		 <tr>
+		   <td class="col-xs-5 text-right">Contacto de la empresa</td>
+		   <td class="col-xs-7"><%= @invitation.direccion %></td>
+		 </tr>
+		 <tr>
+		   <td class="col-xs-5 text-right">Telefono del solicitante</td>
+		   <td class="col-xs-7"><%= @invitation.telefono %></td>
+		 </tr>
+       <tr>
+		   <td class="col-xs-5 text-right">Telefono adicional</td>
+		   <td class="col-xs-7"><%= @invitation.telefono_Adicional %></td>
+		 </tr>
+	 
+   </table>
+  
+  </div>
+</div>
+
+
+
+<style>
+
+
+
+#invitationTable th, td, tr{
+	border-color:#7A7070;
+  font-size: 14px;
+ 
+}
+
+#invitationTable th {
+background-color: #F2F8F7;
+}
+
+
+.table-bordered {
+
+	border-color:#7A7070;
+
+}
+
+.table-bordered>tbody>tr>td {
+
+	border-color:#7A7070;
+	background-color: #F2F8F7;
+
+}
+
+
+#invitationTable td:nth-child(even) {
+
+border-color:#7A7070;
+
+}
+
+</style>
+

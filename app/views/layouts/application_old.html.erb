@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sigulab</title>
+
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+	<%= stylesheet_link_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css', 'application', media: 'all', 'data-turbolinks-track' => true %>
+
+
+	<%= csrf_meta_tags %>
+	<title> Unidad de Laboratorios - SIGULAB </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="shortcut icon" href="../../assets/images/favicon.ico" type= "image/png">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+  <script>
+	
+	$.datepicker.regional['es'] = {
+	closeText: 'Cerrar',
+	prevText: ' < ',
+	nextText: ' > ',
+	currentText: 'Hoy',
+	monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+	monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+	dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+	dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+	dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+	weekHeader: 'Sm',
+	dateFormat: 'dd/mm/yy',
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: ''
+	};
+
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+	
+	
+	$(function() {
+		$( ".datepicker" ).datepicker({
+		dateFormat: 'dd-mm-yy',
+		yearRange: '1900:2018',
+		});
+	});
+
+	$(function() {
+	    $( document ).tooltip({
+	      position: {
+	        my: "center bottom-20",
+	        at: "center top",
+	        using: function( position, feedback ) {
+	          $( this ).css( position );
+	          $( "<div>" )
+	            .addClass( "arrow" )
+	            .addClass( feedback.vertical )
+	            .addClass( feedback.horizontal )
+	            .appendTo( this );
+	        }
+	      }
+	    });
+	  });
+
+	
+  </script>
+
+ <style>
+  .ui-tooltip, .arrow:after {
+    color: black;
+  }
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: black;
+    border-radius: 15px;
+    font: bold 10px "Helvetica Neue", Sans-Serif;
+    font
+    text-transform: uppercase;
+    box-shadow: 0 0 4px black;
+  }
+
+
+  </style>
+
+
+</head>
+<body>
+
+	<div id="principal">
+
+		<div id="header" role="banner">
+			<a href="http://www.ulab.usb.ve/" alt="Inicio"/><%= image_tag "logo_drupal.jpg" %> </a>
+
+		<!-- aqui empieza el pein-->
+
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<!-- TITLE AND BUTTON COLLAPSER -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sigulabmenu">
+							<span class="sr-only">Toggle navigation</span>
+						</button>
+						<a class="navbar-brand" href="/">SIGULAB</a>
+					</div>
+					<!-- COLLAPSABLE MENU -->
+					<div class="collapse navbar-collapse" id="sigulabmenu">
+						<ul class="nav navbar-nav">
+							<li><a href="http://localhost:3000/">Inicio</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle " data-toggle="dropdown">Inventario<span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a><%= link_to ' Sustancias Químicas', chemical_substances_url %></a></li>
+									<li><a ><%= link_to ' Equipos y Mobiliarios', equipment_index_url %></a></li>
+									<li><a><%= link_to ' Herramientas', tools_url %></a></li>
+									<li><a><%= link_to ' Instrumentos', instruments_url %></a></li>
+									<li><a><%= link_to ' Consumibles', consumables_url %></a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle " data-toggle="dropdown">Compras<span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+									<li class="divider"></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle " data-toggle="dropdown">Administración<span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="/administration">Inicio</a></li>
+									<li class="divider"></li>
+									<li><a href="administration/budget/summary">Resumen</a></li>
+									<li><a href="/incomes">Ingresos</a></li>
+									<li><a href="/commitments">Compromisos</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Proyectos</a></li>							
+									<li class="divider"></li>
+									<li><a href="#">Banco de Proyectos</a></li>									
+									<li class="divider"></li>
+									<li><a href="#">Anteproyecto de POA</a></li>										
+								</ul>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+								<li class="dropdown">
+										
+								<% if user_signed_in? %>
+
+									<a href="#" class="dropdown-toggle " data-toggle="dropdown">
+										<strong><%= current_user.username %></strong>
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li>
+											<a href="/users/edit">
+												<span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;Editar Perfil</a>
+										</li>
+										<li>
+											<a data-method="delete" href="/users/sign_out" rel="nofollow">
+												<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;Cerrar Sesion</a>
+										</li>
+									</ul>
+								<% else %>
+								<li class="navbar-link"><%= link_to " Iniciar Sesión", new_user_session_path, :class => 'navbar-link'  %></li>
+								<li class="navbar-link"><%= link_to "Registrarse", new_user_registration_path, :class => 'navbar-link'  %> </li>
+									
+
+								<% end %>	
+								</li>
+						</ul>
+
+					</div><!-- end of collapsable sigulabmenu -->
+				</div><!-- end of container-fluid -->
+			</nav><!-- end of navbar -->
+		</div>
+		<!-- here shall end-->
+		<div id="Contenido">
+					<!-- AREA DE TRABAJO -->
+					<div id = "area">
+
+						<!-- CONTENIDO -->
+					
+							<%= yield %>
+					</div>
+
+					<!-- <div class="region region-footer">
+						<div id="block-block-1" class="block block-block first">
+							<br>
+							<div class="inner">
+								<div class="content">
+									<table align="left" border="0" cellpadding="1" cellspacing="1">
+										<tbody>
+											<tr>
+												<td valign="bottom" width="95">
+													<a href="http://www.usb.ve"><%= image_tag "cebolla_70_45.jpg" %></a><br><br><br><br><br></td>
+													<td valign="bottom">
+														<a href="http://www.usb.ve/home/node/68">e-virtual</a> | <a href="https://webmail.usb.ve/" target="_blank">Correo</a> |<a href="http://www.usb.ve/buscador.php" target="_blank"> </a><a href="https://esopo.usb.ve">esopo</a> |<a href="http://www.usb.ve/buscador.php" target="_blank"> </a><a href="http://www.youtube.com/canalusb" target="_blank">canalUSB</a> | <a href="http://www.usb.ve/agenda.php" target="_blank">Agenda Cultural</a> | <a href="http://usbnoticias.info/" target="_blank">USBnoticias</a> |<span> </span><span> </span><a href="http://www.usb.ve/home/node/55">Calendario</a> |<br>
+														Sede Sartenejas, Baruta, Edo. Miranda - Apartado 89000 - Cable Unibolivar - Caracas Venezuela. Teléfono +58 0212-9063111<br>
+														Sede Litoral, Camurí Grande, Edo. Vargas Parroquia Naiguatá. Teléfono +58 0212-9069000<br>
+														Diseñada y desarrollada por la Dirección de Servicios Multimedia <a href="mailto:webmaster@usb.ve">webmaster@usb.ve</a><br><br><br><b>
+													</td>
+												</td>
+											</tr>
+										</tbody>
+									</table><p>&nbsp;</p>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</div>
+	</div>
+				
+
+			</div>
+		</div>
+	</body>
+	</html>

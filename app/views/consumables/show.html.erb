@@ -1,0 +1,133 @@
+<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li> <%=link_to 'Consumibles', consumables_path %></li>
+	<li class="active"> Ver </li> 
+</ol>
+
+
+ <table class="table table-striped">
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"><%=  @consumable.name %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Descripción:</strong></td>
+            <td class="col-xs-7"><%= @consumable.description %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Material:</strong></td>
+            <td class="col-xs-7"><%= @consumable.material %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
+            <td class="col-xs-7"><%= @consumable.responsible %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= @consumable.dependency %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= @consumable.location %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+            <td class="col-xs-7"><%= @consumable.quantity %></td>
+          </tr>
+           
+         <tr>
+            <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
+              <td class="col-xs-7"> <% if @consumable.investigation %>
+                <%= ' INVESTIGACIÓN ' %>
+              <% end %>
+              <% if @consumable.teaching %>
+                <%= ' DOCENCIA ' %>
+              <% end %>
+              <% if @consumable.extention %>
+                <%= ' EXTENSIÓN ' %>
+              <% end %>
+              <% if @consumable.management %>
+                <%= ' GESTIÓN ' %>
+              <% end %></td>
+         </tr>
+        <tr>        
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
+            <td class="col-xs-7"><%= @consumable.bill %></td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
+            <td class="col-xs-7"><%= @consumable.cost %> Bs.</td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Órden de Compra:</strong></td>
+            <td class="col-xs-7"><%= @consumable.buy_order %></td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
+            <td class="col-xs-7"><%= @consumable.adquisition_date %></td>
+          </tr>
+          
+        </table>
+
+<br>
+<% if can? :update, @consumable %>
+  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_consumable_path(@consumable), 'data-no-turbolink' => true, :class => 'linkButton' %> |
+<% end %>
+<% if can? :create, @consumable %>
+    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Consumible', new_consumable_path, :class => 'linkButton' %> | 
+<%end%>
+<% if can? :hide, @consumable %>
+      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @consumable, method: :delete, data: { confirm: '¿Estás seguro?' }, :class => 'linkButton' %> |
+<%end%>
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', consumables_path, :class => 'linkButton' %>
+<br><br><br><br>
+
+<style>
+
+#LeDivConsumibles {
+    background-image        : url('/assets/consumables2.png');
+    background-size         : 250px;  
+    background-repeat       : no-repeat; 
+    background-position     : bottom right; 
+    background-color        : #FFFFFF;
+}
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+
+</style>

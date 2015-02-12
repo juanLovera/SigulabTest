@@ -1,0 +1,109 @@
+<div class="grid_12" style="margin-top:-20px; margin-bottom: 15px;"><div style="float:left"><h3><%= session['specification_sel_nombre'] %> (núm. <%= session['specification_sel_id'] %>)</h3></div>
+	<div style="text-align:right; margin-top: 20px;"><%= link_to '<button type="button" class="btn btn-default">Seleccionar otra especificación</button>'.html_safe, specifications_url %></div>	
+	</div>
+ <div class="grid_12">
+ <style>
+.nav-tabs > li.deshabilitado > a,
+   .nav-tabs > li.deshabilitado > a:hover {
+    color: #000 !important;
+    background-color: transparent !important;
+    text-decoration: none;
+   font-weight: bold;
+   border-radius:0px;
+   border-bottom-width: 4px;
+   border-bottom-style: solid;
+   border-bottom-color: #E60000;
+   margin-top:-4px;
+         }
+.nav-tabs > li.habilitado > a,
+   .nav-tabs > li.habilitado > a:hover <% if session['specification_p1'] == 2 %>, .nav-tabs > li.active > a <% end %> {
+    color: #000 !important;
+    background-color: transparent !important;
+    text-decoration: none;
+   font-weight: bold;
+   border-radius:0px;
+   border-bottom-width: 4px;
+   border-bottom-style: solid;
+   border-bottom-color: #259325;
+   margin-top:-4px;
+         }
+    .nav-tabs > li > a{
+    border-radius:0px;
+     }
+.nav-tabs > li.select > a,
+   .nav-tabs > li.select > a:hover <% if session['specification_p1'] == 1 %>, .nav-tabs > li.active > a <% end %> {
+    color: #000 !important;
+    background-color: transparent !important;
+    text-decoration: none;
+   font-weight: bold;
+   border-radius:0px;
+   border-bottom-width: 4px;
+   border-bottom-style: solid;
+   border-bottom-color: #3083FF;
+   margin-top:-4px;
+         }
+    .nav-tabs > li > a{
+    border-radius:0px;
+     }
+ </style>
+<ul class="nav nav-tabs"  >
+
+			<li class="active" style="text-align:left"><a href="<%= session[:specification_sel_link] %>">
+		       <i class="fa fa-clipboard fa-1"> Agregar <%= session['specification_sel_tipo'] %> </i>
+		        </a></li>
+
+			<% if session['specification_p2'] == 0 %>
+			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una carta de invitación es necesario descargar la solicitud en la pestaña anterior.');" >
+		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i></a>
+		</li>
+		   <% else %>
+			<li style="text-align:left" <% if session['specification_p2'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to invitations_url do %>
+		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i>
+		   <% end %></li>
+		   <% end %>
+
+<% if session['specification_p3'] == 0 %>
+			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una oferta es necesario agregar al menos una carta de invitación.');" >
+		       <i class="fa fa-tag"> &nbsp Ofertas </i>
+		   </a></li>
+		   <% else %>
+			<li style="text-align:left" <% if session['specification_p3'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to quotes_url do %>
+		       <i class="fa fa-tag"> &nbsp Ofertas </i>
+		   <% end %></li>
+		   <% end %>
+
+
+<% if session['specification_p4'] == 0 %>
+			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar un informe de recomendación es necesario agregar una oferta.');" >
+		       <i class="fa fa-file-text-o"> Informe de recomendación</i>
+		   </a></li>
+		   <% else %>
+			<li style="text-align:left" <% if session['specification_p4'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to recommendations_url do %>
+		       <i class="fa fa-file-text-o"> Informe de recomendación</i>
+		   <% end %></li>
+		   <% end %>
+
+
+
+                   <% if session['specification_p5'] == 0 %>
+			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
+		       <i class="fa fa-angle-right"> &nbsp Acto motivado </i>
+		   </a></li>
+		   <% else %>
+			<li style="text-align:left" <% if session['specification_p5'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to acts_url do %>
+		       <i class="fa fa-angle-right"> &nbsp Acto motivado </i>
+		   <% end %></li>
+		   <% end %>
+
+		    <% if session['specification_p6'] == 0 %>
+			<li style="text-align:left" class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para agregar una requisición es necesario agregar un acto motivado o un informe de recomendación.');" >
+		       <i class="fa fa-files-o"> Requisición </i>
+		   </a></li>
+		   <% else %>
+			<li style="text-align:left" <% if session['specification_p6'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to requisitions_url do %><i class="fa fa-files-o"> Requisición </i>
+		   <% end %></li>
+		   <% end %>
+
+
+		   
+</ul>

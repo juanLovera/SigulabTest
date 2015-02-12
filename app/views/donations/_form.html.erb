@@ -1,0 +1,82 @@
+<%= form_for(@donation) do |f| %>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error(es)") %> prohíben que esta donación sea guardada:</h2>
+
+      <ul>
+      <% @donation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class ="Informacion">
+
+<div class="col-xs-12">
+        <table class="table table-striped">
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :nombreItem %>
+            <span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :marca %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :modelo %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :cantidad %>
+            <span class="red">*</span></td>
+          </tr>  
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Unidad de Medida:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :unidadMedida %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>No. Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :numDocumento %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha del Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :fechaDocumento, :class => "bootlayout-date" %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Valor Estimado:</strong></td>
+            <td class="col-xs-7"><%= f.number_field(:estimado, min: 0, :step => 'any') %> Bs.</td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
+            <td class="col-xs-7"><%= f.select(:tipo, [ ['Equipos/Mobiliarios'],['Instrumetos de Medición'],
+              ['Herramientas'], ['Materiales'], ['Consumibles'] ] ) %></td>
+          </tr>
+
+    <tr>
+
+    <td class="col-xs-5 text-right">
+      <div class="actions">
+    <%= f.submit %>
+        </div>
+    </tr>
+
+           </table>
+
+      </div>
+    <br>
+    <br><br>
+  </div>
+
+<% end %>

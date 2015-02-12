@@ -1,0 +1,44 @@
+// Place all the styles related to the chemical_substances controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#LeDivQuimicas {
+    background-image        : url('/assets/chemical.png');
+    background-size         : 520px;  
+    background-repeat       : no-repeat; 
+    background-position		: bottom right; 
+    background-color        : #FFFFFF;
+
+}
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}

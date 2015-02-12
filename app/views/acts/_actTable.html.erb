@@ -1,0 +1,90 @@
+<table id="example" class="table table-hover" >
+	  <thead>
+		 <tr>
+		   <th align="left">Proveedor</th>
+		   <th align="left">Bien y/o Servicio</th>
+		   <th align="left">Justificación</th>
+		   <th align="left">Responsable</th>
+		 </tr>
+	  </thead>
+
+	  <tbody>
+		 <% @acts.each do |act| %>
+	  		<tr>
+		     
+		     <td><%= act.bienServicio %></td>
+		     <td><%= act.justificacion %></td>
+		     <td><%= act.responsable %></td>
+                     <td style="text-decoration:none; color:black; text-align: right"><%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, act %>  
+		   </tr>
+		 <% end %>
+		 <% if @sumActs == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay Actos Motivados registrados</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+</body>
+
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
+
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+#invitationTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+     font-size: 14px;
+  }
+
+#invitationTable th, td, tr{
+ border-color:black;
+ }
+
+
+
+ .table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#invitationTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>

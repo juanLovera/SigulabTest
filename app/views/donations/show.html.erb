@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li> <%=link_to 'Donaciones', donations_path %></li>
+  <li class="active"> Ver Donación </li>
+</ol>
+
+<div class ="Informacion">
+  <div class="col-xs-12">
+    <table class="table table-striped">
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+      <td class="col-xs-7"> <%= @donation.nombreItem %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+      <td class="col-xs-7"> <%= @donation.marca %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
+      <td class="col-xs-7"> <%= @donation.modelo %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+      <td class="col-xs-7"> <%= @donation.cantidad %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Unidad de Medida:</strong></td>
+      <td class="col-xs-7"> <%= @donation.unidadMedida %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>No. Documento:</strong></td>
+      <td class="col-xs-7"> <%= @donation.numDocumento %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Fecha del Documento:</strong></td>
+      <td class="col-xs-7"> <%= @donation.fechaDocumento %>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Valor Estimado:</strong></td>
+      <td class="col-xs-7"><%= @donation.estimado%> Bs.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
+      <td class="col-xs-7"> <%= @donation.tipo %>
+      </td>
+    </tr>
+
+    </div>
+  </table>
+
+<br><br>
+<i class="fa fa-cog"></i><%= link_to ' Editar', edit_donation_path(@donation), :class => 'linkButton' %> | 
+<i class="fa fa-times fa-1x"></i><%= link_to 'Ocultar', @donation, method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar esta donación?' }, :class => 'linkButton' %> | 
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', donations_path, :class => 'linkButton' %>
+<br><br><br><br>
+
+<style>
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+</style>
+

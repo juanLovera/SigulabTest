@@ -1,0 +1,194 @@
+<div style="text-align: right; height: 45px; margin-top: 12px;">
+    <% if session['specification_p7'] != 2 %>
+   <%= link_to '<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Modificar </button>'.html_safe, edit_devolution_path(@devolution) %>
+   <%= link_to '<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar </button>'.html_safe, @devolution,method: :delete,
+       data: { confirm: '¿Está seguro que desea eliminar el Acto Motivado?' } %>
+    <%= link_to '<button type="button" class="btn btn-primary"> Volver </button>'.html_safe, devolutions_url %>
+    <% else %>Ya no puede editar porque se generó la solicitud. <%= link_to '<button type="button" class="btn btn-primary"> Volver </button>'.html_safe, devolutions_url %><% end %>
+</div>
+
+<div class="col-xs-12" style="margin-top:50px;">
+
+  <table id="actTable" class="table table-striped">
+   <tr>
+				<th class="active text-center" colspan="2"><h2>Nota de Devolución</h2></th>
+			</tr>
+
+         <tr>
+           <td class="col-xs-5 text-right">Número de Registro</td>
+           <td class="col-xs-7"><%= @devolution.numRegistro %></td>
+         </tr>
+         <% if @devolution.requisicion == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Requisición</td>
+               <td class="col-xs-7"><%= @devolution.numRequisicion %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.autorizacion == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Autorización</td>
+               <td class="col-xs-7"><%= @devolution.numAutorizacion %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.certificacion == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Certificación</td>
+               <td class="col-xs-7"><%= @devolution.numCertificacion %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.solicitud == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Solicitud de Servicio</td>
+               <td class="col-xs-7"><%= @devolution.numSolicitud %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.informe == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Informe de Recepción</td>
+               <td class="col-xs-7"><%= @devolution.numInforme %></td>
+             </tr>
+         <% end %>
+         <% if @devolution.otro == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Requisición</td>
+               <td class="col-xs-7"><%= @devolution.numOtro %></td>
+             </tr>
+         <% end %>
+         <tr>
+           <td class="col-xs-5 text-right">Unidad solicitante</td>
+           <td class="col-xs-7"><%= @devolution.unidadSolicitante %></td>
+         </tr>
+         <tr>
+           <td  class="col-xs-5 text-right">Causa de la devolución</td>
+           <td  class="col-xs-7"></td>
+         </tr>
+         <% if @devolution.disponibilidad == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Disponibilidad presupuestaria insuficiente</td>
+               <td class="col-xs-7">Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.idioma == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Registro en idioma distinto al español</td>
+               <td class="col-xs-7">Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.discriminado == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Registro no discriminado por ítems</td>
+               <td class="col-xs-7">Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.firma == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Registro sin la firma y/o sello de la Unidad Responsable</td>
+               <td class="col-xs-7">Sí</td>
+             </tr>
+         <% end %>
+         <% if @devolution.carencia == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Carencia de información indispensable del proveedor del bien o servicio:</td>
+               <td class="col-xs-7">
+                   <% if @devolution.nombre == true %>
+                        <%= "Nombre" %><br>
+                   <% end %>
+                   <% if @devolution.direccion == true %>
+                        <%= "Dirección Fiscal" %><br>
+                   <% end %>
+                   <% if @devolution.datos == true %>
+                        <%= "Datos Bancarios" %><br>
+                   <% end %>
+                   <% if @devolution.rif == true %>
+                        <%= "RIF" %><br>
+                   <% end %>
+                   <% if @devolution.telefonos == true %>
+                        <%= "Teléfonos" %><br>
+                   <% end %>
+                   <% if @devolution.persona == true %>
+                        <%= "Persona Contacto" %><br>
+                   <% end %>
+                   <% if @devolution.otroCarencia == true %>
+                        <%= "Otro" %>
+                   <% end %>
+               </td>
+             </tr>
+         <% end %>
+
+         <% if @devolution.contacto == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Contrato Fonacit, si aplica</td>
+               <td class="col-xs-7">Falta</td>
+             </tr>
+         <% end %>
+         <% if @devolution.copia == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Copia del Acta del Consejo Directo que autorice la Contratación Pública (Compras mayores de 2500 UT), si es aplicable</td>
+               <td class="col-xs-7">Falta</td>
+             </tr>
+         <% end %>
+         <% if @devolution.factura == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Factura, Proforma o Cotización  a nombre de la USB, indicando  la condición de entrega.</td>
+               <td class="col-xs-7">Falta</td>
+             </tr>
+         <% end %>
+         <% if @devolution.foto == true %>
+             <tr>
+               <td class="col-xs-5 text-right">Foto Referencial del Material y/o Equipo solicitado</td>
+               <td class="col-xs-7">Falta</td>
+             </tr>
+         <% end %>
+
+         <tr>
+           <td class="col-xs-5 text-right">Observaciones</td>
+           <td class="col-xs-7"><%= @devolution.observaciones %></td>
+         </tr>
+    
+   </table>
+  </div>
+
+
+
+
+<style>
+
+
+
+#devolutionTable th, td, tr{
+  border-color:#7A7070;
+  font-size: 14px;
+  
+}
+
+#devolutionTable th {
+background-color: #F2F8F7;
+vertical-align: middle;
+
+}
+
+
+.table-bordered {
+
+  border-color:#7A7070;
+  border-bottom: #7A7070;
+
+}
+
+.table-bordered>tbody>tr>td {
+
+  border-color:#7A7070;
+  background-color: #F2F8F7;
+  border-bottom: #7A7070;
+
+}
+
+
+#devolutionTable td:nth-child(even) {
+
+border-color:#7A7070;
+
+
+}
+
+</style>

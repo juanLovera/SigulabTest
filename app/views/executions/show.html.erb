@@ -1,0 +1,85 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', budget_path %></li>
+      		<li><%= link_to 'Ejecuciones', executions_path %></li>
+			<li class="active"><%= @execution.id %></li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tr>
+				<td class="col-xs-5 text-right">Dependencia:</td>
+				<td class="col-xs-7"><%= @execution.commitment.lab.sae_name %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Compromiso asociado:</td>
+				<td class="col-xs-7"><%= @execution.commitment.description %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Documento:</td>
+				<td class="col-xs-7"><%= @execution.document_name %></td>
+			</tr>			
+			<tr>
+				<td class="col-xs-5 text-right">Número de Documento:</td>
+				<td class="col-xs-7"><%= @execution.code %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Número de Cheque:</td>
+				<td class="col-xs-7"><%= @execution.check_number %></td>
+			</tr>			
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de Elaboración:</td>
+        		<td class="col-xs-7"><%= @execution.check_elaboration_date unless @execution.check_elaboration_date.blank? %>  </td>
+			</tr>
+
+			<% if !@execution.check_sign_date.blank? -%>
+			<tr>
+
+				<td class="col-xs-5 text-right">Fecha de Firma:</td>
+        		<td class="col-xs-7"><%= @execution.check_sign_date unless @execution.check_sign_date.blank? %>  </td>
+			</tr>
+			<% end %>
+			<% if !@execution.check_delivery_date.blank? -%>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de Entrega:</td>
+        		<td class="col-xs-7"><%= @execution.check_delivery_date unless @execution.check_delivery_date.blank? %>  </td>
+			</tr>
+			<% end %>
+			<tr>
+				<td class="col-xs-5 text-right">Estatus del cheque:</td>
+                <td class="col-xs-7">
+				  <% if @execution.check_annulled? %>
+                    Anulado
+				 <% else %>
+                  <% if @execution.check_sign_date.blank? %> 
+                    En espera de firma
+                  <% else if @execution.check_delivery_date.blank? %> 
+                    En custodia
+                  <% else %> 
+                    Entregado
+                  <% end %>
+                  <% end %>
+				<% end %>
+                </td>
+			</tr>
+			<% if !@execution.remarks.blank? -%>			
+				<tr>
+					<td class="col-xs-5 text-right">Observaciones:</td>
+        			<td class="col-xs-7"><%= @execution.remarks unless @execution.remarks.blank? %>  </td>
+				</tr>
+			<% end %>
+			<tr class="success">
+				<td class="col-xs-5 text-right">Monto:</td>
+				<td class="col-xs-7"><%= number_to_currency(@execution.check_amount, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-xs-12">
+    <%= link_to edit_execution_path do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ejecución</button>
+		<% end %>
+	</div>
+</div>

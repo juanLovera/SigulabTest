@@ -1,0 +1,161 @@
+<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li> <%=link_to 'Equipos y mobiliarios', equipment_index_path %></li>
+	<li class="active"> Ver </li>
+</ol>
+
+
+ <table class="table table-striped">
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"><%= @equipment.name %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+            <td class="col-xs-7"><%= @equipment.brand %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
+            <td class="col-xs-7"><%= @equipment.model %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Serial:</strong></td>
+            <td class="col-xs-7"><%=  @equipment.serial %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Número de Bien Nacional:</strong></td>
+            <td class="col-xs-7">  <%= @equipment.national_good %></td>
+          </tr> 
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
+            <td class="col-xs-7"><%= @equipment.status %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Calibrado:</strong></td>
+            <td class="col-xs-7"><%= @equipment.calibrated  %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Última Calibración:</strong></td>
+            <td class="col-xs-7"><%= @equipment.last_calibration %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Medidas:</strong></td>
+            <td class="col-xs-7">
+            <strong> - Alto: </strong>
+            <%= @equipment.length %><%= @equipment.measurelength %><br>
+            <strong> - Ancho: </strong>
+            <%= @equipment.width %><%= @equipment.measurewidth %><br>
+            <strong> - Profundidad:</strong>
+            <%= @equipment.depth %><%= @equipment.measuredepth %></td>
+          </tr>
+           
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
+            <td class="col-xs-7"><%= @equipment.responsible %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= @equipment.dependency %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= @equipment.location %></td>
+          </tr>
+      <tr>
+          <td class="col-xs-5 text-right"><strong>Fecha Adquisición::</strong></td>
+          <td class="col-xs-7"><%= @equipment.adquisition_date %>
+        </td>
+      </tr>
+      <tr>
+          <td class="col-xs-5 text-right"><strong>Órden de Compra:</strong></td>
+          <td class="col-xs-7"><%= @equipment.buy_order %>
+        </td>
+      </tr>
+      <tr>
+          <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
+          <td class="col-xs-7"><%= @equipment.cost  %>
+        </td>
+      </tr>
+       <tr>
+          <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
+          <td class="col-xs-7"> <%= @equipment.bill %>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
+            <td class="col-xs-7">  
+            <% if @equipment.investigation %>
+              <%= ' INVESTIGACIÓN ' %>
+            <% end %>
+            <% if @equipment.teaching %>
+              <%= ' DOCENCIA ' %>
+            <% end %>
+            <% if @equipment.extention %>
+              <%= ' EXTENSIÓN ' %>
+            <% end %>
+            <% if @equipment.management %>
+              <%= ' GESTIÓN ' %>
+            <% end %></td>
+          </tr>
+          
+        </table>
+
+
+<br><br>
+<% if can? :update, @equipment %>
+  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_equipment_path(@equipment) , 'data-no-turbolink' => true, :class => 'linkButton' %> |
+<% end %>
+<% if can? :create, @equipment %>
+    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo equipo', new_equipment_path, :class => 'linkButton' %> |
+<% end %>
+<% if can? :hide, @equipment %>
+      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @equipment, method: :delete, data: { confirm: '¿Estás seguro?' }, :class => 'linkButton' %> |
+<%end%>
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', equipment_index_path, :class => 'linkButton' %>
+<br><br><br><br>
+
+
+<style>
+
+#LeDivEquipos {
+    background-image        : url('/assets/equipment2.png');
+    background-size         : 230px;  
+    background-repeat       : no-repeat; 
+    background-position     : bottom right;  
+    background-color        : #FFFFFF;
+}
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+</style>

@@ -1,0 +1,91 @@
+
+<div class="grid_12">
+      <ol class="breadcrumb">
+          <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+      <li> <%=link_to 'Compras', compras_url %></li>
+      <li> <%=link_to 'Especificaciones Técnicas', specifications_url %></li>
+          <li> <%=link_to 'Solicitud', solicitud_url %></li>
+          <li class="active"> Requisición </a></li>
+      </ol>
+</div>
+
+<div class="grid_12">
+  <div id="tittle">
+  <table id="requisitionTable" class="table table-bordered">
+    <thead>
+       <tr>
+       <th>Número de registro</th>
+       <td><%= @requisition.id %></td>
+     </tr>
+     <tr>
+       <th>Unidad Solicitante</th>
+       <td><%= @requisition.solicitante %></td>
+     </tr>
+     <tr>
+       <th>Unidad Consumidora</th>
+       <td><%= @requisition.consumidor %></td>
+     </tr>
+       <tr>
+       <th>Cargado a la partida:</th>
+       <td><%= @requisition.partida %></td>
+     </tr>
+     <tr>
+       <th>Autor</th>
+       <td><%= @requisition.autor %></td>
+     </tr>
+     <tr>
+       <th>Observaciones</th>
+       <td><%= @requisition.observacion %></td>
+     </tr>
+    </thead>
+   </table>
+   <%= link_to '<button type="button" class="btn btn-primary"> Agregar otra Requisición </button>'.html_safe, new_requisition_path(@requisition) %><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Descargar Requisición  </button>'.html_safe,
+                                             requisition_path(@requisition, :format => 'pdf') %> <br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Modificar </button>'.html_safe, edit_requisition_path(@requisition) %><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Eliminar </button>'.html_safe, @requisition,method: :delete,
+       data: { confirm: '¿Está seguro que desea eliminar el Acto Motivado?' } %></td><br><br>
+   <%= link_to '<button type="button" class="btn btn-primary"> Finalizar </button>'.html_safe, requisitions_path %><br>
+  </div>
+</div>
+
+
+
+<style>
+
+
+
+#requisitionTable th, td, tr{
+  border-color:#7A7070;
+  font-size: 14px;
+ 
+}
+
+#requisitionTable th {
+background-color: #F2F8F7;
+}
+
+
+.table-bordered {
+
+  border-color:#7A7070;
+
+}
+
+.table-bordered>tbody>tr>td {
+
+  border-color:#7A7070;
+  background-color: #F2F8F7;
+
+}
+
+
+#requisitionTable td:nth-child(even) {
+
+border-color:#7A7070;
+
+}
+
+</style>
+
+

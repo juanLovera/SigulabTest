@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  brand: MyString
+  model: MyString
+  serial: MyString
+  national_good: 1
+  status: MyString
+  last_calibration: 2014-11-03
+  responsible: MyString
+  location: MyString
+  adquisition_date: 2014-11-03
+  buy_order: MyString
+  cost: 1.5
+  bill: MyString
+  investigation: false
+  teaching: false
+  extention: false
+  management: false
+  calibrated: MyString
+
+two:
+  name: MyString
+  brand: MyString
+  model: MyString
+  serial: MyString
+  national_good: 1
+  status: MyString
+  last_calibration: 2014-11-03
+  responsible: MyString
+  location: MyString
+  adquisition_date: 2014-11-03
+  buy_order: MyString
+  cost: 1.5
+  bill: MyString
+  investigation: false
+  teaching: false
+  extention: false
+  management: false
+  calibrated: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fechaEntrega: MyString
+  ubicacion: MyString
+  fechaTope: MyString
+  condiciones: MyString
+  medida: MyString
+
+two:
+  fechaEntrega: MyString
+  ubicacion: MyString
+  fechaTope: MyString
+  condiciones: MyString
+  medida: MyString

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+<body>
+<table id="example" class="table table-hover" >
+	  <thead>
+		 <tr>
+		   <th align="left">No. Registro</th>
+		   <th align="left">Unidad Solicitante</th>
+		   <th align="left">Observaciones</th>
+		 </tr>
+	  </thead>
+
+	  <tbody>
+		 <% @devolutions.each do |devolution| %>
+	  		<tr>
+		     <td><%= devolution.unidadSolicitante %></td>
+		     <td><%= devolution.observaciones %></td>
+                     <td style="text-decoration:none; color:black; text-align: right"><a href="/devolutions/<%= devolution.id %>.pdf"><button type="button" class="btn btn-primary">Descargar</button></a> <%= link_to "<button type='button' class='btn btn-warning'> Editar </button>", devolution %></td>
+		   </tr>
+		 <% end %>
+		 <% if @sumDevolution == 0 %>
+		 	<tr class="warning">
+				<td class="text-center" colspan="5"><h4>No hay notas de devolución registradas</h4></td>
+			</tr>
+		 <% end %>
+	  </tbody>
+	</table>
+</body>
+
+<script>
+$(document).ready(function() {
+				$('#example').dataTable( {
+					"bJQueryUI": true,
+					"sPaginationType": "full_numbers"
+					
+				} );
+			} );
+$.fn.dataTableExt.sErrMode = 'throw';
+</script>
+
+<style>
+
+a:visited { 
+   color:black;
+   font-weight: bold;
+	font-size: 110%;
+}
+
+#invitationTable th {
+      background-color: #94E79E;
+      border-color:#7A7070;
+     font-size: 14px;
+  }
+
+#invitationTable th, td, tr{
+ border-color:black;
+ }
+
+
+
+ .table-hover {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr>td {
+
+border-color:#7A7070;
+
+}
+
+.table-hover>tbody>tr:hover {
+background-color: #ffff99;
+}
+
+#invitationTable tr:nth-child(even) {
+
+background-color: #F2F8F7;
+
+}
+
+input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+background-color:#F8F0BE;
+border-radius:px;
+}
+
+</style>

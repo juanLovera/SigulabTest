@@ -1,0 +1,413 @@
+	<div class="row">
+		<div class="col-xs-12">
+			<ol class="breadcrumb">
+				<li><%= link_to 'Inicio', controller: 'statics' %></li>
+				<li><%= link_to 'Administración', administration_path %></li>
+				<li><%= link_to 'Proyectos', projects_path %></li>
+				<li><%= link_to @project.id, @project %></li>
+				<li class="active">Editar Proyecto</li>
+			</ol>
+		</div>
+		<% if @project.errors.any? %>
+			<div class="col-xs-12" role="alert">
+				<div class="alert alert-danger">
+					<ul>
+						<% @project.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>	
+				</div>
+			</div>
+		<% end %>
+		<div class="col-xs-12">
+			<%= form_for @project, url: {action: 'update'}, id: @project.id, html: { class: 'form-horizontal' } do |i| %>	
+				<% if (not(@project.status=="finished")) && (not(@project.status=="annulled")) %>
+				<div class="form-group">
+					<label for='project_number' class="col-xs-3 control-label text-right">Número del Proyecto <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :project_number, class: 'form-control' %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='contract' class="col-xs-3 control-label text-right">Número del Contrato <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :contract, class: 'form-control' %>
+					</div>
+				</div>			
+
+				<div class="form-group">
+					<label for='title' class="col-xs-3 control-label text-right">Título del proyecto <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_area :title, class: 'form-control' %>
+					</div>
+				</div>			
+				
+				<div class="form-group">
+					<label for='responsible' class="col-xs-3 control-label text-right">Responsable técnico <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :responsible, class: 'form-control' %>
+					</div>
+				</div>	
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='admin' class="col-xs-3 control-label text-right">Administrador del proyecto <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:admin, options_for_select(Project.admin_str.zip(Project.admins.keys), @project.admin), {}, {class: "form-control", :onchange => "setSAECode();"} ) %>
+					</div>
+				</div>	
+
+				<div class="form-group">
+					<label for='sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :sae_code, class: 'form-control', :readonly => true  %>
+					</div>
+				</div>				
+
+				<hr />	
+			
+				<div class="form-group">
+					<label for='amountdist' class="col-xs-3 control-label text-right">Distribución del monto:</label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='equipments' class="col-xs-3 control-label text-right">Equipos <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :equipments, class: 'form-control', :onblur => "calculateAmount();" %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='services' class="col-xs-3 control-label text-right">Servicios <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :services, class: 'form-control', :onblur => "calculateAmount();" %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='infrastructure' class="col-xs-3 control-label text-right">Infraestructura <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :infrastructure, class: 'form-control', :onblur => "calculateAmount();" %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>			
+
+				<div class="form-group">
+					<label for='hhrr' class="col-xs-3 control-label text-right">Personal <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :hhrr, class: 'form-control', :onblur => "calculateAmount();" %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='consumables' class="col-xs-3 control-label text-right">Consumibles <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :consumables, class: 'form-control', :onblur => "calculateAmount();" %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>			
+
+			<div class="form-group">
+				<label for='furniture' class="col-xs-3 control-label text-right"> <%= i.text_field :other_desc, class: 'form-control text-right', placeholder: 'Otro (especifique)' %> </label>
+				<div class='col-xs-4'>
+					<div class="input-group">
+						<%= i.text_field :other_amount, class: 'form-control' %>
+						<span class="input-group-addon">Bs.</span>
+					</div>
+				</div>
+			</div>				
+
+				<div class="form-group">
+					<label for='amount' class="col-xs-3 control-label text-right">Monto asignado (Bs) <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :amount, class: 'form-control', :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='incoming_date' class="col-xs-3 control-label text-right">Fecha de Ingreso de los Recursos</label>
+					<div class='col-xs-4'>
+						<%= i.text_field :incoming_date, value: (@project.incoming_date.strftime("%d/%m/%Y") unless @project.incoming_date.blank?), class: 'bootlayout-date form-control'%>
+					</div>
+				</div>
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='status' class="col-xs-3 control-label text-right">Estatus <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:status, options_for_select(Project.status_str.zip(Project.statuses.keys), @project.status), {selected: @project.status}, {class: "form-control", :onchange => "changeAnnulledDate();"} ) %>
+	       		    </div>
+				</div>	
+
+				<div class="form-group">
+					<label for='annulled_date' class="hidden_option1 col-xs-3 control-label text-right" >Fecha de anulación <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :annulled_date, class: 'hidden_option1 bootlayout-date form-control' %>						
+	       		    </div>					
+				</div>	
+
+				<div class="form-group">
+					<label for='project_observation' class="col-xs-3 control-label text-right">Observaciones</label>
+					<div class='col-xs-4'>
+						<%= i.text_area :observation, class: 'form-control' %>
+					</div>
+				</div>
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='num_cuenta' class="col-xs-3 control-label text-right">Número de cuenta <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :num_cuenta, class: 'form-control' %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='banco' class="col-xs-3 control-label text-right">Banco <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:banco, options_for_select(Project.banco_str.zip(Project.bancos.keys), @project.banco), {}, {class: "form-control"} ) %>
+	       		    </div>
+				</div>
+
+				<% else %>
+
+				<div class="form-group">
+					<label for='project_number' class="col-xs-3 control-label text-right">Número del Proyecto <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @project.project_number rescue nil %>" disabled>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='contract' class="col-xs-3 control-label text-right">Número del Contrato <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @project.contract rescue nil %>" disabled>
+					</div>
+				</div>			
+
+				<div class="form-group">
+					<label for='title' class="col-xs-3 control-label text-right">Título del proyecto <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_area :title, class: 'form-control', :readonly => true %>
+					</div>
+				</div>			
+				
+				<div class="form-group">
+					<label for='responsible' class="col-xs-3 control-label text-right">Responsable técnico <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @project.responsible rescue nil %>" disabled>
+					</div>
+				</div>	
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='admin' class="col-xs-3 control-label text-right">Administrador del proyecto <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:admin, options_for_select(Project.admin_str.zip(Project.admins.keys), @project.admin), {selected: @project.admin}, {class: "form-control", :disabled => true } ) %>
+	       		    </div>
+				</div>				
+
+				<div class="form-group">
+					<label for='sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :sae_code, class: 'form-control', :readonly => true  %>
+					</div>
+				</div>				
+
+				<hr />	
+			
+				<div class="form-group">
+					<label for='amountdist' class="col-xs-3 control-label text-right">Distribución del monto:</label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='equipments' class="col-xs-3 control-label text-right">Equipos <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :equipments, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='services' class="col-xs-3 control-label text-right">Servicios <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :services, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='infrastructure' class="col-xs-3 control-label text-right">Infraestructura <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :infrastructure, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>			
+
+				<div class="form-group">
+					<label for='hhrr' class="col-xs-3 control-label text-right">Personal <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :hhrr, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='consumables' class="col-xs-3 control-label text-right">Consumibles <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :consumables, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>			
+
+				<div class="form-group">
+					<label for='furniture' class="col-xs-3 control-label text-right">Mobiliario <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :furniture, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>			
+
+
+				<div class="form-group">
+           		<% if !@project.other_desc.blank? %>					
+					<label for='other_amount' class="col-xs-3 control-label text-right">@project.other_desc <span style="color:#FF0000">*</span>
+           		<% else %>				
+					<label for='other_amount' class="col-xs-3 control-label text-right">Otros conceptos <span style="color:#FF0000">*</span>   
+           		<% end %>				
+					</label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :other_amount, class: 'form-control', :onblur => "calculateAmount();", :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>		
+
+
+				<div class="form-group">
+					<label for='amount' class="col-xs-3 control-label text-right">Monto asignado (Bs) <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<div class="input-group">
+							<%= i.text_field :amount, class: 'form-control', :readonly => true, :readonly => true %>
+							<span class="input-group-addon">Bs.</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='incoming_date' class="col-xs-3 control-label text-right">Fecha de Ingreso de los Recursos</label>
+					<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @project.incoming_date rescue nil %>" disabled>
+					</div>
+				</div>
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='status' class="col-xs-3 control-label text-right">Estatus <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:status, options_for_select(Project.status_str.zip(Project.statuses.keys), @project.status), {}, {class: "form-control", :disabled => true } ) %>
+	       		    </div>
+				</div>	
+
+  			<% if @project.status=="annulled" %> 
+				<div class="form-group">
+					<label for='annulledd_date' class="col-xs-3 control-label text-right">Fecha de anulación <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<input class="form-control" placeholder="<%= @project.annulled_date rescue nil %>" disabled>						
+					</div>
+				</div>	  			
+  			<% end %>				
+
+				<div class="form-group">
+					<label for='project_observation' class="col-xs-3 control-label text-right">Observaciones</label>
+					<div class='col-xs-4'>
+						<%= i.text_area :observation, class: 'form-control', :readonly => true %>
+					</div>
+				</div>
+
+				<hr />	
+
+				<div class="form-group">
+					<label for='num_cuenta' class="col-xs-3 control-label text-right">Número de cuenta <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.text_field :num_cuenta, class: 'form-control', :readonly => true %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for='banco' class="col-xs-3 control-label text-right">Banco <span style="color:#FF0000">*</span></label>
+					<div class='col-xs-4'>
+						<%= i.select(:banco, options_for_select(Project.banco_str.zip(Project.bancos.keys), @project.banco), {}, {class: "form-control", :disabled => true} ) %>
+	       		    </div>
+				</div>
+
+								</div>
+				
+				<% end %>
+				
+				<div class="form-group">
+					<div class="col-xs-offset-3 col-xs-9">
+						<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar el proyecto?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Proyecto</button>
+
+						<%= link_to @project, class: "btn btn-default btn-danger" do %>
+							<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+						<% end %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-xs-12">
+			<div class="well">
+				<span style="color:#FF0000">*</span> Los campos son obligatorios.
+			</div>
+		</div>
+	</div>
+
+
+<style>
+.hidden_option1{
+    display: none;
+  }
+</style>

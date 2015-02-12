@@ -1,0 +1,121 @@
+<%= form_for(@tool) do |f| %>
+  <% if @tool.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tool.errors.count, "error(es") %>) prohíben que esta herramienta sea guardada:</h2>
+
+      <ul>
+      <% @tool.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class ="Informacion">
+
+<div class="col-xs-12">
+        <table class="table table-striped">
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :name %>
+            <span class="red">*</span></td>
+          </tr>   
+      
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :brand %></td>
+          </tr> 
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :tipo %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Número bien nacional:</strong></td>
+            <td class="col-xs-7">  <%= f.number_field :national_good %> <span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
+            <td class="col-xs-7">  <%= f.select(:status, [['En buen estado'], ['Dañado']]) %> </td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Responsable: </strong></td>
+            <td class="col-xs-7">  <%= f.text_field :responsible %><span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :dependency %>
+            <span class="red">*</span> </td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :location %>
+            <span class="red">*</span> </td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Material:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :material %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Pertenece a un juego:</strong></td>
+            <td class="col-xs-7">  <%= f.text_field :from_set %> </td>
+          </tr>
+       
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
+            <td class="col-xs-7"><%=  f.text_field :bill %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
+            <td class="col-xs-7"><%= f.number_field(:cost, min: 0, :step => 'any') %>&nbsp;Bs.</td> 
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Orden de Compra:</strong></td>
+            <td class="col-xs-7"><%=  f.text_field :buy_order %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "bootlayout-date" %></td> 
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong><%= 'Uso:'%></td>
+              <td class="col-xs-7">
+           <%= f.check_box :investigation %>
+            <%= 'Investigación' %><br>
+            <%= f.check_box :teaching %>
+            <%= 'Docencia' %><br>
+            <%= f.check_box :extention %>
+            <%= 'Extensión' %><br>
+            <%= f.check_box :management %>
+            <%= 'Apoyo administrativo' %> </td>
+          </tr><br>
+          
+    <tr>
+
+        <td class="col-xs-5 text-right">
+           <div class="actions">
+            <%= f.submit %><td>
+           </div>
+      </tr>
+          
+
+
+
+           </table>
+
+      </div>
+
+
+    <br>
+  
+    <br><br>
+  </div>
+<% end %>

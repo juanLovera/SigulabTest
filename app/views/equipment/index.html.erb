@@ -1,0 +1,96 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li class="active"> Equipos y mobiliarios </li>
+</ol>
+
+<div id="LeDivEquipos">
+  <h1><i class="fa fa-plug"></i> Equipos y Mobiliarios</h1>
+
+
+   <br>
+
+      <body class="ex_highlight_row">
+        <div id="container">
+          <div id="demo">
+
+            <%= form_tag (new_loan_path) do %>
+            
+              <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                <thead>
+                  <tr>
+                    <% if @sum > 0 %>
+                      <th>Seleccionar</th>
+                    <% end %>
+                    <th class="tg-093g">Nombre</th>
+                    <th class="tg-093g">Número de Bien Nacional</th>
+                    <th class="tg-093g">Ubicación</th>
+                    <th class="tg-hgcj">Responsable</th>
+                    <th class="tg-hgcj">Status</th>
+                   
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @equipments.each do |equipment| %>
+                    <tr>
+                      <% if @sum > 0 %>
+                        <td class="tg-s6z2"><%= check_box_tag "item_ids[]", equipment.id2 %></td>
+                      <% end %>
+                      <td class="tg-s6z2"><%= link_to equipment.name, equipment %></td>
+                      <td class="tg-s6z2"><%= equipment.national_good %></td>
+                      <td class="tg-s6z2"><%= equipment.location %></td>
+                      <td class="tg-qpa3"><%= equipment.responsible %></td>
+                      <td class="tg-qpa3"><%= equipment.status %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </body>
+
+  <br>
+
+
+  <% if can? :create, @equipment %>
+    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Equipo', new_equipment_path, 'data-no-turbolink' => true, :class => 'linkButton' %> | 
+  <%end%>
+  <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo/Servicio ', :class => "linkButton" %> | 
+  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
+  <% end %>
+  <br><br><br><br>
+</div>
+
+
+ <style>
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+ </style>

@@ -1,0 +1,16 @@
+<h1>Nueva Herramienta</h1>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li> <%=link_to 'Herramientas', tools_path %></li>
+	<li class="active"> Nueva </li>
+</ol>
+
+<div id = "table2">
+</div>
+
+
+<%= render 'form' %>
+
+<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', tools_path %>
+<br><br><br><br>

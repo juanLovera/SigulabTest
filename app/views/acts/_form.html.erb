@@ -1,0 +1,133 @@
+<div class="grid_12 push_5">
+  <%= form_for(@act) do |f| %>
+    <% if @act.errors.any? %>
+      <h2>Rellene todos los campos obligatorios</h2>
+      <br>
+    <% end %>
+      
+      <table style="margin-left:-150px;"><tr><td style="padding-right:10px;">
+
+          <span class="red">*</span>
+       <%= f.label "Número de registro" %><br>
+       <%= f.text_field :numRegistro %>
+</td><td>
+       <span class="red">*</span>
+       <%= f.label "Nombre del Proveedor" %><br>
+       <%= f.text_field :proveedor, :placeholder => "Nombre del Proveedor" %>
+</td></tr><tr><td style="padding-top:10px;">
+       
+       <span class="red">*</span>
+       <%= f.label "Bien y/o Servicio" %><br>
+       <%= f.text_field :bienServicio, :placeholder => "Indique el nombre" %>
+</td><td style="padding-top:10px;">
+       
+       <span class="red">*</span>
+       <%= f.label "Será usado en:" %><br>
+       <%= f.collection_select :tesis, Act::Uso, :to_s, :to_s, 
+          :include_blank => true %>
+</td></tr><tr><td style="padding-top:10px;">
+       <span class="red">*</span>
+       <%= f.label "Nombre del Responsable" %><br>
+       <%= f.text_field :responsable, :placeholder => "Nombre del solicitante" %>
+</td><td style="padding-top:10px;">
+       
+       <span class="red">*</span>
+       <%= f.label "Justificación" %><br>
+       <%= f.text_field :justificacion, :placeholder => "Razón de solicitud" %>
+</td></tr><tr><td style="padding-top:10px;"> 
+       <span class="red">*</span>
+       <%= f.label "Providencia" %><br>
+       <%= f.text_field :providencia, :placeholder => "Providencia de fondos" %>
+</td></tr></table>
+       
+       <div class="actions">
+       <%= f.submit "Aceptar", :style => "float:left; margin-right:10px;margin-top:7px;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+      </div>
+    <% end %>
+    <br><%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-41px;">Volver</button>'.html_safe, controller: "acts" %>
+   </div>
+</div>
+
+
+<style>
+input[type="submit"] {
+
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+border: 1px solid transparent;
+border-radius: 4px;
+
+
+}
+
+input[type="text"], textarea, input[type="number"] {
+
+display: block;
+width: 220px;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.red {
+
+font-size: 20px;
+color: red;
+
+}
+
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width: 220px;
+    height: 35px;
+    maxlength:100;
+    font-size: 14px;
+}
+
+
+input[type="text"]:focus, textarea:focus, input[type="number"]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.field_with_errors {
+    background-color: red;
+    border-radius: 4px;
+}
+
+h2 {
+
+position:relative;
+right: 60px;
+color:red;
+font-size: 20px;
+
+}
+
+
+</style>
