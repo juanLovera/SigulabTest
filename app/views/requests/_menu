@@ -16,7 +16,7 @@
    margin-top:-4px;
          }
 .nav-tabs > li.habilitado > a,
-   .nav-tabs > li.habilitado > a:hover <% if session['specification_p1'] == 2 %>, .nav-tabs > li.active > a <% end %> {
+   .nav-tabs > li.habilitado > a:hover <% if session['specification_p2'] == 2 %>, .nav-tabs > li.active > a <% end %> {
     color: #000 !important;
     background-color: transparent !important;
     text-decoration: none;
@@ -31,7 +31,7 @@
     border-radius:0px;
      }
 .nav-tabs > li.select > a,
-   .nav-tabs > li.select > a:hover <% if session['specification_p1'] == 1 %>, .nav-tabs > li.active > a <% end %> {
+   .nav-tabs > li.select > a:hover <% if session['specification_p2'] == 1 %>, .nav-tabs > li.active > a <% end %> {
     color: #000 !important;
     background-color: transparent !important;
     text-decoration: none;
@@ -48,8 +48,8 @@
  </style>
 <ul class="nav nav-tabs"  >
 
-			<li class="active" style="text-align:left;"><a href="<%= session[:specification_sel_link] %>">
-		       <i class="fa fa-clipboard fa-1"> <%= session['specification_sel_tipo'] %> </i>
+			<li style="text-align:left" <% if session['specification_p1'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><a href="<%= session[:specification_sel_link] %>">
+		       <i class="fa fa-clipboard fa-1"> Agregar <%= session['specification_sel_tipo'] %> </i>
 		        </a></li>
 
 			<% if session['specification_p2'] == 0 %>
@@ -57,7 +57,7 @@
 		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i></a>
 		</li>
 		   <% else %>
-			<li style="text-align:left" <% if session['specification_p2'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to invitations_url do %>
+			<li class="active" style="text-align:left"><%= link_to invitations_url do %>
 		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i>
 		   <% end %></li>
 		   <% end %>

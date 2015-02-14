@@ -38,7 +38,10 @@ class SpecificationsController < ApplicationController
     @specification.p5 = 0
     @specification.p6 = 0
     @specification.p7 = 0
+    @specification.p8 = 0
+    @specification.p9 = 0
     session[:specification_sel_nombre] = @specification.nombre
+    session[:specification_sel_nacional] = @specification.nacional
     session[:specification_p1] = @specification.p1
       session[:specification_p2] = @specification.p2
       session[:specification_p3] = @specification.p3
@@ -46,6 +49,8 @@ class SpecificationsController < ApplicationController
       session[:specification_p5] = @specification.p5
       session[:specification_p6] = @specification.p6
       session[:specification_p7] = @specification.p7
+      session[:specification_p8] = @specification.p8
+      session[:specification_p9] = @specification.p9
       session[:recom_id] = -1      
       session[:specification_sel_tipo] = @specification.tipo
       if @specification.tipo == "Servicios"
@@ -97,6 +102,6 @@ class SpecificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def specification_params
-      params.require(:specification).permit(:nombre, :tipo)
+      params.require(:specification).permit(:nombre, :tipo, :nacional, :modalidad)
     end
 end
