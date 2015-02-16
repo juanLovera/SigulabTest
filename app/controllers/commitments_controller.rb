@@ -1,5 +1,7 @@
 class CommitmentsController < ApplicationController
   layout 'bootlayout'
+
+  before_filter :authenticate_user!
   
   def index
     @commitments = Commitment.all.order("date ASC")

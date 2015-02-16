@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   resources :instruments
   resources :equipment
   resources :recommendations
+  resources :relations
+  resources :requests
   resources :comprando do
     collection do
         get 'seleccionarEspecificacion', as: :seleccionarEspecificacion

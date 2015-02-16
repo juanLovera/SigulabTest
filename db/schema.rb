@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206054157) do
+ActiveRecord::Schema.define(version: 20150206054302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -410,6 +410,39 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.integer "cumplio_req"
   end
 
+  create_table "relations", force: true do |t|
+    t.integer "item_id"
+    t.string  "marca"
+    t.string  "modelo"
+    t.string  "tipo"
+    t.string  "descripcion_general"
+    t.string  "materia"
+    t.string  "funcion"
+    t.string  "ubicacion"
+    t.string  "aplicacion"
+    t.string  "observaciones"
+    t.integer "specification_id"
+  end
+
+  create_table "requests", force: true do |t|
+    t.string  "unidad_solicitante"
+    t.string  "persona_contacto"
+    t.string  "telefono"
+    t.string  "email"
+    t.string  "fondos"
+    t.string  "numero_proyecto"
+    t.string  "funcion"
+    t.string  "tipo_cuenta"
+    t.string  "numero_cuenta"
+    t.string  "nombre_banco"
+    t.string  "otro"
+    t.string  "proforma"
+    t.string  "folleto"
+    t.string  "fonacit"
+    t.string  "acta_consejo_directo"
+    t.integer "specification_id"
+  end
+
   create_table "requisitions", force: true do |t|
     t.string   "solicitante"
     t.string   "consumidor"
@@ -446,6 +479,10 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.integer  "p5"
     t.integer  "p6"
     t.integer  "p7"
+    t.string   "nacional"
+    t.integer  "p8"
+    t.integer  "p9"
+    t.string   "modalidad"
   end
 
   create_table "table_items_solicituds", force: true do |t|

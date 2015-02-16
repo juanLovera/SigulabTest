@@ -40,7 +40,10 @@ class RecommendationsController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
-     @Recommendation_empresas = Recommendation_empresas.where(:quote_id => params[:id]).all
+     @recommendation = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+     @empresas_todas = Invitation.where(:specification_id => session[:specification_sel_id]).all
+     @empresas = RecommendationsEmpresa.where(:id_informe => @reco.id).all
+     @itemsquote = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
   end
 
   # GET /quotes/new
@@ -97,18 +100,7 @@ class RecommendationsController < ApplicationController
       end
     end
     end
-     specification = Specification.find(session[:specification_sel_id])
-       specification.p2 = 2
-       specification.p3 = 2
-       specification.p4 = 2
-       specification.p5 = 0
-       specification.p6 = 1
-       session[:specification_p3] = specification.p3
-    session[:specification_p2] = specification.p2
-    session[:specification_p4] = specification.p4
-    session[:specification_p5] = specification.p5
-    session[:specification_p6] = specification.p6
-    specification.save
+
     respond_to do |format|
      
         format.html { redirect_to recommendations_url, notice: 'Recommendation was successfully created.' }

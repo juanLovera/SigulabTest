@@ -1,48 +1,112 @@
 <%= render 'menu' %>
 <br/>
 <div style="text-align: right; height: 45px; margin-top: 12px;">
-       <% if session['specification_p3'] != 2 %>
-	<%= link_to '<button type="button" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Modificar </button>'.html_safe, edit_quote_path(@quote) %>
-   <%= link_to '<button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar </button>'.html_safe, @quote,method: :delete,
-       data: { confirm: '¿Está seguro que desea eliminar el servicio?' } %><% else %>Ya no puede editar porque se generó la solicitud. <%= link_to '<button type="button" class="btn btn-primary"> Volver </button>'.html_safe, services_url %><% end %>
+        <% if session['specification_p4'] != 2 %>
+	<%= link_to '<button type="button" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Modificar </button>'.html_safe, new_recommendation_url %>
+   <%= link_to '<button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Eliminar </button>'.html_safe, @recommendation,method: :delete,
+       data: { confirm: '¿Está seguro que desea eliminar el servicio?' } %><% else %>Ya no puede editar porque se generó la solicitud. <%= link_to '<button type="button" class="btn btn-primary"> Volver </button>'.html_safe, invitations_url %><% end %>
 	</div>
 
-<div class="grid_12">
-	<div id="tittle">
-  	<table id="quoteTable" class="table table-bordered">
- 	  <thread>
-     	 <tr>
-       	<th style='width:50%'>Nombre de la empresa</th>
-       	<td><%=@quote.nombre%></td>
-    	</tr>
-     	 <tr>
-       	<th style='width:50%'>Oferta</th>
-       	<td><a href='../uploads/quote/attachment/<%= @quote.id %>/Oferta_Especificacion_<%= session['specification_sel_id'] %>_Empresa_<%= @quote.nombre %>.pdf'>Ver Oferta</a></td>
-    	</tr>
-<tr>
-       	<th style='width:50%'>Items o servicios relacionados</th>
-        
-       	<td><% @itemsquote.each do |item| %><%= item.nombre_item %><br/><%end%></td>
-        
-    	</tr>
- 	 </thread>
-	</table>
 
-	</div>
+
+
+<div class="col-xs-12">
+
+  <table id="actTable" class="table table-striped">
+   <tr>
+				<th class="active text-center" colspan="2"><h2>Informe de recomendación</h2></th>
+			</tr>
+<td class="col-xs-5 text-right">Código</td>
+		   <td class="col-xs-7"><%= @recommendation.codigo %></td>
+		 </tr>
+		 <tr>
+		   <td class="col-xs-5 text-right">Vía de contacto</td>
+		   <td class="col-xs-7"><%= @recommendation.via %></td>
+		 </tr>
+                <%
+		@empresas.each do |emp|
+		if emp.cumplio_req == 1
+		case emp.cumplio_req
+		when 1
+		  opc_nombre = "PRIMERA OPCIÓN"
+		when 2
+		  opc_nombre = "SEGUNDA OPCIÓN"
+		when 3
+		  opc_nombre = "TERCERA OPCIÓN"
+		when 4
+		  opc_nombre = "CUARTA OPCIÓN"
+		when 5
+		  opc_nombre = "QUINTA OPCIÓN"
+		when 6
+		  opc_nombre = "SEXTA OPCIÓN"
+		when 7
+		  opc_nombre = "SÉPTIMA OPCIÓN"
+		else
+		  opc_nombre = "OPCIÓN"
+		end
+		itemsof = ""
+		@itemsquote.each do |item|
+			if item.id_oferta == emp.quote_id and item.compra == 1
+				itemsof = itemsof +item.nombre_item + ", "
+			end
+		end 
+  		itemsof = itemsof[0..-2]
+
+		cuali = ""
+		if emp.calidad_pro == 1 
+			cuali = cuali + "Calidad del producto, "
+		end
+		if emp.disponibilidad_pro == 1 
+			cuali = cuali + "Disponibilidad del producto, "
+		end
+		if emp.proveedor_unico == 1 
+			cuali = cuali + "Proovedor Único, "
+		end
+		if emp.calidad_ser == 1 
+			cuali = cuali + "Calidad del servicio, "
+		end
+		if emp.garantia == 1 
+			cuali = cuali + "Garantía, "
+		end
+		if emp.servicio_post == 1 
+			cuali = cuali + "Servicio post-venta, "
+		end
+		if emp.cumplimiento_esp == 1 
+			cuali = cuali + "Cumplimiento de las especificaciones, "
+		end
+		if emp.precio == 1 
+			cuali = cuali + "Precio, "
+		end
+		if emp.tiempo == 1 
+			cuali = cuali + "Tiempo, "
+		end
+		cuali = cuali[0..-3]
+   		%>
+<tr><td class="col-xs-5 text-right"><%= opc_nombre %></td><td class="col-xs-7"><strong><%= emp.empresa %></strong>, para los items: <%= itemsof %> de acuerdo a los siguientes criterios:<br/><br/><%= cuali %></td></tr>
+<%
+	end
+    end
+	%> 
+   </table>
+  
+  </div>
 </div>
+
+
 
 <style>
 
-#quoteTable th, td, tr{
+
+
+#invitationTable th, td, tr{
 	border-color:#7A7070;
-   font-size: 14px;
+  font-size: 14px;
  
 }
 
-#quoteTable th {
+#invitationTable th {
 background-color: #F2F8F7;
 }
-
 
 
 .table-bordered {
@@ -54,12 +118,12 @@ background-color: #F2F8F7;
 .table-bordered>tbody>tr>td {
 
 	border-color:#7A7070;
-
+	background-color: #F2F8F7;
 
 }
 
 
-#quoteTable td:nth-child(even) {
+#invitationTable td:nth-child(even) {
 
 border-color:#7A7070;
 

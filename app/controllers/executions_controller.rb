@@ -1,6 +1,8 @@
 class ExecutionsController < ApplicationController
   layout 'bootlayout'
 
+  before_filter :authenticate_user!
+
   def index
     @executions = Execution.all
     @sum = @executions.where("check_annulled=false").sum(:check_amount)

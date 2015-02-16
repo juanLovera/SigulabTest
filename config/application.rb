@@ -21,5 +21,12 @@ module Sigulab
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 	config.i18n.available_locales = [:es]
     config.i18n.default_locale = :es
+	config.to_prepare do
+	    Devise::SessionsController.layout "appsession"
+	    Devise::RegistrationsController.layout "appsession"
+	    Devise::ConfirmationsController.layout "appsession"
+	    Devise::UnlocksController.layout "appsession"
+	    Devise::PasswordsController.layout "appsession"
+	end
   end
 end

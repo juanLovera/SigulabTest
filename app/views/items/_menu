@@ -48,8 +48,8 @@
  </style>
 <ul class="nav nav-tabs"  >
 
-			<li class="active" style="text-align:left"><a href="<%= session[:specification_sel_link] %>">
-		       <i class="fa fa-clipboard fa-1"> Agregar <%= session['specification_sel_tipo'] %> </i>
+			<li class="active" style="text-align:left;"><a href="<%= session[:specification_sel_link] %>">
+		       <i class="fa fa-clipboard fa-1"> <%= session['specification_sel_tipo'] %> </i>
 		        </a></li>
 
 			<% if session['specification_p2'] == 0 %>

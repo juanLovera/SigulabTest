@@ -13,6 +13,7 @@ class ComprandoController < ApplicationController
       session[:specification_p5] = @specification.p5
       session[:specification_p6] = @specification.p6
       session[:specification_p7] = @specification.p7
+      session[:recom_id] = -1   
       if @specification.tipo == "Servicios"
          session[:specification_sel_link] = "/services/"
       else
