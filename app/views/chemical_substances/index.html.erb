@@ -29,11 +29,11 @@
                     <th>Seleccionar</th>
                   <% end %>
                   <th class="text-center">Nombre</th>
-                  <th class="text-center">Estado de la Materia</th>
                   <th class="text-center">Cantidad</th>
                   <th class="text-center">Medida</th>
                   <th class="text-center">Ubicación</th>
                   <th class="text-center">Responsable</th>
+                  <th class="tg-hgcj">Origen</th>
                 </tr>
               </thead>
 
@@ -44,11 +44,11 @@
                       <td class="tg-s6z2"><%= check_box_tag "item_ids[]", chemical_substance.id2 %></td>
                     <% end %>
                     <td class="text-center"><%= link_to chemical_substance.name, chemical_substance %></td>
-                    <td class="text-center"><%= chemical_substance.matter_states %></td>
                     <td class="text-center"><%= chemical_substance.quantity %></td>
                     <td class="text-center"><%= chemical_substance.meassure %></td>
                     <td class="text-center"><%= chemical_substance.location %></td>
                     <td class="text-center"><%= chemical_substance.responsible %></td>
+                    <td class="text-center"><%= chemical_substance.origen %></td>
                   </tr>
                 <% end %>
               </tbody>

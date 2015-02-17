@@ -92,6 +92,10 @@
           <td class="col-xs-7"> <%= f.text_field :cost %>&nbsp;Bs.</td>
         </td>
       </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Origen:</strong></td>
+            <td class="col-xs-7"><%=f.select(:origen, [['Comprado'], ['Donado']] )%></td>
+          </tr>
        <tr>
           <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
           <td class="col-xs-7"> <%= f.text_field :bill %>
