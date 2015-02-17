@@ -1,0 +1,42 @@
+INSERT INTO consumables (name, description, material, quantity, location, responsible, investigation, teaching, extention, 
+                        management, created_at, updated_at,id2)
+
+VALUES ('Algodon', 'descripcion', 'Algodon', '5', 'Laboratorio A', 'Paolangela Espinal', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-1'),
+
+        ('Guantes', 'descripcion', 'Plastico', '2', 'Laboratorio B', 'Maria Esther Carrillo', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-2'),
+
+        ('Papel aluminio', 'descripcion ', 'Aluminio', '5', 'Laboratorio C', 'Nelson Saturno', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-3'),
+
+        ('Cinta adhesiva', ' descripcion', 'Plastico', '3', 'Laboratorio D', 'Jorge Leon', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-4'),
+
+        ('Algodon', 'descripcion ', 'Algodon', '5', 'Laboratorio E', 'Neylin Belisario', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-5'),
+
+        ('Guantes', 'descripcion ', 'Plastico', '5', 'Laboratorio A', 'Paolangela Espinal', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-6'),
+        
+        ('Tubos de ensayo', 'descripcion ', 'Vidrio', '15', 'Laboratorio B', 'Maria Esther Carrillo', true, false, false, false, '2015-02-03','2015-02-03','CO-7'),
+
+        ('Placas de petri', 'descripcion ', 'Vidrio', '5', 'Laboratorio C', 'Nelson Saturno', true, false, false, false, '2015-02-03','2015-02-03','CO-8'),
+
+        ('Algodon', 'descripcion ', 'Algodon', '5', 'Laboratorio E', 'Neylin Belisario', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-9'),
+
+        ('Guantes', 'descripcion ', 'Plastico', '5', 'Laboratorio A', 'Paolangela Espinal', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-10'),
+        
+        ('Tubos de ensayo', 'descripcion ', 'Vidrio', '15', 'Laboratorio B', 'Maria Esther Carrillo', true, false, false, false, '2015-02-03','2015-02-03','CO-11'),
+
+        ('Placas de petri', 'descripcion ', 'Vidrio', '5', 'Laboratorio C', 'Nelson Saturno', true, false, false, false, '2015-02-03','2015-02-03','CO-12'),
+
+        ('Guantes', ' descripcion', 'Plastico', '9', 'Laboratorio D', 'Jorge Leon', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-13'),
+
+        ('Propipeta', 'descripcion ', 'Vidrio', '5', 'Laboratorio E', 'Neylin Belisario', true, false, false, false, '2015-02-03',
+        '2015-02-03','CO-14');
+
+        
