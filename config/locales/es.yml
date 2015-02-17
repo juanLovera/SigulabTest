@@ -28,6 +28,8 @@ es:
       project: "Proyecto"
     attributes:
       income:
+        lab_id: "Dependencia"
+        origin: "Origen"
         amount: "Monto"
         sae_code: "Código SAE"
         description: "Descripción"
