@@ -48,11 +48,11 @@
 								<tr>
 									<td><%= link_to i.project_number, i %></td>
 									<td><%= i.contract %></td>
-									<td><%= i.incoming_date %></td>
+									<td class="text-center"><%= i.incoming_date %></td>
 									<td><%= i.title %></td>
 									<td><%= i.responsible %></td>
 									<td class="text-right"><%= number_to_currency(i.amount, format: "%n", delimiter: ".", separator: ",") %></td>
-									<td><%= Project.status_str[Project.statuses[i.status]] %></td>
+									<td class="text-center"><%= Project.status_str[Project.statuses[i.status]] %></td>
 								</tr>
 							<% end %>
 						</tbody>

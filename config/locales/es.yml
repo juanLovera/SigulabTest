@@ -35,7 +35,7 @@ es:
         description: "Descripción"
         organism: "Organismo"
         document: "Documento"
-        date: "Fecha"
+        date: "Fecha de Recepción"
         doc_code: "Número de Documento"
         doc_date: "Fecha de Documento"
         financing: "Fuente de Financiamiento"
