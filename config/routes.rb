@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'archivos/subir_archivos'
+
   resources :donations
 
   resources :applications
@@ -77,7 +79,8 @@ end
     get 'annul', on: :member
   end
   resources :projects
-  
+ 
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

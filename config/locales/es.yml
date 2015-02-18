@@ -93,4 +93,4 @@ es:
 
   errors:
     messages:
-      extension_white_list_error: "No esta permitido subit archivos %{extension}, solo: %{allowed_types}"
+      extension_white_list_error: "no está permitido subir archivos con extensión %{extension}, solo: %{allowed_types}"
