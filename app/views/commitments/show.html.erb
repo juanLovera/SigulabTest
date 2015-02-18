@@ -48,12 +48,12 @@
 				<td class="col-xs-7"> <div id="span1"> <font size=3.6> Bs. </div> <div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@commitment.amount, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>
 			</tr>
    <tr>
-				<td class="col-xs-5 text-right"><font size=3.6> Monto Ejecutado: </font></td>
-				<td class="col-xs-7"> <div id="span1"> <font size=3.6> Bs. </div> <div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>
+				<td class="col-xs-5 text-right"> Monto Ejecutado: </td>
+				<td class="col-xs-7"> <div id="span1">  Bs. </div> <div id="span2" align="right"> <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
    </tr>
    <tr>
-				<td class="col-xs-5 text-right"><font size=3.6> Saldo por Ejecutar: </font></td>
-				<td class="col-xs-7"> <div id="span1"> <font size=3.6> Bs. </div> <div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@dif, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>
+				<td class="col-xs-5 text-right"> Saldo por Ejecutar:</td>
+				<td class="col-xs-7"> <div id="span1"> Bs. </div> <div id="span2" align="right"> <%= number_to_currency(@dif, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
    </tr>
 		</table>
 	</div>
@@ -66,9 +66,11 @@
 			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Ejecución</button>
 		<% end %>
 		<% end %>
+        <% if @size > 0 %>
 		<%= link_to controller: :executions, action: 'list', cid: @commitment.id do %>
 			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Listar Ejecuciones</button>
 		<% end %>
+  <% end %>
 	</div>
 </div>
 
