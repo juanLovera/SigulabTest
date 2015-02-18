@@ -1,0 +1,76 @@
+
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li class="active"> Inventario </li>
+</ol>
+<div id = "table2" >
+</div>
+
+
+<div id= 'categorias' >
+<br>
+
+	<div class="col-xs-8 col-xs-offset-3">
+		<ul class="administration-list">
+			<li><%= link_to equipment_index_url do %>
+				<h3><i class="fa fa-plug"></i>Equipos y Mobiliarios</h3>
+			<% end %></li>
+			<li><%= link_to instruments_url do %>
+				<h3><i class="fa fa-eyedropper"></i>Instrumentos de Medición</h3>
+			<% end %></li>
+			<li><%= link_to tools_url do %>
+				<li><h3><i class="fa fa-wrench"></i>Herramientas</h3></li>
+			<% end %></li>
+			<li><%= link_to chemical_substances_url do %>
+				<h3><i class="fa fa-flask"></i>Sustancias Químicas</h3>
+			<% end %></li>
+			<li><%= link_to consumables_url do %>
+				<h3><i class="fa fa-fire"></i>Consumibles y Materiales</h3>
+			<% end %></li>
+		</ul>
+	</div>
+
+
+	<div id = "table2" class="col-xs-12">
+	</div>
+
+	<div class="col-xs-8 col-xs-offset-3">
+		<ul class="administration-list">
+			<li><%= link_to loans_url do %>
+				<h3><i class="fa fa-list"></i>Solicitudes de Préstamo</h3>
+			<% end %></li>
+			<li><%= link_to loans_url do %>
+				<h3><i class="fa fa-align-left"></i>Solicitudes de Servicio</h3>
+			<% end %></li>
+			<li><%= link_to donations_url do %>
+				<li><h3><i class="fa fa-gift"></i>Donaciones</h3></li>
+			<% end %></li>
+		</ul>
+	</div>
+
+</div>
+
+<style>
+
+
+#table2 {
+    border: 1px solid black;
+    opacity: 0.2;
+    border-width:thin;
+}
+
+#invetario{
+  	position 				: relative;
+    left 					: 880px;
+    font-size               : 17px;
+    font-style 				: oblique;
+    opacity					:0.5;
+    font-family 			: "Times New Roman", Georgia, Serif;
+    }
+
+ #categorias {
+ 	text-align: left;
+ 	left: 0px;
+ }
+
+</style>

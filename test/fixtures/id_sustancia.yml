@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: MyString
+  consumo: MyString
+  ingreso: MyString
+  saldo: MyString
+
+two:
+  fecha: MyString
+  consumo: MyString
+  ingreso: MyString
+  saldo: MyString
