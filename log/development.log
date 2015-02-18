@@ -45033,3 +45033,1960 @@ Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
 
 
 Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-02-18 18:15:44 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vvfi11z/raloYY/sy/wvnxO3SgBBKOHD9RxVdd+0/Ic=", "user"=>{"username"=>"director", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Iniciar sesión"}
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'director'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 1  [["current_sign_in_at", "2015-02-18 22:45:45.366171"], ["last_sign_in_at", "2015-02-18 22:36:51.071041"], ["sign_in_count", 6], ["updated_at", "2015-02-18 22:45:45.370016"]]
+  [1m[36m (44.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 367ms (ActiveRecord: 58.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 18:15:45 -0430
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/appindex (9.3ms)
+  Rendered shared/_header.html.erb (6.1ms)
+  Rendered shared/_navbarcut.html.erb (4.0ms)
+  Rendered shared/_footer.html.erb (5.2ms)
+Completed 200 OK in 826ms (Views: 822.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:46 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/binnacles.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/id_sustancia.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:47 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:15:48 -0430
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-18 18:15:49 -0430
+Processing by AdministrationController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered administration/index.html.erb within layouts/bootlayout (5.2ms)
+  Rendered shared/_header.html.erb (2.3ms)
+  Rendered shared/_navbar.html.erb (5.3ms)
+  Rendered shared/_footer.html.erb (1.5ms)
+Completed 200 OK in 156ms (Views: 150.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+Processing by AdministrationController#index as HTML
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered administration/index.html.erb within layouts/bootlayout (4.3ms)
+  Rendered shared/_header.html.erb (1.4ms)
+  Rendered shared/_navbar.html.erb (5.6ms)
+  Rendered shared/_footer.html.erb (1.2ms)
+Completed 200 OK in 161ms (Views: 145.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:50 -0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-18 18:15:52 -0430
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (31.8ms)[0m  SELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects"   ORDER BY project_number ASC[0m
+  Rendered projects/index.html.erb within layouts/bootlayout (90.6ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (2.0ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 272ms (Views: 202.6ms | ActiveRecord: 40.5ms)
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:52 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:52 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:52 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:52 -0430
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:15:55 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (134.5ms)
+  Rendered shared/_header.html.erb (1.5ms)
+  Rendered shared/_navbar.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 266ms (Views: 257.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2015-02-18 18:15:55 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:55 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:55 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:15:55 -0430
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:16:31 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.4ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (55.3ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 176ms (Views: 168.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:16:31 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+
+Started GET "/assets/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_flat_75_ffffff_40x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (222.3ms)
+
+
+Started GET "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-18 18:16:32 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (27.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (162.3ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-18 18:16:33 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (135.3ms)
+
+
+Started GET "/assets/images/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2015-02-18 18:16:33 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_65_ffffff_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (30.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (160.9ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_dadada_1x400.png" for 127.0.0.1 at 2015-02-18 18:19:21 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_dadada_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (192.2ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2015-02-18 18:19:23 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (24.3ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 220ms (Views: 156.8ms | ActiveRecord: 7.9ms)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2015-02-18 18:19:43 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hLlCyYKKIUoUMslwL/PxI6wrexCpAfxiGM4ZtbnE6yg=", "project"=>{"project_number"=>"123", "contract"=>"1234", "title"=>"Give me the money\r\n", "responsible"=>"Militza Macías", "admin"=>"marquez", "sae_code"=>"1.05.03.11", "equipments"=>"0.0", "services"=>"0.0", "infrastructure"=>"0.0", "hhrr"=>"1.0", "consumables"=>"0.0", "other_desc"=>"", "other_amount"=>"0.0", "amount"=>"1.0", "incoming_date"=>"", "status"=>"annulled", "annulled_date"=>"02/13/2015", "observation"=>"", "num_cuenta"=>"12345678901234567890", "banco"=>"bnc"}, "id"=>"1"}
+  [1m[35mUser Load (3.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.9ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (15.1ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 210700ms (Views: 133.0ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:13 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:14 -0430
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hLlCyYKKIUoUMslwL/PxI6wrexCpAfxiGM4ZtbnE6yg=", "project"=>{"project_number"=>"123", "contract"=>"1234", "title"=>"Give me the money\r\n", "responsible"=>"Militza Macías", "admin"=>"marquez", "sae_code"=>"1.05.03.11", "equipments"=>"0.0", "services"=>"0.0", "infrastructure"=>"0.0", "hhrr"=>"1.0", "consumables"=>"0.0", "other_desc"=>"", "other_amount"=>"0.0", "amount"=>"1.0", "incoming_date"=>"", "status"=>"annulled", "annulled_date"=>"16/02/2015", "observation"=>"", "num_cuenta"=>"12345678901234567890", "banco"=>"bnc"}, "id"=>"1"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (18.9ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 231ms (Views: 127.5ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:39 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:40 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:40 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:40 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:23:40 -0430
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2015-02-18 18:24:34 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hLlCyYKKIUoUMslwL/PxI6wrexCpAfxiGM4ZtbnE6yg=", "project"=>{"project_number"=>"123", "contract"=>"1234", "title"=>"Give me the money\r\n", "responsible"=>"Militza Macías", "admin"=>"marquez", "sae_code"=>"1.05.03.11", "equipments"=>"0.0", "services"=>"0.0", "infrastructure"=>"0.0", "hhrr"=>"1.0", "consumables"=>"0.0", "other_desc"=>"", "other_amount"=>"0.0", "amount"=>"1.0", "incoming_date"=>"11/02/2015", "status"=>"pending", "annulled_date"=>"", "observation"=>"", "num_cuenta"=>"12345678901234567890", "banco"=>"bnc"}, "id"=>"1"}
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "projects" SET "incoming_date" = $1, "updated_at" = $2 WHERE "projects"."id" = 1[0m  [["incoming_date", "2015-02-11"], ["updated_at", "2015-02-18 22:55:20.981690"]]
+  [1m[35m (30.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/projects/1
+Completed 302 Found in 73640ms (ActiveRecord: 35.4ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:25:47 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (52.5ms)
+  Rendered shared/_header.html.erb (1.6ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 187ms (Views: 180.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+
+Started GET "/assets/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_flat_75_ffffff_40x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (22.5ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (215.9ms)
+
+
+Started GET "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-18 18:25:48 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (22.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (136.6ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-18 18:25:49 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (26.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (158.2ms)
+
+
+Started GET "/assets/images/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2015-02-18 18:25:49 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_65_ffffff_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (167.8ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2015-02-18 18:25:54 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (1.1ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (11.8ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 131ms (Views: 123.8ms | ActiveRecord: 2.1ms)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2015-02-18 18:26:13 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hLlCyYKKIUoUMslwL/PxI6wrexCpAfxiGM4ZtbnE6yg=", "project"=>{"project_number"=>"123", "contract"=>"1234", "title"=>"Give me the money\r\n", "responsible"=>"Militza Macías", "admin"=>"marquez", "sae_code"=>"1.05.03.11", "equipments"=>"0.0", "services"=>"0.0", "infrastructure"=>"0.0", "hhrr"=>"1.0", "consumables"=>"0.0", "other_desc"=>"", "other_amount"=>"0.0", "amount"=>"1", "incoming_date"=>"11/02/2015", "status"=>"annulled", "annulled_date"=>"02/13/2015", "observation"=>"", "num_cuenta"=>"12345678901234567890", "banco"=>"bnc"}, "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (1.9ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  Rendered projects/edit.html.erb within layouts/bootlayout (7.6ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 6188ms (Views: 130.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:26:19 -0430
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2015-02-18 18:26:47 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hLlCyYKKIUoUMslwL/PxI6wrexCpAfxiGM4ZtbnE6yg=", "project"=>{"title"=>"Give me the money\r\n", "sae_code"=>"1.05.03.11", "equipments"=>"0.0", "services"=>"0.0", "infrastructure"=>"0.0", "hhrr"=>"1.0", "consumables"=>"0.0", "furniture"=>"0", "other_amount"=>"0.0", "amount"=>"1", "observation"=>"", "num_cuenta"=>"12345678901234567890"}, "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 6ms
+
+TypeError (no implicit conversion of nil into String):
+  app/controllers/projects_controller.rb:56:in `parse'
+  app/controllers/projects_controller.rb:56:in `update'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.4ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.4ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:27:02 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (51.3ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_navbar.html.erb (3.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 161ms (Views: 154.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+
+Started GET "/assets/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_flat_75_ffffff_40x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (198.7ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-18 18:27:03 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (22.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (132.2ms)
+
+
+Started GET "/assets/images/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2015-02-18 18:27:04 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_65_ffffff_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (25.4ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (171.5ms)
+
+
+Started GET "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-18 18:27:04 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (25.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (148.7ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2015-02-18 18:27:05 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (14.2ms)
+  Rendered shared/_header.html.erb (1.4ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 142ms (Views: 135.8ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2015-02-18 18:27:20 -0430
+Processing by ProjectsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hLlCyYKKIUoUMslwL/PxI6wrexCpAfxiGM4ZtbnE6yg=", "project"=>{"project_number"=>"123", "contract"=>"1234", "title"=>"Give me the money\r\n", "responsible"=>"Militza Macías", "admin"=>"marquez", "sae_code"=>"1.05.03.11", "equipments"=>"0.0", "services"=>"0.0", "infrastructure"=>"0.0", "hhrr"=>"1.0", "consumables"=>"0.0", "other_desc"=>"", "other_amount"=>"0.0", "amount"=>"1.0", "incoming_date"=>"11/02/2015", "status"=>"annulled", "annulled_date"=>"02/19/2015", "observation"=>"", "num_cuenta"=>"12345678901234567890", "banco"=>"bnc"}, "id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  Rendered projects/edit.html.erb within layouts/bootlayout (10.6ms)
+  Rendered shared/_header.html.erb (4.4ms)
+  Rendered shared/_navbar.html.erb (3.3ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 12913ms (Views: 138.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:33 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:27:34 -0430
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:28:23 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (49.9ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 181ms (Views: 175.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:23 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:23 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:23 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:23 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:23 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+
+Started GET "/assets/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_flat_75_ffffff_40x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (22.1ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (211.1ms)
+
+
+Started GET "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (126.6ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-18 18:28:24 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (30.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (153.7ms)
+
+
+Started GET "/assets/images/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2015-02-18 18:28:25 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_65_ffffff_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (32.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (169.3ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_dadada_1x400.png" for 127.0.0.1 at 2015-02-18 18:28:25 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_dadada_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (22.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (173.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-18 18:28:27 -0430
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mSELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))[0m
+  [1m[35mProject Load (0.9ms)[0m  SELECT "projects".* FROM "projects"   ORDER BY project_number ASC
+  Rendered projects/index.html.erb within layouts/bootlayout (48.8ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 164ms (Views: 156.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:27 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:28 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:28 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:28 -0430
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-18 18:28:33 -0430
+Processing by AdministrationController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered administration/index.html.erb within layouts/bootlayout (4.7ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (2.7ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 145ms (Views: 139.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-18 18:28:35 -0430
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mSELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))[0m
+  [1m[35mProject Load (0.9ms)[0m  SELECT "projects".* FROM "projects"   ORDER BY project_number ASC
+  Rendered projects/index.html.erb within layouts/bootlayout (44.2ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (2.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 164ms (Views: 157.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:35 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:35 -0430
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:28:39 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (12.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (53.5ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 206ms (Views: 187.0ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:39 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:39 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:39 -0430
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2015-02-18 18:28:53 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (18.2ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 139ms (Views: 133.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 18:28:58 -0430
+Processing by StaticsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered statics/index.html.erb within layouts/appindex (5.6ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbarcut.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (1.5ms)
+Completed 200 OK in 450ms (Views: 444.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/appindex (1.5ms)
+  Rendered shared/_header.html.erb (1.7ms)
+  Rendered shared/_navbarcut.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (1.0ms)
+Completed 200 OK in 496ms (Views: 488.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:28:59 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/binnacles.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/id_sustancia.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:00 -0430
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+Processing by AdministrationController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered administration/index.html.erb within layouts/bootlayout (2.2ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 131ms (Views: 126.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+Processing by AdministrationController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered administration/index.html.erb within layouts/bootlayout (1.8ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 136ms (Views: 130.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:28 -0430
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-18 18:29:31 -0430
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (1.2ms)[0m  SELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects"   ORDER BY project_number ASC[0m
+  Rendered projects/index.html.erb within layouts/bootlayout (58.1ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 180ms (Views: 173.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:31 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:31 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-18 18:29:31 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-18 18:29:31 -0430
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2015-02-18 18:29:34 -0430
+Processing by ProjectsController#new as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered projects/new.html.erb within layouts/bootlayout (13.3ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 140ms (Views: 135.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2015-02-18 18:29:37 -0430
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  SELECT SUM("projects"."amount") AS sum_id FROM "projects"  WHERE (NOT(status=3) AND NOT(status=4))
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects"   ORDER BY project_number ASC[0m
+  Rendered projects/index.html.erb within layouts/bootlayout (48.3ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 184ms (Views: 176.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:37 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:29:37 -0430
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:30:46 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (71.0ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (3.0ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 299ms (Views: 217.1ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:30:47 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:30:47 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:30:47 -0430
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2015-02-18 18:30:47 -0430
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2015-02-18 18:30:52 -0430
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/edit.html.erb within layouts/bootlayout (19.3ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 125ms (Views: 119.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2015-02-18 18:31:04 -0430
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered projects/show.html.erb within layouts/bootlayout (46.8ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 174ms (Views: 167.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:31:04 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:31:04 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:31:04 -0430
+
+
+Started GET "/assets/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2015-02-18 18:31:04 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_flat_75_ffffff_40x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (41.5ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (210.7ms)
+
+
+Started GET "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-18 18:31:05 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_highlight-soft_75_cccccc_1x100.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (25.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (160.9ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-18 18:31:05 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (22.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (175.6ms)
+
+
+Started GET "/assets/images/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2015-02-18 18:31:05 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_65_ffffff_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (21.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (134.3ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_dadada_1x400.png" for 127.0.0.1 at 2015-02-18 18:31:05 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_dadada_1x400.png"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (147.8ms)
