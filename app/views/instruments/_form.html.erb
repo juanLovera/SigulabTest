@@ -103,9 +103,12 @@
             <%= 'Extensión' %><br>
             <%= f.check_box :management %>
             <%= 'Apoyo administrativo' %></td></tr>
-          
-        
            <tr>
+
+            <tr>
+            <td class="col-xs-5 text-right"><strong>Origen:</strong></td>
+            <td class="col-xs-7"><%=f.select(:origen, [['Comprado'], ['Donado']] )%></td>
+          </tr>
 
         <td class="col-xs-5 text-right">
            <div class="actions">

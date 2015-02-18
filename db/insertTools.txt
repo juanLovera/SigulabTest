@@ -1,0 +1,58 @@
+INSERT INTO tools (name, brand, tipo, national_good, status, responsible, location, material, bill, from_set, investigation, teaching, extention,
+                    management, created_at, updated_at,id2)
+
+VALUES ('Taladro', 'McGraw', 'M460', '78687', 'En buen estado', 'Paolangela Espinal', 'Laboratorio M', 'Metal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-1'),
+
+		('Aparato De Kipp', 'McGraw', 'Mew50', '78687', 'Dañado', 'Paolangela Espinal', 'Laboratorio A', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-2'),
+
+		('Balanza', 'McGraw', 'M4504', '78687', 'En buen estado', 'Paolangela Espinal', 'Laboratorio M', 'Hierro', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-3'),
+
+		('Taladro', 'McGraw', 'M45435', '78687', 'En buen estado', 'Maria Esther Carrillo', 'Laboratorio M', 'Metal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-4'),
+
+		('Aparato De Kipp', 'McGraw', 'M450', '78687', 'Dañado', 'Jose Figueredo', 'Laboratorio A', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-5'),
+
+		('Balanza', 'McGraw', 'M450', '78687', 'Dañado', 'Nelson Saturno', 'Laboratorio B', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-6'),
+
+		('Gradilla', 'McGraw', 'M450', '78687', 'En buen estado', 'Nelson Saturno', 'Laboratorio M', 'Plastico', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-7'),
+
+		('Aparato De Kipp', 'McGraw', 'M450', '78687', 'Dañado', 'Jose Figueredo', 'Laboratorio A', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-8'),
+
+		('Balanza', 'McGraw', 'M4556', '78687', 'Dañado', 'Nelson Saturno', 'Laboratorio B', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-9'),
+
+		('Gradilla', 'McGraw', 'M4432', '78687', 'En buen estado', 'Nelson Saturno', 'Laboratorio M', 'Plastico', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-10'),
+
+		('Taladro', 'McGraw', 'M4543', '78687', 'En buen estado', 'Paolangela Espinal', 'Laboratorio M', 'Metal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-11'),
+
+		('Aparato De Kipp', 'McGraw', 'M450', '78687', 'Dañado', 'Neylin Belisario', 'Laboratorio A', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-12'),
+
+		('Balanza', 'McGraw', 'M45g0', '78687', 'En buen estado', 'Paolangela Espinal', 'Laboratorio M', 'Hierro', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-13'),
+
+		('Taladro', 'McGraw', 'M450', '78687', 'En buen estado', 'Maria Esther Carrillo', 'Laboratorio M', 'Metal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-14'),
+
+		('Aparato De Kipp', 'McGraw', 'M450', '78687', 'Dañado', 'Jose Figueredo', 'Laboratorio A', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-15'),
+
+		('Balanza', 'McGraw', 'M450', '78687', 'Dañado', 'Maria Esther Carrillo', 'Laboratorio B', 'Cristal', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-16'),
+
+		('Gradilla', 'McGraw', 'M450', '78687', 'En buen estado', 'Nelson Saturno', 'Laboratorio M', 'Plastico', '843y593rfh3', true,
+		true, false, false, false, '2015-02-03', '2015-02-03','HM-17');
+
+		
+
+
+ 

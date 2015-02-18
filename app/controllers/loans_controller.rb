@@ -23,6 +23,7 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
+    binding.pry
     @loan = Loan.new
     @equipment = Equipment.where(id2: params[:item_ids])
     @instruments = Instrument.where(id2: params[:item_ids])
