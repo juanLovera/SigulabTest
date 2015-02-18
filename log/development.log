@@ -43972,3 +43972,1064 @@ Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-17 20
 Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-17 20:51:52 -0430
 >>>>>>> 7cfaafff50e6047add1148b0c2257cda6e95499c
 >>>>>>> 4995ad351bc141a3b895e52e55f29fda04f9f44a
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 18:06:12 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (38.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.4) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (41.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateIdSustancia (20150217220732)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (435.9ms)[0m  [1mCREATE TABLE "id_sustancia" ("id" serial primary key, "fecha" character varying(255), "consumo" character varying(255), "ingreso" character varying(255), "saldo" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150217220732"]]
+  [1m[36m (11.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBinnacles (20150217235107)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (92.6ms)[0m  [1mCREATE TABLE "binnacles" ("id" serial primary key, "idSustancia" character varying(255), "fecha" date, "consumo" character varying(255), "ingreso" character varying(255), "saldo" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150217235107"]]
+  [1m[36m (19.9ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveTable (20150218000157)
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36m (50.7ms)[0m  [1mDROP TABLE "id_sustancia"[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150218000157"]]
+  [1m[36m (21.5ms)[0m  [1mCOMMIT[0m
+Migrating to ChangeReferenceBinnacles (20150218051457)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.3ms)[0m  [1mALTER TABLE "binnacles" ALTER COLUMN "idSustancia" TYPE character varying(255)[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150218051457"]]
+  [1m[36m (5.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 18:06:41 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#index as HTML
+Completed 401 Unauthorized in 65ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 18:06:42 -0430
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/appsession (78.9ms)
+  Rendered shared/_header.html.erb (25.5ms)
+  Rendered shared/_navbarsession.html.erb (1.5ms)
+  Rendered shared/_footer.html.erb (14.8ms)
+Completed 200 OK in 1892ms (Views: 1804.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/binnacles.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/id_sustancia.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:44 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:06:45 -0430
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-02-18 18:06:50 -0430
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mJZzpBjBfq+lIm75L3quL3e+nqiGSIVpTOKGymge6d4=", "user"=>{"username"=>"director", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Iniciar sesión"}
+  [1m[35mUser Load (97.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."username" = 'director'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 1  [["current_sign_in_at", "2015-02-18 22:36:51.071041"], ["last_sign_in_at", "2015-02-18 00:00:45.897051"], ["sign_in_count", 5], ["updated_at", "2015-02-18 22:36:51.073745"]]
+  [1m[36m (17.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 332ms (ActiveRecord: 117.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/appindex (11.5ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbarcut.html.erb (3.8ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 489ms (Views: 483.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:51 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/binnacles.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/id_sustancia.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/assets/fontawesome-webfont.woff?v=4.2.0" for 127.0.0.1 at 2015-02-18 18:06:52 -0430
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+Processing by AdministrationController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered administration/index.html.erb within layouts/bootlayout (2.3ms)
+  Rendered shared/_header.html.erb (1.8ms)
+  Rendered shared/_navbar.html.erb (3.9ms)
+  Rendered shared/_footer.html.erb (1.5ms)
+Completed 200 OK in 147ms (Views: 138.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/administration" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+Processing by AdministrationController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered administration/index.html.erb within layouts/bootlayout (3.3ms)
+  Rendered shared/_header.html.erb (1.5ms)
+  Rendered shared/_navbar.html.erb (4.6ms)
+  Rendered shared/_footer.html.erb (1.2ms)
+Completed 200 OK in 138ms (Views: 134.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:06:54 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:06:55 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:06:55 -0430
+
+
+Started GET "/assets/images/favicon.ico" for 127.0.0.1 at 2015-02-18 18:06:55 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/favicon.ico"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (26.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (16.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (210.9ms)
+
+
+Started GET "/administration/budget" for 127.0.0.1 at 2015-02-18 18:06:57 -0430
+Processing by BudgetController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered budget/index.html.erb within layouts/bootlayout (6.2ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 138ms (Views: 134.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/executions" for 127.0.0.1 at 2015-02-18 18:06:59 -0430
+Processing by ExecutionsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (33.6ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (check_annulled=false)[0m
+  [1m[35mExecution Load (0.8ms)[0m  SELECT "executions".* FROM "executions"
+  [1m[36mCommitment Load (26.1ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLab Load (13.3ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCommitment Load (1.3ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/index.html.erb within layouts/bootlayout (290.1ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 504ms (Views: 374.2ms | ActiveRecord: 90.2ms)
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:00 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:00 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:00 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:00 -0430
+
+
+Started GET "/commitments/3" for 127.0.0.1 at 2015-02-18 18:07:02 -0430
+Processing by CommitmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCommitment Load (0.9ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (1.1ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id='3') AND (check_annulled=false)[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "executions"  WHERE (commitment_id='3')
+  [1m[36mLab Load (0.8ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered commitments/show.html.erb within layouts/bootlayout (15.4ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 153ms (Views: 139.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/executions/new?cid=3" for 127.0.0.1 at 2015-02-18 18:07:07 -0430
+Processing by ExecutionsController#new as HTML
+  Parameters: {"cid"=>"3"}
+  [1m[35mUser Load (2.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCommitment Load (2.1ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLab Load (0.7ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/new.html.erb within layouts/bootlayout (45.8ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 277ms (Views: 261.1ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/executions/list?cid=3" for 127.0.0.1 at 2015-02-18 18:07:13 -0430
+Processing by ExecutionsController#list as HTML
+  Parameters: {"cid"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (0.7ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (2.3ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id='3') AND (check_annulled=false)[0m
+  [1m[35mCommitment Load (0.9ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCommitment Load (0.6ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mExecution Load (0.7ms)[0m  SELECT "executions".* FROM "executions"  WHERE (commitment_id='3')
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLab Load (0.5ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/list.html.erb within layouts/bootlayout (53.9ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 183ms (Views: 163.2ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:13 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:13 -0430
+
+
+Started GET "/executions/3" for 127.0.0.1 at 2015-02-18 18:07:15 -0430
+Processing by ExecutionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (0.9ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (1.0ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id=NULL) AND (check_annulled=false)[0m
+  [1m[35mCommitment Load (0.6ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLab Load (0.5ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered executions/show.html.erb within layouts/bootlayout (11.6ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (2.4ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 177ms (Views: 165.6ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/executions/3/edit" for 127.0.0.1 at 2015-02-18 18:07:19 -0430
+Processing by ExecutionsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mExecution Load (0.9ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mCommitment Load (0.7ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCommitment Load (1.6ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLab Load (0.8ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered executions/edit.html.erb within layouts/bootlayout (55.3ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 208ms (Views: 192.4ms | ActiveRecord: 5.4ms)
+
+
+Started PATCH "/executions/3" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+Processing by ExecutionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fG2WOPnhPk3jqo7znXhrEpBY1U6WGc9w1Br0X4HaQGk=", "execution"=>{"code"=>"4", "check_amount"=>"100", "check_number"=>"23232323", "check_elaboration_date"=>"06/02/2015", "check_sign_date"=>"01/02/2015", "check_delivery_date"=>"", "remarks"=>""}, "id"=>"3"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mExecution Load (2.8ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mCommitment Load (1.0ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.6ms)[0m  SELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id=3) AND (check_annulled=false)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mCommitment Load (0.6ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLab Load (1.3ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/edit.html.erb within layouts/bootlayout (35.7ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 200ms (Views: 146.6ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:27 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:07:28 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:07:28 -0430
+
+
+Started PATCH "/executions/3" for 127.0.0.1 at 2015-02-18 18:07:47 -0430
+Processing by ExecutionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fG2WOPnhPk3jqo7znXhrEpBY1U6WGc9w1Br0X4HaQGk=", "execution"=>{"code"=>"4", "check_amount"=>"100", "check_number"=>"23232323", "check_elaboration_date"=>"06/02/2015", "check_sign_date"=>"24/02/2015", "check_delivery_date"=>"", "remarks"=>""}, "id"=>"3"}
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (0.8ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCommitment Load (0.8ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (1.4ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id=3) AND (check_annulled=false)[0m
+  [1m[35m (1.3ms)[0m  BEGIN
+  [1m[36mCommitment Load (1.1ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "executions" SET "check_sign_date" = $1, "updated_at" = $2 WHERE "executions"."id" = 3  [["check_sign_date", "2015-02-24"], ["updated_at", "2015-02-18 22:37:47.870876"]]
+  [1m[36m (23.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/executions
+Completed 302 Found in 75ms (ActiveRecord: 32.3ms)
+
+
+Started GET "/executions" for 127.0.0.1 at 2015-02-18 18:07:47 -0430
+Processing by ExecutionsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (check_annulled=false)[0m
+  [1m[35mExecution Load (0.6ms)[0m  SELECT "executions".* FROM "executions"
+  [1m[36mCommitment Load (0.4ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLab Load (0.5ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCommitment Load (0.6ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/index.html.erb within layouts/bootlayout (69.2ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 195ms (Views: 187.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:07:48 -0430
+
+
+Started GET "/commitments/3" for 127.0.0.1 at 2015-02-18 18:07:50 -0430
+Processing by CommitmentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCommitment Load (0.5ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.9ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id='3') AND (check_annulled=false)[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "executions"  WHERE (commitment_id='3')
+  [1m[36mLab Load (1.0ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered commitments/show.html.erb within layouts/bootlayout (12.0ms)
+  Rendered shared/_header.html.erb (1.6ms)
+  Rendered shared/_navbar.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 160ms (Views: 146.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/executions/list?cid=3" for 127.0.0.1 at 2015-02-18 18:07:52 -0430
+Processing by ExecutionsController#list as HTML
+  Parameters: {"cid"=>"3"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mExecution Load (0.9ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.7ms)[0m  SELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id='3') AND (check_annulled=false)
+  [1m[36mCommitment Load (0.4ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCommitment Load (0.4ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mExecution Load (0.7ms)[0m  [1mSELECT "executions".* FROM "executions"  WHERE (commitment_id='3')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLab Load (0.4ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered executions/list.html.erb within layouts/bootlayout (46.7ms)
+  Rendered shared/_header.html.erb (1.5ms)
+  Rendered shared/_navbar.html.erb (2.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 169ms (Views: 158.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:52 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:07:52 -0430
+
+
+Started GET "/executions/3" for 127.0.0.1 at 2015-02-18 18:07:54 -0430
+Processing by ExecutionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mExecution Load (0.9ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.9ms)[0m  SELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id=NULL) AND (check_annulled=false)
+  [1m[36mCommitment Load (0.6ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLab Load (0.6ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/show.html.erb within layouts/bootlayout (7.6ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (2.3ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 150ms (Views: 139.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/executions/3/edit" for 127.0.0.1 at 2015-02-18 18:07:56 -0430
+Processing by ExecutionsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (0.6ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCommitment Load (0.6ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCommitment Load (0.7ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mLab Load (1.0ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/edit.html.erb within layouts/bootlayout (22.5ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (3.1ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 148ms (Views: 136.9ms | ActiveRecord: 3.7ms)
+
+
+Started PATCH "/executions/3" for 127.0.0.1 at 2015-02-18 18:08:01 -0430
+Processing by ExecutionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fG2WOPnhPk3jqo7znXhrEpBY1U6WGc9w1Br0X4HaQGk=", "execution"=>{"code"=>"4", "check_amount"=>"100", "check_number"=>"23232323", "check_elaboration_date"=>"06/02/2015", "check_sign_date"=>"24/02/2015", "check_delivery_date"=>"02/02/2015", "remarks"=>""}, "id"=>"3"}
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (0.8ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.2ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCommitment Load (0.7ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (1.2ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id=3) AND (check_annulled=false)[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mCommitment Load (0.7ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mLab Load (0.9ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered executions/edit.html.erb within layouts/bootlayout (21.3ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (1.9ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 193ms (Views: 146.7ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:08:02 -0430
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-02-18 18:08:11 -0430
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fG2WOPnhPk3jqo7znXhrEpBY1U6WGc9w1Br0X4HaQGk="}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 40ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-18 18:08:11 -0430
+Processing by StaticsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-02-18 18:08:11 -0430
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/appsession (6.8ms)
+  Rendered shared/_header.html.erb (1.3ms)
+  Rendered shared/_navbarsession.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 531ms (Views: 527.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/acts.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/applications.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/devolutions.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/equipment.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/instruments.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/invitations.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:12 -0430
+
+
+Started GET "/assets/jquery-1.4.4.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/requisitions.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/services.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/specifications.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/statics.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/tabs.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/tools.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/binnacles.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/chemical_substances.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/commitments.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/consumables.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/donations.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/id_sustancia.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/jquery-1.10.2.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/jquery.dataTables.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/jquery-ui-1.8.6.custom.min.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/loans.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-18 18:08:13 -0430
