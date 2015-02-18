@@ -1,0 +1,33 @@
+<h1>Listing binnacles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idsustancia</th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Ingreso</th>
+      <th>Saldo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @binnacles.each do |binnacle| %>
+      <tr>
+        <td><%= binnacle.idSustancia %></td>
+        <td><%= binnacle.fecha %></td>
+        <td><%= binnacle.consumo %></td>
+        <td><%= binnacle.ingreso %></td>
+        <td><%= binnacle.saldo %></td>
+        <td><%= link_to 'Show', binnacle %></td>
+        <td><%= link_to 'Edit', edit_binnacle_path(binnacle) %></td>
+        <td><%= link_to 'Destroy', binnacle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Binnacle', new_binnacle_path(@id) %>

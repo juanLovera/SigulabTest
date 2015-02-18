@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idSustancia: MyString
+  fecha: MyString
+  consumo: MyString
+  ingreso: MyString
+  saldo: MyString
+
+two:
+  idSustancia: MyString
+  fecha: MyString
+  consumo: MyString
+  ingreso: MyString
+  saldo: MyString

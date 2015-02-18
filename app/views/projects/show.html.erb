@@ -1,3 +1,8 @@
+<%= javascript_include_tag 'tabs.js' %>
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+
 <div class="row">
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
@@ -6,12 +11,18 @@
 			<li class="active"><%= @project.id%></li>
 		</ol>
 	</div>
-	<div class="col-xs-12">
-		<table class="table table-striped">
-			<tr>
-				<td class="col-xs-5 text-right">Número de Proyecto:</td>
-				<td class="col-xs-7"><%= @project.project_number %>  </td>
-			</tr>
+</div>
+
+<p><h2><center>Proyecto N°: <%= @project.project_number %></center></h2></p>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Datos del Proyecto</a></li>
+		<li><a href="#tabs-2">Distribución del Monto</a></li>
+		<li><a href="#tabs-3">Cuenta Bancaria</a></li>
+	</ul>
+	<div id="tabs-1">
+		<p><table class="table table-striped">
 			<tr>
 				<td class="col-xs-5 text-right">Número de Contrato:</td>
 				<td class="col-xs-7"><%= @project.contract %></td>
@@ -32,10 +43,39 @@
 			    <td class="col-xs-5 text-right">Código SAE:</td>
 				<td class="col-xs-7"><%= @project.sae_code %></td>
  		    </tr>
+ 		    <% if !@project.incoming_date.blank? -%>						
+ 		    <tr>
+				<td class="col-xs-5 text-right">Fecha de Ingreso de los Recursos:</td>
+				<td class="col-xs-7"><%= @project.incoming_date %></td>
+  			</tr>  			  	
+  			<% end %>  			  					
+ 		    <tr>
+				<td class="col-xs-5 text-right">Estatus:</td>
+				<td class="col-xs-7"><%= Project.status_str[Project.statuses[@project.status]] %></td>
+  			</tr>  			  			
+  			<% if @project.status=="annulled" %> 
+ 		    <tr>
+				<td class="col-xs-5 text-right">Fecha de Anulación:</td>
+				<td class="col-xs-7"><%= @project.annulled_date %></td>
+  			</tr>  	  			
+  			<% end %>
+
+  			</tr>
+  			<% if !@project.observation.blank? -%>
+		      <tr>
+			    <td class="col-xs-5 text-right">Observaciones:</td>
+                <td class="col-xs-7"><%= @project.observation %></td>
+			  </tr>
+			<% end %>
 			<tr>
-				<td class="col-xs-5 text-center" colspan="2"> <b> Distribución del monto </b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+				<td class="col-xs-5 text-right"></td>
+				<td class="col-xs-7"></td>
 			</tr>
-  			<% if @project.equipments>0 %>  		  			  			  						
+ 		    </table></p>
+	</div>
+	<div id="tabs-2">
+		<p><table class="table table-striped">
+  			<% if @project.equipments>0 %> 	
  		    <tr>
 				<td class="col-xs-5 text-right">Equipos:</td>
 				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@project.equipments, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
@@ -79,48 +119,35 @@
   			<% end %>  			
 			<tr class="success">
 				<td class="col-xs-5 text-right"> <font size=3.6> Monto asignado: </font> </td>
-				<td class="col-xs-7" ><div id="span1"> <font size=3.6> Bs. </div> <div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@project.amount, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>				
-			</tr>  			
-  			<% if !@project.incoming_date.blank? -%>						
- 		    <tr>
-				<td class="col-xs-5 text-right">Fecha de Ingreso de los Recursos:</td>
-				<td class="col-xs-7"><%= @project.incoming_date %></td>
-  			</tr>  			  	
-  			<% end %>  			  					
- 		    <tr>
-				<td class="col-xs-5 text-right">Estatus:</td>
-				<td class="col-xs-7"><%= Project.status_str[Project.statuses[@project.status]] %></td>
-  			</tr>  			  			
-  			<% if @project.status=="annulled" %> 
- 		    <tr>
-				<td class="col-xs-5 text-right">Fecha de Anulación:</td>
-				<td class="col-xs-7"><%= @project.annulled_date %></td>
-  			</tr>  	  			
-  			<% end %>
-
-  			</tr>
-  			<% if !@project.observation.blank? -%>
-		      <tr>
-			    <td class="col-xs-5 text-right">Observaciones:</td>
-                <td class="col-xs-7"><%= @project.observation %></td>
-			  </tr>
-			<% end %>	
- 		    <tr>
-				<td class="col-xs-5 text-right">Número de cuenta:</td>
-				<td class="col-xs-7"><%= @project.num_cuenta %></td>
-  			</tr>
-  			<tr>
+				<td class="col-xs-7" ><div id="span1"> <font size=3.6> Bs. </div> </font><div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@project.amount, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>	
+			</tr>  
+		</table></p>
+	</div>
+	<div id="tabs-3">
+		<p><table class="table table-striped">
+			<tr>
 				<td class="col-xs-5 text-right">Banco:</td>
 				<td class="col-xs-7"><%= Project.banco_str[Project.bancos[@project.banco]] %></td>
   			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Número de cuenta:</td>
+				<td class="col-xs-7"><%= @project.num_cuenta %></td>
+  			</tr>
+  			
+  			<tr>
+				<td class="col-xs-5 text-right"></td>
+				<td class="col-xs-7"></td>
+			</tr>
+		</table></p>
+	</div>
 
-		</table>
-	</div>
-	<div class="col-xs-12">
-		<%= link_to edit_project_path do %>
-			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Proyecto</button>
-		<% end %>
-	</div>
+</div>
+
+</br>
+<div class="col-xs-12">
+	<%= link_to edit_project_path do %>
+		<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Proyecto</button>
+	<% end %>
 </div>
 
 <style>
