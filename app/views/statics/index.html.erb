@@ -7,18 +7,18 @@
 		</div>
 		<div class="col-xs-8 col-xs-offset-2">
 			<ul class="administration-list">
-			<div class="grid_7 push_3">
+			<div class="col-xs-7 col-xs-offset-2">
 			 <br>
 			 <br>
 			 <br>
 			 <%= link_to '<button type="button" class="btn btn-primary"> &nbsp; &nbsp; <i class="fa fa-shopping-cart"></i> </button>'.html_safe, compras_url %>
-			 <%= link_to '<button type="button" class="btn btn-primary"> &nbsp; &nbsp; Compras &nbsp; &nbsp; </button>'.html_safe, compras_url %><br><br>
+			 <td><%= link_to '<button type="button" class="btn btn-primary"> &nbsp; &nbsp; Compras &nbsp; &nbsp; </button>'.html_safe, compras_url %></td><br><br>
 
 			 <%= link_to '<button type="button" class="btn btn-primary"> &nbsp; &nbsp; <i class="fa fa-eyedropper"></i> </button>'.html_safe, inventario_url %>
-			 <%= link_to '<button type="button" class="btn btn-primary"> &nbsp; &nbsp; Inventario &nbsp; &nbsp; </button>'.html_safe, inventario_url %><br><br>
+			 <td><%= link_to '<button type="button" class="btn btn-primary"> &nbsp; &nbsp; Inventario &nbsp;&nbsp; </button>'.html_safe, inventario_url %></td><br><br>
 
 			 <%= link_to '<button type="button" class="btn btn-primary"> &nbsp; &nbsp; <i class="fa fa-calculator"></i> </button>'.html_safe, administration_url %>
-			 <%= link_to '<button type="button" class="btn btn-primary"> Administración </button>'.html_safe, administration_url %><br><br>
+			 <td><%= link_to '<button type="button" class="btn btn-primary">Administración</button>'.html_safe, administration_url %></td><br><br>
 			</div>
 			</ul>
 		</div>

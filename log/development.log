@@ -22769,3 +22769,47 @@ Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-s
 
 Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-17 16:50:43 -0430
 >>>>>>> 34a5dbe2ef48f270317b9ec13df6489f40a46bd4
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddColumnOrigenInventario (20150217201813)
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36m (203.7ms)[0m  [1mALTER TABLE "equipment" ADD COLUMN "origen" character varying(255)[0m
+  [1m[35m (6.7ms)[0m  ALTER TABLE "chemical_substances" ADD COLUMN "origen" character varying(255)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "consumables" ADD COLUMN "origen" character varying(255)[0m
+  [1m[35m (2.6ms)[0m  ALTER TABLE "tools" ADD COLUMN "origen" character varying(255)
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "instruments" ADD COLUMN "origen" character varying(255)[0m
+  [1m[35mSQL (22.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150217201813"]]
+  [1m[36m (26.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateIdSustancia (20150217220732)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (499.9ms)[0m  [1mCREATE TABLE "id_sustancia" ("id" serial primary key, "fecha" character varying(255), "consumo" character varying(255), "ingreso" character varying(255), "saldo" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150217220732"]]
+  [1m[36m (16.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBinnacles (20150217235107)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (238.7ms)[0m  [1mCREATE TABLE "binnacles" ("id" serial primary key, "idSustancia" character varying(255), "fecha" date, "consumo" character varying(255), "ingreso" character varying(255), "saldo" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150217235107"]]
+  [1m[36m (45.5ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveTable (20150218000157)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (60.2ms)[0m  [1mDROP TABLE "id_sustancia"[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150218000157"]]
+  [1m[36m (11.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (1.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeReferenceBinnacles (20150218051457)
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36m (52.3ms)[0m  [1mALTER TABLE "binnacles" ALTER COLUMN "idSustancias" TYPE character varying(255)[0m
+PG::UndefinedColumn: ERROR:  column "idSustancias" of relation "binnacles" does not exist
+: ALTER TABLE "binnacles" ALTER COLUMN "idSustancias" TYPE character varying(255)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeReferenceBinnacles (20150218051457)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (34.4ms)[0m  [1mALTER TABLE "binnacles" ALTER COLUMN "idSustancia" TYPE character varying(255)[0m
+  [1m[35mSQL (67.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150218051457"]]
+  [1m[36m (53.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"

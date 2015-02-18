@@ -1,6 +1,7 @@
 class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
   layout 'bootlayout'
+  before_filter :authenticate_user!
   # GET /tools
   # GET /tools.json
   def index
