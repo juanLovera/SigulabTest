@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206054157) do
+ActiveRecord::Schema.define(version: 20150217201813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.string   "dependency"
     t.boolean  "solicitados"
     t.string   "id2"
+    t.string   "origen"
   end
 
   create_table "commitments", force: true do |t|
@@ -122,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.string   "dependency"
     t.boolean  "solicitados"
     t.string   "id2"
+    t.string   "origen"
   end
 
   create_table "devolutions", force: true do |t|
@@ -210,6 +212,7 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.integer  "numSolicitud"
     t.boolean  "solicitados"
     t.string   "id2"
+    t.string   "origen"
   end
 
   create_table "executions", force: true do |t|
@@ -232,15 +235,6 @@ ActiveRecord::Schema.define(version: 20150206054157) do
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
-  create_table "fecha_entregas", force: true do |t|
-    t.string   "ubicacion"
-    t.string   "fechaTope"
-    t.string   "condiciones"
-    t.string   "medida"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
@@ -253,8 +247,10 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing",            default: 0
+    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
+    t.boolean  "estado"
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
@@ -287,6 +283,7 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.string   "dependency"
     t.boolean  "solicitados"
     t.string   "id2"
+    t.string   "origen"
   end
 
   create_table "invitations", force: true do |t|
@@ -367,13 +364,13 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.datetime "updated_at"
     t.integer  "admin",          default: 0
     t.integer  "status",         default: 0
+    t.text     "observation"
+    t.integer  "banco"
+    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
-    t.string   "num_cuenta"
-    t.string   "observation"
-    t.integer  "banco"
   end
 
   create_table "quotes", force: true do |t|
@@ -408,6 +405,39 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.integer "precio"
     t.integer "tiempo"
     t.integer "cumplio_req"
+  end
+
+  create_table "relations", force: true do |t|
+    t.integer "item_id"
+    t.string  "marca"
+    t.string  "modelo"
+    t.string  "tipo"
+    t.string  "descripcion_general"
+    t.string  "materia"
+    t.string  "funcion"
+    t.string  "ubicacion"
+    t.string  "aplicacion"
+    t.string  "observaciones"
+    t.integer "specification_id"
+  end
+
+  create_table "requests", force: true do |t|
+    t.string  "unidad_solicitante"
+    t.string  "persona_contacto"
+    t.string  "telefono"
+    t.string  "email"
+    t.string  "fondos"
+    t.string  "numero_proyecto"
+    t.string  "funcion"
+    t.string  "tipo_cuenta"
+    t.string  "numero_cuenta"
+    t.string  "nombre_banco"
+    t.string  "otro"
+    t.string  "proforma"
+    t.string  "folleto"
+    t.string  "fonacit"
+    t.string  "acta_consejo_directo"
+    t.integer "specification_id"
   end
 
   create_table "requisitions", force: true do |t|
@@ -446,6 +476,10 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.integer  "p5"
     t.integer  "p6"
     t.integer  "p7"
+    t.string   "nacional"
+    t.integer  "p8"
+    t.integer  "p9"
+    t.string   "modalidad"
   end
 
   create_table "table_items_solicituds", force: true do |t|
@@ -476,8 +510,10 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.boolean  "showable",         default: true
     t.boolean  "from_set"
     t.string   "dependency"
+    t.boolean  "solicitados"
     t.string   "id2"
     t.string   "tipo"
+    t.string   "origen"
   end
 
   create_table "users", force: true do |t|
@@ -512,5 +548,8 @@ ActiveRecord::Schema.define(version: 20150206054157) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

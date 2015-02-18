@@ -1,0 +1,51 @@
+INSERT INTO chemical_substances (name, purity, matter_states, controlled, quantity, cas, status, responsible, location,
+                                expiration_date, toxic, oxidant, explosive, irritating, inflamable, corrosive,
+                                nocive, investigation, teaching, extention, created_at, updated_at, meassure,id2)
+
+VALUES ('Alcohol', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Maria Esther Carrillo', 'Laboratorio B', '2015-02-03',
+        false, false, false, false, false, true, true, true, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-1'),
+
+        ('Alcohol', '35', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Maria Esther Carrillo', 'Laboratorio B', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-2'),
+
+        ('Alcohol', '30', 'Líquido', false, '4', 'JRFGYR7', 'Vencido', 'Nelson Saturno', 'Laboratorio C', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-3'),
+
+        ('Alcohol', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Jorge Leon', 'Laboratorio D', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-4'),
+
+        ('Potasio', '25', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Paolangela Espinal', 'Laboratorio A', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-5'),
+
+        ('Metanol', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vencido', 'Maria Esther Carrillo', 'Laboratorio B', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-6'),
+
+        ('Hidroxido de Amonio', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Nelson Saturno', 'Laboratorio C', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-7'),
+
+        ('Alcohol', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Jorge Leon', 'Laboratorio D', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-8'),
+
+        ('Potasio', '25', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Paolangela Espinal', 'Laboratorio A', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-9'),
+
+        ('Metanol', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vencido', 'Maria Esther Carrillo', 'Laboratorio B', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-10'),
+
+        ('Hidroxido de Amonio', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Nelson Saturno', 'Laboratorio C', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-11'),
+
+        ('Carbonato de Calcio', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Jorge Leon', 'Laboratorio D', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-12'),
+
+        ('Sulfato de Zinc', '75', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Paolangela Espinal', 'Laboratorio A', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-13'),
+
+        ('Carbonato de Potasio', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Maria Esther Carrillo', 'Laboratorio B', '2015-02-03',true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-14'),
+
+        ('Hidroxido de Amonio', '50', 'Líquido', false, '4', 'JRFGYR7', 'Vigente', 'Nelson Saturno', 'Laboratorio C', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-15'),
+
+        ('Carbonato de Calcio', '45', 'Líquido', false, '4', 'JRFGYR7', 'Vencido', 'Jorge Leon', 'Laboratorio D', '2015-02-03',
+        true, false, false, false, false, false, false, false, true, false, '2015-02-03', '2015-02-03', 'ml','SQ-16');
+

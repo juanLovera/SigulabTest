@@ -29,11 +29,11 @@
                     <th>Seleccionar</th>
                   <% end %>
                   <th class="text-center">Nombre</th>
-                  <th class="text-center">Estado de la Materia</th>
                   <th class="text-center">Cantidad</th>
                   <th class="text-center">Medida</th>
                   <th class="text-center">Ubicación</th>
                   <th class="text-center">Responsable</th>
+                  <th class="tg-hgcj">Origen</th>
                 </tr>
               </thead>
 
@@ -44,11 +44,11 @@
                       <td class="tg-s6z2"><%= check_box_tag "item_ids[]", chemical_substance.id2 %></td>
                     <% end %>
                     <td class="text-center"><%= link_to chemical_substance.name, chemical_substance %></td>
-                    <td class="text-center"><%= chemical_substance.matter_states %></td>
                     <td class="text-center"><%= chemical_substance.quantity %></td>
                     <td class="text-center"><%= chemical_substance.meassure %></td>
                     <td class="text-center"><%= chemical_substance.location %></td>
                     <td class="text-center"><%= chemical_substance.responsible %></td>
+                    <td class="text-center"><%= chemical_substance.origen %></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -71,11 +71,20 @@
     <% if can? :create, @chemical_substance %>
       <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Sustancia', new_chemical_substance_path, 'data-no-turbolink' => true, :class => 'linkButton'%> | 
     <%end%>
-    <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo/Servicio ', :class => "linkButton" %> | 
+    <i class="fa fa-exchange linkButton" onclick="solicitar(item_ids)"><%= submit_tag ' Solicitar Préstamo/Servicio ' %></i> | 
     <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
+    
     <% end %>
     <br><br><br><br><br><br><br>
     
+
+<script>
+function solicitar(item_ids) {
+  if (item_ids == null) {
+    gtm.errorMessage "Disculpe no ha seleccionado ningún ítem"
+  };   
+}
+</script>
 
 
  <style>

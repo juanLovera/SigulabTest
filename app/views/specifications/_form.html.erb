@@ -17,6 +17,25 @@
      <%= f.collection_select :tipo, Specification::Tipo, :to_s, :to_s, :include_blank => false %>
     
       </div>
+      <div id="esconder">
+      <div class="field">
+          <span class="red">*</span>
+       <%= f.label "Tipo de compra" %><br>
+
+     <%= f.collection_select :nacional, Specification::Compra, :to_s, :to_s, :include_blank => false %>
+    
+      </div>
+          <div id="esconder2" style="display:none;">
+      <div class="field">
+          <span class="red">*</span>
+       <%= f.label "Modalidad de Importación" %><br>
+
+     <%= f.collection_select :modalidad, Specification::Importacion, :to_s, :to_s, :include_blank => false %>
+    
+      </div>
+              </div>
+      </div>
+      
       <div class="actions" style="padding-left: 70px; padding-top:20px;">
        <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la información que acaba de suministrar?' }  %>
       </div>
@@ -107,3 +126,22 @@ font-size: 20px;
 
 
 </style>
+<script>
+  function esconderInternacional() {
+    var e = document.getElementById("specification_tipo");
+    if (e.options[e.selectedIndex].value == 'Servicios')
+      document.getElementById('esconder').style.display = 'none';
+    else
+      document.getElementById('esconder').style.display = 'inline';
+  }
+  document.getElementById("specification_tipo").onchange= esconderInternacional;
+  
+   function esconderInternacional2() {
+    var e = document.getElementById("specification_nacional");
+    if (e.options[e.selectedIndex].value == 'Nacional')
+      document.getElementById('esconder2').style.display = 'none';
+    else
+      document.getElementById('esconder2').style.display = 'inline';
+  }
+  document.getElementById("specification_nacional").onchange= esconderInternacional2; 
+</script>

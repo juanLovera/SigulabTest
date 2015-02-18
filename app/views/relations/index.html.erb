@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= render 'menu' %>
+<div style="text-align: right; height: 45px; margin-top: 12px;">
+<% if session['specification_p8'] != 2 %>
+	<%= link_to '<button type="button" class="btn btn-success"> <span style="font-size:10px;" class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar Relación Descriptiva </button>'.html_safe,  new_relation_path %><% end %>
+	</div>
+            <%= render 'relationtable' %>
+
+
+
+<style>
+  
+#agregar {
+  font-size: 14px;
+  text-align: right;
+}
+
+h3 {
+  position: relative;
+}
+
+</style>

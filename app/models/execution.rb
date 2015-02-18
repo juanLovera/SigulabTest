@@ -31,13 +31,13 @@ class Execution < ActiveRecord::Base
  
   def elaboration_sign
     if check_elaboration_date > check_sign_date
-      errors.add(:check_elaboration_date, "no puede ser posterior a la fecha de firma")
+      errors.add(:check_elaboration_date, "debe ser anterior a la fecha de firma")
     end
   end 
 
   def sign_delivery
     if check_sign_date > check_delivery_date
-      errors.add(:check_sign_date, "no puede ser posterior a la fecha de entrega")
+      errors.add(:check_sign_date, "debe ser anterior a la fecha de entrega")
     end
   end 
 

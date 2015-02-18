@@ -20,6 +20,9 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   if original_filename && model.class.to_s.underscore == "quote"
     nombre = "nca"
     "#{nombre}.#{file.extension}"
+  else
+     @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
+    "#{@name}.#{file.extension}"
   end
 end
 
