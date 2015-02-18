@@ -33,6 +33,21 @@ class BudgetController < ApplicationController
       @executions_commitement[l.id] = @executions.where(commitment_id: l.id).where("check_annulled=false").sum(:check_amount)
       @executions_total += @executions_commitement[l.id]
     end
+
+  end
+
+  def budget
+    @labs = Lab.all
+    @incomes = Income.all
+    @commitments = Commitment.all
+    @executions = Execution.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReporteBudget.new(@labs,@incomes,@commitments,@executions)
+        send_data pdf.render, filename: 'ResumenPresupuestario.pdf', type: 'application/pdf'
+      end
+    end    
   end
   
   private

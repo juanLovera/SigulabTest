@@ -268,6 +268,7 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.integer  "financing",            default: 0
     t.string   "doc_code"
     t.date     "doc_date"
+    t.boolean  "estado"
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
@@ -381,13 +382,14 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.datetime "updated_at"
     t.integer  "admin",          default: 0
     t.integer  "status",         default: 0
+    t.text     "observation"
+    t.integer  "banco"
+    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
     t.string   "num_cuenta"
-    t.string   "observation"
-    t.integer  "banco"
   end
 
   create_table "quotes", force: true do |t|

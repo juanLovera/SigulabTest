@@ -43,8 +43,8 @@
 						<tbody>
 				      		<% @executions.each do |i| %>
 								<tr>
-									<td class="text-left"><%= link_to i.code, i %></td>														
-									<td class="text-left"><%= i.commitment.lab.sae_name %></td>
+									<td class="text-center"><%= link_to i.code, i %></td>														
+									<td class="text-center"><%= i.commitment.lab.sae_name %></td>
 									<td class="text-left"><%= link_to i.commitment.description, i.commitment %></td>
 									<td class="text-left"><%= i.commitment.recipient %></td>
 									<td class="text-left"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
