@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idsustancia:</strong>
+  <%= @binnacle.idSustancia %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @binnacle.fecha %>
+</p>
+
+<p>
+  <strong>Consumo:</strong>
+  <%= @binnacle.consumo %>
+</p>
+
+<p>
+  <strong>Ingreso:</strong>
+  <%= @binnacle.ingreso %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @binnacle.saldo %>
+</p>
+
+<%= link_to 'Edit', edit_binnacle_path(@binnacle) %> |
+<%= link_to 'Back', binnacles_path(@binnacle.idSustancia) %>
