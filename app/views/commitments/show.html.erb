@@ -66,9 +66,11 @@
 			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Ejecución</button>
 		<% end %>
 		<% end %>
+        <% if @size > 0 %>
 		<%= link_to controller: :executions, action: 'list', cid: @commitment.id do %>
 			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Listar Ejecuciones</button>
 		<% end %>
+  <% end %>
 	</div>
 </div>
 
