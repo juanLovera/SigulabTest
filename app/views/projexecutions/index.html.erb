@@ -1,0 +1,70 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li class="active">Ejecuciones</li>
+		</ol>
+	</div>
+
+	<div class="col-xs-12">
+		<h2><center>Ejecuciones</center></h2>
+	</div>
+
+	<div class="col-xs-12">
+		<div class="well">
+			El monto está expresado en bolívares.
+		</div>
+	</div>
+
+
+	<div class="col-xs-12">
+		<body id="dt_example" class="ex_highlight_row">
+
+			<div id="container">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+							<tr>
+								<th class="text-center">Número de Documento</th>
+								<th class="text-center">Proyecto</th>
+								<th class="text-center">Compromiso Asociado</th>
+								<th class="text-center">Beneficiario</th>
+								<th class="text-center">Monto</th>
+							</tr>
+						</thead>
+
+						<tbody>
+				      		<% @projexecutions.each do |i| %>
+								<tr>
+									<td class="text-center"><%= link_to i.code, i %></td>														
+									<td class="text-center"><%= i.proyecto %></td>
+									<td class="text-left"><%= link_to i.commitment.description, i.commitment %></td>
+									<td class="text-left"><%= i.commitment.recipient %></td>
+									<td class="text-left"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+				        			
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</body>
+
+		<br></br>
+
+		<% if @sum > 0 %>
+			<div class="well" align="right">
+				<h4>Monto Total Ejecutado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
+			</div>
+		<% end %>
+	</div>
+
+</div>

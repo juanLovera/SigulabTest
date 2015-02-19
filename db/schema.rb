@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219034709) do
+ActiveRecord::Schema.define(version: 20150219050705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -357,6 +357,19 @@ ActiveRecord::Schema.define(version: 20150219034709) do
     t.boolean  "esprestado"
   end
 
+  create_table "projcommitments", force: true do |t|
+    t.integer  "proj_id"
+    t.string   "code"
+    t.float    "amount"
+    t.string   "description"
+    t.string   "recipient"
+    t.date     "date"
+    t.text     "observations"
+    t.integer  "document"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: true do |t|
     t.integer  "project_number"
     t.integer  "contract"
@@ -381,6 +394,24 @@ ActiveRecord::Schema.define(version: 20150219034709) do
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
+  end
+
+  create_table "projexecutions", force: true do |t|
+    t.integer  "proyecto"
+    t.integer  "commitment_id"
+    t.string   "code"
+    t.float    "check_amount"
+    t.date     "date"
+    t.integer  "document"
+    t.string   "check_number"
+    t.date     "check_elaboration_date"
+    t.date     "check_sign_date"
+    t.date     "check_delivery_date"
+    t.integer  "check_delivery_status"
+    t.boolean  "check_annulled"
+    t.string   "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "projincomes", force: true do |t|
