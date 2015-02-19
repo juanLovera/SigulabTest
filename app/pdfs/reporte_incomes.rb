@@ -1,5 +1,6 @@
 # encoding: utf-8
 class ReporteIncomes < Prawn::Document
+  include ActionView::Helpers::NumberHelper
 
   def initialize(income)
   	super :page_layout => :landscape
@@ -41,13 +42,16 @@ class ReporteIncomes < Prawn::Document
   end
 
   def info 
+
+    @amount = number_to_currency(@income.amount, format: "%n", delimiter: ".", separator: ",")
+
     data = [ ["", "(1) SAE", "", "ORIGEN DEL RECURSO", "", "", "", "", "APLICACIÓN DEL RECURSO", ""],
            ["Código", "Denominación", "(2) Organismo que otorga",
             "(3) No. de Acta de Aprobación y/o Documentos del mismo", "(4) Fuente de Financiamiento",
             "(5) Monto en Bs.", "(6) Unidad de Medida", "(7) Variación de la meta física", "(8) Proyecto / 
             Meta / Gasto / Inversiones", "(9) Descripción de la meta / Proyecto o concepto del Gasto / Inversión"],
            ["#{@income.sae_code}","Unidad de Laboratorios","#{@income.organism}","#{@income.doc_code} del #{@income.doc_date}",
-            "#{Income.financing_str[Income.financings[@income.financing]]}","#{@income.amount}",
+            "#{Income.financing_str[Income.financings[@income.financing]]}","Bs. #{@amount}",
             "#{@income.unit}","#{@income.variation}",
             "#{Income.resource_str[Income.resources[@income.resource]]}","#{@income.resource_description}"]
            ]
@@ -123,13 +127,6 @@ class ReporteIncomes < Prawn::Document
       column(0).align = :right
       column(1).align = :left      
     end    
-  end
-  
-  def product_rows
-    [['#', 'Name', 'Price']] +
-      @products.map do |product|
-      [product.id, product.name, product.price]
-    end
   end
 
 end
