@@ -51,7 +51,13 @@ class ProjectsController < ApplicationController
       # Check Date
       unless params[:project].nil?
         begin
-          params[:project][:incoming_date] = Date.parse(params[:project][:incoming_date])
+           
+          if (params[:project][:incoming_date] == nil)
+            @project_anulled = Project.find(params[:id])            
+            params[:project][:incoming_date] = @project_anulled.incoming_date
+          else
+            params[:project][:incoming_date] = Date.parse(params[:project][:incoming_date])
+          end
         rescue ArgumentError
           params[:project][:incoming_date] = nil
         end
