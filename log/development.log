@@ -69765,3 +69765,649 @@ Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-19 01:10:39 -0430
 
 Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-19 01:10:39 -0430
 >>>>>>> 67714956e7b99481229ad07336f8b065263c38a2
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProjcommitments (20150219033354)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (425.2ms)[0m  [1mCREATE TABLE "projcommitments" ("id" serial primary key, "proj_id" integer, "code" character varying(255), "amount" float, "description" character varying(255), "recipient" character varying(255), "date" date, "observations" text, "document" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (16.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150219033354"]]
+  [1m[36m (43.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProjincomes (20150219034709)
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36m (15.9ms)[0m  [1mCREATE TABLE "projincomes" ("id" serial primary key, "proyecto" integer, "sae_code" character varying(255), "origin" integer, "description" character varying(255), "amount" float, "concept" character varying(255), "financing" integer, "organism" character varying(255), "date" date, "document" character varying(255), "doc_code" character varying(255), "doc_url" character varying(255), "doc_date" date, "unit" character varying(255), "observations" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150219034709"]]
+  [1m[36m (7.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateProjexecutions (20150219050705)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (92.6ms)[0m  [1mCREATE TABLE "projexecutions" ("id" serial primary key, "proyecto" integer, "commitment_id" integer, "code" character varying(255), "check_amount" float, "date" date, "document" integer, "check_number" character varying(255), "check_elaboration_date" date, "check_sign_date" date, "check_delivery_date" date, "check_delivery_status" integer, "check_annulled" boolean, "remarks" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150219050705"]]
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-19 01:30:42 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/appindex (6.3ms)
+Completed 500 Internal Server Error in 140ms
+
+ActionView::Template::Error (dump format error for symbol(0x6d)):
+    4: 	<%= favicon_link_tag 'favicon.ico' %>
+    5: 	<title>SIGULAB</title>  
+    6: 	<%= stylesheet_link_tag    'bootlayout', media: 'all', 'data-turbolinks-track' => true %>
+    7: 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8: 	<%= csrf_meta_tags %>  
+    9: </head>
+   10: <body>
+  app/views/layouts/appindex.html.erb:7:in `_app_views_layouts_appindex_html_erb___4355891190289685239_69874820716460'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (14.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-19 01:32:29 -0430
+Processing by StaticsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered statics/index.html.erb within layouts/appindex (1.6ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (dump format error for symbol(0x6d)):
+    4: 	<%= favicon_link_tag 'favicon.ico' %>
+    5: 	<title>SIGULAB</title>  
+    6: 	<%= stylesheet_link_tag    'bootlayout', media: 'all', 'data-turbolinks-track' => true %>
+    7: 	<%= javascript_include_tag 'application' %>
+    8: 	<%= csrf_meta_tags %>  
+    9: </head>
+   10: <body>
+  app/views/layouts/appindex.html.erb:7:in `_app_views_layouts_appindex_html_erb___4355891190289685239_69874795905520'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-19 01:32:41 -0430
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/appindex (0.6ms)
+Completed 500 Internal Server Error in 54ms
+
+ActionView::Template::Error (dump format error for symbol(0x6d)):
+    4: 	<%= favicon_link_tag 'favicon.ico' %>
+    5: 	<title>SIGULAB</title>  
+    6: 	<%= stylesheet_link_tag    'bootlayout', media: 'all', 'data-turbolinks-track' => true %>
+    7: 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8: 	<%= csrf_meta_tags %>  
+    9: </head>
+   10: <body>
+  app/views/layouts/appindex.html.erb:7:in `_app_views_layouts_appindex_html_erb___4355891190289685239_69874816846220'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-19 01:33:02 -0430
+Processing by StaticsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered statics/index.html.erb within layouts/appindex (2.1ms)
+  Rendered shared/_header.html.erb (2.0ms)
+  Rendered shared/_navbarcut.html.erb (1.5ms)
+  Rendered shared/_footer.html.erb (2.9ms)
+Completed 200 OK in 76ms (Views: 71.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-19 01:33:02 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-19 01:33:02 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-19 01:33:02 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-19 01:33:02 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-19 01:33:02 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-19 01:33:02 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-19 01:33:14 -0430
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/appindex (1.5ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (dump format error for symbol(0x6d)):
+    4: 	<%= favicon_link_tag 'favicon.ico' %>
+    5: 	<title>SIGULAB</title>  
+    6: 	<%= stylesheet_link_tag    'bootlayout', media: 'all', 'data-turbolinks-track' => true %>
+    7: 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8: 	<%= csrf_meta_tags %>  
+    9: </head>
+   10: <body>
+  app/views/layouts/appindex.html.erb:7:in `_app_views_layouts_appindex_html_erb___4355891190289685239_69874820106660'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-19 01:34:19 -0430
+Processing by StaticsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered statics/index.html.erb within layouts/appindex (1.2ms)
+Completed 500 Internal Server Error in 78ms
+
+ActionView::Template::Error (dump format error for symbol(0x6d)):
+    4: 	<%= favicon_link_tag 'favicon.ico' %>
+    5: 	<title>SIGULAB</title>  
+    6: 	<%= stylesheet_link_tag    'bootlayout', media: 'all', 'data-turbolinks-track' => true %>
+    7: 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    8: 	<%= csrf_meta_tags %>  
+    9: </head>
+   10: <body>
+  app/views/layouts/appindex.html.erb:7:in `_app_views_layouts_appindex_html_erb___4355891190289685239_69874820106660'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-19 01:34:30 -0430
+Processing by StaticsController#index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered statics/index.html.erb within layouts/appindex (1.0ms)
+  Rendered shared/_header.html.erb (0.3ms)
+  Rendered shared/_navbarcut.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 61ms (Views: 55.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:30 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:30 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:30 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:30 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-19 01:34:30 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-19 01:34:30 -0430
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-19 01:34:35 -0430
+Processing by AdministrationController#inventario as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered administration/inventario.html.erb within layouts/bootlayout (4.5ms)
+  Rendered shared/_header.html.erb (0.3ms)
+  Rendered shared/_navbar.html.erb (3.9ms)
+  Rendered shared/_footer.html.erb (0.6ms)
+Completed 200 OK in 192ms (Views: 186.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-19 01:34:36 -0430
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-19 01:34:44 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "chemical_substances"[0m
+  [1m[35mChemicalSubstance Load (1.5ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC
+  Rendered chemical_substances/index.html.erb within layouts/bootlayout (137.0ms)
+  Rendered shared/_header.html.erb (0.5ms)
+  Rendered shared/_navbar.html.erb (2.2ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 284ms (Views: 269.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+
+Started GET "/stylesheets/chemical_substances.css.scss.css" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/chemical_substances.css.scss.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (26.0ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.0ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (225.9ms)
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-19 01:34:45 -0430
+
+
+Started POST "/loans/new" for 127.0.0.1 at 2015-02-19 01:34:53 -0430
+Processing by LoansController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q6cTOc+p9c65Di119mHEhqdjxwXvF7MVCujYJhFCYUc=", "example_length"=>"10", "item_ids"=>["SQ-3", "SQ-4"]}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered loans/_form.html.erb (27.0ms)
+  Rendered loans/_form2.html.erb (2.1ms)
+  [1m[35mChemicalSubstance Load (1.2ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."id2" IN ('SQ-3', 'SQ-4')
+  [1m[36mEquipment Load (0.7ms)[0m  [1mSELECT "equipment".* FROM "equipment"  WHERE "equipment"."id2" IN ('SQ-3', 'SQ-4')[0m
+  [1m[35mTool Load (0.7ms)[0m  SELECT "tools".* FROM "tools"  WHERE "tools"."id2" IN ('SQ-3', 'SQ-4')
+  [1m[36mConsumable Load (1.8ms)[0m  [1mSELECT "consumables".* FROM "consumables"  WHERE "consumables"."id2" IN ('SQ-3', 'SQ-4')[0m
+  [1m[35mInstrument Load (0.6ms)[0m  SELECT "instruments".* FROM "instruments"  WHERE "instruments"."id2" IN ('SQ-3', 'SQ-4')
+  Rendered loans/new.html.erb within layouts/bootlayout (188.4ms)
+  Rendered shared/_header.html.erb (0.2ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 430ms (Views: 337.4ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/jquery.accordion.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/jquery.easing.1.3.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/desplegable.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/assets/down.png" for 127.0.0.1 at 2015-02-19 01:34:54 -0430
+
+
+Started GET "/inventario" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+Processing by AdministrationController#inventario as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered administration/inventario.html.erb within layouts/bootlayout (1.7ms)
+  Rendered shared/_header.html.erb (0.3ms)
+  Rendered shared/_navbar.html.erb (3.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 174ms (Views: 169.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-19 01:34:58 -0430
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-19 01:35:01 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "chemical_substances"[0m
+  [1m[35mChemicalSubstance Load (1.1ms)[0m  SELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC
+  Rendered chemical_substances/index.html.erb within layouts/bootlayout (62.7ms)
+  Rendered shared/_header.html.erb (0.2ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 206ms (Views: 200.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-19 01:35:01 -0430
+
+
+Started GET "/stylesheets/chemical_substances.css.scss.css" for 127.0.0.1 at 2015-02-19 01:35:01 -0430
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/chemical_substances.css.scss.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (27.2ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (127.7ms)
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-19 01:35:01 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-19 01:35:01 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-19 01:35:02 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-19 01:35:02 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-19 01:35:02 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-19 01:35:02 -0430
+
+
+Started GET "/chemical_substances/17" for 127.0.0.1 at 2015-02-19 01:35:03 -0430
+Processing by ChemicalSubstancesController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mChemicalSubstance Load (0.5ms)[0m  [1mSELECT  "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."id" = $1 LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered chemical_substances/show.html.erb within layouts/bootlayout (32.8ms)
+  Rendered shared/_header.html.erb (0.2ms)
+  Rendered shared/_navbar.html.erb (1.6ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 190ms (Views: 184.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stylesheets/chemical_substances.css.scss.css" for 127.0.0.1 at 2015-02-19 01:35:03 -0430
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/chemical_substances.css.scss.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (23.7ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (139.3ms)
+
+
+Started GET "/binnacles.SQ-1" for 127.0.0.1 at 2015-02-19 01:35:38 -0430
+Processing by BinnaclesController#index as 
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mBinnacle Load (1.4ms)[0m  SELECT "binnacles".* FROM "binnacles"  WHERE "binnacles"."idSustancia" = 'SQ-1'
+  Rendered binnacles/index.html.erb within layouts/bootlayout (78.1ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_navbar.html.erb (3.3ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 254ms (Views: 216.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/stylesheets/chemical_substances.css.scss.css" for 127.0.0.1 at 2015-02-19 01:35:38 -0430
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/chemical_substances.css.scss.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (18.3ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.7ms)
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-19 01:35:38 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-19 01:35:38 -0430
+
+
+Started GET "/chemical_substances" for 127.0.0.1 at 2015-02-19 01:36:12 -0430
+Processing by ChemicalSubstancesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "chemical_substances"
+  [1m[36mChemicalSubstance Load (0.7ms)[0m  [1mSELECT "chemical_substances".* FROM "chemical_substances"  WHERE "chemical_substances"."showable" = 't'  ORDER BY created_at DESC[0m
+  Rendered chemical_substances/index.html.erb within layouts/bootlayout (113.7ms)
+  Rendered shared/_header.html.erb (0.2ms)
+  Rendered shared/_navbar.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 222ms (Views: 217.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/stylesheets/chemical_substances.css.scss.css" for 127.0.0.1 at 2015-02-19 01:36:13 -0430
+
+ActionController::RoutingError (No route matches [GET] "/stylesheets/chemical_substances.css.scss.css"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/nelson/.rbenv/versions/2.1.3/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (27.1ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/nelson/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (200.4ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-19 01:36:13 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-19 01:36:13 -0430
