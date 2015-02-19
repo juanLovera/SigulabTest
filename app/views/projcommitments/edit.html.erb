@@ -1,0 +1,99 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+<!-- 			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>				 -->
+<!-- 			<li><%= link_to @project.project_number, @project %></li>				 -->		
+<!-- 			<li><%= link_to 'Compromisos', controller: 'projcommitments', action: 'list' %></li>				 -->
+			<li class="active">Editar Compromiso</li>
+		</ol>
+	</div>
+	<% if @commitment.errors.any? %>
+		<div class="col-xs-12" role="alert">
+			<div class="alert alert-danger">
+				<ul>
+					<% @commitment.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>	
+			</div>
+		</div>
+	<% end %>
+	<div class="col-xs-12">
+		<%= form_for @commitment, url: {action: 'update'}, id: @commitment.id, html: {class: 'form-horizontal'} do |i| %>	
+			<div class="form-group">
+				<label for='commitment_proj_id' class="col-xs-3 control-label text-right">Proyecto <span style="color:#FF0000">*</span></label>
+				<div class="col-xs-4">
+						<%= i.text_field :proj_id, class: 'form-control', :readonly => true  %>
+				</div>
+			</div>	
+					
+			<div class="form-group">
+				<label for='commitment_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
+				<div class="col-xs-4">
+					<%= i.select(:document, options_for_select(Commitment.document_str.zip(Commitment.documents.keys), @commitment.document), {}, {class: "form-control"} ) %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='commitment_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :code, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='commitment_recipient' class="col-xs-3 control-label text-right">Beneficiario <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :recipient, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='commitment_description' class="col-xs-3 control-label text-right">Descripción <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :description, class: 'form-control' %>
+				</div>
+			</div>
+						
+    	<div class="form-group">
+				<label for='commitment_observations' class="col-xs-3 control-label text-right">Observaciones</label>
+				<div class='col-xs-4'>
+					<%= i.text_area :observations, class: 'form-control' %>
+				</div>
+			</div>
+    
+			<div class="form-group">
+				<label for='commitment_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<div class="input-group">
+      <span class="input-group-addon">Bs.</span>
+						<%= i.text_field :amount, class: 'form-control' %>			
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='commitment_date' class="col-xs-3 control-label text-right">Fecha <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :date, value: (@commitment.date.strftime("%d/%m/%Y") unless @commitment.date.blank?), class: 'bootlayout-date form-control', placeholder: 'Fecha de Recepción' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar el compromiso?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Compromiso</button>
+					<%= link_to @commitment, class: "btn btn-default btn-danger" do %>
+						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-xs-12">
+		<div class="well">
+			<span style="color:#FF0000">*</span> Los campos son obligatorios.
+		</div>
+	</div>
+</div>

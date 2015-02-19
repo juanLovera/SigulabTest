@@ -88,6 +88,33 @@ def list
   @sum = @projects.where("NOT(status=3) AND NOT(status=4)").sum(:amount)  
 end
 
+def admin
+  @projects = Project.all.order("project_number ASC")
+
+  # @incomes = Projincome.all
+  @commitments = Projcommitment.all
+  # @executions = Projexecution.all
+
+  # @incomes_proj = []
+  @commitments_proj = []
+
+  # @executions_commitement = []
+  # @incomes_total = 0
+  @commitments_total = 0
+
+  # @executions_total = 0
+
+
+  @projects.each do |p|
+    # @incomes_proj[p.id] = @incomes.where(project_id: p.id).sum(:amount)
+    # @incomes_total += @incomes_proj[p.id]
+    @commitments_proj[p.id] = @commitments.where(proj_id: p.id).sum(:amount)
+    @commitments_total += @commitments_proj[p.id]
+    # @executions_commitement[p.id] = @executions.where(commitment_id: p.id).where("check_annulled=false").sum(:check_amount)
+    # @executions_total += @executions_commitement[p.id]
+  end
+end
+
   private
   
     def project_params
