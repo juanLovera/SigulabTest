@@ -7,7 +7,6 @@ class ChemicalSubstance < ActiveRecord::Base
 	validates :responsible, :presence => {:message => "no puede ser blanco"}
 	validates :quantity, :presence => {:message => "no puede ser blanco"}
 	validates_uniqueness_of :id2
-	validates_presence_of :id2
 	before_validation :uppercase_fields
 	before_update :uppercase_fields
 	has_many :table_items_solicitud

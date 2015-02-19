@@ -13,16 +13,16 @@ class BinnaclesController < ApplicationController
   end
 
   def show
-    
+    @id = @binnacle.idSustancia
   end
 
   def new
-    binding.pry
     @id = params[:format]
     @binnacle = Binnacle.new    
   end
 
   def edit
+    @id = @binnacle.idSustancia
   end
 
   def create

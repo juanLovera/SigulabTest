@@ -28,4 +28,4 @@ en:
 
   errors:
     messages:
-      extension_white_list_error: "No esta permitido subit archivos %{extension}, solo: %{allowed_types}"
+      extension_white_list_error: "No esta permitido subir archivos %{extension}, solo: %{allowed_types}"

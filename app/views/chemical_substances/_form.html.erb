@@ -1,13 +1,13 @@
 <%= form_for(@chemical_substance) do |f| %>
       <% if @chemical_substance.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@chemical_substance.errors.count, "error(es") %>) prohíben que esta sustancia química sea guardada:</h2>
-
-          <ul>
-          <% @chemical_substance.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
+        <div class="col-xs-12" role="alert">
+          <div class="alert alert-danger">
+            <ul>
+              <% @chemical_substance.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       <% end %>
 
