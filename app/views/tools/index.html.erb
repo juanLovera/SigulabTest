@@ -62,7 +62,7 @@
   <br>
 
     <% if can? :create, @tool %>
-      <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Herramienta', new_tool_path, 'data-no-turbolink' => true, :class => "linkButton" %> | 
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;<%= link_to ' Nueva Herramienta', new_tool_path %></button> | 
     <%end%>
     <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo/Servicio ', :class => "linkButton" %> | 
     <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => "linkButton" %>

@@ -62,9 +62,18 @@
 
 
   <% if can? :create, @equipment %>
-    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Equipo', new_equipment_path, 'data-no-turbolink' => true, :class => 'linkButton' %> | 
+
+    <div class="col-xs-12" align="left">
+    <p></p>
+    <%= link_to new_equipment_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Nuevo Equipo</button>
+    <% end %>
+
   <%end%>
-  <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo/Servicio ', :class => "linkButton" %> | 
+    
+      <button ><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;<%= submit_tag 'Solicitar Préstamo/Servicio', :class=>"btn btn-default" %></button>
+
+
   <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
   <% end %>
   <br><br><br><br>
@@ -76,7 +85,7 @@
 .linkButton { 
    text-decoration: none;
    text-align: right;
-   color: #384157;
+   color: #00000;
    font-weight: bold;
      background: none repeat scroll 0px 0px transparent;
      border: none;
