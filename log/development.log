@@ -57803,3 +57803,286 @@ Migrating to CreateProjincomes (20150219034709)
   [1m[35mSQL (10.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150219034709"]]
   [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (2.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProjcommitments (20150219033354)
+  [1m[35m (1.3ms)[0m  BEGIN
+  [1m[36m (322.0ms)[0m  [1mCREATE TABLE "projcommitments" ("id" serial primary key, "proj_id" integer, "code" character varying(255), "amount" float, "description" character varying(255), "recipient" character varying(255), "date" date, "observations" text, "document" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150219033354"]]
+  [1m[36m (60.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/executions" for 127.0.0.1 at 2015-02-19 00:31:30 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ExecutionsController#index as HTML
+  [1m[35mUser Load (4.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (41.0ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 1  [["current_sign_in_at", "2015-02-19 05:01:31.776969"], ["last_sign_in_at", "2015-02-19 01:59:28.626392"], ["sign_in_count", 8], ["updated_at", "2015-02-19 05:01:31.785186"]]
+  [1m[36m (21.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (7.7ms)[0m  SELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (check_annulled=false)
+  [1m[36mExecution Load (9.9ms)[0m  [1mSELECT "executions".* FROM "executions"[0m
+  [1m[35mCommitment Load (4.2ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLab Load (3.4ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered executions/index.html.erb within layouts/bootlayout (1068.0ms)
+  Rendered shared/_header.html.erb (15.4ms)
+  Rendered shared/_navbar.html.erb (125.4ms)
+  Rendered shared/_footer.html.erb (21.2ms)
+Completed 200 OK in 3000ms (Views: 2224.7ms | ActiveRecord: 166.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2015-02-19 00:31:34 -0430
+
+
+Started GET "/assets/bootlayout.css?body=1" for 127.0.0.1 at 2015-02-19 00:31:34 -0430
+
+
+Started GET "/assets/datepicker3.css?body=1" for 127.0.0.1 at 2015-02-19 00:31:35 -0430
+
+
+Started GET "/assets/administration_only.css?body=1" for 127.0.0.1 at 2015-02-19 00:31:35 -0430
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:35 -0430
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:35 -0430
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:35 -0430
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:35 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:35 -0430
+
+
+Started GET "/assets/bootstrap-datepicker.es.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/administration_only.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/bootlayout.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/demo_table_jui.css?body=1" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css?body=1" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/logo_drupal.jpg" for 127.0.0.1 at 2015-02-19 00:31:36 -0430
+
+
+Started GET "/assets/cebolla_70_45.jpg" for 127.0.0.1 at 2015-02-19 00:31:37 -0430
+
+
+Started GET "/assets/images/favicon.ico" for 127.0.0.1 at 2015-02-19 00:31:37 -0430
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/favicon.ico"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (330.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (79.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1387.8ms)
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2015-02-19 00:31:38 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2015-02-19 00:31:38 -0430
+
+
+Started GET "/assets/examples_support/themes/smoothness/images/ui-icons_888888_256x240.png" for 127.0.0.1 at 2015-02-19 00:31:39 -0430
+
+
+Started GET "/executions/1" for 127.0.0.1 at 2015-02-19 00:31:42 -0430
+Processing by ExecutionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mExecution Load (1.7ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (7.2ms)[0m  SELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id=NULL) AND (check_annulled=false)
+  [1m[36mCommitment Load (8.9ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLab Load (11.5ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/show.html.erb within layouts/bootlayout (63.1ms)
+  Rendered shared/_header.html.erb (3.1ms)
+  Rendered shared/_navbar.html.erb (30.6ms)
+  Rendered shared/_footer.html.erb (3.3ms)
+Completed 200 OK in 658ms (Views: 587.2ms | ActiveRecord: 31.5ms)
+
+
+Started GET "/assets/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2015-02-19 00:31:44 -0430
+
+
+Started GET "/executions/1/edit" for 127.0.0.1 at 2015-02-19 00:34:23 -0430
+Processing by ExecutionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (2.2ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCommitment Load (1.5ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCommitment Load (1.7ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLab Load (1.6ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/edit.html.erb within layouts/bootlayout (165.9ms)
+  Rendered shared/_header.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (15.9ms)
+  Rendered shared/_footer.html.erb (1.4ms)
+Completed 200 OK in 688ms (Views: 624.9ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/executions/1/edit" for 127.0.0.1 at 2015-02-19 00:35:05 -0430
+Processing by ExecutionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (10.3ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCommitment Load (2.2ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCommitment Load (2.6ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLab Load (1.7ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/edit.html.erb within layouts/bootlayout (167.8ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_navbar.html.erb (8.4ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 903ms (Views: 820.4ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/commitments" for 127.0.0.1 at 2015-02-19 00:35:25 -0430
+Processing by CommitmentsController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (7.0ms)[0m  SELECT SUM("commitments"."amount") AS sum_id FROM "commitments"
+  [1m[36mCommitment Load (2.4ms)[0m  [1mSELECT "commitments".* FROM "commitments"   ORDER BY date ASC[0m
+  [1m[35mLab Load (1.6ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered commitments/index.html.erb within layouts/bootlayout (237.8ms)
+  Rendered shared/_header.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (6.8ms)
+  Rendered shared/_footer.html.erb (1.0ms)
+Completed 200 OK in 669ms (Views: 622.7ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-19 00:35:26 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-19 00:35:26 -0430
+
+
+Started GET "/commitments/1" for 127.0.0.1 at 2015-02-19 00:35:28 -0430
+Processing by CommitmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCommitment Load (7.8ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (2.1ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id='1') AND (check_annulled=false)[0m
+  [1m[35m (2.0ms)[0m  SELECT COUNT(*) FROM "executions"  WHERE (commitment_id='1')
+  [1m[36mLab Load (6.7ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered commitments/show.html.erb within layouts/bootlayout (71.8ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (7.3ms)
+  Rendered shared/_footer.html.erb (0.9ms)
+Completed 200 OK in 555ms (Views: 487.2ms | ActiveRecord: 22.9ms)
+
+
+Started GET "/commitments/1/edit" for 127.0.0.1 at 2015-02-19 00:35:33 -0430
+Processing by CommitmentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mCommitment Load (1.5ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLab Load (8.8ms)[0m  SELECT "labs".* FROM "labs"
+  Rendered commitments/edit.html.erb within layouts/bootlayout (94.5ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (7.1ms)
+  Rendered shared/_footer.html.erb (1.3ms)
+Completed 200 OK in 525ms (Views: 499.9ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/executions/list?cid=1" for 127.0.0.1 at 2015-02-19 00:35:38 -0430
+Processing by ExecutionsController#list as HTML
+  Parameters: {"cid"=>"1"}
+  [1m[36mUser Load (7.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (10.8ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (1.9ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id='1') AND (check_annulled=false)[0m
+  [1m[35mCommitment Load (9.5ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCommitment Load (1.2ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mExecution Load (3.7ms)[0m  SELECT "executions".* FROM "executions"  WHERE (commitment_id='1')
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLab Load (1.8ms)[0m  SELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered executions/list.html.erb within layouts/bootlayout (232.6ms)
+  Rendered shared/_header.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (8.0ms)
+  Rendered shared/_footer.html.erb (2.7ms)
+Completed 200 OK in 714ms (Views: 645.9ms | ActiveRecord: 36.4ms)
+
+
+Started GET "/assets/jquery.dataTables.js?body=1" for 127.0.0.1 at 2015-02-19 00:35:39 -0430
+
+
+Started GET "/assets/tabla.js?body=1" for 127.0.0.1 at 2015-02-19 00:35:39 -0430
+
+
+Started GET "/executions/1" for 127.0.0.1 at 2015-02-19 00:35:41 -0430
+Processing by ExecutionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (5.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mExecution Load (5.0ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (2.5ms)[0m  [1mSELECT SUM("executions"."check_amount") AS sum_id FROM "executions"  WHERE (commitment_id=NULL) AND (check_annulled=false)[0m
+  [1m[35mCommitment Load (3.1ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLab Load (12.9ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered executions/show.html.erb within layouts/bootlayout (35.5ms)
+  Rendered shared/_header.html.erb (1.5ms)
+  Rendered shared/_navbar.html.erb (11.8ms)
+  Rendered shared/_footer.html.erb (1.0ms)
+Completed 200 OK in 514ms (Views: 452.6ms | ActiveRecord: 28.8ms)
+
+
+Started GET "/executions/1/edit" for 127.0.0.1 at 2015-02-19 00:35:46 -0430
+Processing by ExecutionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mExecution Load (13.7ms)[0m  [1mSELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "executions".* FROM "executions"  WHERE "executions"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mCommitment Load (1.4ms)[0m  [1mSELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCommitment Load (1.8ms)[0m  SELECT  "commitments".* FROM "commitments"  WHERE "commitments"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLab Load (6.0ms)[0m  [1mSELECT  "labs".* FROM "labs"  WHERE "labs"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered executions/edit.html.erb within layouts/bootlayout (118.5ms)
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_navbar.html.erb (6.1ms)
+  Rendered shared/_footer.html.erb (0.8ms)
+Completed 200 OK in 564ms (Views: 498.6ms | ActiveRecord: 25.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProjexecutions (20150219050705)
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36m (337.9ms)[0m  [1mCREATE TABLE "projexecutions" ("id" serial primary key, "proyecto" integer, "commitment_id" integer, "code" character varying(255), "check_amount" float, "date" date, "document" integer, "check_number" character varying(255), "check_elaboration_date" date, "check_sign_date" date, "check_delivery_date" date, "check_delivery_status" integer, "check_annulled" boolean, "remarks" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150219050705"]]
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (10.9ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
