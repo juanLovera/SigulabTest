@@ -77,6 +77,7 @@ end
   get "/executions/list", to: "executions#list", :as => "executions/list"
   get "/projects/list", to: "projects#list", :as => "projects/list"
   get "/projects/admin", to: "projects#admin", :as => "projects/admin"
+  get "/projects/summary", to: "projects#summary", :as => "projects/summary"
 
   resources :incomes
   resources :commitments
