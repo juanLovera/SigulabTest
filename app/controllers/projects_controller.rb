@@ -93,16 +93,16 @@ def admin
 
   @incomes = Projincome.all
   @commitments = Projcommitment.all
-  # @executions = Projexecution.all
+  @executions = Projexecution.all
 
   @incomes_proj = []
   @commitments_proj = []
 
-  # @executions_commitement = []
+  @executions_commitement = []
   @incomes_total = 0
   @commitments_total = 0
 
-  # @executions_total = 0
+  @executions_total = 0
 
 
   @projects.each do |p|
@@ -110,8 +110,8 @@ def admin
     @incomes_total += @incomes_proj[p.id]
     @commitments_proj[p.id] = @commitments.where(proj_id: p.id).sum(:amount)
     @commitments_total += @commitments_proj[p.id]
-    # @executions_commitement[p.id] = @executions.where(commitment_id: p.id).where("check_annulled=false").sum(:check_amount)
-    # @executions_total += @executions_commitement[p.id]
+    @executions_commitement[p.id] = @executions.where(proyecto: @project.id).where("check_annulled=false").sum(:check_amount)
+    @executions_total += @executions_commitement[p.id]
   end
 end
 
@@ -119,6 +119,7 @@ def summary
   @project = Project.find(params[:id]) 
   @incomes_total = Projincome.all.where(proyecto: @project.id).sum(:amount) 
   @commitments_total = Projcommitment.all.where(proj_id: @project.id).sum(:amount)  
+  @executions_total = Projexecution.all.where(proyecto: @project.id).where("check_annulled=false").sum(:check_amount)
 end
 
   private

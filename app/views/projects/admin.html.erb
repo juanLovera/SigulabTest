@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="col-xs-12">
-		<h2><center>Administración de Proyectos</center></h2>
+
 	</div>
 	<div class="col-xs-12">
 		<div class="well">
@@ -35,7 +35,7 @@
 								<th class="text-center">Proyecto</th>
 								<th class="text-center">Monto Asignado</th>
 								<th class="text-center">Monto Comprometido</th>
-								<!-- <th class="text-center">Monto Ejecutado</th> -->
+								<th class="text-center">Monto Ejecutado</th>
 								<th class="text-center">Saldo Disponible</th> 
 							</tr>
 						</thead>
@@ -46,7 +46,7 @@
 									<td><%= link_to p.project_number, action: 'summary', id: p.id %></td>
  									<td class="text-center"><%= number_to_currency(@incomes_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>
 									<td class="text-center"><%= number_to_currency(@commitments_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>									
-
+									<td class="text-center"><%= number_to_currency(@executions_commitement[p.id], format: "%n", delimiter: ".", separator: ",") %></td>	
 									<td class="text-center"><%= number_to_currency(@incomes_proj[p.id] - @commitments_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>
 							<% end %>
@@ -67,7 +67,7 @@
 								<th class="text-center"></th>
 								<th class="text-center">Monto Asignado</th>
 								<th class="text-center">Monto Comprometido</th>
-								<!-- <th class="text-center">Monto Ejecutado</th> -->
+								<th class="text-center">Monto Ejecutado</th>
 								<th class="text-center">Saldo Disponible</th>
 							</tr>
 						</thead>
@@ -76,7 +76,7 @@
 							<td class="text-center">TOTALES</td>
 							<td class="text-center"><%= number_to_currency(@incomes_total, format: "%n", delimiter: ".", separator: ",") %></td> 
 							<td class="text-center"><%= number_to_currency(@commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
-
+							<td class="text-center"><%= number_to_currency(@executions_total, format: "%n", delimiter: ".", separator: ",") %></td>
 							<td class="text-center"><%= number_to_currency(@incomes_total - @commitments_total, format: "%n", delimiter: ".", separator: ",") %></td> 
 						</tr>
 					</tbody>
