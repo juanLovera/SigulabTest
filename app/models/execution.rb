@@ -31,13 +31,13 @@ class Execution < ActiveRecord::Base
  
   def elaboration_sign
     if check_elaboration_date > check_sign_date
-      errors.add(:check_elaboration_date, "no puede ser posterior a la fecha de firma")
+      errors.add(:check_sign_date, "debe ser posterior a la Fecha de Elaboración.")
     end
   end 
 
   def sign_delivery
     if check_sign_date > check_delivery_date
-      errors.add(:check_sign_date, "no puede ser posterior a la fecha de entrega")
+      errors.add(:check_delivery_date, "debe ser posterior a la Fecha de Firma.")
     end
   end 
 
@@ -46,12 +46,12 @@ class Execution < ActiveRecord::Base
   end
 	  
   def executable_amount
-      errors.add(:check_amount, "no puede ser mayor al saldo pendiente del compromiso")
+      errors.add(:check_amount, "no puede ser mayor al saldo pendiente del compromiso.")
   end
 
   def valid_amount
     if check_amount > commitment.amount
-      errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado")
+      errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado.")
     end 
   end
 

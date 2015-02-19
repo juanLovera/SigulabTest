@@ -1,0 +1,63 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li> <%=link_to 'Sustancias Químicas', chemical_substances_path %></li>
+  <li class="active"> Bitácora </li>
+</ol>
+
+  <div class="col-xs-12">
+    <h1><i class="fa fa-bar-chart"></i> Bitácora</h1>
+  </div>
+
+  <br>
+
+  <div class="col-xs-12">
+      <body id="dt_example" class="ex_highlight_row">
+
+        <div id="container">
+          <div id="demo">
+            <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+              <thead>
+                <tr>
+                  <th class="text-center">Fecha</th>
+                  <th class="text-center">Consumo</th>
+                  <th class="text-center">Ingreso</th>
+                  <th class="text-center">Saldo</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @binnacles.each do |binnacle| %>
+                  <tr>
+                    <td class="text-center"><%= link_to binnacle.fecha, binnacle %></td>
+                    <td class="text-center"><%= binnacle.consumo %></td>
+                    <td class="text-center"><%= binnacle.ingreso %></td>
+                    <td class="text-center"><%= binnacle.saldo %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <div class="spacer"></div>
+          </div>
+        </div>
+      </body>
+
+      <p></p>
+
+    </div>
+
+<div class="col-xs-12" align="left">
+  <p></p>
+  <%= link_to new_binnacle_path(@id) do %>
+    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Registro</button>
+  <% end %>
+  <%= link_to chemical_substances_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
+</div>

@@ -18,10 +18,12 @@
 				<td class="col-xs-5 text-right">Compromiso asociado:</td>
 				<td class="col-xs-7"><%= @execution.commitment.description %></td>
 			</tr>
+			<% if !@execution.document_name.blank? -%>
 			<tr>
 				<td class="col-xs-5 text-right">Documento:</td>
 				<td class="col-xs-7"><%= @execution.document_name %></td>
-			</tr>			
+			</tr>
+			<% end %>		
 			<tr>
 				<td class="col-xs-5 text-right">Número de Documento:</td>
 				<td class="col-xs-7"><%= @execution.code %></td>

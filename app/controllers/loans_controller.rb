@@ -1,6 +1,7 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :edit, :update, :destroy, :item_ids]
   layout 'bootlayout'
+  before_filter :authenticate_user!
   # GET /loans
   # GET /loans.json
   def index

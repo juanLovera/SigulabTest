@@ -1,0 +1,94 @@
+<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+
+<h1>Editar Registro</h1>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li> <%=link_to 'Sustancias Químicas', chemical_substances_path %></li>
+	<li> <%=link_to 'Bitácora', binnacles_path(@id) %></li>
+  	<li class="active"> Editar Registro </li>
+	
+</ol>
+
+<div id = "table2">
+</div>
+<br>
+
+<%= form_for(@binnacle) do |f| %>
+  <% if @binnacle.errors.any? %>
+    <div class="col-xs-12" role="alert">
+      <div class="alert alert-danger">
+        <ul>
+          <% @binnacle.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class ="Informacion">
+
+<div class="col-xs-12">
+        <table class="table table-striped">
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha de Registro:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :fecha, :class => "bootlayout-date" %>
+            <span class="red">*</span></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Consumo:</strong></td>
+            <td class="col-xs-7"> <%= f.number_field(:consumo, min: 0) %><span class="red">*</span>
+            <%= f.select(:medidaConsumo, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ingreso:</strong></td>
+            <td class="col-xs-7"> <%= f.number_field(:ingreso, min: 0)%><span class="red">*</span>
+            <%= f.select(:medidaIngreso, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Saldo:</strong></td>
+            <td class="col-xs-7"> <%= f.number_field(:saldo, min: 0) %><span class="red">*</span>
+            <%= f.select(:medidaSaldo, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
+          </tr>
+          <%= f.hidden_field :idSustancia, :value => @id %>
+          
+          <td class="col-xs-5"><td>
+
+        </table>
+
+    </div>
+
+    <div class="col-xs-12 text-center">
+      <div class="actions">
+        <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar</button>
+        <%= link_to binnacles_path(@id) do %>
+          <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+        <% end %>
+      </div>
+    </div>
+
+
+    <br>
+
+    <br><br>
+  </div>
+<% end %>
+
+<br>
+
+<style>
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+</style>

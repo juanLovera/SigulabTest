@@ -1,0 +1,45 @@
+
+<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+  <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+  <li> <%=link_to 'Inventario', inventario_url %></li>
+  <li> <%=link_to 'Sustancias Químicas', chemical_substances_path %></li>
+  <li> <%=link_to 'Bitácora', binnacles_path(@id) %></li>
+  <li class="active"> Detalle </li>
+</ol>
+
+    <div class="col-xs-12">
+        <table class="table table-striped">
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha:</strong></td>
+            <td class="col-xs-7"><%= @binnacle.fecha %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Consumo:</strong></td>
+            <td class="col-xs-7"><%= @binnacle.consumo %><%= @binnacle.medidaConsumo %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ingreso:</strong></td>
+            <td class="col-xs-7"><%= @binnacle.ingreso %><%= @binnacle.medidaIngreso %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Saldo:</strong></td>
+            <td class="col-xs-7"><%= @binnacle.saldo %><%= @binnacle.medidaSaldo %></td>
+          </tr>
+        </table>
+    </div>
+
+<div class="col-xs-12">
+  <%= link_to edit_binnacle_path(@binnacle) do %>
+    <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Registro</button>
+  <% end %>
+  <%= link_to binnacles_path(@id) do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
+</div>
+
+
+<style>
+  #span1 { width: 25px; float: left; height:100%; }
+  #span2 { width: 110px; float: left; height:50%;}
+</style>

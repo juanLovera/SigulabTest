@@ -26,16 +26,36 @@ es:
       commitment: "Compromiso"
       execution: "Ejecución"
       project: "Proyecto"
+      binnacle: "Bitácora"
+      chemical_substance: "Sustancia Química"
+      consumable: "Consumible"
+      donation: "Donación"
+      equipment: "Equipo y Mobiliario"
+      instrument: "Instrumento"
+      tool: "Herramienta"
+      loan: "Solicitud de Préstamo"
     attributes:
+      binnacle:
+        fecha: "Fecha"
+        consumo: "Consumo"
+        ingreso: "Ingreso"
+        saldo: "Saldo"
+      chemical_substance:
+        name: "Nombre"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+        cas: "CAS"
+        responsible: "Responsable"
+        quantity: "Cantidad"
       income:
-        lab_id: "Dependencia"
+        lab: "Dependencia"      
         origin: "Origen"
         amount: "Monto"
         sae_code: "Código SAE"
         description: "Descripción"
         organism: "Organismo"
         document: "Documento"
-        date: "Fecha"
+        date: "Fecha de Recepción"
         doc_code: "Número de Documento"
         doc_date: "Fecha de Documento"
         financing: "Fuente de Financiamiento"
@@ -93,4 +113,4 @@ es:
 
   errors:
     messages:
-      extension_white_list_error: "No esta permitido subit archivos %{extension}, solo: %{allowed_types}"
+      extension_white_list_error: "No está permitido subir archivos con extensión %{extension}, solo: %{allowed_types}"

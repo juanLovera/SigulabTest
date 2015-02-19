@@ -1,0 +1,86 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+
+<div class="row">	
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
+			<li class="active">Administrar proyectos</li>
+		</ol>
+	</div>
+	
+	<div class="col-xs-12">
+
+	</div>
+	<div class="col-xs-12">
+		<div class="well">
+			Todos los montos están expresados en bolívares.
+		</div>
+	</div>
+
+	<div class="col-xs-12">
+
+		<body id="dt_example" class="ex_highlight_row">
+
+			<div id="container">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+							<tr>
+								<th class="text-center">Proyecto</th>
+								<th class="text-center">Monto Asignado</th>
+								<th class="text-center">Monto Comprometido</th>
+								<th class="text-center">Monto Ejecutado</th>
+								<th class="text-center">Saldo Disponible</th> 
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @projects.each do |p| %>
+								<tr>
+									<td><%= link_to p.project_number, action: 'summary', id: p.id %></td>
+ 									<td class="text-center"><%= number_to_currency(@incomes_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>
+									<td class="text-center"><%= number_to_currency(@commitments_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>									
+									<td class="text-center"><%= number_to_currency(@executions_commitement[p.id], format: "%n", delimiter: ".", separator: ",") %></td>	
+									<td class="text-center"><%= number_to_currency(@incomes_proj[p.id] - @commitments_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</body>
+		
+		<br></br>
+					
+			<div class="well">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+					<tbody>
+						<thead>
+							<tr>
+								<th class="text-center"></th>
+								<th class="text-center">Monto Asignado</th>
+								<th class="text-center">Monto Comprometido</th>
+								<th class="text-center">Monto Ejecutado</th>
+								<th class="text-center">Saldo Disponible</th>
+							</tr>
+						</thead>
+
+						<tr>
+							<td class="text-center">TOTALES</td>
+							<td class="text-center"><%= number_to_currency(@incomes_total, format: "%n", delimiter: ".", separator: ",") %></td> 
+							<td class="text-center"><%= number_to_currency(@commitments_total, format: "%n", delimiter: ".", separator: ",") %></td>
+							<td class="text-center"><%= number_to_currency(@executions_total, format: "%n", delimiter: ".", separator: ",") %></td>
+							<td class="text-center"><%= number_to_currency(@incomes_total - @commitments_total, format: "%n", delimiter: ".", separator: ",") %></td> 
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</div>

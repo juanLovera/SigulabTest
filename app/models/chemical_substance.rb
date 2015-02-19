@@ -10,6 +10,8 @@ class ChemicalSubstance < ActiveRecord::Base
 	before_validation :uppercase_fields
 	before_update :uppercase_fields
 	has_many :table_items_solicitud
+	has_many :binnacles
+
 	
 	def self.search(query)
 		query=UnicodeUtils.upcase(query, :es)

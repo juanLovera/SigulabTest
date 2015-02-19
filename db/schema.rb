@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217201813) do
+ActiveRecord::Schema.define(version: 20150219050705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 20150217201813) do
     t.string   "uso"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "binnacles", force: true do |t|
+    t.string   "idSustancia"
+    t.date     "fecha"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "medidaConsumo"
+    t.string   "medidaIngreso"
+    t.string   "medidaSaldo"
+    t.integer  "consumo",       default: 0
+    t.integer  "ingreso",       default: 0
+    t.integer  "saldo",         default: 0
   end
 
   create_table "checks", force: true do |t|
@@ -83,7 +96,6 @@ ActiveRecord::Schema.define(version: 20150217201813) do
     t.date     "adquisition_date"
     t.boolean  "showable",         default: true
     t.string   "dependency"
-    t.integer  "numSolicitud"
     t.boolean  "solicitados"
     t.string   "id2"
     t.string   "origen"
@@ -236,6 +248,15 @@ ActiveRecord::Schema.define(version: 20150217201813) do
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
+  create_table "fecha_entregas", force: true do |t|
+    t.string   "ubicacion"
+    t.string   "fechaTope"
+    t.string   "condiciones"
+    t.string   "medida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
@@ -248,7 +269,6 @@ ActiveRecord::Schema.define(version: 20150217201813) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing",            default: 0
-    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
     t.string   "unit"
@@ -347,6 +367,19 @@ ActiveRecord::Schema.define(version: 20150217201813) do
     t.boolean  "esprestado"
   end
 
+  create_table "projcommitments", force: true do |t|
+    t.integer  "proj_id"
+    t.string   "code"
+    t.float    "amount"
+    t.string   "description"
+    t.string   "recipient"
+    t.date     "date"
+    t.text     "observations"
+    t.integer  "document"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: true do |t|
     t.integer  "project_number"
     t.integer  "contract"
@@ -367,10 +400,48 @@ ActiveRecord::Schema.define(version: 20150217201813) do
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
-    t.string   "num_cuenta"
     t.date     "annulled_date"
+    t.string   "num_cuenta"
     t.string   "observation"
     t.integer  "banco"
+  end
+
+  create_table "projexecutions", force: true do |t|
+    t.integer  "proyecto"
+    t.integer  "commitment_id"
+    t.string   "code"
+    t.float    "check_amount"
+    t.date     "date"
+    t.integer  "document"
+    t.string   "check_number"
+    t.date     "check_elaboration_date"
+    t.date     "check_sign_date"
+    t.date     "check_delivery_date"
+    t.integer  "check_delivery_status"
+    t.boolean  "check_annulled"
+    t.string   "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projincomes", force: true do |t|
+    t.integer  "proyecto"
+    t.string   "sae_code"
+    t.integer  "origin"
+    t.string   "description"
+    t.float    "amount"
+    t.string   "concept"
+    t.integer  "financing"
+    t.string   "organism"
+    t.date     "date"
+    t.string   "document"
+    t.string   "doc_code"
+    t.string   "doc_url"
+    t.date     "doc_date"
+    t.string   "unit"
+    t.string   "observations"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "quotes", force: true do |t|
@@ -510,7 +581,6 @@ ActiveRecord::Schema.define(version: 20150217201813) do
     t.boolean  "showable",         default: true
     t.boolean  "from_set"
     t.string   "dependency"
-    t.boolean  "solicitados"
     t.string   "id2"
     t.string   "tipo"
     t.string   "origen"
@@ -548,8 +618,5 @@ ActiveRecord::Schema.define(version: 20150217201813) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

@@ -4,8 +4,6 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @projects = Project.all.order("project_number ASC")
-    @sum = @projects.where("NOT(status=3) AND NOT(status=4)").sum(:amount)
   end
 
   def new
@@ -53,7 +51,13 @@ class ProjectsController < ApplicationController
       # Check Date
       unless params[:project].nil?
         begin
-          params[:project][:incoming_date] = Date.parse(params[:project][:incoming_date])
+           
+          if (params[:project][:incoming_date] == nil)
+            @project_anulled = Project.find(params[:id])            
+            params[:project][:incoming_date] = @project_anulled.incoming_date
+          else
+            params[:project][:incoming_date] = Date.parse(params[:project][:incoming_date])
+          end
         rescue ArgumentError
           params[:project][:incoming_date] = nil
         end
@@ -79,6 +83,44 @@ class ProjectsController < ApplicationController
         end
       end
 
+def list
+  @projects = Project.all.order("project_number ASC")
+  @sum = @projects.where("NOT(status=3) AND NOT(status=4)").sum(:amount)  
+end
+
+def admin
+  @projects = Project.all.order("project_number ASC")
+
+  @incomes = Projincome.all
+  @commitments = Projcommitment.all
+  @executions = Projexecution.all
+
+  @incomes_proj = []
+  @commitments_proj = []
+
+  @executions_commitement = []
+  @incomes_total = 0
+  @commitments_total = 0
+
+  @executions_total = 0
+
+
+  @projects.each do |p|
+    @incomes_proj[p.id] = @incomes.where(proyecto: p.id).sum(:amount)
+    @incomes_total += @incomes_proj[p.id]
+    @commitments_proj[p.id] = @commitments.where(proj_id: p.id).sum(:amount)
+    @commitments_total += @commitments_proj[p.id]
+    @executions_commitement[p.id] = @executions.where(proyecto: p.id).where("check_annulled=false").sum(:check_amount)
+    @executions_total += @executions_commitement[p.id]
+  end
+end
+
+def summary
+  @project = Project.find(params[:id]) 
+  @incomes_total = Projincome.all.where(proyecto: @project.id).sum(:amount) 
+  @commitments_total = Projcommitment.all.where(proj_id: @project.id).sum(:amount)  
+  @executions_total = Projexecution.all.where(proyecto: @project.id).where("check_annulled=false").sum(:check_amount)
+end
 
   private
   

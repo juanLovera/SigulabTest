@@ -1,0 +1,148 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li><%= link_to 'Ingresos', projincomes_path %></li>
+			<li><%= link_to @projincome.id, @projincome %></li>
+			<li class="active">Editar Ingreso</li>
+		</ol>
+	</div>
+	<% if @projincome.errors.any? %>
+		<div class="col-xs-12" role="alert">
+			<div class="alert alert-danger">
+				<ul>
+					<% @projincome.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>	
+			</div>
+		</div>
+	<% end %>
+	<div class="col-xs-12">
+		<%= form_for @projincome, url: {action: 'update'}, id: @projincome.id, html: { class: 'form-horizontal' } do |i| %>	
+			<div class="form-group">
+				<label for='projincome_proyecto' class="col-xs-3 control-label text-right">Proyecto <span style="color:#FF0000">*</span></label>
+				<div class="col-xs-3">
+					<%= i.text_field :proyecto, class: 'form-control' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='projincome_sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :sae_code, class: 'form-control' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='projincome_origin' class="col-xs-3 control-label text-right">Origen <span style="color:#FF0000">*</span></label>
+				<div class="col-xs-3">		
+					<%= i.select(:origin, options_for_select(Projincome.origin_str.zip(Projincome.origins.keys), @projincome.origin), {}, {class: "form-control"} ) %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='projincome_description' class="col-xs-3 control-label text-right">Descripción <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :description, class: 'form-control' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='projincome_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<div class="input-group">
+      <span class="input-group-addon">Bs.</span>
+						<%= i.text_field :amount, class: 'form-control' %>
+					</div>
+				</div>
+			</div>
+			
+			<hr />	
+			
+			<div class="form-group">
+				<label for='projincome_concept' class="col-xs-3 control-label text-right">Concepto <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :concept, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projincome_financing' class="col-xs-3 control-label text-right">Fuente de Financiamiento</label>
+				<div class="col-xs-4">
+					<%= i.select(:financing, options_for_select(Projincome.financing_str.zip(Projincome.financings.keys), @projincome.financing), {}, {class: "form-control"} ) %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='projincome_organism' class="col-xs-3 control-label text-right">Organismo</label>
+				<div class='col-xs-4'>
+					<%= i.text_field :organism, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projincome_doc_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :doc_code, class: 'form-control' %>
+				</div>
+			</div>			
+
+			<div class="form-group">
+				<label for='projincome_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :doc_date, value: (@projincome.doc_date unless @projincome.doc_date.nil?), class: 'bootlayout-date form-control', placeholder: 'Fecha del Documento' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projincome_document' class="col-xs-3 control-label text-right">Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<div class='carrier-wave-field'>
+    					<%= i.file_field :document %>
+    				</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for='projincome_date' class="col-xs-3 control-label text-right">Fecha <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :date, value: (@projincome.date.strftime("%d/%m/%Y") unless @projincome.date.blank?), class: 'bootlayout-date form-control', placeholder: 'Fecha de Recepción' %>
+				</div>
+			</div>
+
+			<hr />	
+			
+			<div class="form-group">
+				<label for='projincome_unit' class="col-xs-3 control-label text-right">Unidad de Medida </label>
+				<div class='col-xs-4'>
+					<%= i.text_field :unit, class: 'form-control' %>
+				</div>
+			</div>	
+
+   			<div class="form-group">
+				<label for='projincome_observations' class="col-xs-3 control-label text-right">Observación </label>
+				<div class='col-xs-4'>
+					<%= i.text_area :observations, class: 'form-control' %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar el ingreso?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Ingreso</button>
+
+					<%= link_to @projincome, class: "btn btn-default btn-danger" do %>
+						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-xs-12">
+		<div class="well">
+			<span style="color:#FF0000">*</span> Los campos son obligatorios.
+		</div>
+	</div>
+</div>
