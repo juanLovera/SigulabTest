@@ -1,0 +1,2 @@
+module ProjincomesHelper
+end

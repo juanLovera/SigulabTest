@@ -48,7 +48,7 @@ es:
         responsible: "Responsable"
         quantity: "Cantidad"
       income:
-        lab_id: "Dependencia"
+        lab: "Dependencia"      
         origin: "Origen"
         amount: "Monto"
         sae_code: "Código SAE"
@@ -113,4 +113,4 @@ es:
 
   errors:
     messages:
-      extension_white_list_error: "No esta permitido subir archivos %{extension}, solo: %{allowed_types}"
+      extension_white_list_error: "No está permitido subir archivos con extensión %{extension}, solo: %{allowed_types}"
