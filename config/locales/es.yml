@@ -28,7 +28,7 @@ es:
       project: "Proyecto"
     attributes:
       income:
-        lab_id: "Dependencia"
+        lab: "Dependencia"      
         origin: "Origen"
         amount: "Monto"
         sae_code: "Código SAE"
