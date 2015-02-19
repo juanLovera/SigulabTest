@@ -76,6 +76,7 @@ end
   get 'administration/(:action)', to: 'administration', as: :administration
   get "/executions/list", to: "executions#list", :as => "executions/list"
   get "/projects/list", to: "projects#list", :as => "projects/list"
+  get "/projects/admin", to: "projects#admin", :as => "projects/admin"
 
   resources :incomes
   resources :commitments
@@ -83,6 +84,7 @@ end
     get 'annul', on: :member
   end
   resources :projects
+  resources :projcommitments
  
 
 
