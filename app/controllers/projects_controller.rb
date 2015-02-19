@@ -110,7 +110,7 @@ def admin
     @incomes_total += @incomes_proj[p.id]
     @commitments_proj[p.id] = @commitments.where(proj_id: p.id).sum(:amount)
     @commitments_total += @commitments_proj[p.id]
-    @executions_commitement[p.id] = @executions.where(proyecto: @project.id).where("check_annulled=false").sum(:check_amount)
+    @executions_commitement[p.id] = @executions.where(proyecto: p.id).where("check_annulled=false").sum(:check_amount)
     @executions_total += @executions_commitement[p.id]
   end
 end
