@@ -37,22 +37,24 @@ class ProjincomesController < ApplicationController
     	params[:projincome][:resource] = 0
     end
     
-    archivo = params[:projincome][:document];
-    #Nombre original del archivo.
-    nombre = archivo.original_filename;
-    #Directorio donde se va a guardar.
-    directorio = "public/archivos/";
-    #Extensión del archivo.
-    extension = nombre.slice(nombre.rindex("."), nombre.length).downcase;
-    #Ruta del archivo.
-    path = File.join(directorio, nombre);
-    #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
-    resultado = File.open(path, "wb") { |f| f.write(archivo.read) };
-    #Verifica si el archivo se subió correctamente.
-    if resultado
-      subir_archivo = "ok";
-    else
-      subir_archivo = "error";
+    if params[:income][:document] != nil
+      archivo = params[:projincome][:document];
+      #Nombre original del archivo.
+      nombre = archivo.original_filename;
+      #Directorio donde se va a guardar.
+      directorio = "public/archivos/";
+      #Extensión del archivo.
+      extension = nombre.slice(nombre.rindex("."), nombre.length).downcase;
+      #Ruta del archivo.
+      path = File.join(directorio, nombre);
+      #Crear en el archivo en el directorio. Guardamos el resultado en una variable, será true si el archivo se ha guardado correctamente.
+      resultado = File.open(path, "wb") { |f| f.write(archivo.read) };
+      #Verifica si el archivo se subió correctamente.
+      if resultado
+        subir_archivo = "ok";
+      else
+        subir_archivo = "error";
+      end
     end
     
     @projincome = Projincome.new(projincome_params)
@@ -84,7 +86,7 @@ class ProjincomesController < ApplicationController
     	params[:projincome][:resource] = 0
     end
 
-    if (params[:projincome][:document] != "")
+    if (params[:projincome][:document] != nil)
       archivo = params[:projincome][:document];
       #Nombre original del archivo.
       nombre = archivo.original_filename;
