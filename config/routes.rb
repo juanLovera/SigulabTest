@@ -75,6 +75,7 @@ end
   get 'administration/budget/(:action)', to: 'budget', as: :budget
   get 'administration/(:action)', to: 'administration', as: :administration
   get "/executions/list", to: "executions#list", :as => "executions/list"
+  get "/projects/list", to: "projects#list", :as => "projects/list"
 
   resources :incomes
   resources :commitments

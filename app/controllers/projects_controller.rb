@@ -4,8 +4,6 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @projects = Project.all.order("project_number ASC")
-    @sum = @projects.where("NOT(status=3) AND NOT(status=4)").sum(:amount)
   end
 
   def new
@@ -79,6 +77,10 @@ class ProjectsController < ApplicationController
         end
       end
 
+def list
+  @projects = Project.all.order("project_number ASC")
+  @sum = @projects.where("NOT(status=3) AND NOT(status=4)").sum(:amount)  
+end
 
   private
   
