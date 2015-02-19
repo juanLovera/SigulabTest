@@ -245,15 +245,6 @@ ActiveRecord::Schema.define(version: 20150218051457) do
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
-  create_table "fecha_entregas", force: true do |t|
-    t.string   "ubicacion"
-    t.string   "fechaTope"
-    t.string   "condiciones"
-    t.string   "medida"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
@@ -266,8 +257,10 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing",            default: 0
+    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
+    t.boolean  "estado"
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
@@ -381,13 +374,13 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.datetime "updated_at"
     t.integer  "admin",          default: 0
     t.integer  "status",         default: 0
+    t.text     "observation"
+    t.integer  "banco"
+    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
-    t.string   "num_cuenta"
-    t.string   "observation"
-    t.integer  "banco"
   end
 
   create_table "quotes", force: true do |t|
@@ -527,6 +520,7 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.boolean  "showable",         default: true
     t.boolean  "from_set"
     t.string   "dependency"
+    t.boolean  "solicitados"
     t.string   "id2"
     t.string   "tipo"
     t.string   "origen"
@@ -564,5 +558,8 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
