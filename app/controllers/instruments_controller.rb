@@ -1,6 +1,7 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update, :destroy]
   layout 'bootlayout'
+  before_filter :authenticate_user!
   # GET /instruments
   # GET /instruments.json
   def index

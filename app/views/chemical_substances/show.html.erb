@@ -155,12 +155,23 @@
 <% if can? :hide, @chemical_substance %>
       <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @chemical_substance, method: :delete, data: { confirm: '¿Estás seguro?' }, :class => 'linkButton' %> |
 <%end%>
+
+<%= link_to binnacles_path(@ids) do %>
+  <button type="button" class="btn btn-info" id="letra"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Bitácora</button>
+<% end %>
 <i class="fa fa-arrow-left"></i><%= link_to ' Atrás', chemical_substances_path, :class => 'linkButton' %>
 <br><br><br><br>
 </div>
 
 
 <style>
+
+#letra {
+  text-decoration: none;
+  text-align: right;
+  font-weight: bold;
+
+}
 
 .linkButton { 
    text-decoration: none;

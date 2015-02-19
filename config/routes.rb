@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :binnacles
+
   resources :donations
 
   resources :applications
@@ -10,7 +13,9 @@ Rails.application.routes.draw do
   resources :requisitions
 
   resources :quotes
+
   resources :devolutions
+  
   resources :acts
 
   get 'acto_motivado/index'
@@ -49,7 +54,7 @@ end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
-  get "inventario" => "statics#inventario", :as => "inventario"
+  get "inventario" => "administration#inventario", :as => "inventario"
   get "prestamos" => "statics#prestamos", :as => "prestamos"
 
   # You can have the root of your site routed with "root"
@@ -77,7 +82,8 @@ end
     get 'annul', on: :member
   end
   resources :projects
-  
+ 
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

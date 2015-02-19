@@ -1,6 +1,7 @@
 class EquipmentController < ApplicationController
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
   layout 'bootlayout'
+  before_filter :authenticate_user!
   # GET /equipment
   # GET /equipment.json
   def index

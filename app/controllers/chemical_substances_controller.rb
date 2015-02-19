@@ -1,6 +1,7 @@
 class ChemicalSubstancesController < ApplicationController
   before_action :set_chemical_substance, only: [:show, :edit, :update, :destroy, :search, :hide]
   layout 'bootlayout'
+  before_filter :authenticate_user!
   # GET /chemical_substances
   # GET /chemical_substances.json
   def index
@@ -18,6 +19,7 @@ class ChemicalSubstancesController < ApplicationController
   # GET /chemical_substances/1
   # GET /chemical_substances/1.json
   def show
+    @ids = @chemical_substance.id2
   end
 
   # GET /chemical_substances/new
