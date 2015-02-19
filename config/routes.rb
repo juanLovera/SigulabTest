@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   
   resources :acts
 
+  resources :projincomes
+
   get 'acto_motivado/index'
 
   get 'nota_devolucion/index'
