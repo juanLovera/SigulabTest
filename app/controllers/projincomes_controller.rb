@@ -4,23 +4,20 @@ class ProjincomesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    @project = Project.find(params[:id])    
     @projincomes = Projincome.all.order("date ASC")
     @sum = @projincomes.sum(:amount)
   end
 
   def show
-    @projincome = Projincome.find(params[:id])  
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = ReporteIncomes.new(@projincome)
-        send_data pdf.render, filename: 'MOD-01.pdf', type: 'application/pdf'
-      end
-    end
+    @projincome = Projincome.find(params[:id])
+    @project = Project.find(@projincome.proyecto)
   end
   
   def new
+    @project = Project.find(params[:id])      
     @projincome = Projincome.new
+    @projincome.proyecto = :id
   end
   
   def create
@@ -37,7 +34,7 @@ class ProjincomesController < ApplicationController
     	params[:projincome][:resource] = 0
     end
     
-    if params[:income][:document] != nil
+    if params[:projincome][:document] != nil
       archivo = params[:projincome][:document];
       #Nombre original del archivo.
       nombre = archivo.original_filename;
@@ -59,11 +56,9 @@ class ProjincomesController < ApplicationController
     
     @projincome = Projincome.new(projincome_params)
   
-    if @Projincome.save
-#      redirect_to action: 'index'
-		  redirect_to projincomes_path, notice: "The document has been uploaded."
+    if @projincome.save
+      redirect_to @projincome
     else
-      @labs = Lab.all
       render 'new'
     end
   end
@@ -110,10 +105,9 @@ class ProjincomesController < ApplicationController
 
     @projincome = Projincome.find(params[:id])
   
-    if @Projincome.update_attributes(projincome_params)
-      redirect_to income_url(@projincome)
+    if @projincome.update_attributes(projincome_params)
+      redirect_to projincome_url(@projincome)
     else
-      @labs = Lab.all
       render 'edit'
     end
   end

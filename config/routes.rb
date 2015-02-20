@@ -78,6 +78,7 @@ end
   get "/projects/list", to: "projects#list", :as => "projects/list"
   get "/projects/admin", to: "projects#admin", :as => "projects/admin"
   get "/projects/summary", to: "projects#summary", :as => "projects/summary"
+  get "/projcommitments/list", to: "projcommitments#list", :as => "projcommitments/list"
 
   resources :incomes
   resources :commitments
@@ -87,7 +88,7 @@ end
   resources :projects
   resources :projcommitments
   resources :projincomes
-  resources :projexecutiones
+  resources :projexecutions
 
 
   # Example of regular route:

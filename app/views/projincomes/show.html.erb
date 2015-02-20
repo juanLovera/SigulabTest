@@ -18,14 +18,6 @@
 				<td class="col-xs-7"><%= @projincome.date unless  @projincome.date.blank? %>  </td>
 			</tr>
 			<tr>
-				<td class="col-xs-5 text-right">Dependencia:</td>
-				<td class="col-xs-7"><%= @projincome.lab.sae_name %></td>
-			</tr>
-			<tr>
-				<td class="col-xs-5 text-right">Código SAE:</td>
-				<td class="col-xs-7"><%= @projincome.sae_code %></td>
-			</tr>
-			<tr>
 				<td class="col-xs-5 text-right">Origen:</td>
 				<td class="col-xs-7"><%= Projincome.origin_str[Projincome.origins[@projincome.origin]] %></td>
 			</tr>
@@ -72,7 +64,6 @@
 		<%= link_to edit_projincome_path do %>
 			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ingreso</button>
 		<% end %>
-		<%= link_to '<button type="button" class="btn btn-primary"> Consultar Planilla de Modificación Presupuestaria </button>'.html_safe, projincome_path(@projincome, :format => 'pdf') %>
 	</div>
 </div>
 

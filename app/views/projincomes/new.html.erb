@@ -23,16 +23,9 @@
 		<%= form_for @projincome, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>	
 			
 			<div class="form-group">
-				<label for='projincome_proyecto' class="col-xs-3 control-label text-right">Proyecto <span style="color:#FF0000">*</span></label>
-				<div class="col-xs-4">
-					<%= i.text_field :proyecto, class: 'form-control' %>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label for='projincome_sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
+				<label for='projincome_project' class="col-xs-3 control-label text-right">Proyecto</label>
 				<div class='col-xs-4'>
-					<%= i.text_field :sae_code, class: 'form-control' %>
+					<textarea disabled class='form-control'><%=@project.title%></textarea>
 				</div>
 			</div>
 			
@@ -126,7 +119,7 @@
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Ingreso</button>
-					<%= link_to incomes_path, class: "btn btn-default btn-danger" do %>
+					<%= link_to projincomes_path, class: "btn btn-default btn-danger" do %>
 						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar
 					<% end %>
 				</div>
