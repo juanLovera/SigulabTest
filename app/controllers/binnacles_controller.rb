@@ -7,22 +7,26 @@ class BinnaclesController < ApplicationController
 
   def index
     if params[:format]
-      @binnacles = Binnacle.where(idSustancia: params[:format])  
+      @binnacles = Binnacle.where(idSustancia: params[:format])
+      @ingresos = Binnacle.where(idSustancia: params[:format]).sum(:ingreso)
+      @consumos = Binnacle.where(idSustancia: params[:format]).sum(:consumo)
     end
+    @sustancias = ChemicalSubstance.where(id2: params[:format])
+    @total = @ingresos - @consumos
     @id = params[:format]
   end
 
   def show
-    
+    @id = @binnacle.idSustancia
   end
 
   def new
-    binding.pry
     @id = params[:format]
     @binnacle = Binnacle.new    
   end
 
   def edit
+    @id = @binnacle.idSustancia
   end
 
   def create

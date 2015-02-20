@@ -39,7 +39,9 @@
 		<p></p>
 
 	</div>
-  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
+  <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
 </div>
 
   <br>

@@ -17,6 +17,7 @@ class ReporteBudget < Prawn::Document
   def header
   	y_position = cursor - 40
     image "#{Rails.root}/app/assets/images/cebolla.png", width: 55, :at => [75, cursor]
+    image "#{Rails.root}/app/assets/images/Logo_ULab.jpg", width: 60, :position => :right
 	  bounding_box([0, y_position], :width => 200, :height => 40) do
       text "UNIVERSIDAD SIMÓN BOLÍVAR", size: 10, style: :bold, :align => :center
       text "VICERRECTORADO ACADÉMICO", size: 9, :align => :center

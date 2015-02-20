@@ -63,44 +63,39 @@
     </div>
 
       
-            
-
-    <br>
-
-
-    <% if can? :create, @chemical_substance %>
-      <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Sustancia', new_chemical_substance_path, 'data-no-turbolink' => true, :class => 'linkButton'%> | 
-    <%end%>
-    <i class="fa fa-exchange linkButton" onclick="solicitar(item_ids)"><%= submit_tag ' Solicitar Préstamo/Servicio ' %></i> | 
-    <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
-    
+<div class="col-xs-12" align="left">
+  <p></p>
+  <% if can? :create, @chemical_substance %>
+    <%= link_to new_chemical_substance_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Sustancia</button>
     <% end %>
-    <br><br><br><br><br><br><br>
-    
+  <% end %>
+  <button type="submit" class="btn btn-default" onclick="solicitar(item_ids);"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo/Servicio</button>
+  <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
+</div>  
 
-<script>
-function solicitar(item_ids) {
-  if (item_ids == null) {
-    gtm.errorMessage "Disculpe no ha seleccionado ningún ítem"
-  };   
-}
-</script>
+<% end %>      
+
+  <br><br><br>
+
+
 
 
  <style>
 
 .linkButton { 
-   text-decoration: none;
+   
    text-align: right;
    color: #384157;
-   font-weight: bold;
      background: none repeat scroll 0px 0px transparent;
      border: none;
+    font-size: 16px;
 }
 
 .linkButton:hover {
     cursor: pointer;
-    color: #8ED6FF;
     text-align: right;
     background: none repeat scroll 0% 0% #FFF;
     text-decoration: none;

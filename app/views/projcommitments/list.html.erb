@@ -1,0 +1,74 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
+ 			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>
+ 			<li><%= link_to @project.project_number, @project %></li>	
+			<li class="active">Compromisos</li>
+		</ol>
+	</div>
+
+	<div class="col-xs-12">
+		<h2><center>Compromisos</center></h2>
+	</div>
+
+	<div class="col-xs-12">
+		<div class="well">
+			El monto está expresado en bolívares.
+		</div>
+	</div>
+
+
+	<div class="col-xs-12">
+		<body id="dt_example" class="ex_highlight_row">
+
+			<div id="container">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+							<tr>
+								<th class="text-center">Fecha</th>
+								<th class="text-center">Descripción</th>
+								<th class="text-center">Monto</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @commitments.each do |c| %>
+								<tr>
+									<td class="text-center"><%= c.date.strftime('%d/%m/%Y') %></td>
+									<td><%= link_to c.description, c %></td>
+									<td class="text-right"><%= number_to_currency(c.amount, format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</body>
+
+		<p></p>
+
+		<div class="well" align="right">
+			<h4>Monto Total Comprometido: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
+		</div>
+
+	</div>
+
+	<div class="col-xs-12" align="left">
+		<p></p>
+		<%= link_to controller: :projcommitments, action: 'new', id: @project.id do %>
+			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Compromiso</button>
+		<% end %>
+	</div>
+
+</div>

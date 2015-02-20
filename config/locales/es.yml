@@ -26,9 +26,57 @@ es:
       commitment: "Compromiso"
       execution: "Ejecución"
       project: "Proyecto"
+      binnacle: "Bitácora"
+      chemical_substance: "Sustancia Química"
+      consumable: "Consumible"
+      donation: "Donación"
+      equipment: "Equipo y Mobiliario"
+      instrument: "Instrumento"
+      tool: "Herramienta"
+      loan: "Solicitud de Préstamo"
     attributes:
+      binnacle:
+        fecha: "Fecha"
+        consumo: "Consumo"
+        ingreso: "Ingreso"
+        saldo: "Saldo"
+      chemical_substance:
+        name: "Nombre"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+        cas: "CAS"
+        responsible: "Responsable"
+        quantity: "Cantidad"
+      equipment:
+        name: "Nombre"
+        responsible: "Responsable"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+      instrument:
+        name: "Nombre"
+        measurement_unit: "Unidad de Medida"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+        responsible: "Responsable"
+      tool:
+        name: "Nombre"
+        national_good: "Número Bien Nacional"
+        responsible: "Responsable"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+      consumable:
+        name: "Nombre"
+        responsible: "Responsable"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+      donation:
+        nombreItem: "Nombre del Item"
+        cantidad: "Cantidad"
+        unidadMedida: "Unidad de Medida"
+        estimado: "Estimado"
+        numDocumento: "Número de Documento"
       income:
-        lab_id: "Dependencia"
+        lab: "Dependencia"
         origin: "Origen"
         amount: "Monto"
         sae_code: "Código SAE"
@@ -93,4 +141,4 @@ es:
 
   errors:
     messages:
-      extension_white_list_error: "No esta permitido subit archivos %{extension}, solo: %{allowed_types}"
+      extension_white_list_error: "No está permitido subir archivos con extensión %{extension}, solo: %{allowed_types}"
