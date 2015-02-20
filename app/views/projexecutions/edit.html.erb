@@ -7,7 +7,6 @@
 			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>			
 			<li><%= link_to Project.find(@commitment.proj_id).project_number, controller: 'projects', action: 'summary', id: @commitment.proj_id %></li>	
 			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: Project.find(@commitment.proj_id).project_number %></li>
-			<li><%= link_to @commitment.id, controller: 'projcommitments', action: 'show', id: @commitment.id %></li>				
 			<li class="active">Editar Ejecucion</li>
 		</ol>
 	</div>
