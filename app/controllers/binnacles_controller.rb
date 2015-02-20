@@ -34,7 +34,6 @@ class BinnaclesController < ApplicationController
       @nombre = "#{sustancia.name}"
     end
     @id = params[:format]
-    @binnacle.idSustancia = params[:idSustancia]
     @binnacle = Binnacle.new
   end
 
@@ -48,9 +47,9 @@ class BinnaclesController < ApplicationController
 
   def create
     @binnacle = Binnacle.new(binnacle_params)
-    @binnacle.idSustancia = params[:idSustancia]
     flash[:notice] = 'El registro en la bitácora ha sido exitoso.' if @binnacle.save
     respond_with(@binnacle)
+        
   end
 
   def update

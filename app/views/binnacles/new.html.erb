@@ -71,10 +71,10 @@
           </tr>
           <tr>
             <td class="col-xs-5 text-right"><strong>Descripción:</strong></td>
-            <td class="col-xs-7"><%= f.text_area :descripcion %><span class="red">*</span></td>
+            <td class="col-xs-7"><%= f.text_area :descripcion, :placeholder => "Introduzca el No. de factura" %><span class="red">*</span></td>
           </tr>
           <%= f.hidden_field :idSustancia, :value => @id %>
-          
+
           <td class="col-xs-5"><td>
 
         </table>
