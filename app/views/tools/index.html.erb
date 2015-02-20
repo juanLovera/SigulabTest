@@ -61,18 +61,27 @@
 
   <br>
 
-    <% if can? :create, @tool %>
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;<%= link_to ' Nueva Herramienta', new_tool_path %></button> | 
-    <%end%>
-    <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo/Servicio ', :class => "linkButton" %> | 
-    <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => "linkButton" %>
+
+<div class="col-xs-12" align="left">
+  <p></p>
+  <% if can? :create, @tool %>
+    <%= link_to new_tool_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Herramienta</button>
     <% end %>
-    <br><br><br><br><br><br><br>
-    
+  <% end %>
+  <button type="submit" class="btn btn-default" onclick="solicitar(item_ids);"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo/Servicio</button>
+  <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
+</div>  
+
+<% end %>      
+
+  <br><br><br>
+
 
   </div>
  </div>
-
  <style>
 
 .linkButton { 

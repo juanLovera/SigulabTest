@@ -3,8 +3,15 @@
 <%= javascript_include_tag 'jquery.dataTables.js' %>
 <%= javascript_include_tag 'tabla.js' %>
 
+  <ol class="breadcrumb">
+   <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+   <li> <%=link_to 'Inventario', inventario_url %></li>
+    <li class="active"> Préstamo </li>
+  </ol>
+
+
 <div class="col-xs-12">
-  <h1>Solicitudes de Préstamo</h1>
+  <h1><i class="fa fa-list"></i>  Solicitudes de Préstamo</h1>
 </div><br>
 <div class="col-xs-12">
 
@@ -41,7 +48,9 @@
 
 	</div>
 
-  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %>
+  <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
 </div>
 
   <br>

@@ -104,16 +104,33 @@
 
 
 <br><br>
-<% if can? :update, @equipment %>
-  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_equipment_path(@equipment) , 'data-no-turbolink' => true, :class => 'linkButton' %> |
-<% end %>
-<% if can? :create, @equipment %>
-    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo equipo', new_equipment_path, :class => 'linkButton' %> |
-<% end %>
-<% if can? :hide, @equipment %>
-      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @equipment, method: :delete, data: { confirm: '¿Estás seguro?' }, :class => 'linkButton' %> |
-<%end%>
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', equipment_index_path, :class => 'linkButton' %>
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+
+    <% if can? :create, @equipment %>
+          <%= link_to new_equipment_path do %>
+            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Equipo</button>
+          <% end %> 
+    <%end%>
+    <% if can? :update, @equipment %>
+      <%= link_to edit_equipment_path(@equipment) do %>
+        <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar</button>
+      <% end %>
+    <% end %>
+    <% if can? :hide, @equipment %>
+          <%= link_to @equipment, method: :delete, data: { confirm: '¿Estás seguro?' } do%>
+            <button type="button" class="btn btn-danger"><span class="fa fa-times fa-1x"></span>&nbsp;&nbsp;Eliminar</button>
+          <% end %>
+    <%end%>
+  </div>
+    <div class="col-xs-6 text-right">
+
+    <%= link_to equipment_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+    <% end %>
+
+  </div>
+</div>
 <br><br><br><br>
 
 

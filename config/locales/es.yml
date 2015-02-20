@@ -47,8 +47,36 @@ es:
         cas: "CAS"
         responsible: "Responsable"
         quantity: "Cantidad"
+      equipment:
+        name: "Nombre"
+        responsible: "Responsable"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+      instrument:
+        name: "Nombre"
+        measurement_unit: "Unidad de Medida"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+        responsible: "Responsable"
+      tool:
+        name: "Nombre"
+        national_good: "Número Bien Nacional"
+        responsible: "Responsable"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+      consumable:
+        name: "Nombre"
+        responsible: "Responsable"
+        dependency: "Dependencia"
+        location: "Ubicación Física"
+      donation:
+        nombreItem: "Nombre del Item"
+        cantidad: "Cantidad"
+        unidadMedida: "Unidad de Medida"
+        estimado: "Estimado"
+        numDocumento: "Número de Documento"
       income:
-        lab: "Dependencia"      
+        lab: "Dependencia"
         origin: "Origen"
         amount: "Monto"
         sae_code: "Código SAE"
