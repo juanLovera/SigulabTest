@@ -88,7 +88,9 @@ end
   resources :projects
   resources :projcommitments
   resources :projincomes
-  resources :projexecutions
+  resources :projexecutions do
+    get 'annul', on: :member
+  end
 
 
   # Example of regular route:
