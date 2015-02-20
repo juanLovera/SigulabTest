@@ -79,6 +79,7 @@ end
   get "/projects/admin", to: "projects#admin", :as => "projects/admin"
   get "/projects/summary", to: "projects#summary", :as => "projects/summary"
   get "/projcommitments/list", to: "projcommitments#list", :as => "projcommitments/list"
+  get "/projexecutions/list", to: "projexecutions#list", :as => "projexecutions/list"
 
   resources :incomes
   resources :commitments

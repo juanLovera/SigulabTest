@@ -64,7 +64,7 @@
 		<% end %>
 		<% end %>
         <% if @size > 0 %>
-		<%= link_to controller: :projexecutions, action: 'index', cid: @commitment.id do %>
+		<%= link_to controller: :projexecutions, action: 'list', cid: @commitment.id do %>
 			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Listar Ejecuciones</button>
 		<% end %>
   <% end %>
