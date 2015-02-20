@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218051457) do
+ActiveRecord::Schema.define(version: 20150218051459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -268,7 +268,6 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.integer  "financing",            default: 0
     t.string   "doc_code"
     t.date     "doc_date"
-    t.boolean  "estado"
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
@@ -382,14 +381,13 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.datetime "updated_at"
     t.integer  "admin",          default: 0
     t.integer  "status",         default: 0
-    t.text     "observation"
-    t.integer  "banco"
-    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
     t.string   "num_cuenta"
+    t.string   "observation"
+    t.integer  "banco"
   end
 
   create_table "quotes", force: true do |t|
@@ -430,7 +428,6 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.integer "item_id"
     t.string  "marca"
     t.string  "modelo"
-    t.string  "tipo"
     t.string  "descripcion_general"
     t.string  "materia"
     t.string  "funcion"
@@ -438,6 +435,22 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.string  "aplicacion"
     t.string  "observaciones"
     t.integer "specification_id"
+    t.string  "equipo"
+    t.string  "material_consumible"
+    t.string  "servicio"
+    t.string  "licencia"
+    t.string  "repuesto"
+    t.string  "renovacion_licencia"
+    t.string  "accesorio"
+    t.string  "otro"
+    t.integer "alto"
+    t.integer "ancho"
+    t.integer "largo"
+    t.integer "peso"
+    t.string  "dimensiones_alto"
+    t.string  "dimensiones_ancho"
+    t.string  "dimensiones_largo"
+    t.string  "dimensiones_peso"
   end
 
   create_table "requests", force: true do |t|
