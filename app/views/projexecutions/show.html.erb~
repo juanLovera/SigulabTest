@@ -1,0 +1,93 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>					
+			<li><%= link_to 'Ejecuciones', controller: 'projexecutions', id: @projexecution.proyecto %></li>
+			<li class="active"><%= @project.project_number %></li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tr>
+				<td class="col-xs-5 text-right">Proyecto:</td>
+				<td class="col-xs-7"><%= @projexecution.proyecto %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Compromiso asociado:</td>
+				<td class="col-xs-7"><%= @projcommitment.description %></td>
+			</tr>
+			<% if !@projexecution.document_name.blank? -%>
+			<tr>
+				<td class="col-xs-5 text-right">Documento:</td>
+				<td class="col-xs-7"><%= @projexecution.document_name %></td>
+			</tr>
+			<% end %>		
+			<tr>
+				<td class="col-xs-5 text-right">Número de Documento:</td>
+				<td class="col-xs-7"><%= @projexecution.code %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Número de Cheque:</td>
+				<td class="col-xs-7"><%= @projexecution.check_number %></td>
+			</tr>			
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de Elaboración:</td>
+        		<td class="col-xs-7"><%= @projexecution.check_elaboration_date unless @projexecution.check_elaboration_date.blank? %>  </td>
+			</tr>
+
+			<% if !@projexecution.check_sign_date.blank? -%>
+			<tr>
+
+				<td class="col-xs-5 text-right">Fecha de Firma:</td>
+        		<td class="col-xs-7"><%= @projexecution.check_sign_date unless @projexecution.check_sign_date.blank? %>  </td>
+			</tr>
+			<% end %>
+			<% if !@projexecution.check_delivery_date.blank? -%>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de Entrega:</td>
+        		<td class="col-xs-7"><%= @projexecution.check_delivery_date unless @projexecution.check_delivery_date.blank? %>  </td>
+			</tr>
+			<% end %>
+			<tr>
+				<td class="col-xs-5 text-right">Estatus del cheque:</td>
+                <td class="col-xs-7">
+				  <% if @projexecution.check_annulled? %>
+                    Anulado
+				 <% else %>
+                  <% if @projexecution.check_sign_date.blank? %> 
+                    En espera de firma
+                  <% else if @projexecution.check_delivery_date.blank? %> 
+                    En custodia
+                  <% else %> 
+                    Entregado
+                  <% end %>
+                  <% end %>
+				<% end %>
+                </td>
+			</tr>
+			<% if !@projexecution.remarks.blank? -%>			
+				<tr>
+					<td class="col-xs-5 text-right">Observaciones:</td>
+        			<td class="col-xs-7"><%= @projexecution.remarks unless @projexecution.remarks.blank? %>  </td>
+				</tr>
+			<% end %>
+			<tr class="success">
+				<td class="col-xs-5 text-right"><font size=3.6> Monto: </font></td>
+				<td class="col-xs-7"> <div id="span1"> <font size=3.6> Bs. </div> <div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@projexecution.check_amount, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-xs-12">
+    <%= link_to edit_projexecution_path do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ejecución</button>
+		<% end %>
+	</div>
+</div>
+
+<style>
+	#span1 { width: 25px; float: left; height:100%; }
+    #span2 { width: 110px; float: left; height:50%;}
+</style>
