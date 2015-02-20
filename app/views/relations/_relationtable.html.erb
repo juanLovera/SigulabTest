@@ -4,7 +4,7 @@
 		 <tr>
 		   <th align="left">Nro</th>
 		   <th align="left">Nombre comercial del material/equipo</th>
-		   <th align="left">Tipo</th>
+		   
 <th align="left"></th>
 		 </tr>
 	  </thead>
@@ -19,7 +19,7 @@
 			<% end %>
 			<% end %>
 		     
-		     <td><%= relation.tipo %></td>
+		     
 <td style="text-decoration:none; color:black; text-align: right"><a href="/relations/<%= relation.id %>.pdf"><button type="button" class="btn btn-primary"> Descargar </button></a> <%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, relation %></td>     
 		   </tr>
 		 <% end %>
