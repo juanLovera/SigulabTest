@@ -34,6 +34,9 @@ es:
       instrument: "Instrumento"
       tool: "Herramienta"
       loan: "Solicitud de Préstamo"
+      projincome: "Ingreso de Proyecto"
+      projcommitment: "Compromiso de Proyecto"
+      projexecution: "Ejecución de Proyecto"
     attributes:
       binnacle:
         fecha: "Fecha"
@@ -87,9 +90,26 @@ es:
         doc_code: "Número de Documento"
         doc_date: "Fecha de Documento"
         financing: "Fuente de Financiamiento"
+      projincome:
+        origin: "Origen"
+        amount: "Monto"
+        concept: "Concepto"
+        description: "Descripción"
+        organism: "Organismo"
+        document: "Documento"
+        date: "Fecha de Recepción"
+        doc_code: "Número de Documento"
+        doc_date: "Fecha de Documento"
+        financing: "Fuente de Financiamiento"
       commitment:
         amount: "Monto"
         sae_code: "Código SAE"
+        description: "Descripción"
+        code: "Número de Documento"
+        recipient: "Beneficiario"
+        date: "Fecha"
+      projcommitment:
+        amount: "Monto"
         description: "Descripción"
         code: "Número de Documento"
         recipient: "Beneficiario"
@@ -123,6 +143,13 @@ es:
         other_desc: "Otro concepto"
         other_amount: "Monto de otro concepto"
         annulled_date: "Fecha de anulación"
+      projexecution:
+        check_amount: "Monto"
+        check_number: "Número de cheque"
+        check_elaboration_date: "Fecha de elaboración"
+        check_sign_date: "Fecha de firma"
+        check_delivery_date: "Fecha de entrega"
+        code: "Número de documento"
     errors:
       models:
         income:

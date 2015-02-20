@@ -4,20 +4,22 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li class="active"><%= @projexecution.id %></li>
+			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>					
+			<li><%= link_to 'Ejecuciones', controller: 'projexecutions', id: @projexecution.proyecto %></li>
+			<li class="active"><%= @project.project_number %></li>
 		</ol>
 	</div>
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>
 				<td class="col-xs-5 text-right">Proyecto:</td>
-				<td class="col-xs-7"><%= @projexecution.proyecto %></td>
+				<td class="col-xs-7"><%= @project.project_number %></td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Compromiso asociado:</td>
-				<td class="col-xs-7"><!--<%= @projexecution.commitment.description %>--></td>
+				<td class="col-xs-7"><%= @projcommitment.description %></td>
 			</tr>
-			<% if !@projexecution.document_name.blank? -%>
+			<% if !@projexecution.document.blank? -%>
 			<tr>
 				<td class="col-xs-5 text-right">Documento:</td>
 				<td class="col-xs-7"><%= @projexecution.document_name %></td>
