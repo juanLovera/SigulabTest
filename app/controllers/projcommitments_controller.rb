@@ -3,20 +3,22 @@ class ProjcommitmentsController < ApplicationController
 
   before_filter :authenticate_user!
   
-  def list
+  def index
     if params[:id]
       @project = Project.find(params[:id])
     end       
     @commitments = Projcommitment.order("date ASC").where("proj_id=?",params[:id])
     @sum = @commitments.sum(:amount)
+    @suma = Projcommitment.all
   end
 
   def show
-    @commitment = Projcommitment.all.find(params[:id])
+    @commitment = Projcommitment.find(params[:id])
     @executions = Projexecution.all.where("commitment_id=?",params[:id])
     @sum = @executions.where("check_annulled=false").sum(:check_amount)
     @dif = @commitment.amount - @sum
     @size = @executions.count
+    @project = Project.find(@commitment.proj_id)
   end
 
   def new
@@ -25,7 +27,6 @@ class ProjcommitmentsController < ApplicationController
       @project = Project.find(params[:id])
       @commitment.proj_id = params[:id]
     end
-    binding.pry
   end  
 
   def create
@@ -38,10 +39,12 @@ class ProjcommitmentsController < ApplicationController
       end
     end
     
-    @commitment = Projcommitment.new(commitment_params)
     
+    @commitment = Projcommitment.new(projcommitment_params)
+    @commitment.proj_id = params[:id]  
+
     if @commitment.save
-      redirect_to action: 'list'
+      redirect_to controller: 'projcommitments', id: params[:id]
     else
       render 'new'
     end
@@ -66,7 +69,7 @@ class ProjcommitmentsController < ApplicationController
     @commitment = Projcommitment.find(params[:id])
     
     if @commitment.update_attributes(projcommitment_params)
-      redirect_to action: 'list'
+      redirect_to projcommitment_url(@commitment)
     else
       render 'edit'
     end

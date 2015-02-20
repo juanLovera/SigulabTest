@@ -171,9 +171,8 @@
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar la ejecución?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Ejecución</button>
-					<%= link_to projexecutions_path, class: "btn btn-default btn-danger" do %>
-						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
-					<% end %>
+					<%= link_to controller: 'projcommitment', id: @commitment.id do %>					
+						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación</button>	
 				</div>
 			</div>				
 	  			<% end %>

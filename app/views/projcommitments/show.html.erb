@@ -3,11 +3,10 @@
 		<ol class="breadcrumb">
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
-			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
-<!-- 			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>				 -->
-<!-- 			<li><%= link_to @project.project_number, @project %></li>				 -->		
-<!-- 			<li><%= link_to 'Compromisos', controller: 'projcommitments', action: 'list' %></li>				 -->
-			<li class="active"><%= @commitment.id%></li>
+			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>					
+			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @commitment.proj_id %></li>
+			<li class="active"><%= Project.find(@commitment.proj_id).project_number %></li>
 		</ol>
 	</div>
 	<div class="col-xs-12">
@@ -21,11 +20,11 @@
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Proyecto:</td>
-				<td class="col-xs-7"><%= @commitment.proj_id.titulo %></td>
+				<td class="col-xs-7"><%= @project.title %></td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Documento:</td>
-				<td class="col-xs-7"><%= Commitment.document_str[Commitment.documents[@commitment.document]] %></td>
+				<td class="col-xs-7"><%= Projcommitment.document_str[Projcommitment.documents[@commitment.document]] %></td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Número de Documento:</td>

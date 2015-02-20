@@ -36,22 +36,22 @@
 		   <td class="col-xs-7"><%= @request.fondos %></td>
 		 </tr>
                 <tr>
-		   <td class="col-xs-5 text-right">Proforma a nombre de la Universidad Simón Bolívar, indicando la condición de entrega</td>
+		   <td class="col-xs-5 text-right">Proforma</td>
 		   <td class="col-xs-7"><%= link_to "Descargar", @request.proforma_url %></td>
 		 </tr>
                  <tr>
-		   <td class="col-xs-5 text-right">Folleto o catálogo (Brochure) del Material y/o Equipo solicitado, que respalde la información suministrada en el formato de Relación Descriptiva de Materiales/Equipos</td>
+		   <td class="col-xs-5 text-right">Folleto o catálogo</td>
 		   <td class="col-xs-7"><%= link_to "Descargar", @request.folleto_url %></td>
 		 </tr>
                  <% if @request.acta_consejo_directo_url != "" %>
                  <tr>
-		   <td class="col-xs-5 text-right">Copia del Acta del Consejo Directo donde autorice la Contratación Pública, si aplica (Compras mayores de 2.400 UT)</td>
+		   <td class="col-xs-5 text-right">Acta del Consejo Directo</td>
 		   <td class="col-xs-7"><%= link_to "Descargar", @request.acta_consejo_directo_url %></td>
 		 </tr>
                  <% end %>
                  <% if @request.fonacit_url != "" %>
                  <tr>
-		   <td class="col-xs-5 text-right">Copia Contrato Fonacit</td>
+		   <td class="col-xs-5 text-right">Contrato Fonacit</td>
 		   <td class="col-xs-7"><%= link_to "Descargar", @request.fonacit_url %></td>
 		 </tr>
                  <% end %>

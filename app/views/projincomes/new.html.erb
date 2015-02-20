@@ -4,6 +4,8 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>			
+			<li><%= link_to Project.find(params[:id]).project_number, controller: 'projects', action: 'summary', id: params[:id] %></li>		
 			<li><%= link_to 'Ingresos', controller: 'projincomes', id: params[:id] %></li>
 			<li class="active">Nuevo Ingreso</li>
 		</ol>
@@ -122,8 +124,8 @@
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Ingreso</button>
-					<%= link_to projincomes_path, class: "btn btn-default btn-danger" do %>
-						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar
+					<%= link_to controller: 'projincomes', id: params[:id] do %>					
+						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar</button>					
 					<% end %>
 				</div>
 			</div>
