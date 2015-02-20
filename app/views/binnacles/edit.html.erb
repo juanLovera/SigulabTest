@@ -49,11 +49,6 @@
             <%= f.select(:medidaIngreso, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
           </tr>
 
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Saldo:</strong></td>
-            <td class="col-xs-7"> <%= f.number_field(:saldo, min: 0) %><span class="red">*</span>
-            <%= f.select(:medidaSaldo, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
-          </tr>
           <%= f.hidden_field :idSustancia, :value => @id %>
           
           <td class="col-xs-5"><td>

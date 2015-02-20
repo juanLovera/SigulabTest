@@ -15,7 +15,26 @@
     <h1><i class="fa fa-bar-chart"></i> Bitácora</h1>
   </div>
 
-  <br>
+  <div class="col-xs-12">
+    
+    <div class="well">
+
+      <table cellpadding="0" cellspacing="0" border="0" class="display">
+      <tbody>
+        <tr>
+          <% @sustancias.each do |sustancia| %>
+            <td class="text-left"><%= 'Sustancia:  ' %><span class="mayus"><%= sustancia.name %></span></td>
+            <td class="text-right"><%= 'Unidad de Medida:  ' %><span class="mayus"><%= sustancia.meassure %></span></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+  </div>
+
+
 
   <div class="col-xs-12">
       <body id="dt_example" class="ex_highlight_row">
@@ -26,9 +45,8 @@
               <thead>
                 <tr>
                   <th class="text-center">Fecha</th>
-                  <th class="text-center">Consumo</th>
                   <th class="text-center">Ingreso</th>
-                  <th class="text-center">Saldo</th>
+                  <th class="text-center">Consumo</th>
                 </tr>
               </thead>
 
@@ -36,9 +54,8 @@
                 <% @binnacles.each do |binnacle| %>
                   <tr>
                     <td class="text-center"><%= link_to binnacle.fecha, binnacle %></td>
-                    <td class="text-center"><%= binnacle.consumo %></td>
-                    <td class="text-center"><%= binnacle.ingreso %></td>
-                    <td class="text-center"><%= binnacle.saldo %></td>
+                    <td class="text-center"><%= number_to_currency(binnacle.ingreso, format: "%n", delimiter: ".", separator: ",") %></td>
+                    <td class="text-center"><%= number_to_currency(binnacle.consumo, format: "%n", delimiter: ".", separator: ",") %></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -52,6 +69,21 @@
 
     </div>
 
+    <br>
+
+<div class="col-xs-12">
+  <div class="well">
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+      <tbody>
+        <tr>
+          <td class="text-left">SALDO TOTAL</td>
+          <td class="text-right"><%= number_to_currency(@total, format: "%n", delimiter: ".", separator: ",") %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <div class="col-xs-12" align="left">
   <p></p>
   <%= link_to new_binnacle_path(@id) do %>
@@ -61,3 +93,12 @@
     <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
   <% end %>
 </div>
+
+<style>
+
+.mayus {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+</style>
