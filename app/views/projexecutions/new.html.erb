@@ -113,20 +113,29 @@
 					<%= i.text_area :remarks, class: 'form-control' %>
 				</div>
 			</div>
-			
+		
+			<%= i.text_field :proyecto, class: "hidden_option" %>
+				
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Ejecución</button>
-					<%= link_to controller: 'projcommitment', id: @commitment.id do %>					
+					<%= link_to @commitment do %>					
 						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación</button>			
 					<% end %>
 				</div>
 			</div>			
 		<% end %>
 	</div>
+
 	<div class="col-xs-12">
 		<div class="well">
 			<span style="color:#FF0000">*</span> Los campos son obligatorios.
 		</div>
 	</div>
 </div>
+
+<style>
+.hidden_option{
+    display: none;
+  }
+</style>
