@@ -4,13 +4,16 @@ class ProjcommitmentsController < ApplicationController
   before_filter :authenticate_user!
   
   def list
-    @commitments = Projcommitment.all.order("date ASC")
+    if params[:id]
+      @project = Project.find(params[:id])
+    end       
+    @commitments = Projcommitment.order("date ASC").where("proj_id=?",params[:id])
     @sum = @commitments.sum(:amount)
   end
 
   def show
-    @commitment = Projcommitment.find(params[:id])
-    @executions = Projexecution.where("commitment_id=?",params[:id])
+    @commitment = Projcommitment.all.find(params[:id])
+    @executions = Projexecution.all.where("commitment_id=?",params[:id])
     @sum = @executions.where("check_annulled=false").sum(:check_amount)
     @dif = @commitment.amount - @sum
     @size = @executions.count
@@ -18,10 +21,11 @@ class ProjcommitmentsController < ApplicationController
 
   def new
     @commitment = Projcommitment.new
-    if params[:cid]
-      @project = Project.find(params[:cid])
-      @commitment.project_id = params[:cid]
-    end    
+    if params[:id]
+      @project = Project.find(params[:id])
+      @commitment.proj_id = params[:id]
+    end
+    binding.pry
   end  
 
   def create
@@ -43,7 +47,7 @@ class ProjcommitmentsController < ApplicationController
     end
   end
 
-end
+
 
   def edit
     @commitment = Projcommitment.find(params[:id])

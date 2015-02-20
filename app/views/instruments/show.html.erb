@@ -114,15 +114,31 @@
 
 
 <br><br>
-<% if can? :update, @instrument %>
-  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_instrument_path(@instrument) , 'data-no-turbolink' => true%> |
-<% end %>
-<% if can? :create, @instrument %>
-    <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Instrumento', new_instrument_path %> | 
-<%end%>
-<% if can? :hide, @instrument %>
-      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @instrument, method: :delete, data: { confirm: '¿Estás seguro?' } %> |
-<!--     <i class="fa fa-times"></i><%= link_to ' Ocultar', instruments_path %> |  -->
-<%end%>
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', instruments_path %>
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+
+    <% if can? :create, @instrument %>
+          <%= link_to new_instrument_path do %>
+            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Instrumento</button>
+          <% end %> 
+    <%end%>
+    <% if can? :update, @instrument %>
+      <%= link_to edit_instrument_path(@instrument) do %>
+        <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar</button>
+      <% end %>
+    <% end %>
+    <% if can? :hide, @instrument %>
+          <%= link_to @instrument, method: :delete, data: { confirm: '¿Estás seguro?' } do%>
+            <button type="button" class="btn btn-danger"><span class="fa fa-times fa-1x"></span>&nbsp;&nbsp;Eliminar</button>
+          <% end %>
+    <%end%>
+  </div>
+  <div class="col-xs-6 text-right">
+
+    <%= link_to instruments_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+    <% end %>
+
+  </div>
+</div>
 <br><br><br><br>

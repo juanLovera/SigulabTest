@@ -61,14 +61,22 @@
 
    <br>
 
-    <% if can? :create, @instrument %>
-      <i class="fa fa-plus-circle"></i><%= link_to ' Nuevo Instrumento', new_instrument_path, 'data-no-turbolink' => true, :class => "linkButton" %> | 
-    <%end%>
-    <i class="fa fa-exchange"></i><%= submit_tag ' Solicitar Préstamo/Servicio ', :class => "linkButton" %> |  
-    <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => "linkButton" %>
+<div class="col-xs-12" align="left">
+  <p></p>
+  <% if can? :create, @instrument %>
+    <%= link_to new_instrument_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Instrumento</button>
     <% end %>
-    <br><br><br><br><br><br><br>
-    
+  <% end %>
+  <button type="submit" class="btn btn-default" onclick="solicitar(item_ids);"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo/Servicio</button>
+  <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
+</div>  
+
+<% end %>      
+
+  <br><br><br>
 
   </div>
  </div>
