@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150220032114) do
-
+ActiveRecord::Schema.define(version: 20150220125224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150220032114) do
     t.float    "ingreso",       default: 0.0
     t.text     "descripcion"
     t.string   "tipo"
+    t.string   "format"
   end
 
   create_table "checks", force: true do |t|
