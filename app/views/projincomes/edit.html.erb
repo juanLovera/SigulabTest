@@ -25,14 +25,7 @@
 			<div class="form-group">
 				<label for='projincome_proyecto' class="col-xs-3 control-label text-right">Proyecto <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-3">
-					<%= i.text_field :proyecto, class: 'form-control' %>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label for='projincome_sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
-				<div class='col-xs-4'>
-					<%= i.text_field :sae_code, class: 'form-control' %>
+					<input class="form-control" placeholder="<%= Project.find(@projincome.proyecto).project_number rescue nil %>" disabled>
 				</div>
 			</div>
 			

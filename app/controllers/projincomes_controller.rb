@@ -4,20 +4,22 @@ class ProjincomesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @project = Project.find(params[:id])    
-    @projincomes = Projincome.all.order("date ASC")
+    @project = Project.find(params[:id])
+    @projincomes = Projincome.all.order("date ASC").where("proyecto=?",params[:id])
     @sum = @projincomes.sum(:amount)
   end
 
   def show
     @projincome = Projincome.find(params[:id])
-    @project = Project.find(@projincome.proyecto)
+#    @project = Project.find(@projincome.proyecto)
   end
   
   def new
-    @project = Project.find(params[:id])      
     @projincome = Projincome.new
-    @projincome.proyecto = :id
+    if params[:id]
+       @project = Project.find(params[:id])
+       @projincome.proyecto = params[:id]
+    end
   end
   
   def create
@@ -57,7 +59,7 @@ class ProjincomesController < ApplicationController
     @projincome = Projincome.new(projincome_params)
   
     if @projincome.save
-      redirect_to @projincome
+      redirect_to controller: 'projincomes', id: params[:id]
     else
       render 'new'
     end

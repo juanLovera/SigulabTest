@@ -4,7 +4,7 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Ingresos', projincomes_path %></li>
+			<li><%= link_to 'Ingresos', controller: 'projincomes', id: params[:id] %></li>
 			<li class="active">Nuevo Ingreso</li>
 		</ol>
 	</div>
@@ -25,7 +25,7 @@
 			<div class="form-group">
 				<label for='projincome_project' class="col-xs-3 control-label text-right">Proyecto</label>
 				<div class='col-xs-4'>
-					<textarea disabled class='form-control'><%=@project.title%></textarea>
+					<input class="form-control" placeholder="<%= Project.find(params[:id]).project_number rescue nil %>" disabled>
 				</div>
 			</div>
 			
@@ -116,6 +116,9 @@
 				</div>
 			</div>
 
+			<%= hidden_field_tag "id", params[:id] %>
+			<%= i.text_field :proyecto, class: "hidden_option" %>
+
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Ingreso</button>
@@ -139,4 +142,7 @@
 .file_field input {
     color: red; /*or whatever you want to change*/
 }
+.hidden_option{
+    display: none;
+  }
 </style>
