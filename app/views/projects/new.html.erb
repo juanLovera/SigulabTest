@@ -1,3 +1,8 @@
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
+
 <div class="row">
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
@@ -18,9 +23,19 @@
 			</div>
 		</div>
 	<% end %>
-	<div class="col-xs-12">
+</div>
+
+<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">Datos del Proyecto</a></li>
+			<li><a href="#tabs-2">Distribución del Monto</a></li>
+			<li><a href="#tabs-3">Cuenta Bancaria</a></li>
+		</ul>
+
 		<%= form_for @project, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>	
 
+		<!-- TABS 1-->
+		<div id="tabs-1">
 			<div class="form-group">
 				<label for='project_number' class="col-xs-3 control-label text-right">Número del Proyecto <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
@@ -63,17 +78,27 @@
 				<div class='col-xs-4'>
 					<%= i.text_field :sae_code, class: 'form-control', :readonly => true  %>
 				</div>
-			</div>				
+			</div>		
+			<hr />
 
-			<hr />	
-			
 			<div class="form-group">
-				<label for='amountdist' class="col-xs-3 control-label text-right">Distribución del monto:</label>
+				<label for='incoming_date' class="col-xs-3 control-label text-right">Fecha de Ingreso de los Recursos </label>
 				<div class='col-xs-4'>
-					<div class="input-group">
-					</div>
+					<%= i.text_field :incoming_date, class: 'bootlayout-date form-control' %>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label for='project_observation' class="col-xs-3 control-label text-right">Observaciones</label>
+				<div class='col-xs-4'>
+					<%= i.text_area :observation, class: 'form-control' %>
+				</div>
+			</div>		
+
+			</div><!-- END TABS 1-->
+
+		<!-- TABS 2-->
+		<div id="tabs-2">	
 
 			<div class="form-group">
 				<label for='equipments' class="col-xs-3 control-label text-right">Equipos <span style="color:#FF0000">*</span></label>
@@ -154,30 +179,12 @@
 					</div>
 				</div>
 			</div>
-	
-			<div class="form-group">
-				<label for='incoming_date' class="col-xs-3 control-label text-right">Fecha de Ingreso de los Recursos </label>
-				<div class='col-xs-4'>
-					<%= i.text_field :incoming_date, class: 'bootlayout-date form-control' %>
-				</div>
-			</div>
 
-			<div class="form-group">
-				<label for='project_observation' class="col-xs-3 control-label text-right">Observaciones</label>
-				<div class='col-xs-4'>
-					<%= i.text_area :observation, class: 'form-control' %>
-				</div>
-			</div>
+		</div><!-- END TABS 2-->
 
+			<!-- TABS 3 -->
+			<div id="tabs-3">
 
-			<hr />	
-
-			<div class="form-group">
-				<label for='num_cuenta' class="col-xs-3 control-label text-right">Número de cuenta <span style="color:#FF0000">*</span></label>
-				<div class='col-xs-4'>
-					<%= i.text_field :num_cuenta, class: 'form-control' %>
-				</div>
-			</div>
 
 			<div class="form-group">
 				<label for='banco' class="col-xs-3 control-label text-right">Banco <span style="color:#FF0000">*</span></label>
@@ -186,18 +193,30 @@
        		    </div>
 			</div>
 
-
 			<div class="form-group">
-				<div class="col-xs-offset-3 col-xs-9">
-					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Proyecto</button>
-					<%= link_to projects_path, class: "btn btn-default btn-danger" do %>
-						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
-					<% end %>
+				<label for='num_cuenta' class="col-xs-3 control-label text-right">Número de cuenta <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :num_cuenta, class: 'form-control' %>
 				</div>
 			</div>
-		<% end %>
+
+			</div><!-- END TABS 3-->
+	
+		
 
 	</div>
+	<br>
+	<div class="form-group">
+		<div class="col-xs-offset-3 col-xs-9">
+			<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Proyecto</button>
+			<%= link_to projects_path, class: "btn btn-default btn-danger" do %>
+				<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+			<% end %>
+		</div>
+	</div>
+	<br>
+	<br>
+<% end %>
 	<div class="col-xs-12">
 		<div class="well">
 			<span style="color:#FF0000">*</span> Los campos son obligatorios.
