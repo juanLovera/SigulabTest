@@ -8,7 +8,7 @@ class ProjexecutionsController < ApplicationController
       @project = Project.find(params[:id])
     end           
     @projexecutions = Projexecution.order("date ASC").where("proyecto=?",params[:id])
-    @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
+    @sum = @projexecutions.where("check_annulled=false").where("proyecto=?",params[:id]).sum(:check_amount)
   end
 
    def show
@@ -21,22 +21,21 @@ class ProjexecutionsController < ApplicationController
      @execution = Projexecution.find(params[:cid])
      @projexecutions = Projexecution.where("commitment_id=?",params[:cid])
      @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
-
-     @commitments = Commitment.find(params[:cid])
-
+     @commitments = Projcommitment.find(params[:cid])
      @sum_commitment = @commitments.amount
-
    end
   
    def new
-     @execution = Projexecution.new
+     @projexecution = Projexecution.new
      if params[:cid]
-       @commitment = Commitment.find(params[:cid])
-       @Projexecution.commitment_id = params[:cid]
+       @commitment = Projcommitment.find(params[:cid])
+       @projexecution.commitment_id = params[:cid]
+       @projexecution.proyecto = @commitment.proj_id
      end
    end
   
    def create
+binding.pry
      # Check Date
      unless params[:projexecution].nil?
        begin
@@ -46,23 +45,23 @@ class ProjexecutionsController < ApplicationController
        end
      end
    
-     @execution = Projexecution.new(execution_params)
-     @commitment = Commitment.find(params[:cid])    
+     @projexecution = Projexecution.new(execution_params)
+     @commitment = Projcommitment.find(params[:cid])    
      @projexecutions = Projexecution.where("commitment_id=?",params[:cid])
      @projexecuted = @projexecutions.where("check_annulled=false").sum(:check_amount)
-     if !@Projexecution.check_amount.blank?
-       if @Projexecution.check_amount > @commitment.amount - @projexecuted
-         @Projexecution.executable_amount
+     if !@projexecution.check_amount.blank?
+       if @projexecution.check_amount > @commitment.amount - @projexecuted
+         @projexecution.executable_amount
          render 'new'
        else 
-         if @Projexecution.save
+         if @projexecution.save
            redirect_to action: 'index'
          else
            render 'new'        
          end
        end
      else
-       if @Projexecution.save
+       if @projexecution.save
          redirect_to action: 'index'
        else
          render 'new'        
@@ -114,7 +113,7 @@ class ProjexecutionsController < ApplicationController
   
    private
        def execution_params
-         params.require(:projexecution).permit(:code, :commitment_id, :proyecto, :check_amount, :check_number, :check_elaboration_date, :document, :document_name, :check_sign_date, :check_delivery_date, :remarks)
+         params.require(:projexecution).permit(:code, :commitment_id, :proyecto, :check_amount, :check_number, :check_elaboration_date, :document, :check_sign_date, :check_delivery_date, :remarks)
      end
     
      def purge_date(date)

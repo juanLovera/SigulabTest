@@ -45,8 +45,8 @@
 								<tr>
 									<td class="text-center"><%= link_to i.code, i %></td>														
 									<td class="text-center"><%= i.proyecto %></td>
-									<td class="text-left"><%= link_to i.commitment.description, i.commitment %></td>
-									<td class="text-left"><%= i.commitment.recipient %></td>
+									<!-- <td class="text-left"><%= link_to i.commitment, i.commitment %></td> -->
+									<!-- <td class="text-left"><%= i.commitment %></td> -->
 									<td class="text-left"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
 				        			
 								</tr>
