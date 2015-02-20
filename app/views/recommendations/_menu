@@ -105,6 +105,25 @@
 		   <% end %></li>
 		   <% end %>
 
+<% if session['specification_sel_nacional'] == "Internacional" %>
+	<% if session['specification_p8'] == 0 %>
+			<li id="bt8" style="text-align:left; " class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para agregar una relación debe agregar la requisición.');" >
+		       <i class="fa fa-bars"> Relación Descriptiva </i>
+		   </a></li>
+		   <% else %>
+			<li id="bt8" style="text-align:left;" <% if session['specification_p8'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to relations_url do %><i class="fa fa-bars"> Relación Descriptiva </i>
+		   <% end %></li>
+		   <% end %>
+
+<% if session['specification_p9'] == 0 %>
+			<li id="bt9" style="text-align:left; " class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para agregar una solicitud es necesario completa la relación descriptiva.');" >
+		       <i class="fa fa-globe"> Solicitud de Compra Extranjera </i>
+		   </a></li>
+		   <% else %>
+			<li id="bt9" style="text-align:left; " <% if session['specification_p9'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to requests_url do %><i class="fa fa-globe"> Solicitud de Compra Extranjera </i>
+		   <% end %></li>
+		   <% end %>
+<% end %>
 
 		   
 </ul>

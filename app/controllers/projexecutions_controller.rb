@@ -20,7 +20,7 @@ class ProjexecutionsController < ApplicationController
    end
 
    def list
-     @execution = Projexecution.find(params[:cid])
+     @projexecution = Projexecution.find(params[:cid])
      @projexecutions = Projexecution.where("commitment_id=?",params[:cid])
      @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
      @commitments = Projcommitment.find(params[:cid])
@@ -94,7 +94,7 @@ class ProjexecutionsController < ApplicationController
      @projexecuted = @projexecutions.where("check_annulled=false").sum(:check_amount) - @oldamount
 
      if params[:projexecution][:check_amount].to_i > @commitment.amount - @projexecuted
-       @Projexecution.executable_amount
+       @projexecution.executable_amount
        render 'edit'
      else 
        if @projexecution.update_attributes(execution_params)
