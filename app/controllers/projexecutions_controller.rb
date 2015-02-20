@@ -35,7 +35,6 @@ class ProjexecutionsController < ApplicationController
    end
   
    def create
-binding.pry
      # Check Date
      unless params[:projexecution].nil?
        begin
@@ -70,8 +69,8 @@ binding.pry
    end
   
    def edit
-     @execution = Projexecution.find(params[:id])
-     @commitment = Commitment.find(Projexecution.find(params[:id]).commitment_id) 
+     @projexecution = Projexecution.find(params[:id])
+     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id) 
    end
   
    def update
@@ -85,29 +84,29 @@ binding.pry
          end
        end
      end
-     @execution = Projexecution.find(params[:id])
-     @commitment = Commitment.find(Projexecution.find(params[:id]).commitment_id)    
+     @projexecution = Projexecution.find(params[:id])
+     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)    
 
-     @oldamount = @Projexecution.check_amount    
-     @projexecutions = Projexecution.where("commitment_id=?",@Projexecution.commitment_id)
+     @oldamount = @projexecution.check_amount    
+     @projexecutions = Projexecution.where("commitment_id=?", @projexecution.commitment_id)
      @projexecuted = @projexecutions.where("check_annulled=false").sum(:check_amount) - @oldamount
 
      if params[:projexecution][:check_amount].to_i > @commitment.amount - @projexecuted
        @Projexecution.executable_amount
        render 'edit'
      else 
-       if @Projexecution.update_attributes(execution_params)
+       if @projexecution.update_attributes(execution_params)
          redirect_to action: 'index'
        else
-         @commitment = Commitment.find(Projexecution.find(params[:id]).commitment_id)
+         @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
          render 'edit'
        end
      end    
    end
 
    def annul
-     @execution = Projexecution.find(params[:id])
-     @Projexecution.update_attribute(:check_annulled, true)
+     @projexecution = Projexecution.find(params[:id])
+     @projexecution.update_attribute(:check_annulled, true)
      redirect_to :back
    end
   
