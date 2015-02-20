@@ -1,4 +1,3 @@
-<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
 
 <h1>Nuevo Registro en la Bitácora</h1>
 <ol class="breadcrumb">
@@ -38,21 +37,18 @@
             <span class="red">*</span></td>
           </tr>
           <tr>
-            <td class="col-xs-5 text-right"><strong>Consumo:</strong></td>
-            <td class="col-xs-7"> <%= f.number_field(:consumo, min: 0) %><span class="red">*</span>
-            <%= f.select(:medidaConsumo, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
+            <td class="col-xs-5 text-right"><strong>Tipo de Registro:</strong></td>
+            <td class="col-xs-7"><%= f.select(:tipo, options_for_select([@binnacle.tipo,["Ingreso"],["Consumo"]]), {selected: @binnacle.tipo }, {:onchange => "changeType();"} ) %>
+            <span class="red">*</span></td>
+          </tr>
+          <tr class="hidden_option1">
+            <td class="hidden_option1 col-xs-5 text-right"><strong>Cantidad Consumida:</strong></td>
+            <td class="hidden_option1 col-xs-7"> <%= f.number_field(:consumo, min: 0, :class => 'hidden_option1') %><span class="hidden_option1 red">*</span></td>
           </tr>
 
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Ingreso:</strong></td>
-            <td class="col-xs-7"> <%= f.number_field(:ingreso, min: 0)%><span class="red">*</span>
-            <%= f.select(:medidaIngreso, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
-          </tr>
-
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Saldo:</strong></td>
-            <td class="col-xs-7"> <%= f.number_field(:saldo, min: 0) %><span class="red">*</span>
-            <%= f.select(:medidaSaldo, [['ml'], ['l'], ['kg'], ['g'], ['mg'] ] ) %></td>
+          <tr class="hidden_option2">
+            <td class="hidden_option2 col-xs-5 text-right"><strong class="hidden_option2">Cantidad Ingresada:</strong></td>
+            <td class="hidden_option2 col-xs-7"> <%= f.number_field :ingreso, min: 0, class: 'hidden_option2' %><span class="hidden_option2 red">*</span></td>
           </tr>
           <%= f.hidden_field :idSustancia, :value => @id %>
           
@@ -80,6 +76,24 @@
 
 <br><br>
 
+<script>
+  function changeType() {
+
+    if ($('#binnacle_tipo').val()== "Ingreso") {
+      $(".hidden_option2").fadeIn('fast');
+    } else {
+      $(".hidden_option2").fadeOut('fast');   
+    }
+
+    if ($('#binnacle_tipo').val()== "Consumo") {
+      $(".hidden_option1").fadeIn('fast');
+    } else {
+      $(".hidden_option1").fadeOut('fast');   
+    }
+
+  }
+</script>
+
 <style>
 
 .red {
@@ -91,4 +105,13 @@
     line-height             :1.6em;
 }
 
+.hidden_option1{
+  display: none;
+}
+
+.hidden_option2{
+  display: none;
+}
+
 </style>
+

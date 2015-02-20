@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219050705) do
+ActiveRecord::Schema.define(version: 20150220004002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20150219050705) do
     t.datetime "updated_at"
     t.string   "medidaConsumo"
     t.string   "medidaIngreso"
-    t.string   "medidaSaldo"
-    t.integer  "consumo",       default: 0
-    t.integer  "ingreso",       default: 0
-    t.integer  "saldo",         default: 0
+    t.float    "consumo",       default: 0.0
+    t.float    "ingreso",       default: 0.0
+    t.string   "descripcion"
+    t.string   "tipo"
   end
 
   create_table "checks", force: true do |t|
