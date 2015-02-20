@@ -12,9 +12,9 @@ class ProjexecutionsController < ApplicationController
   end
 
    def show
-     @projexecution = Projexecution.find(params[:id])
-     @projcommitment = Projcommitment.find(@projexecution.commitment_id)
-     @project = Project.find(@projcommitment.proj_id)
+     @execution = Projexecution.find(params[:id])
+     @commitment = Projcommitment.find(@execution.commitment_id)
+     @project = Project.find(@commitment.proj_id)
      @projexecutions = Projexecution.where("commitment_id=?",params[:id])
      @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
    end
@@ -71,8 +71,8 @@ class ProjexecutionsController < ApplicationController
    end
   
    def edit
-     @projexecution = Projexecution.find(params[:id])
-     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id) 
+     @execution = Projexecution.find(params[:id])
+     @commitment = Commitment.find(Projexecution.find(params[:id]).commitment_id) 
    end
   
    def update
@@ -86,29 +86,29 @@ class ProjexecutionsController < ApplicationController
          end
        end
      end
-     @projexecution = Projexecution.find(params[:id])
-     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)    
+     @execution = Projexecution.find(params[:id])
+     @commitment = Commitment.find(Projexecution.find(params[:id]).commitment_id)    
 
-     @oldamount = @projexecution.check_amount    
-     @projexecutions = Projexecution.where("commitment_id=?", @projexecution.commitment_id)
+     @oldamount = @Projexecution.check_amount    
+     @projexecutions = Projexecution.where("commitment_id=?",@Projexecution.commitment_id)
      @projexecuted = @projexecutions.where("check_annulled=false").sum(:check_amount) - @oldamount
 
      if params[:projexecution][:check_amount].to_i > @commitment.amount - @projexecuted
        @Projexecution.executable_amount
        render 'edit'
      else 
-       if @projexecution.update_attributes(execution_params)
+       if @Projexecution.update_attributes(execution_params)
          redirect_to action: 'index'
        else
-         @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
+         @commitment = Commitment.find(Projexecution.find(params[:id]).commitment_id)
          render 'edit'
        end
      end    
    end
 
    def annul
-     @projexecution = Projexecution.find(params[:id])
-     @projexecution.update_attribute(:check_annulled, true)
+     @execution = Projexecution.find(params[:id])
+     @Projexecution.update_attribute(:check_annulled, true)
      redirect_to :back
    end
   

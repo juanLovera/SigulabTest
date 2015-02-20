@@ -19,7 +19,7 @@
 				<td class="col-xs-5 text-right">Compromiso asociado:</td>
 				<td class="col-xs-7"><%= @projcommitment.description %></td>
 			</tr>
-			<% if !@projexecution.document.blank? -%>
+			<% if !@projexecution.document_name.blank? -%>
 			<tr>
 				<td class="col-xs-5 text-right">Documento:</td>
 				<td class="col-xs-7"><%= @projexecution.document_name %></td>
