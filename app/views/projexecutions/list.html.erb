@@ -9,12 +9,12 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li class="active"> Ejecuciones de </li>
+			<li class="active"> Ejecuciones asociadas </li>
 		</ol>
 	</div>
 
 	<div class="col-xs-12">
-		<h2><center> Ejecuciones de  </center></h2>
+		<h2><center> Ejecuciones asociadas  </center></h2>
 	</div>
 
 	<div class="col-xs-12">
@@ -44,7 +44,7 @@
 								<tr>
 									<td class="text-center"><%= i.check_elaboration_date %></td>
 									<td class="text-center"><%= link_to i.code, i %></td>
-									<td class="text-center"><%= i.proyecto %></td>					
+									<td class="text-center"><%= Project.find(i.proyecto).project_number %></td>					
 									<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>
 							<% end %>
