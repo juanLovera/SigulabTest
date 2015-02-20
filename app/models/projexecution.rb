@@ -1,6 +1,14 @@
 class Projexecution < ActiveRecord::Base
 
   belongs_to :commitment
+
+  enum document: [:reception_report, :according_service]
+  def self.document_str
+  [
+    "Informe de Recepción",
+    "Conformidad de Servicio"
+  ]
+  end
   
   validates :code, presence: true
   validates :code, numericality: { greater_than: 0 }, if: "!code.blank?"

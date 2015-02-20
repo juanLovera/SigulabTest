@@ -12,8 +12,10 @@ class ProjexecutionsController < ApplicationController
   end
 
    def show
-     @execution = Projexecution.find(params[:id])
-     @projexecutions = Projexecution.where("commitment_id=?",params[:cid])
+     @projexecution = Projexecution.find(params[:id])
+     @projcommitment = Projcommitment.find(@projexecution.commitment_id)
+     @project = Project.find(@projcommitment.proj_id)
+     @projexecutions = Projexecution.where("commitment_id=?",params[:id])
      @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
    end
 
@@ -35,7 +37,6 @@ class ProjexecutionsController < ApplicationController
    end
   
    def create
-binding.pry
      # Check Date
      unless params[:projexecution].nil?
        begin
@@ -55,14 +56,14 @@ binding.pry
          render 'new'
        else 
          if @projexecution.save
-           redirect_to action: 'index'
+           redirect_to controller: 'projexecutions', id: params[:cid]
          else
            render 'new'        
          end
        end
      else
        if @projexecution.save
-         redirect_to action: 'index'
+         redirect_to controller: 'projexecutions', id: params[:cid]
        else
          render 'new'        
        end   
