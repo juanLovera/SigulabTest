@@ -21,7 +21,6 @@ class SpecificationsController < ApplicationController
   # GET /specifications/new
   def new
     @specification = Specification.new
-    time = Time.new
     @fecha = "ET "+time.strftime("%Y-%m-%d %H:%M:%S")
   end
 

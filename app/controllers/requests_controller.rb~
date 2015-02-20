@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
 	end
 	   data = "#{@request.fondos}; correspondiente al Proyecto No. #{@request.numero_proyecto}, y a ser debitados de la Cuenta #{@request.tipo_cuenta} Nro. #{@request.numero_cuenta}, del Banco #{@request.nombre_banco}"
         pdf = ReporteRequests.new(@request, specif, data)
-        nombre = "Solicitud_de_Compra_Especificacion_#{session[:specification_sel_id]}.pdf"
+        nombre = "Relacion_Descriptiva_Especificacion_#{session[:specification_sel_id]}_Empresa_.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
       end
 	format.xml do

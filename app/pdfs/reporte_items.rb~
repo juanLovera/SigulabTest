@@ -45,7 +45,7 @@ class ReporteItems < Prawn::Document
       row(0).font_style = :bold
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [80,120,240,100]
+      self.column_widths = [80,120,170,170]
     end
     move_down 45
     text "______________________\n\nFirma de Autorizacion\ \ \ \ \n", :align => :right 
