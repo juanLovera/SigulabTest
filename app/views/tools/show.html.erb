@@ -93,15 +93,31 @@
 
 
 <br><br>
-<% if can? :update, @tool %>
-  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_tool_path(@tool) %> |
-<% end %>
-<% if can? :create, @tool %>
-    <i class="fa fa-plus-circle"></i><%= link_to ' Nueva herramienta', new_tool_path %> | 
-<% end %>
-<% if can? :hide, @tool %>
-      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @tool, method: :delete, data: { confirm: '¿Estás seguro?' } %> |
-<!--       <i class="fa fa-times"></i><%= link_to ' Ocultar', tools_path %> |  -->
-<%end%>
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', tools_path %>
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+
+    <% if can? :create, @tool %>
+          <%= link_to new_tool_path do %>
+            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Herramienta</button>
+          <% end %> 
+    <%end%>
+    <% if can? :update, @tool %>
+      <%= link_to edit_tool_path(@tool) do %>
+        <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar</button>
+      <% end %>
+    <% end %>
+    <% if can? :hide, @tool %>
+          <%= link_to @tool, method: :delete, data: { confirm: '¿Estás seguro?' } do%>
+            <button type="button" class="btn btn-danger"><span class="fa fa-times fa-1x"></span>&nbsp;&nbsp;Eliminar</button>
+          <% end %>
+    <%end%>
+  </div>
+  <div class="col-xs-6 text-right">
+
+    <%= link_to tools_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+    <% end %>
+
+  </div>
+</div>
 <br><br><br><br>
