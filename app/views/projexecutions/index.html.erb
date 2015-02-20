@@ -44,9 +44,9 @@
 				      		<% @projexecutions.each do |i| %>
 								<tr>
 									<td class="text-center"><%= link_to i.code, i %></td>														
-									<td class="text-center"><%= i.proyecto %></td>
-									<td class="text-center"><%= i.commitment_id %></td>
-									<td class="text-center"><!--<%= i %>--></td>
+									<td class="text-center"><%= Project.find(i.proyecto).project_number %></td>
+									<td class="text-center"><%= link_to Projcommitment.find(i.commitment_id).description, Projcommitment.find(i.commitment_id) %></td>
+									<td class="text-center"><%= Projcommitment.find(i.commitment_id).recipient %></td>
 									<td class="text-center"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
 				        			
 								</tr>
