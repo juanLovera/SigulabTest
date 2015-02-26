@@ -121,12 +121,12 @@
 				<div class='col-xs-4'>
 					<%= i.text_area :observations, class: 'form-control' %>
 				</div>
-			</div>
+			</div>	
 			
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar el ingreso?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Ingreso</button>
-					<%= link_to controller: 'projincomes', id: params[:id] do %>					
+					<%= link_to controller: 'projincomes', action: 'show', id: params[:id] do %>					
 						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar</button>					
 					<% end %>
 				</div>

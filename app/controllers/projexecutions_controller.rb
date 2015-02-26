@@ -55,14 +55,14 @@ class ProjexecutionsController < ApplicationController
          render 'new'
        else 
          if @projexecution.save
-           redirect_to controller: 'projexecutions', id: params[:cid]
+           redirect_to controller: 'projexecutions', id: @projexecution.proyecto
          else
            render 'new'        
          end
        end
      else
        if @projexecution.save
-         redirect_to controller: 'projexecutions', id: params[:cid]
+         redirect_to controller: 'projexecutions', id: @projexecution.proyecto
        else
          render 'new'        
        end   
