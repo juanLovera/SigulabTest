@@ -2,6 +2,9 @@
 # encoding: utf-8
 
 class Execution < ActiveRecord::Base
+
+  attr_localized :check_amount
+
   enum document: [:reception_report, :according_service]
   def self.document_str
   [
@@ -27,7 +30,6 @@ class Execution < ActiveRecord::Base
 
   validate :elaboration_sign, if: "!check_sign_date.blank?"
   validate :sign_delivery, if: "!check_delivery_date.blank?"
-  validate :valid_amount, if: "!check_amount.blank?"
  
   def elaboration_sign
     if check_elaboration_date > check_sign_date

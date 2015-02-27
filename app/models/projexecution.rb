@@ -1,5 +1,7 @@
 class Projexecution < ActiveRecord::Base
 
+  attr_localized :check_amount
+
   belongs_to :commitment
 
   enum document: [:reception_report, :according_service]
