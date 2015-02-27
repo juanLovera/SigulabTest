@@ -24,14 +24,15 @@
 			<div class="form-group">
 				<label for='commitment_lab_id' class="col-xs-3 control-label text-right">Dependencia <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
-					<%= i.select(:lab_id, options_for_select(@labs.map { |l| [l.sae_name, l.id] }), {}, {class: "form-control"} ) %>
+					<%= i.select(:lab_id, options_for_select(@labs.map { |l| [l.sae_name, l.id] }), {:include_blank => true}, {class: "form-control",
+					:onchange => "setSAECodeCommitments();"} ) %>
 				</div>
 			</div>	
 			
 			<div class="form-group">
 				<label for='income_sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :sae_code, class: 'form-control' %>
+					<%= i.text_field :sae_code, class: 'form-control', :readonly => true %>
 				</div>
 			</div>
 			
