@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+
+
   enum admin: [:marquez, :villa]
   def self.admin_str
   [

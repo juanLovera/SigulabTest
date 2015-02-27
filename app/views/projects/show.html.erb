@@ -146,19 +146,22 @@
 		<p><table class="table table-striped">
 			<tr>
 				<td class="col-xs-5 text-right">Monto asignado:</td>
-				<td class="col-xs-7"><%= @incomes_total %></td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@incomes_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Monto comprometido:</td>
-				<td class="col-xs-7"><%= @commitments_total %></td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@commitments_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Monto ejecutado:</td>
-				<td class="col-xs-7"><%= @executions_total %></td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@executions_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
 			</tr>			
 			<tr>
 				<td class="col-xs-5 text-right">Saldo disponible:</td>
-        		<td class="col-xs-7"><%= @incomes_total-@commitments_total %>  </td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@incomes_total-@commitments_total, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
 			</tr>
   			<tr>
 				<td class="col-xs-5 text-right"></td>

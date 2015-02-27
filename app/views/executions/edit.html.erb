@@ -57,7 +57,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control' %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(i.object.amount, format: "%n", delimiter: ".", separator: ",", precision: 2) %>
 					</div>
 				</div>
 			</div>	
@@ -123,8 +123,8 @@
 				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<div class="input-group">
-						<input class="form-control" placeholder="<%= @execution.check_amount rescue nil %>" disabled>
-						<span class="input-group-addon">Bs.</span>
+      <span class="input-group-addon">Bs.</span>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(i.object.check_amount, format: "%n", delimiter: ".", separator: ",", precision: 2), readonly: true %>
 					</div>
 				</div>
 			</div>	

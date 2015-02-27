@@ -71,6 +71,7 @@ class ProjexecutionsController < ApplicationController
   
    def edit
      @projexecution = Projexecution.find(params[:id])
+     @project = Project.find(Projexecution.find(params[:id]).proyecto) 
      @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id) 
    end
   
