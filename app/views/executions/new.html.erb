@@ -69,7 +69,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control' %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(@commitment.amount - @executed, format: "%n", delimiter: ".", separator: ",", precision: 2) %>
 					</div>
 				</div>
 			</div>

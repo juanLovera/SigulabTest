@@ -30,6 +30,7 @@ class ExecutionsController < ApplicationController
     if params[:cid]
       @commitment = Commitment.find(params[:cid])
       @execution.commitment_id = params[:cid]
+      @executed = Execution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount)
     end
   end
   
