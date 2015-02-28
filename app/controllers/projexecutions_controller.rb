@@ -3,7 +3,7 @@ class ProjexecutionsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  def index
+  def index   
     if params[:id]
       @project = Project.find(params[:id])
     end           
@@ -99,7 +99,7 @@ class ProjexecutionsController < ApplicationController
        render 'edit'
      else 
        if @projexecution.update_attributes(execution_params)
-         redirect_to action: 'index'
+         redirect_to action: 'index', id: Project.find(Projcommitment.find(params[:id]).proj_id).id
        else
          @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
          render 'edit'
