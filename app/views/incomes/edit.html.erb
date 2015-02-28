@@ -125,7 +125,7 @@ meta física </label>
 			<div class="form-group">
 				<label for='income_resource' class="col-xs-3 control-label text-right">Recurso de Aplicación </label>
 				<div class="col-xs-4">
-					<%= i.select(:resource, options_for_select(Income.resource_str.zip(Income.resources.keys)), {}, {class: "form-control"} ) %>
+					<%= i.select(:resource, options_for_select(Income.resource_str.zip(Income.resources.keys), @income.resource), {}, {class: "form-control"} ) %>
 				</div>
 			</div>
    <div class="form-group">
