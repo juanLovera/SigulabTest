@@ -38,6 +38,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @incomes_total = Projincome.all.where(proyecto: @project.id).sum(:amount) 
+    @commitments_total = Projcommitment.all.where(proj_id: @project.id).sum(:amount)  
+    @executions_total = Projexecution.all.where(proyecto: @project.id).where("check_annulled=false").sum(:check_amount)    
   end    
 
     def edit

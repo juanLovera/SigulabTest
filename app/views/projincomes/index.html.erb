@@ -14,7 +14,7 @@
 	</div>
 
 	<div class="col-xs-12">
-		<h2><center>Ingresos</center></h2>
+		<h2><center>Ingresos del Proyecto No. <%= @project.project_number %> </center></h2>
 	</div>
 
 
@@ -57,7 +57,7 @@
 		<p></p>
 
 		<div class="well" align="right">
-			<h4>Monto Total Asignado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
+			<h4>Monto Total Asignado: Bs. <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> </h4>
 		</div>
 
 	</div>

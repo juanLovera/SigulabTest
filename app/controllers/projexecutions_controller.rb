@@ -3,7 +3,7 @@ class ProjexecutionsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  def index
+  def index   
     if params[:id]
       @project = Project.find(params[:id])
     end           
@@ -32,6 +32,7 @@ class ProjexecutionsController < ApplicationController
        @commitment = Projcommitment.find(params[:cid])
        @projexecution.commitment_id = params[:cid]
        @projexecution.proyecto = @commitment.proj_id
+       @executed = Projexecution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount)       
      end
    end
   
@@ -55,14 +56,14 @@ class ProjexecutionsController < ApplicationController
          render 'new'
        else 
          if @projexecution.save
-           redirect_to controller: 'projexecutions', id: params[:cid]
+           redirect_to controller: 'projexecutions', id: @projexecution.proyecto
          else
            render 'new'        
          end
        end
      else
        if @projexecution.save
-         redirect_to controller: 'projexecutions', id: params[:cid]
+         redirect_to controller: 'projexecutions', id: @projexecution.proyecto
        else
          render 'new'        
        end   
@@ -71,6 +72,7 @@ class ProjexecutionsController < ApplicationController
   
    def edit
      @projexecution = Projexecution.find(params[:id])
+     @project = Project.find(Projexecution.find(params[:id]).proyecto) 
      @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id) 
    end
   
@@ -97,7 +99,7 @@ class ProjexecutionsController < ApplicationController
        render 'edit'
      else 
        if @projexecution.update_attributes(execution_params)
-         redirect_to action: 'index'
+         redirect_to action: 'index', id: Project.find(Projcommitment.find(params[:id]).proj_id).id
        else
          @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
          render 'edit'

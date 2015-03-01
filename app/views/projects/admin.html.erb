@@ -43,7 +43,7 @@
 						<tbody>
 							<% @projects.each do |p| %>
 								<tr>
-									<td><%= link_to p.project_number, action: 'summary', id: p.id %></td>
+									<td class="text-center"> <a href="/projects/<%=p.id%>#tabs-4"></i> <%=p.project_number%> </a> </td>
  									<td class="text-center"><%= number_to_currency(@incomes_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>
 									<td class="text-center"><%= number_to_currency(@commitments_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>									
 									<td class="text-center"><%= number_to_currency(@executions_commitement[p.id], format: "%n", delimiter: ".", separator: ",") %></td>	

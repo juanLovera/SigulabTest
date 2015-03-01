@@ -11,6 +11,69 @@ datepicking = function() {
 $(document).ready(datepicking);
 $(document).on('page:load', datepicking);
 
+function setSAECodeIncomes() {
+
+	saeCode = "";
+
+	if ($('#income_lab_id').val()==1)
+		saeCode = "U01";
+
+	if ($('#income_lab_id').val()==2)
+		saeCode = "U02";
+
+	if ($('#income_lab_id').val()==3)
+		saeCode = "U03";
+
+	if ($('#income_lab_id').val()==4)
+		saeCode = "U04";
+
+	if ($('#income_lab_id').val()==5)
+		saeCode = "U05";
+
+	if ($('#income_lab_id').val()==6)
+		saeCode = "U06";
+
+	if ($('#income_lab_id').val()==7)
+		saeCode = "U07";
+
+	if ($('#income_lab_id').val()==8)
+		saeCode = "U08";
+
+	$('#income_sae_code').val(saeCode);
+
+}
+
+function setSAECodeCommitments() {
+
+	saeCode = "";
+
+	if ($('#commitment_lab_id').val()==1)
+		saeCode = "U01";
+
+	if ($('#commitment_lab_id').val()==2)
+		saeCode = "U02";
+
+	if ($('#commitment_lab_id').val()==3)
+		saeCode = "U03";
+
+	if ($('#commitment_lab_id').val()==4)
+		saeCode = "U04";
+
+	if ($('#commitment_lab_id').val()==5)
+		saeCode = "U05";
+
+	if ($('#commitment_lab_id').val()==6)
+		saeCode = "U06";
+
+	if ($('#commitment_lab_id').val()==7)
+		saeCode = "U07";
+
+	if ($('#commitment_lab_id').val()==8)
+		saeCode = "U08";
+
+	$('#commitment_sae_code').val(saeCode);
+
+}
 
 function setSAECode() {
 

@@ -25,14 +25,15 @@
 			<div class="form-group">
 				<label for='income_lab_id' class="col-xs-3 control-label text-right">Dependencia <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-3">
-					<%= i.select(:lab_id, options_for_select(@labs.map { |l| [l.sae_name, l.id] }, @income.lab_id), {}, {class: "form-control"} ) %>
+					<%= i.select(:lab_id, options_for_select(@labs.map { |l| [l.sae_name, l.id] }, @income.lab_id), {}, {class: "form-control", 
+						:onchange => "setSAECodeIncomes();"} ) %>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label for='income_sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :sae_code, class: 'form-control' %>
+					<%= i.text_field :sae_code, class: 'form-control', :readonly => true %>
 				</div>
 			</div>
 			
@@ -55,7 +56,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :amount, class: 'form-control' %>
+						<%= i.text_field :amount, class: 'form-control', value: number_to_currency(i.object.amount, format: "%n", delimiter: ".", separator: ",", precision: 2)  %>
 					</div>
 				</div>
 			</div>
@@ -124,7 +125,7 @@ meta física </label>
 			<div class="form-group">
 				<label for='income_resource' class="col-xs-3 control-label text-right">Recurso de Aplicación </label>
 				<div class="col-xs-4">
-					<%= i.select(:resource, options_for_select(Income.resource_str.zip(Income.resources.keys)), {}, {class: "form-control"} ) %>
+					<%= i.select(:resource, options_for_select(Income.resource_str.zip(Income.resources.keys), @income.resource), {}, {class: "form-control"} ) %>
 				</div>
 			</div>
    <div class="form-group">

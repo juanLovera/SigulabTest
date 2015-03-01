@@ -34,7 +34,8 @@
 			<div class="form-group">
 				<label for='projincome_origin' class="col-xs-3 control-label text-right">Origen <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">		
-					<%= i.select(:origin, options_for_select(Projincome.origin_str.zip(Projincome.origins.keys)), {:include_blank => true}, {class: "form-control"} ) %>
+					<%= i.select(:origin, options_for_select(Projincome.origin_str.zip(Projincome.origins.keys), @projincome.origin),
+					{:include_blank => true}, {class: "form-control"} ) %>
 				</div>
 			</div>
 			
@@ -67,7 +68,8 @@
 			<div class="form-group">
 				<label for='projincome_financing' class="col-xs-3 control-label text-right">Fuente de Financiamiento <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
-					<%= i.select(:financing, options_for_select(Projincome.financing_str.zip(Projincome.financings.keys)), {:include_blank => true}, {class: "form-control"} ) %>
+					<%= i.select(:financing, options_for_select(Projincome.financing_str.zip(Projincome.financings.keys),
+					@projincome.financing), {:include_blank => true}, {class: "form-control"} ) %>
 				</div>
 			</div>
 			

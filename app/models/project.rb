@@ -1,5 +1,8 @@
 class Project < ActiveRecord::Base
 
+  attr_localized :amount, :equipments, :services, :infrastructure, :hhrr,
+                 :consumables, :furniture, :other_amount
+
   enum admin: [:marquez, :villa]
   def self.admin_str
   [

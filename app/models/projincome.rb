@@ -1,5 +1,7 @@
 class Projincome < ActiveRecord::Base
 
+  attr_localized :amount
+
 	belongs_to :project
 
   enum origin: [:ordinary, :extraordinary, :reformulation]

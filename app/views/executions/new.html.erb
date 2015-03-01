@@ -69,7 +69,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control' %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(@commitment.amount - @executed, format: "%n", delimiter: ".", separator: ",", precision: 2) %>
 					</div>
 				</div>
 			</div>
@@ -114,7 +114,7 @@
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Ejecución</button>
-					<%= link_to executions_path, class: "btn btn-default btn-danger" do %>
+					<%= link_to @commitment, class: "btn btn-default btn-danger" do %>
 						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
 					<% end %>
 				</div>
