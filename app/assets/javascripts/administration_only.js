@@ -4,7 +4,8 @@ datepicking = function() {
         format: "dd/mm/yyyy",
         todayBtn: "linked",
         language: "es",
-        todayHighlight: true
+        todayHighlight: true,
+        close: true
     });
 };
 
