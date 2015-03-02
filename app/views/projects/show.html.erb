@@ -18,10 +18,10 @@
 
 <div id="tabs">
 	<ul>
-		<li><a href="#tabs-1">Datos del Proyecto</a></li>
-		<li><a href="#tabs-2">Distribución del Monto</a></li>
-		<li><a href="#tabs-3">Cuenta Bancaria</a></li>
-		<li><a href="#tabs-4">Resumen Presupuestario</a></li>
+		<li><a href="#tabs-1" class="hidex">Datos del Proyecto</a></li>
+		<li><a href="#tabs-2" class="hidex">Distribución del Monto</a></li>
+		<li><a href="#tabs-3" class="hidex">Cuenta Bancaria</a></li>
+		<li><a href="#tabs-4" class="show">Resumen Presupuestario</a></li>
 	</ul>
 	<div id="tabs-1">
 		<p><table class="table table-striped">
@@ -178,17 +178,21 @@
 		<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Proyecto</button>
 	<% end %>
 	<%= link_to controller: 'projincomes', id: @project.id do %>
-		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
+		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
 	<% end %>
 	<%= link_to controller: 'projcommitments', id: @project.id do %>
-		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp; Compromisos </button>
+		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp; Compromisos </button>
 	<% end %>
 	<%= link_to controller: 'projexecutions', id: @project.id do %>
-		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
+		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
 	<% end %>		
 </div>
 
 <style>
 	#span1 { width: 25px; float: left; height:100%; }
     #span2 { width: 110px; float: left; height:50%;}
+
+    .hidden_option{
+    	display: none;
+  	}
 </style>
