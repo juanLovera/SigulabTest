@@ -1,4 +1,7 @@
-<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
 
 <p id="notice"><%= notice %></p>
 <ol class="breadcrumb">
@@ -11,8 +14,14 @@
 
 
 
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1" class="show">Características</a></li>
+      <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
+      <li><a href="#tabs-3" class="hidex">Datos de Adquisición</a></li>
+    </ul>
 
-    <div class="col-xs-12">
+    <div id="tab-1">
         <table class="table table-striped">
           <tr>
             <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
@@ -55,6 +64,10 @@
             <td class="col-xs-5 text-right" ><strong title="Servicio de Resúmenes Químicos (Chemical Abstract Service)">CAS:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.cas %></td>
           </tr>
+        </table>
+      </div>
+      <div id="tab-2">
+        <table class="table table-striped">
            <tr>
             <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.status %></td>
@@ -72,36 +85,36 @@
             <td class="col-xs-7"><%= @chemical_substance.location %></td>
           </tr>
            
-                  <tr>
-        <td class="col-xs-5 text-right"><strong>Fecha de expiración:</strong></td>
-        <td class="col-xs-7"><%= @chemical_substance.expiration_date %></td>
-      </tr>
-       <tr>
-          <td class="col-xs-5 text-right"><strong>Peligrosidad:</strong></td>
-          <td class="col-xs-7">
-             <% if @chemical_substance.toxic %>
-              <%= ' TÓXICO ' %>
-            <% end %>
-            <% if @chemical_substance.oxidant %>
-              <%= ' COMBURENTE ' %>
-            <% end %>
-            <% if @chemical_substance.explosive %>
-              <%= ' EXPLOSIVO ' %>
-            <% end %>
-            <% if @chemical_substance.irritating %>
-              <%= ' IRRITANTE ' %>
-            <% end %>
-            <% if @chemical_substance.inflamable %>
-              <%= ' INFLAMABLE ' %>
-            <% end %>
-            <% if @chemical_substance.corrosive %>
-              <%= ' CORROSIVO ' %>
-            <% end %>
-            <% if @chemical_substance.nocive %>
-              <%= ' NOCIVO' %>
-            <% end %>
-        </td>
-      </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha de expiración:</strong></td>
+            <td class="col-xs-7"><%= @chemical_substance.expiration_date %></td>
+          </tr>
+         <tr>
+              <td class="col-xs-5 text-right"><strong>Peligrosidad:</strong></td>
+              <td class="col-xs-7">
+                 <% if @chemical_substance.toxic %>
+                  <%= ' TÓXICO ' %>
+                <% end %>
+                <% if @chemical_substance.oxidant %>
+                  <%= ' COMBURENTE ' %>
+                <% end %>
+                <% if @chemical_substance.explosive %>
+                  <%= ' EXPLOSIVO ' %>
+                <% end %>
+                <% if @chemical_substance.irritating %>
+                  <%= ' IRRITANTE ' %>
+                <% end %>
+                <% if @chemical_substance.inflamable %>
+                  <%= ' INFLAMABLE ' %>
+                <% end %>
+                <% if @chemical_substance.corrosive %>
+                  <%= ' CORROSIVO ' %>
+                <% end %>
+                <% if @chemical_substance.nocive %>
+                  <%= ' NOCIVO' %>
+                <% end %>
+            </td>
+          </tr>
 
         <tr>
         <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
@@ -115,8 +128,12 @@
             <% if @chemical_substance.extention %>
               <%= ' EXTENSIÓN ' %>
             <% end %>
+            </td>
           </tr>
-          
+        </table>
+      </div>
+      <div id="tab-3">
+        <table class="table table-striped">
           <tr>
             <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.bill %></td>
@@ -137,8 +154,9 @@
             <td class="col-xs-7"><%= @chemical_substance.adquisition_date %></td>
           </tr>
           
-         </div></td>
+         </td>
         </table>
+      </div>
 
       </div>
 
