@@ -200,3 +200,23 @@
     	display: none;
   	}
 </style>
+
+<% if params[:cid] %>
+	<script type="text/javascript">
+	//<![CDATA[
+		showButtons();
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+	//]]>
+	</script>
+<% end %>	

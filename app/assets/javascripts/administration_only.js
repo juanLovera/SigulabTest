@@ -238,3 +238,11 @@ function changeAnnulledDate() {
 	}
 
 }
+
+function showButtons() {
+    if(!$(".hidden_option").is(":visible")) {
+		$(".hidden_option").fadeIn('fast');
+     };
+
+	$(".hidden_option").fadeIn('fast');
+}
