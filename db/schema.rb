@@ -257,6 +257,10 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.date     "date"
     t.string   "organism"
     t.string   "document"
+    t.string   "unit"
+    t.integer  "resource",             default: 0
+    t.string   "variation"
+    t.string   "resource_description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
@@ -264,11 +268,20 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
+<<<<<<< HEAD
     t.boolean  "estado"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
+>>>>>>> 24aebff7dd3c276b922c47683ebf210c8f390427
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
     t.integer  "resource",             default: 0
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
   end
 
   create_table "instruments", force: true do |t|
@@ -397,7 +410,19 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
+<<<<<<< HEAD
     t.date     "annulled_date"
+=======
+    t.string   "num_cuenta"
+<<<<<<< HEAD
+<<<<<<< HEAD
+    t.date     "annulled_date"
+=======
+=======
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
+    t.string   "observation"
+    t.integer  "banco"
+>>>>>>> 24aebff7dd3c276b922c47683ebf210c8f390427
     t.string   "substitute"
   end
 
@@ -437,6 +462,10 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "observations"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
+=======
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
   end
 
   create_table "quotes", force: true do |t|
@@ -579,17 +608,13 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "location"
     t.string   "material"
     t.string   "bill"
+    t.boolean  "from_set"
     t.boolean  "investigation"
     t.boolean  "teaching"
     t.boolean  "extention"
     t.boolean  "management"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "cost"
-    t.string   "buy_order"
-    t.date     "adquisition_date"
-    t.boolean  "showable",         default: true
-    t.boolean  "from_set"
     t.string   "dependency"
     t.boolean  "solicitados"
     t.string   "id2"
