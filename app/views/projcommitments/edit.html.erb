@@ -7,6 +7,7 @@
 			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
 			<li><%= link_to @project.project_number, @project %></li>
 			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @project.id %></li>
+			<li><%= link_to @commitment.code, @commitment %></li>			
 			<li class="active">Editar Compromiso</li>
 		</ol>
 	</div>

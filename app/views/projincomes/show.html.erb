@@ -7,7 +7,7 @@
 			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
 			<li><%= link_to @project.project_number, @project %></li>
 			<li><%= link_to 'Ingresos', controller: 'projincomes', id: @projincome.proyecto %></li>
-			<li class="active"><%=  %></li>
+			<li class="active"><%= @projincome.doc_code %></li>
 		</ol>
 	</div>
 	<div class="col-xs-12">
