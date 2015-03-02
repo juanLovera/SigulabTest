@@ -23,6 +23,7 @@ class ConsumablesController < ApplicationController
 
   # GET /consumables/new
   def new
+    binding.pry
     @consumable = Consumable.new
   end
 
