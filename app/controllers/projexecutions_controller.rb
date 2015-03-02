@@ -23,6 +23,7 @@ class ProjexecutionsController < ApplicationController
      @projexecutions = Projexecution.where("commitment_id=?",params[:cid])
      @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
      @commitments = Projcommitment.find(params[:cid])
+     @project = Project.find(@commitments.proj_id)
      @sum_commitment = @commitments.amount
    end
   
@@ -32,6 +33,7 @@ class ProjexecutionsController < ApplicationController
        @commitment = Projcommitment.find(params[:cid])
        @projexecution.commitment_id = params[:cid]
        @projexecution.proyecto = @commitment.proj_id
+       @project = Project.find(@commitment.proj_id)
        @executed = Projexecution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount)       
      end
    end

@@ -9,6 +9,10 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to @project.project_number, @project %></li>		
+			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @commitments.proj_id %></li>
+			<li><%= link_to @commitments.code, @commitments %></li>
 			<li class="active"> Ejecuciones asociadas </li>
 		</ol>
 	</div>

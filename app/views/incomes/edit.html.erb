@@ -56,7 +56,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :amount, class: 'form-control', value: number_to_currency(i.object.amount, format: "%n", delimiter: ".", separator: ",", precision: 2)  %>
+						<%= i.text_field :amount, class: 'form-control', value: number_to_currency(i.object.amount, format: "%n", delimiter: ".", separator: ",", precision: 2), :onblur => "setIncomeAmount();"  %>
 					</div>
 				</div>
 			</div>

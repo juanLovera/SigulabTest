@@ -50,10 +50,9 @@ class ProjcommitmentsController < ApplicationController
     end
   end
 
-
-
   def edit
     @commitment = Projcommitment.find(params[:id])
+    @project = Project.find(@commitment.proj_id)
   end
 
   def update

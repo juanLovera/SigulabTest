@@ -4,11 +4,11 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>			
-			<li><%= link_to Project.find(@commitment.proj_id).project_number, controller: 'projects', action: 'summary', id: @commitment.proj_id %></li>	
-			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: Project.find(@commitment.proj_id).project_number %></li>
-			<li><%= link_to @commitment.id, controller: 'projcommitments', action: 'show', id: @commitment.id %></li>		
-			<li class="active">Agregar Ejecución</li>
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to @project.project_number, @project %></li>		
+			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @commitment.proj_id %></li>
+			<li><%= link_to @commitment.code, @commitment %></li>
+			<li class="active">Nueva Ejecución</li>
 		</ol>
 	</div>
   <% if @projexecution.errors.any? %>
@@ -72,7 +72,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
     					<span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(@commitment.amount - @executed, format: "%n", delimiter: ".", separator: ",", precision: 2) %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(@commitment.amount - @executed, format: "%n", delimiter: ".", separator: ",", precision: 2), onblur: "setProjexecutionAmount();" %>
 					</div>
 				</div>
 			</div>
