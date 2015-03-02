@@ -55,7 +55,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
 						<span class="input-group-addon">Bs.</span>
-						<%= i.text_field :amount, class: 'form-control' %>
+						<%= i.text_field :amount, class: 'form-control', :onblur => "setIncomeAmount();" %>
 					</div>
 				</div>
 			</div>

@@ -90,6 +90,42 @@ function setSAECode() {
 
 }
 
+function setCommitmentAmount() {
+	if (!isNaN(parseFloat($('#commitment_amount').val()))) {
+		$('#commitment_amount').val(formatAmount($('#commitment_amount').val()));
+	}		
+}
+
+function setExecutionAmount() {
+	if (!isNaN(parseFloat($('#execution_check_amount').val()))) {
+		$('#execution_check_amount').val(formatAmount($('#execution_check_amount').val()));
+	}		
+}
+
+function setIncomeAmount() {
+	if (!isNaN(parseFloat($('#income_amount').val()))) {
+		$('#income_amount').val(formatAmount($('#income_amount').val()));
+	}		
+}
+
+function setProjcommitmentAmount() {
+	if (!isNaN(parseFloat($('#projcommitment_amount').val()))) {
+		$('#projcommitment_amount').val(formatAmount($('#projcommitment_amount').val()));
+	}		
+}
+
+function setProjexecutionAmount() {
+	if (!isNaN(parseFloat($('#projexecution_check_amount').val()))) {
+		$('#projexecution_check_amount').val(formatAmount($('#projexecution_check_amount').val()));
+	}		
+}
+
+function setProjincomeAmount() {
+	if (!isNaN(parseFloat($('#projincome_amount').val()))) {
+		$('#projincome_amount').val(formatAmount($('#projincome_amount').val()));
+	}		
+}
+
 function setEquipments() {
 	$('#project_equipments').val(formatAmount($('#project_equipments').val()));
 }
