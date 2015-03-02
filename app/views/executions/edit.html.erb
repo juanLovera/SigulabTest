@@ -68,7 +68,7 @@
 				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
 
 					<div class='col-xs-4'>
-						<%= i.text_field :check_number, class: 'form-control', :placeholder => "N° de 8 dígitos" %>
+						<%= i.text_field :check_number, class: 'form-control', :placeholder => "N° de 8 dígitos", :maxlength => 8 %>
 					</div>
 					<%= link_to annul_execution_path(@execution) do %>
 						<button type="button" class="btn btn-danger" onclick="return confirm('¿Está seguro de anular el cheque?')"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp; Anular Cheque</button>
