@@ -1,0 +1,92 @@
+	<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- TITLE AND BUTTON COLLAPSER -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sigulabmenu">
+						<span class="sr-only">Toggle navigation</span>
+					</button>
+					<%= link_to 'SIGULAB', root_path, class: 'navbar-brand' %>
+				</div>
+				<!-- COLLAPSABLE MENU -->
+				<div class="collapse navbar-collapse" id="sigulabmenu">
+					<ul class="nav navbar-nav">
+						<% if user_signed_in? %>					
+						<li><%= link_to 'Inicio', root_url %></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle " data-toggle="dropdown">Inventario<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><%= link_to 'Inicio', inventario_url %></li>
+								<li class="divider"></li>
+								<li><%= link_to 'Equipos', equipment_index_url %></li>
+								<li><%= link_to 'Instrumentos', instruments_url %></li>
+								<li><%= link_to 'Herramientas', tools_url %></li>
+								<li><%= link_to 'Sustancias Químicas', chemical_substances_url %></li>
+								<li><%= link_to 'Consumibles', consumables_url %></li>
+								<li class="divider"></li>
+								<li><%= link_to 'Solicitudes de Préstamo', loans_url %></li>
+								<li><%= link_to 'Solicitudes de Servicio', loans_index2_url %></li>
+								<li><%= link_to 'Donaciones', donations_url %></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle " data-toggle="dropdown">Compras<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><%= link_to 'Inicio', compras_url %></li>
+								<li class="divider"></li>
+								<li><%= link_to 'Solicitud de Compra', specification_url %></li>
+								<li><%= link_to 'Compra', construccion_url %></li>
+								<li><%= link_to 'Recepcion de Bienes', construccion_url %></li>
+								<li><%= link_to 'Conformidad de Servicio', construccion_url %></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle " data-toggle="dropdown">Administración<span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><%= link_to 'Inicio', administration_path %></li>
+								<li class="divider"></li>
+								<li><a href="#">Anteproyecto de POA</a></li>
+								<li class="divider"></li>
+								<li><%= link_to 'Presupuesto', budget_path %></li>
+								<li class="divider"></li>
+								<li><%= link_to 'Proyectos', projects_path %></li>
+								<li class="divider"></li>
+								<li><a href="#">Banco de Proyectos</a></li>	
+							</ul>
+						</li>
+					</ul>
+						<% else %>									
+						<% end %>				
+					<ul class="nav navbar-nav navbar-right">
+						<% if user_signed_in? %>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle " data-toggle="dropdown">
+									<%= current_user.username %>
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu" role="menu">
+									<li>
+										<%= link_to edit_user_registration_path do %>
+											<span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;Editar Perfil
+										<% end %>
+									</li>
+									<li>
+										<%= link_to destroy_user_session_path, method: :delete do %>
+											<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;Cerrar Sesion
+										<% end %>
+									</li>
+								</ul>
+							</li>
+						<% else %>
+							<li>
+								<div class="btn-group">
+									<a href="<%= new_user_registration_path %>"><button type="button" class="btn btn-default navbar-btn btn-success">Registrarse</button></a>
+									<a href="<%= new_user_session_path %>"><button type="button" class="btn btn-default navbar-btn btn-primary">Iniciar Sesión</button></a>
+								</div>
+							</li>
+						<% end %>
+					</ul>
+				</div><!-- end of collapsable sigulabmenu -->
+			</div><!-- end of container-fluid -->
+		</nav><!-- end of navbar -->
+	</div><!-- end of container -->

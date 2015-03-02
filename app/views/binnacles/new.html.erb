@@ -1,5 +1,145 @@
-<h1>New binnacle</h1>
+<%= javascript_include_tag 'bootstrap-confirmation.js' %>
+<h1>Nuevo Registro en la Bitácora</h1>
+<ol class="breadcrumb">
+	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+	<li> <%=link_to 'Inventario', inventario_url %></li>
+	<li> <%=link_to 'Sustancias Químicas', chemical_substances_path %></li>
+	<li> <%=link_to 'Bitácora', binnacles_path(@id) %></li>
+  	<li class="active"> Nuevo Registro </li>
+	
+</ol>
+<% if @sustancias %>
+<div class="col-xs-12">
+    
+    <div class="well">
 
-<%= render 'form' %>
+      <table cellpadding="0" cellspacing="0" border="0" class="display">
+      <tbody>
+        <tr>
+          <% @sustancias.each do |sust| %>
+            <td class="text-left"><%= 'Sustancia:  ' %><span class="mayus"><%= sust.name %></span></td>
+            <td class="text-right" align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= 'Unidad de Medida:  ' %><span class="mayus"><%= sust.meassure %></span></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
 
-<%= link_to 'Back', binnacles_path %>
+    </div>
+
+  </div>
+
+<% end %>
+
+<br>
+
+<%= form_for(@binnacle) do |f| %>
+  <% if @binnacle.errors.any? %>
+    <div class="col-xs-12" role="alert">
+      <div class="alert alert-danger">
+        <ul>
+          <% @binnacle.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class ="Informacion">
+
+<div class="col-xs-12">
+        <table class="table table-striped">
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha de Registro:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :fecha, :class => "bootlayout-date" %>
+            <span class="red">*</span></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Tipo de Registro:</strong></td>
+            <td class="col-xs-7"><%= f.select(:tipo, options_for_select([['Ingreso'],['Consumo']]), {:include_blank => true}, {:onchange => "changeType();"} ) %>
+            <span class="red">*</span></td>
+          </tr>
+          <tr class="hidden_option1">
+            <td class="hidden_option1 col-xs-5 text-right"><strong>Cantidad Consumida:</strong></td>
+            <td class="hidden_option1 col-xs-7"> <%= f.number_field :consumo, :value => number_to_currency(f.object.ingreso, format: "%n", delimiter: " ", separator: "."), :class => 'hidden_option1' %><span class="hidden_option1 red">*</span><%= @unidad %></td>
+          </tr>
+
+          <tr class="hidden_option2">
+            <td class="hidden_option2 col-xs-5 text-right"><strong class="hidden_option2">Cantidad Ingresada:</strong></td>
+            <td class="hidden_option2 col-xs-7"><%= f.number_field :ingreso, :value => number_to_currency(f.object.ingreso, format: "%n", delimiter: " ", separator: "."), class: 'hidden_option2' %><span class="hidden_option2 red">*</span>&nbsp;<%= @unidad %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Descripción:</strong></td>
+            <td class="col-xs-7"><%= f.text_area :descripcion, :placeholder => "Introduzca el No. de factura" %><span class="red">*</span></td>
+          </tr>
+          <%= f.hidden_field :idSustancia, :value => @id %>
+
+          <td class="col-xs-5"><td>
+
+        </table>
+
+    </div>
+
+    <div class="col-xs-12 text-center">
+      <div class="actions">
+        <button type="submit" data-btnOkClass="confirmation" class="btn btn-default btn-success" ><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
+        <%= link_to binnacles_path(@id) do %>
+          <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+        <% end %>
+      </div>
+    </div>
+
+
+    <br>
+
+    <br><br>
+  </div>
+<% end %>
+
+<br><br>
+
+<script>
+  function changeType() {
+
+    if ($('#binnacle_tipo').val()== "Ingreso") {
+      $(".hidden_option2").fadeIn('fast');
+    } else {
+      $(".hidden_option2").fadeOut('fast');   
+    }
+
+    if ($('#binnacle_tipo').val()== "Consumo") {
+      $(".hidden_option1").fadeIn('fast');
+    } else {
+      $(".hidden_option1").fadeOut('fast');   
+    }
+
+  }
+</script>
+
+<style>
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.hidden_option1{
+  display: none;
+}
+
+.hidden_option2{
+  display: none;
+}
+
+.mayus {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+</style>
+

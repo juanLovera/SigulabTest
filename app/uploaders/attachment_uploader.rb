@@ -21,8 +21,10 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     nombre = "nca"
     "#{nombre}.#{file.extension}"
   else
+	if current_path != nil
      @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
     "#{@name}.#{file.extension}"
+	end
   end
 end
 

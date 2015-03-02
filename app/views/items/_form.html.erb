@@ -19,20 +19,7 @@
        <span class="red">*</span>
 		 <%= f.label "Cantidad" %><br>
 		 <%= f.text_field :cantidad, :placeholder => "Cantidad de ítems" %>
-	  </div></td><td>
-            <div class="field" style="width:300px">
-                <span class="red">*</span>
-		 <%= f.label "Dimensiones del ítem" %><br>
-		 <%= f.text_field :dimensiones_largo, :placeholder => "Largo", :style => "width:80px; margin-bottom:5px; margin-right:5px; float:left; " %>
-                 <%= f.collection_select :unidad_largo, Item::UnidadMedida, :to_s, :to_s, 
-          :include_blank => true %><br/>
-                 <%= f.text_field :dimensiones_alto, :placeholder => "Alto", :style => "width:80px; margin-bottom:5px; margin-right:5px; float:left; " %>
-                 <%= f.collection_select :unidad_alto, Item::UnidadMedida, :to_s, :to_s,
-          :include_blank => true %><br/>
-                 <%= f.text_field :dimensiones_ancho, :placeholder => "Ancho", :style => "width:80px; margin-right:5px; float:left; " %>
-                 <%= f.collection_select :unidad_ancho, Item::UnidadMedida, :to_s, :to_s,
-          :include_blank => true %>
-            </div></td></tr><tr><td colspan="2">
+	  </div></td></tr><tr><td colspan="2">
             <div class="field">
 		 <%= f.label "Descripción del ítem" %><br>
 		 <%= f.text_area :descripcion, :maxlength => 160, :style => "width:425px; height:80px;", :placeholder => "Máximo 160 caracteres" %>

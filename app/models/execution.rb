@@ -2,6 +2,9 @@
 # encoding: utf-8
 
 class Execution < ActiveRecord::Base
+
+  attr_localized :check_amount
+
   enum document: [:reception_report, :according_service]
   def self.document_str
   [
@@ -27,17 +30,16 @@ class Execution < ActiveRecord::Base
 
   validate :elaboration_sign, if: "!check_sign_date.blank?"
   validate :sign_delivery, if: "!check_delivery_date.blank?"
-  validate :valid_amount, if: "!check_amount.blank?"
  
   def elaboration_sign
     if check_elaboration_date > check_sign_date
-      errors.add(:check_elaboration_date, "debe ser anterior a la fecha de firma")
+      errors.add(:check_sign_date, "debe ser posterior a la Fecha de Elaboración.")
     end
   end 
 
   def sign_delivery
     if check_sign_date > check_delivery_date
-      errors.add(:check_sign_date, "debe ser anterior a la fecha de entrega")
+      errors.add(:check_delivery_date, "debe ser posterior a la Fecha de Firma.")
     end
   end 
 
@@ -46,19 +48,7 @@ class Execution < ActiveRecord::Base
   end
 	  
   def executable_amount
-      errors.add(:check_amount, "no puede ser mayor al saldo pendiente del compromiso")
+      errors.add(:check_amount, "no puede ser mayor al saldo pendiente del compromiso.")
   end
-
-  def valid_amount
-    if check_amount > commitment.amount
-      errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado")
-    end 
-  end
-
-#  def valid_amount
-#    if check_amount > commitment.amount - executed(commitment)
-#      errors.add(:check_amount, "no puede ser mayor al monto del compromiso asociado")
-#    end 
-#  end
 
 end

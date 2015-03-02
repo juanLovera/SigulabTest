@@ -24,9 +24,31 @@ class RequestsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = ReporteRelation.new(@relation)
-        nombre = "Relacion_Descriptiva_Especificacion_#{session[:specification_sel_id]}_Empresa_#{@invitation.nombre}.pdf"
+        sid = session[:specification_sel_id]
+	specif = Specification.find(session[:specification_sel_id])
+	if @request.numero_proyecto == ""
+	  @request.numero_proyecto = "(N/A)"
+	end
+	if @request.tipo_cuenta == ""
+	  @request.tipo_cuenta = "(N/A)"
+	end
+	if @request.numero_cuenta == ""
+	  @request.numero_cuenta = "(N/A)"
+	end
+	if @request.nombre_banco == ""
+	  @request.nombre_banco = "(N/A)"
+	end
+	   data = "#{@request.fondos}; correspondiente al Proyecto No. #{@request.numero_proyecto}, y a ser debitados de la Cuenta #{@request.tipo_cuenta} Nro. #{@request.numero_cuenta}, del Banco #{@request.nombre_banco}"
+        pdf = ReporteRequests.new(@request, specif, data)
+        nombre = "Solicitud_de_Compra_Especificacion_#{session[:specification_sel_id]}.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
+      end
+	format.xml do
+      specification = Specification.find(session[:specification_sel_id])
+      specification.p9 = 2
+        specification.save
+        session[:specification_p9] = 2
+      redirect_to "/requests?pdf=1"
       end
     end
   end

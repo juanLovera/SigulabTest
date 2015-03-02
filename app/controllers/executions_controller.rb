@@ -15,14 +15,10 @@ class ExecutionsController < ApplicationController
   end
 
   def list
-    @execution = Execution.find(params[:cid])
     @executions = Execution.where("commitment_id=?",params[:cid])
     @sum = @executions.where("check_annulled=false").sum(:check_amount)
-
     @commitments = Commitment.find(params[:cid])
-
     @sum_commitment = @commitments.amount
-
   end
   
   def new
@@ -30,6 +26,7 @@ class ExecutionsController < ApplicationController
     if params[:cid]
       @commitment = Commitment.find(params[:cid])
       @execution.commitment_id = params[:cid]
+      @executed = Execution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount)
     end
   end
   

@@ -1,0 +1,147 @@
+<div class="grid_12 push_5">
+  <%= form_for(@specification) do |f| %>
+    <% if @specification.errors.any? %>
+      <h2>Rellene todos los campos obligatorios</h2>
+      <br>
+    <% end %>
+  <div class ="table"> 
+      <div class="field">
+          <span class="red">*</span>
+       <%= f.label "Nombre de la especificación" %><br>
+       <%= f.text_field :nombre %>
+      </div>
+      <div class="field">
+          <span class="red">*</span>
+       <%= f.label "Tipo de la especificación" %><br>
+
+     <%= f.collection_select :tipo, Specification::Tipo, :to_s, :to_s, :include_blank => false %>
+    
+      </div>
+      <div id="esconder">
+      <div class="field">
+          <span class="red">*</span>
+       <%= f.label "Tipo de compra" %><br>
+
+     <%= f.collection_select :nacional, Specification::Compra, :to_s, :to_s, :include_blank => false %>
+    
+      </div>
+          <div id="esconder2" style="display:none;">
+      <div class="field">
+          <span class="red">*</span>
+       <%= f.label "Modalidad de Importación" %><br>
+
+     <%= f.collection_select :modalidad, Specification::Importacion, :to_s, :to_s, :include_blank => false %>
+    
+      </div>
+              </div>
+      </div>
+      
+      <div class="actions" style="padding-left: 70px; padding-top:20px;">
+       <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la información que acaba de suministrar?' }  %>
+      </div>
+    <% end %>
+   </div>
+</div>
+
+
+<style>
+input[type="submit"] {
+
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+border: 1px solid transparent;
+border-radius: 4px;
+
+
+}
+
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width: 200px;
+    height: 35px;
+    maxlength:100;
+    font-size: 14px;
+}
+
+input[type="text"], textarea, input[type="number"] {
+
+display: block;
+width: 220px;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.red {
+
+font-size: 20px;
+color: red;
+
+}
+
+
+input[type="text"]:focus, textarea:focus, input[type="number"]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.field_with_errors {
+    background-color: red;
+    border-radius: 4px;
+}
+
+h2 {
+
+position:relative;
+right: 60px;
+color:red;
+font-size: 20px;
+
+}
+
+
+</style>
+<script>
+  function esconderInternacional() {
+    var e = document.getElementById("specification_tipo");
+    if (e.options[e.selectedIndex].value == 'Servicios')
+      document.getElementById('esconder').style.display = 'none';
+    else
+      document.getElementById('esconder').style.display = 'inline';
+  }
+  document.getElementById("specification_tipo").onchange= esconderInternacional;
+  
+   function esconderInternacional2() {
+    var e = document.getElementById("specification_nacional");
+    if (e.options[e.selectedIndex].value == 'Nacional')
+      document.getElementById('esconder2').style.display = 'none';
+    else
+      document.getElementById('esconder2').style.display = 'inline';
+  }
+  document.getElementById("specification_nacional").onchange= esconderInternacional2; 
+</script>

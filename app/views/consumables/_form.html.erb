@@ -1,13 +1,13 @@
 <%= form_for(@consumable) do |f| %>
   <% if @consumable.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@consumable.errors.count, "error(es") %>) prohíben que este consumible sea guardado:</h2>
-
-      <ul>
-      <% @consumable.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="col-xs-12" role="alert">
+      <div class="alert alert-danger">
+        <ul>
+          <% @consumable.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 

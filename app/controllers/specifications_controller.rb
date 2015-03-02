@@ -15,11 +15,14 @@ class SpecificationsController < ApplicationController
   # GET /specifications/1.json
   def show
     @specification = Specification.find(params[:id])
+    
   end
 
   # GET /specifications/new
   def new
     @specification = Specification.new
+    time = Time.new
+    @fecha = "ET "+time.strftime("%Y-%m-%d %H:%M:%S")
   end
 
   # GET /specifications/1/edit

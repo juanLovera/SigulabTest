@@ -1,14 +1,15 @@
-<%= javascript_include_tag 'tabs.js' %>
 <%= javascript_include_tag 'jquery-1.10.2.js'%>
 <%= javascript_include_tag 'jquery-ui.js' %>
 <%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
 
 <div class="row">
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
-			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li class="active"><%= @project.id%></li>
+			<li><%= link_to 'Proyectos', controller: 'projects' %></li>	
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>				
+			<li class="active"><%= @project.project_number%></li>
 		</ol>
 	</div>
 </div>
@@ -17,9 +18,10 @@
 
 <div id="tabs">
 	<ul>
-		<li><a href="#tabs-1">Datos del Proyecto</a></li>
-		<li><a href="#tabs-2">Distribución del Monto</a></li>
-		<li><a href="#tabs-3">Cuenta Bancaria</a></li>
+		<li><a href="#tabs-1" class="hidex">Datos del Proyecto</a></li>
+		<li><a href="#tabs-2" class="hidex">Distribución del Monto</a></li>
+		<li><a href="#tabs-3" class="hidex">Cuenta Bancaria</a></li>
+		<li><a href="#tabs-4" class="show">Resumen Presupuestario</a></li>
 	</ul>
 	<div id="tabs-1">
 		<p><table class="table table-striped">
@@ -34,6 +36,10 @@
 			<tr>
 				<td class="col-xs-5 text-right">Responsable Técnico:</td>
 				<td class="col-xs-7"><%= @project.responsible %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Suplente:</td>
+				<td class="col-xs-7"><%= @project.substitute %></td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Administrador del Proyecto:</td>
@@ -140,6 +146,33 @@
 			</tr>
 		</table></p>
 	</div>
+	<div id="tabs-4">
+		<p><table class="table table-striped">
+			<tr>
+				<td class="col-xs-5 text-right">Monto asignado:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@incomes_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto comprometido:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@commitments_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto ejecutado:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@executions_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>			
+			<tr>
+				<td class="col-xs-5 text-right">Saldo disponible:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@incomes_total-@commitments_total, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>
+  			<tr>
+				<td class="col-xs-5 text-right"></td>
+				<td class="col-xs-7"></td>
+			</tr>
+		</table></p>
+	</div>
 
 </div>
 
@@ -148,9 +181,22 @@
 	<%= link_to edit_project_path do %>
 		<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Proyecto</button>
 	<% end %>
+	<%= link_to controller: 'projincomes', id: @project.id do %>
+		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
+	<% end %>
+	<%= link_to controller: 'projcommitments', id: @project.id do %>
+		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp; Compromisos </button>
+	<% end %>
+	<%= link_to controller: 'projexecutions', id: @project.id do %>
+		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
+	<% end %>		
 </div>
 
 <style>
 	#span1 { width: 25px; float: left; height:100%; }
     #span2 { width: 110px; float: left; height:50%;}
+
+    .hidden_option{
+    	display: none;
+  	}
 </style>

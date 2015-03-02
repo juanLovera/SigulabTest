@@ -23,11 +23,13 @@ respond_to do |format|
        specification.p4 = 0
        specification.p5 = 2
        specification.p6 = 1
+       specification.p8 = 1
        session[:specification_p3] = specification.p3
     session[:specification_p2] = specification.p2
     session[:specification_p4] = specification.p4
     session[:specification_p5] = specification.p5
     session[:specification_p6] = specification.p6
+    session[:specification_p8] = specification.p8
     specification.save
               redirect_to "/acts?pdf=1"
       end

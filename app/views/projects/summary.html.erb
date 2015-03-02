@@ -1,0 +1,58 @@
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Proyectos', controller: 'projects' %></li>	
+			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>				
+			<li class="active"><%= @project.project_number%></li>
+		</ol>
+	</div>
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tr>
+				<td class="col-xs-5 text-right">Titulo del proyecto:</td>
+				<td class="col-xs-7"><%= @project.title %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Responsable:</td>
+				<td class="col-xs-7"><%= @project.responsible %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto asignado:</td>
+				<td class="col-xs-7"><%= @incomes_total %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto comprometido:</td>
+				<td class="col-xs-7"><%= @commitments_total %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto ejecutado:</td>
+				<td class="col-xs-7"><%= @executions_total %></td>
+			</tr>			
+			<tr>
+				<td class="col-xs-5 text-right">Saldo disponible:</td>
+        		<td class="col-xs-7"><%= @incomes_total-@commitments_total %>  </td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-xs-12" align="center">
+
+		<%= link_to controller: 'projincomes', id: @project.id do %>
+			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;Consultar Ingresos </button>
+		<% end %>
+
+		<%= link_to controller: 'projcommitments', id: @project.id do %>
+			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp;Consultar Compromisos </button>
+		<% end %>
+
+		<%= link_to controller: 'projexecutions', id: @project.id do %>
+			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Consultar Ejecuciones </button>
+		<% end %>
+
+	</div>	
+</div>

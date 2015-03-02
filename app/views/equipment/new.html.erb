@@ -5,15 +5,145 @@
 	<li> <%=link_to 'Equipos y mobiliarios', equipment_index_path %></li>
 	<li class="active"> Nuevo </li>
 </ol>
+
+
 <div id = "table2">
+</div>
+<%= form_for(@equipment) do |f| %>
+  <% if @equipment.errors.any? %>
+    <div class="col-xs-12" role="alert">
+      <div class="alert alert-danger">
+        <ul>
+          <% @equipment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 
 <br>
 
-<%= render 'form' %>
+ <table class="table table-striped">
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :name %>
+            <span class="red">*</span></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :brand %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :model  %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Serial:</strong></td>
+            <td class="col-xs-7"><%= f.text_field(:serial) %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Número de Bien Nacional:</strong></td>
+            <td class="col-xs-7">  <%= f.number_field(:national_good, min: 0) %></td>
+          </tr>
+     
+            <tr>
+            <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
+            <td class="col-xs-7"> <%= f.select(:status, [['Operativo'], ['Inoperativo Temporalmente'], ['En Desuso'] ] ) %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Calibrado:</strong></td>
+            <td class="col-xs-7"><%= f.select(:calibrated, [['N/A'],['Sí'], ['No'], ['Desconocido'] ])  %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Última Calibración:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :last_calibration, :class => "bootlayout-date" %></td>
+          </tr>
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Dimensiones:</strong></td>
+            <td class="col-xs-7">
+            <strong>Ancho:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</strong>
+            <%= f.number_field(:length, min: 0, :step => 'any') %>
+            <%= f.select(:measurelength, [['m'], ['cm'], ['mm'], ['in']] ) %><br><br>
+            <strong>Largo:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </strong>
+             <%= f.number_field(:width, min: 0, :step => 'any') %>
+            <%= f.select(:measurewidth, [['m'], ['cm'], ['mm'], ['in']] ) %><br><br>
+            <strong>Profundidad:</strong>
+            <%= f.number_field(:depth, min: 0, :step => 'any') %>
+            <%= f.select(:measuredepth, [['m'], ['cm'], ['mm'], ['in']] ) %>
+            </td>
+          </tr>
+           
+        <tr>
+          <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
+          <td class="col-xs-7"><%= f.text_field :responsible %>
+      <span class="red">*</span></td>
+      </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :dependency %>
+            <span class="red">*</span> </td>
+          </tr>
+          
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :location %>
+            <span class="red">*</span> </td>
+          </tr>
+      <tr>
+          <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
+          <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "bootlayout-date" %>
+        </td>
+      </tr>
+      <tr>
+          <td class="col-xs-5 text-right"><strong>Orden de Compra:</strong></td>
+          <td class="col-xs-7"> <%= f.text_field :buy_order %>
+        </td>
+      </tr>
+      <tr>
+          <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
+          <td class="col-xs-7"> <%= f.text_field :cost %>&nbsp;Bs.</td>
+        </td>
+      </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Origen:</strong></td>
+            <td class="col-xs-7"><%=f.select(:origen, [['Comprado'], ['Donado']] )%></td>
+          </tr>
+       <tr>
+          <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
+          <td class="col-xs-7"> <%= f.text_field :bill %>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
+         <td class="col-xs-7">  
+         <%= f.check_box :investigation %>
+         <%= 'Investigación' %>
+         <%= f.check_box :teaching %>
+         <%= 'Docencia' %>
+         <%= f.check_box :extention %>
+         <%= 'Extensión' %>
+         <%= f.check_box :management %>
+         <%= 'Apoyo administrativo' %></td>
+      </tr>
 
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', equipment_index_path , 'data-no-turbolink' => true, :class => 'linkButton'  %>
+      </table>
+
+      </div>
+      <div class="col-xs-12 text-center">
+        <div class="actions">
+          <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
+          <%= link_to equipment_index_path do %>
+            <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+          <% end %>
+        </div>
+      </div>
 <br><br><br><br>
-</div>
+      </div>
+    <br><br><br>
+  </div>
+<% end %>
+
 <style>
 
 #LeDivEquipos {

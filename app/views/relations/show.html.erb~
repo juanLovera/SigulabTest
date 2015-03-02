@@ -33,7 +33,7 @@
 		 </tr>
 		 <tr>
 		   <td class="col-xs-5 text-right">Descripción general</td>
-		   <td class="col-xs-7"><%= @relation.descripcion %></td>
+		   <td class="col-xs-7"><%= @relation.descripcion_general %></td>
 		 </tr>
     		   <tr>
 		   <td class="col-xs-5 text-right">Materia constitutiva</td>

@@ -45,7 +45,7 @@ class ReporteItems < Prawn::Document
       row(0).font_style = :bold
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [80,120,170,100,70]
+      self.column_widths = [80,120,240,100]
     end
     move_down 45
     text "______________________\n\nFirma de Autorizacion\ \ \ \ \n", :align => :right 
@@ -53,10 +53,10 @@ class ReporteItems < Prawn::Document
  
   def items_rows
     
-    [['Tipo','Nombre','Descripción','Dimensiones','Cantidad']] +
+    [['Tipo','Nombre','Descripción','Cantidad']] +
       @items.map do |item|
-       dimensiones = "Alto: #{item.dimensiones_alto} #{item.unidad_alto}, Ancho: #{item.dimensiones_ancho} #{item.unidad_ancho}, Largo: #{item.dimensiones_largo} #{item.unidad_largo}"
-      [item.tipo, item.nombre, item.descripcion, dimensiones, item.cantidad]
+ 
+      [item.tipo, item.nombre, item.descripcion, item.cantidad]
     end
   end
 

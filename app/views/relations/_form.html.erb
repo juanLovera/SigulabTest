@@ -3,8 +3,8 @@
 	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @relation.errors.full_messages.first if @relation.errors.any? %> </span>
                 <table style="margin-left:-130px;"><tr><td style="padding-right:10px;">
 		  <div class="field"><span class="red">*</span>
-			 <%= f.label "Nombre comercial del material/equipo" %><br>
-			 <select id='relation_item_id' name='relation[item_id]'>
+			 <%= f.label "Nombre del material/equipo" %><br>
+			 <select id='relation_item_id' name='relation[item_id]' style="width:200px;">
 <% @items.each do |i| %>
 <option value="<%= i.id %>"><%= i.nombre %></option>
 <% end %>
@@ -15,51 +15,71 @@
 			 <%= f.label "Marca" %><br>
 			 <%= f.text_field :marca %>
 		  </div>
-                        </td></tr><tr><td colspan="2">
+                        </td></tr><tr><td>
                             <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Modelo" %><br>
-			 <%= f.text_area :modelo, :style => "width:410px; height:80px;" %>
+			 <%= f.text_field :modelo %>
 		  </div>
-                        </td></tr><tr><td style="padding-right:10px;">
+                        </td><td style="padding-right:10px;">
 		  <div class="field">
-          <span class="red">*</span>
-			 <%= f.label "Tipo" %><br>
-                         <%= f.collection_select :tipo, Relation::Tipo, :to_s, :to_s, 
-          :include_blank => false %>
+			 <%= f.label "Tipo" %><br/>
+                          <table style="margin-left:15px;"><tr><td style="padding-right:50px;">
+                         <%= f.check_box :equipo %> Equipo </td><td>
+                         <%= f.check_box :material_consumible %> Material<br/>&nbsp;&nbsp;&nbsp; Consumible </td></tr><tr><td>
+                         <%= f.check_box :repuesto %> Repuesto </td><td>
+                         <%= f.check_box :accesorio %> Accesorio </td></tr><tr><td>
+                         <%= f.check_box :servicio %> Servicio </td><td>
+                         <%= f.check_box :licencia %> Licencia </td></tr><tr><td>
+                         <%= f.check_box :renovacion_licencia %> Renovación<br/>&nbsp;&nbsp;&nbsp; Licencia </td><td>
+                         <%= f.check_box :otro %> Otro </td></tr></table>
 
-		  </div></td><td>
+		  </div></td></tr><tr><td colspan="2"><div class="field">
+                   <span class="red">*</span>
+<%= f.label "Dimensiones" %><br/>                 <table><tr><td><%= f.text_field :largo, :placeholder => "Largo", :style => "width:65px; margin-bottom:5px; margin-right:5px;  " %></td><td style="padding-right:10px;">
+                 <%= f.collection_select :dimensiones_largo, Relation::UnidadMedida, :to_s, :to_s, 
+                   :include_blank => true, :style => "width: 55px;" %></td><td>
+                 <%= f.text_field :alto, :placeholder => "Alto", :style => "width:60px; margin-right:5px;  " %></td><td style="padding-right:10px;">
+                 <%= f.collection_select :dimensiones_alto, Relation::UnidadMedida, :to_s, :to_s,
+          :include_blank => true, :style => "width: 55px;" %></td><td>
+                 <%= f.text_field :ancho, :placeholder => "Ancho", :style => "width:65px; margin-right:5px;  " %></td><td>
+                 <%= f.collection_select :dimensiones_ancho, Relation::UnidadMedida, :to_s, :to_s,
+          :include_blank => true, :style => "width: 55px;" %></td></tr><tr><td>
+                 <%= f.text_field :peso, :placeholder => "Peso", :style => "width:65px; margin-right:5px;  " %></td><td>
+                 <%= f.collection_select :dimensiones_peso, Relation::UnidadMedida2, :to_s, :to_s,
+          :include_blank => true, :style => "width: 55px;" %></td></tr></table>
+		  </div></td></tr><tr><td colspan="2">
 		  <div class="field">
-          <span class="red">*</span>
+          
 			 <%= f.label "Descripción General" %><br>
-			 <%= f.text_field :descripcion_general %>
-		  </div></td></tr><tr><td><h2>Descripción Específica</h2></td></tr><tr><td style="padding-right:10px;">
+			 <%= f.text_area :descripcion_general, :style => "width:410px; height:80px;" %>
+		  </div></td></tr></table>
+          
+          
+          <table style="margin-left:-120px;"><tr><td colspan="2" style="padding-left:80px;"><h3>Descripción Específica</h3></td></tr><tr><td>
 		  <div class="field">
-          <span class="red">*</span>
+          
 			 <%= f.label "Materia Constitutiva" %><br>
-			 <%= f.text_field :materia, :placeholder => "De qué está hecho" %>
-                  </div></td><td style="padding-top:20px;">
+			 <%= f.text_area :materia, :placeholder => "De qué está hecho", :style => "width:410px; height:80px;" %>
+                  </div></td></tr><tr><td style="padding-top:20px;">
 		  <div class="field">
 			 <%= f.label "Función" %><br>
-			 <%= f.text_field :funcion, :placeholder => "Para qué sirve" %><br>
+			 <%= f.text_area :funcion, :placeholder => "Para qué sirve" , :style => "width:410px; height:80px;" %><br>
 		  </div></td></tr>
                     
                     
                     <tr><td style="padding-right:10px;">
 		  <div class="field">
-          <span class="red">*</span>
+          
 			 <%= f.label "Aplicación Particular" %><br>
-			 <%= f.text_field :aplicacion, :placeholder => "En qué será utilizado" %>
-                  </div></td><td style="padding-top:20px;">
+			 <%= f.text_area :aplicacion, :placeholder => "En qué será utilizado", :style => "width:410px; height:80px;" %>
+                  </div></td></tr><tr><td style="padding-top:20px;">
 		  <div class="field">
 			 <%= f.label "Ubicación Física" %><br>
-			 <%= f.text_field :ubicacion, :placeholder => "Dónde estará localizado" %><br>
-		  </div></td></tr>
-                    
-                    <tr><td><div class="field">
-			 <%= f.label "Observaciones" %><br>
-			 <%= f.text_field :observaciones, :placeholder => "Suministre cualquier información adicional que considere relevante y que no se haya mencionado" %><br>
-		  </div></td></tr>
+			 <%= f.text_area :ubicacion, :placeholder => "Dónde estará localizado", :style => "width:410px; height:80px;" %><br>
+		  </div></td></tr><tr><td>
+<%= f.label "Observaciones" %><br>
+			 <%= f.text_area :observaciones, :placeholder => "Suministre cualquier información adicional que considere relevante y que no se haya mencionado", :style => "width:410px; height:80px;" %><br>		 </td></tr>
                     
                     <tr><td colspan="2" style=" padding-left:120px;">
                             <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
@@ -146,7 +166,6 @@ select {
     outline:none;
     display: inline-block;
     cursor:pointer;
-    width: 200px;
     height: 35px;
    font-size: 14px;
 }

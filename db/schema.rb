@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218051457) do
+ActiveRecord::Schema.define(version: 20150302153705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,11 +41,15 @@ ActiveRecord::Schema.define(version: 20150218051457) do
   create_table "binnacles", force: true do |t|
     t.string   "idSustancia"
     t.date     "fecha"
-    t.string   "consumo"
-    t.string   "ingreso"
-    t.string   "saldo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "medidaConsumo"
+    t.string   "medidaIngreso"
+    t.float    "consumo",       default: 0.0
+    t.float    "ingreso",       default: 0.0
+    t.text     "descripcion"
+    t.string   "tipo"
+    t.string   "format"
   end
 
   create_table "checks", force: true do |t|
@@ -264,6 +268,13 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
+<<<<<<< HEAD
+=======
+    t.string   "unit"
+    t.string   "variation"
+    t.string   "resource_description"
+    t.integer  "resource",             default: 0
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
   end
 
   create_table "instruments", force: true do |t|
@@ -356,6 +367,19 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.boolean  "esprestado"
   end
 
+  create_table "projcommitments", force: true do |t|
+    t.integer  "proj_id"
+    t.string   "code"
+    t.float    "amount"
+    t.string   "description"
+    t.string   "recipient"
+    t.date     "date"
+    t.text     "observations"
+    t.integer  "document"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", force: true do |t|
     t.integer  "project_number"
     t.integer  "contract"
@@ -371,13 +395,57 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.date     "incoming_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "admin",          default: 0
+    t.integer  "admin"
     t.integer  "status",         default: 0
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.string   "num_cuenta"
+<<<<<<< HEAD
     t.date     "annulled_date"
+=======
+    t.string   "observation"
+    t.integer  "banco"
+    t.string   "substitute"
+  end
+
+  create_table "projexecutions", force: true do |t|
+    t.integer  "proyecto"
+    t.integer  "commitment_id"
+    t.string   "code"
+    t.float    "check_amount"
+    t.date     "date"
+    t.integer  "document"
+    t.string   "check_number"
+    t.date     "check_elaboration_date"
+    t.date     "check_sign_date"
+    t.date     "check_delivery_date"
+    t.integer  "check_delivery_status"
+    t.boolean  "check_annulled",         default: false
+    t.string   "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projincomes", force: true do |t|
+    t.integer  "proyecto"
+    t.string   "sae_code"
+    t.integer  "origin"
+    t.string   "description"
+    t.float    "amount"
+    t.string   "concept"
+    t.integer  "financing"
+    t.string   "organism"
+    t.date     "date"
+    t.string   "document"
+    t.string   "doc_code"
+    t.string   "doc_url"
+    t.date     "doc_date"
+    t.string   "unit"
+    t.string   "observations"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
   end
 
   create_table "quotes", force: true do |t|
@@ -418,7 +486,6 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.integer "item_id"
     t.string  "marca"
     t.string  "modelo"
-    t.string  "tipo"
     t.string  "descripcion_general"
     t.string  "materia"
     t.string  "funcion"
@@ -426,6 +493,22 @@ ActiveRecord::Schema.define(version: 20150218051457) do
     t.string  "aplicacion"
     t.string  "observaciones"
     t.integer "specification_id"
+    t.string  "equipo"
+    t.string  "material_consumible"
+    t.string  "servicio"
+    t.string  "licencia"
+    t.string  "repuesto"
+    t.string  "renovacion_licencia"
+    t.string  "accesorio"
+    t.string  "otro"
+    t.integer "alto"
+    t.integer "ancho"
+    t.integer "largo"
+    t.integer "peso"
+    t.string  "dimensiones_alto"
+    t.string  "dimensiones_ancho"
+    t.string  "dimensiones_largo"
+    t.string  "dimensiones_peso"
   end
 
   create_table "requests", force: true do |t|

@@ -23,7 +23,7 @@ module Sigulab
     config.i18n.default_locale = :es
 	config.to_prepare do
 	    Devise::SessionsController.layout "appsession"
-	    Devise::RegistrationsController.layout "appsession"
+	    Devise::RegistrationsController.layout "appregistration"
 	    Devise::ConfirmationsController.layout "appsession"
 	    Devise::UnlocksController.layout "appsession"
 	    Devise::PasswordsController.layout "appsession"

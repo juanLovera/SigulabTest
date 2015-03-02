@@ -3,9 +3,16 @@
 <%= javascript_include_tag 'jquery.dataTables.js' %>
 <%= javascript_include_tag 'tabla.js' %>
 
-<div class="col-xs-12">
 
-  <h1>Donaciones</h1>
+  <ol class="breadcrumb">
+   <li> <%=link_to 'Inicio', controller: 'statics'%></li>
+   <li> <%=link_to 'Inventario', inventario_url %></li>
+    <li class="active"> Donaciones </li>
+  </ol>
+
+
+<div class="col-xs-12">
+<h1><i class="fa fa-gift"></i>  Donaciones</h1>
 
 </div><br>
 
@@ -46,9 +53,20 @@
 
 	</div>
 
-  <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Donación', new_donation_path, 'data-no-turbolink' => true, :class => 'linkButton' %> |
-  <i class="fa fa-arrow-left"></i><%= link_to ' Atrás ', inventario_url, :class => 'linkButton' %> 
+ <div class="col-xs-12" align="left">
+  <p></p>
+  <% if can? :create, @donation %>
+    <%= link_to new_donation_path do %>
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Donación</button>
+  <% end %>
+  <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+  <% end %>
+</div>  
 
+<% end %>      
+
+  <br><br><br>
 
 </div>
 

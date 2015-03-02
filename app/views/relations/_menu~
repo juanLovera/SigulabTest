@@ -78,7 +78,7 @@
 		       <i class="fa fa-file-text-o"> Informe de recomendación</i>
 		   </a></li>
 		   <% else %>
-			<li style="text-align:left" <% if session['specification_p4'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to construccion_url do %>
+			<li style="text-align:left" <% if session['specification_p4'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to recommendations_url do %>
 		       <i class="fa fa-file-text-o"> Informe de recomendación</i>
 		   <% end %></li>
 		   <% end %>

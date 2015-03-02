@@ -1,4 +1,7 @@
 class Commitment < ActiveRecord::Base
+
+  attr_localized :amount
+
   enum document: [:order_buy, :order_service, :order_expend]
   def self.document_str
   [

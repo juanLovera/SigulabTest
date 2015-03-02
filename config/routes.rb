@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :binnacles
 
   resources :donations
@@ -74,6 +75,10 @@ end
   get 'administration/budget/(:action)', to: 'budget', as: :budget
   get 'administration/(:action)', to: 'administration', as: :administration
   get "/executions/list", to: "executions#list", :as => "executions/list"
+  get "/projects/list", to: "projects#list", :as => "projects/list"
+  get "/projects/admin", to: "projects#admin", :as => "projects/admin"
+  get "/projcommitments/list", to: "projcommitments#list", :as => "projcommitments/list"
+  get "/projexecutions/list", to: "projexecutions#list", :as => "projexecutions/list"
 
   resources :incomes
   resources :commitments
@@ -81,7 +86,12 @@ end
     get 'annul', on: :member
   end
   resources :projects
-  
+  resources :projcommitments
+  resources :projincomes
+  resources :projexecutions do
+    get 'annul', on: :member
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,4 +1,7 @@
-<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
 
 <p id="notice"><%= notice %></p>
 <ol class="breadcrumb">
@@ -11,8 +14,14 @@
 
 
 
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1" class="show">Características</a></li>
+      <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
+      <li><a href="#tabs-3" class="hidex">Datos de Adquisición</a></li>
+    </ul>
 
-    <div class="col-xs-12">
+    <div id="tab-1">
         <table class="table table-striped">
           <tr>
             <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
@@ -55,6 +64,10 @@
             <td class="col-xs-5 text-right" ><strong title="Servicio de Resúmenes Químicos (Chemical Abstract Service)">CAS:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.cas %></td>
           </tr>
+        </table>
+      </div>
+      <div id="tab-2">
+        <table class="table table-striped">
            <tr>
             <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.status %></td>
@@ -72,36 +85,36 @@
             <td class="col-xs-7"><%= @chemical_substance.location %></td>
           </tr>
            
-                  <tr>
-        <td class="col-xs-5 text-right"><strong>Fecha de expiración:</strong></td>
-        <td class="col-xs-7"><%= @chemical_substance.expiration_date %></td>
-      </tr>
-       <tr>
-          <td class="col-xs-5 text-right"><strong>Peligrosidad:</strong></td>
-          <td class="col-xs-7">
-             <% if @chemical_substance.toxic %>
-              <%= ' TÓXICO ' %>
-            <% end %>
-            <% if @chemical_substance.oxidant %>
-              <%= ' COMBURENTE ' %>
-            <% end %>
-            <% if @chemical_substance.explosive %>
-              <%= ' EXPLOSIVO ' %>
-            <% end %>
-            <% if @chemical_substance.irritating %>
-              <%= ' IRRITANTE ' %>
-            <% end %>
-            <% if @chemical_substance.inflamable %>
-              <%= ' INFLAMABLE ' %>
-            <% end %>
-            <% if @chemical_substance.corrosive %>
-              <%= ' CORROSIVO ' %>
-            <% end %>
-            <% if @chemical_substance.nocive %>
-              <%= ' NOCIVO' %>
-            <% end %>
-        </td>
-      </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha de expiración:</strong></td>
+            <td class="col-xs-7"><%= @chemical_substance.expiration_date %></td>
+          </tr>
+         <tr>
+              <td class="col-xs-5 text-right"><strong>Peligrosidad:</strong></td>
+              <td class="col-xs-7">
+                 <% if @chemical_substance.toxic %>
+                  <%= ' TÓXICO ' %>
+                <% end %>
+                <% if @chemical_substance.oxidant %>
+                  <%= ' COMBURENTE ' %>
+                <% end %>
+                <% if @chemical_substance.explosive %>
+                  <%= ' EXPLOSIVO ' %>
+                <% end %>
+                <% if @chemical_substance.irritating %>
+                  <%= ' IRRITANTE ' %>
+                <% end %>
+                <% if @chemical_substance.inflamable %>
+                  <%= ' INFLAMABLE ' %>
+                <% end %>
+                <% if @chemical_substance.corrosive %>
+                  <%= ' CORROSIVO ' %>
+                <% end %>
+                <% if @chemical_substance.nocive %>
+                  <%= ' NOCIVO' %>
+                <% end %>
+            </td>
+          </tr>
 
         <tr>
         <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
@@ -115,8 +128,12 @@
             <% if @chemical_substance.extention %>
               <%= ' EXTENSIÓN ' %>
             <% end %>
+            </td>
           </tr>
-          
+        </table>
+      </div>
+      <div id="tab-3">
+        <table class="table table-striped">
           <tr>
             <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.bill %></td>
@@ -137,8 +154,9 @@
             <td class="col-xs-7"><%= @chemical_substance.adquisition_date %></td>
           </tr>
           
-         </div></td>
+         </td>
         </table>
+      </div>
 
       </div>
 
@@ -146,21 +164,37 @@
 
 
 <div class="col-xs-12">
-<% if can? :update, @chemical_substance %>
-  <i class="fa fa-cog"></i><%= link_to ' Editar', edit_chemical_substance_path(@chemical_substance), 'data-no-turbolink' => true, :class => 'linkButton' %> |
-<% end %>
-<% if can? :create, @chemical_substance %>
-      <i class="fa fa-plus-circle"></i><%= link_to ' Nueva Sustancia', new_chemical_substance_path, :class => 'linkButton' %> | 
-<%end%>
-<% if can? :hide, @chemical_substance %>
-      <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @chemical_substance, method: :delete, data: { confirm: '¿Estás seguro?' }, :class => 'linkButton' %> |
-<%end%>
+  <div class="col-xs-6 text-left">
 
-<%= link_to binnacles_path(@ids) do %>
-  <button type="button" class="btn btn-info" id="letra"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Bitácora</button>
-<% end %>
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', chemical_substances_path, :class => 'linkButton' %>
-<br><br><br><br>
+    <% if can? :create, @chemical_substance %>
+          <%= link_to new_chemical_substance_path do %>
+            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Sustancia</button>
+          <% end %> 
+    <%end%>
+    <% if can? :update, @chemical_substance %>
+      <%= link_to edit_chemical_substance_path(@chemical_substance) do %>
+        <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar</button>
+      <% end %>
+    <% end %>
+    <% if can? :hide, @chemical_substance %>
+          <%= link_to @chemical_substance, method: :delete, data: { confirm: '¿Estás seguro?' } do%>
+            <button type="button" class="btn btn-danger"><span class="fa fa-times fa-1x"></span>&nbsp;&nbsp;Eliminar</button>
+          <% end %>
+    <%end%>
+
+  </div>
+
+  <div class="col-xs-6 text-right">
+
+    <%= link_to binnacles_path(@ids) do %>
+      <button type="button" class="btn btn-info" id="letra"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Bitácora</button>
+    <% end %>
+    <%= link_to chemical_substances_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+    <% end %>
+
+  </div>
+  <br><br><br>
 </div>
 
 

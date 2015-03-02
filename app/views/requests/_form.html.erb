@@ -19,95 +19,92 @@
 <div class="grid_12 push_5">
 	<%= form_for(@request) do |f| %>
 	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @request.errors.full_messages.first if @request.errors.any? %> </span>
-                <table style="margin-left:-130px;"><tr><td style="padding-right:10px;">
+                <table style="margin-left:-130px; width:10px;"><tr><td style="padding-right:10px;">
 		  <div class="field"><span class="red">*</span>
 			 <%= f.label "Unidad solicitante" %><br>
-			 <%= f.text_field :unidad_solicitante, :placeholder => "J-00000000-0" %>
+			 <%= f.text_field :unidad_solicitante %>
 		  </div></td><td style="margin-top:-5px;">
                       <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Persona contacto" %><br>
 			 <%= f.text_field :persona_contacto %>
 		  </div>
-                        </td></tr><tr><td colspan="2">
+                        </td></tr><tr><td>
                             <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Teléfono" %><br>
-			 <%= f.text_area :telefono, :placeholder => "02120987654", :style => "width:410px; height:80px;" %>
+			 <%= f.text_field :telefono, :placeholder => "02120987654" %>
 		  </div>
-                        </td></tr><tr><td style="padding-right:10px;">
+                        </td><td style="padding-right:10px;">
 		  <div class="field">
           <span class="red">*</span>
 			 <%= f.label "E-mail" %><br>
 			 <%= f.text_field :email, :placeholder => "contacto@usb.ve" %>
-		  </div></td><td>
+		  </div></td></tr><tr><td>
 		  <div class="field">
           <span class="red">*</span>
 			 <%= f.label "Origen de fondos" %><br>
 			 <%= f.collection_select :fondos, Request::Fondos, :to_s, :to_s, 
           :include_blank => false %>
-		  </div></td></tr><tr><td style="padding-right:10px;">
+		  </div></td><td style="padding-right:10px;">
 		  <div class="field">
-          <span class="red">*</span>
-			 <%= f.label "Proyecto No." %><br>
+          
+			 <%= f.label "Proyecto Número." %><br>
 			 <%= f.text_field :numero_proyecto %>
-                  </div></td><td style="padding-top:20px;">
+                  </div></td></tr><tr><td>
 		  <div class="field">
 			 <%= f.label "Tipo de cuenta" %><br>
 			 <%= f.collection_select :tipo_cuenta, Request::Cuenta, :to_s, :to_s, 
           :include_blank => false %><br>
-		  </div></td></tr>
-                    
-                    
-                    
-                    
-                    <tr><td style="padding-right:10px;">
+		  </div></td><td style="padding-right:10px;">
 		  <div class="field">
-          <span class="red">*</span>
+          
 			 <%= f.label "Número de cuenta" %><br>
 			 <%= f.text_field :numero_cuenta %>
-                  </div></td><td style="padding-top:20px;">
+                  </div></td></tr><tr><td style="padding-top:20px;">
 		  <div class="field">
 			 <%= f.label "Banco" %><br>
 			 <%= f.text_field :nombre_banco %><br>
-		  </div></td></tr>
+		  </div></td></tr><tr><td>
                     
                     
                       <div class="field">
  	 <span class="red">*</span>
-    <%= f.label "Proforma a nombre de la Universidad Simón Bolívar, indicando la condición de entrega" %><br>
+    <b>Proforma</b><br>
     <%= f.file_field :proforma, id:"browse1", style:"display: none", onChange:"Handlechange('1')" %>
 	 <input type="text" id="filename1" readonly="true"/>
 	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('1');"/>
-  </div>
+  </div></td><td>Proforma a nombre de la Universidad Simón Bolívar, indicando la condición de entrega</td></tr><tr><td>
                     
                      <div class="field">
- 	 <span class="red">*</span>
-    <%= f.label "Folleto o catálogo (Brochure) del Material y/o Equipo solicitado, que respalde la información suministrada en el formato de Relación Descriptiva de Materiales/Equipos" %><br>
+ 	
+    <b>Folleto</b><br>
     <%= f.file_field :folleto, id:"browse2", style:"display: none", onChange:"Handlechange('2')" %>
 	 <input type="text" id="filename2" readonly="true"/>
 	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('2');"/>
-  </div>
-
-                    
-                     <div class="field">
- 	 <span class="red">*</span>
-    <%= f.label "Copia Contrato Fonacit" %><br>
-    <%= f.file_field :fonacit, id:"browse3", style:"display: none", onChange:"Handlechange('3')" %>
-	 <input type="text" id="filename3" readonly="true"/>
-	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('3');"/>
-  </div>                    
-   
-                    
+  </div></td><td>Folleto o catálogo (Brochure) del Material y/o Equipo solicitado, que respalde la información suministrada en el formato de Relación Descriptiva de Materiales/Equipos</td></tr><tr><td>
                                       <div class="field">
- 	 <span class="red">*</span>
-    <%= f.label "Copia del Acta del Consejo Directo donde autorice la Contratación Pública, si aplica (Compras mayores de 2.400 UT)" %><br>
+ 	 
+    <b>Acta del Consejo Directo</b><br>
     <%= f.file_field :acta_consejo_directo, id:"browse4", style:"display: none", onChange:"Handlechange('4')" %>
 	 <input type="text" id="filename4" readonly="true"/>
 	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('4');"/>
   </div>                    
    
+                    </td><td>Copia del Acta del Consejo Directo donde autorice la Contratación Pública, si aplica (Compras mayores de 2.500 UT)</td></tr>
                     
+                    <tr><td colspan="2">
+
+                    <div id="esconder">
+                     <div class="field">
+ 	 <span class="red">*</span>
+    <b>Contrato Fonacit</b><br>
+    <%= f.file_field :fonacit, id:"browse3", style:"display: none", onChange:"Handlechange('3')" %>
+	 <input type="text" id="filename3" readonly="true"/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('3');"/>
+  </div></div>                    
+   
+                    </td></tr>
                     
                     <tr><td colspan="2" style=" padding-left:120px;">
                             <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
@@ -184,6 +181,29 @@ font-size: 20px;
 
 }
 
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width:200px;
+    height: 35px;
+   font-size: 14px;
+}
 
 </style>
-
+<script>
+  function esconderFonacit() {
+    var e = document.getElementById("request_fondos");
+    if (e.options[e.selectedIndex].value == 'El FONACIT')
+      document.getElementById('esconder').style.display = 'inline';
+    else
+      document.getElementById('esconder').style.display = 'none';
+  }
+  document.getElementById("request_fondos").onchange= esconderFonacit;
+</script>

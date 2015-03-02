@@ -18,11 +18,44 @@ class RelationsController < ApplicationController
   def show
     @relation = Relation.find(params[:id])
     @item = Item.where(:id => @relation.item_id).first
+    tipo = ""
+	if @relation.equipo == "1"
+		tipo = tipo + ", Equipo"
+	end
+	if @relation.material_consumible == "1"
+		tipo = tipo + ", Material consumible"
+	end
+	if @relation.servicio == "1"
+		tipo = tipo + ", Servicio"
+	end
+	if @relation.licencia == "1"
+		tipo = tipo + ", Licencia"
+	end
+	if @relation.repuesto == "1"
+		tipo = tipo + ", Repuesto"
+	end
+	if @relation.renovacion_licencia == "1"
+		tipo = tipo + ", Renovacion licencia"
+	end
+	if @relation.accesorio == "1"
+		tipo = tipo + ", Accesorio"
+	end
+	if @relation.otro == "1"
+		tipo = tipo + ", Otro"
+	end
+	if tipo != ""
+		tipo = tipo[1..-1]
+	end
+	@tipo = tipo
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = ReporteRelation.new(@relation)
-        nombre = "Relacion_Descriptiva_Especificacion_#{session[:specification_sel_id]}_Empresa_#{@invitation.nombre}.pdf"
+	specif = Specification.find(session[:specification_sel_id])
+	@item = Item.find(@relation.item_id)
+	
+        pdf = ReporteRelations.new(@relation,specif,@item,tipo)
+	
+        nombre = "Relacion_Descriptiva_Especificacion_#{session[:specification_sel_id]}.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
       end
     end
@@ -45,8 +78,22 @@ class RelationsController < ApplicationController
   def create
     @relation = Relation.new(relation_params)
     @relation.specification_id = session[:specification_sel_id]
+    @items = Item.where(:specification_id => session[:specification_sel_id]).all
+    @itemsc = Item.where(:specification_id => session[:specification_sel_id]).count
+    
+    
     respond_to do |format|
       if @relation.save
+       @sumRelation = Relation.where(:specification_id => session[:specification_sel_id]).count
+        if @itemsc == @sumRelation
+		specification = Specification.find(session[:specification_sel_id])
+	   
+	       specification.p8 = 2
+		specification.p9 = 1
+	    session[:specification_p8] = specification.p8
+	    session[:specification_p9] = specification.p9
+	    specification.save
+	end
         format.html { redirect_to relations_url, notice: 'Invitation was successfully created.' }
         format.json { render :show, status: :created, location: @relation }
       else
@@ -89,6 +136,6 @@ class RelationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relation_params
-      params.require(:relation).permit(:marca,:modelo, :tipo, :descripcion_general, :item_id, :materia, :funcion, :ubicacion, :aplicacion, :observaciones)
+      params.require(:relation).permit(:marca,:modelo, :descripcion_general, :item_id, :materia, :funcion, :ubicacion, :aplicacion, :observaciones, :equipo, :material_consumible, :servicio, :licencia, :repuesto, :renovacion_licencia, :accesorio, :otro, :alto, :ancho, :largo, :peso, :dimensiones_alto, :dimensiones_ancho, :dimensiones_largo, :dimensiones_peso)
     end
 end
