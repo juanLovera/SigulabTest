@@ -130,9 +130,9 @@ end
     def project_params
       params.require(:project).permit(:project_number, :contract, :title, :responsible, 
       	                              :admin, :sae_code, :amount, :equipments, :services, 
-      	                              :infrastructure, :hhrr, :consumables, :incoming_date,
-                     	                :status, :other_desc, :other_amount, :annulled_date,
-                                      :observation, :num_cuenta, :banco)
+      	                              :infrastructure, :hhrr, :consumables, :furniture, 
+                                      :incoming_date, :status, :other_desc, :other_amount, 
+                                      :annulled_date, :observation, :num_cuenta, :banco)
     end
 
 end
