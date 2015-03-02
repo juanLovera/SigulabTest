@@ -37,10 +37,12 @@
 				<td class="col-xs-5 text-right">Responsable Técnico:</td>
 				<td class="col-xs-7"><%= @project.responsible %></td>
 			</tr>
+			<% if !@project.substitute.blank? -%>
 			<tr>
 				<td class="col-xs-5 text-right">Suplente:</td>
 				<td class="col-xs-7"><%= @project.substitute %></td>
 			</tr>
+			<% end %> 
 			<tr>
 				<td class="col-xs-5 text-right">Administrador del Proyecto:</td>
 				<td class="col-xs-7"><%= Project.admin_str[Project.admins[@project.admin]] %></td>
@@ -189,7 +191,12 @@
 	<% end %>
 	<%= link_to controller: 'projexecutions', id: @project.id do %>
 		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
-	<% end %>		
+	<% end %>
+
+	<%= link_to 'list', controller: 'projects', action: 'list' do %>
+		<button type="button" class="btn btn-default btn-danger">
+		<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+	<% end %>	
 </div>
 
 <style>

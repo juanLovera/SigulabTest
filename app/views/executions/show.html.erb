@@ -83,8 +83,13 @@
     <%= link_to edit_execution_path do %>
 			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ejecución</button>
 		<% end %>
+		<%= link_to executions_path, class: "btn btn-default btn-danger" do %>
+			<span class="glyphicon glyphicon-arrow-left"></span></span>&nbsp;&nbsp;Volver
+		<% end %>
 	</div>
 </div>
+
+
 
 <style>
 	#span1 { width: 25px; float: left; height:100%; }

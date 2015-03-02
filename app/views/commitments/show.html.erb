@@ -70,7 +70,11 @@
 		<%= link_to controller: :executions, action: 'list', cid: @commitment.id do %>
 			<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Listar Ejecuciones</button>
 		<% end %>
-  <% end %>
+		<% end %>
+		<%= link_to commitments_path, class: "btn btn-default btn-danger" do %>
+			<span class="glyphicon glyphicon-arrow-left"></span></span>&nbsp;&nbsp;Volver
+		<% end %>
+  
 	</div>
 </div>
 
