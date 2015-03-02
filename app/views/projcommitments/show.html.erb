@@ -4,9 +4,9 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>					
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to @project.project_number, @project %></li>				
 			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @commitment.proj_id %></li>
-			<li class="active"><%= Project.find(@commitment.proj_id).project_number %></li>
 		</ol>
 	</div>
 	<div class="col-xs-12">
