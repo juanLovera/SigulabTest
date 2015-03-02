@@ -7,7 +7,6 @@
 	<div class="col-xs-12">
 		<ol class="breadcrumb">
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
-			<li><%= link_to 'Administración', administration_path %></li>			
 			<li><%= link_to 'Proyectos', controller: 'projects' %></li>	
 			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>				
 			<li class="active"><%= @project.project_number%></li>
@@ -37,6 +36,10 @@
 			<tr>
 				<td class="col-xs-5 text-right">Responsable Técnico:</td>
 				<td class="col-xs-7"><%= @project.responsible %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Suplente:</td>
+				<td class="col-xs-7"><%= @project.substitute %></td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Administrador del Proyecto:</td>
