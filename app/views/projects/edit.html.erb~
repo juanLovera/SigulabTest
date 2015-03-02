@@ -64,7 +64,7 @@
 				</div>	
 
    <div class="form-group">
-				<label for='substitute' class="col-xs-3 control-label text-right">Suplente </label>
+				<label for='responsible' class="col-xs-3 control-label text-right">Suplente </label>
 				<div class='col-xs-4'>
 					<%= i.text_field :substitute, class: 'form-control' %>
 				</div>

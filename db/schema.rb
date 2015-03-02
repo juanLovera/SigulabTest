@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228004627) do
+ActiveRecord::Schema.define(version: 20150302153705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -405,6 +405,7 @@ ActiveRecord::Schema.define(version: 20150228004627) do
     t.string   "num_cuenta"
     t.string   "observation"
     t.integer  "banco"
+    t.string   "substitute"
   end
 
   create_table "projexecutions", force: true do |t|
