@@ -116,6 +116,14 @@ def admin
     @executions_commitement[p.id] = @executions.where(proyecto: p.id).where("check_annulled=false").sum(:check_amount)
     @executions_total += @executions_commitement[p.id]
   end
+
+  respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = ReporteProjects.new(@projects, @incomes, @commitments, @executions)
+      send_data pdf.render, filename: 'ResumenPresupuestarioProyectos.pdf', type: 'application/pdf'
+    end
+  end
 end
 
 def summary
