@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302153705) do
+ActiveRecord::Schema.define(version: 20150303030148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -245,6 +245,9 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.boolean  "check_annulled",         default: false
     t.string   "remarks"
     t.string   "document_name"
+    t.date     "document_date"
+    t.string   "invoice_number"
+    t.date     "invoice_date"
   end
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
@@ -257,10 +260,6 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.date     "date"
     t.string   "organism"
     t.string   "document"
-    t.string   "unit"
-    t.integer  "resource",             default: 0
-    t.string   "variation"
-    t.string   "resource_description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
@@ -268,6 +267,11 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
+    t.boolean  "estado"
+    t.string   "unit"
+    t.string   "variation"
+    t.string   "resource_description"
+    t.integer  "resource",             default: 0
   end
 
   create_table "instruments", force: true do |t|
@@ -414,6 +418,9 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "document_date"
+    t.string   "invoice_number"
+    t.date     "invoice_date"
   end
 
   create_table "projincomes", force: true do |t|
@@ -576,13 +583,17 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "location"
     t.string   "material"
     t.string   "bill"
-    t.boolean  "from_set"
     t.boolean  "investigation"
     t.boolean  "teaching"
     t.boolean  "extention"
     t.boolean  "management"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "cost"
+    t.string   "buy_order"
+    t.date     "adquisition_date"
+    t.boolean  "showable",         default: true
+    t.boolean  "from_set"
     t.string   "dependency"
     t.boolean  "solicitados"
     t.string   "id2"

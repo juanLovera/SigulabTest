@@ -8,6 +8,15 @@
 			<li class="active"><%= @execution.id %></li>
 		</ol>
 	</div>
+
+	<div class="col-xs-12" align="right">
+		<%= link_to executions_path, class: "btn btn-primary" do %>
+			<span class="glyphicon glyphicon-arrow-left"></span></span>&nbsp;&nbsp;Volver
+		<% end %>
+		</br>
+		</br>
+	</div>
+
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>
@@ -25,8 +34,20 @@
 			</tr>
 			<% end %>		
 			<tr>
-				<td class="col-xs-5 text-right">Número de Documento:</td>
+				<td class="col-xs-5 text-right">Número del Documento:</td>
 				<td class="col-xs-7"><%= @execution.code %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha del Documento:</td>
+				<td class="col-xs-7"><%= @execution.document_date %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Número de la Factura:</td>
+				<td class="col-xs-7"><%= @execution.invoice_number %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de la Factura:</td>
+				<td class="col-xs-7"><%= @execution.invoice_date %></td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Número de Cheque:</td>
@@ -82,9 +103,6 @@
 	<div class="col-xs-12">
     <%= link_to edit_execution_path do %>
 			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ejecución</button>
-		<% end %>
-		<%= link_to executions_path, class: "btn btn-default btn-danger" do %>
-			<span class="glyphicon glyphicon-arrow-left"></span></span>&nbsp;&nbsp;Volver
 		<% end %>
 	</div>
 </div>

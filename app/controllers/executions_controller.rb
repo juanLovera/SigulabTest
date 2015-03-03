@@ -117,7 +117,7 @@ class ExecutionsController < ApplicationController
   private
   
     def execution_params
-      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :document, :document_name, :check_sign_date, :check_delivery_date, :remarks)
+      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :document, :document_name, :check_sign_date, :check_delivery_date, :remarks, :document_date, :invoice_number, :invoice_date)
     end
     
     def purge_date(date)
