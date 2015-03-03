@@ -8,6 +8,12 @@ class ExecutionsController < ApplicationController
     @sum = @executions.where("check_annulled=false").sum(:check_amount)
   end
 
+  def list_lab
+    @lab = Lab.find(params[:id])
+    @executions = Execution.joins(commitment: :lab).where("lab_id=?", params[:id])
+    @sum = @executions.where("check_annulled=false").sum(:check_amount)
+  end
+
   def show
     @execution = Execution.find(params[:id])
     @executions = Execution.where("commitment_id=?",params[:cid])
