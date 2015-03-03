@@ -45,7 +45,7 @@ class ReporteServices < Prawn::Document
       row(0).font_style = :bold
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [80,200,120,60,80]
+      self.column_widths = [60,60,80,120,100,120]
     end
 
     move_down 45
@@ -55,9 +55,11 @@ class ReporteServices < Prawn::Document
 
  
   def items_rows
-    [['Tipo', 'Descripción', 'Nombre', 'Número de BN', 'Ubicacion']] +
+    index = 0
+    [['Número','Número de BN',  'Ubicacion', 'Nombre', 'Tipo de Servicio', 'Descripción']] +
       @services.map do |service|
-      [service.tipo, service.descripcion, service.nombre, service.numero, service.ubicacion]
+      index = index+1
+      [index, service.numero, service.ubicacion, service.nombre, service.tipo, service.descripcion]
     end
   end
 

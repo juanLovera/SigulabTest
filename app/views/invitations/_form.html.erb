@@ -11,14 +11,31 @@
 			 <%= f.label "Nombre" %><br>
 			 <%= f.text_field :nombre, :placeholder => "Empresa a invitar" %>
 		  </div>
-                        </td></tr><tr><td colspan="2">
+                        </td></tr><tr><td>
 
 			 <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Tipo" %><br>
 			 <%= f.collection_select :tipo, Specification::Compra, :to_s, :to_s, :include_blank => false %>
-		  </div>
+                         </div></td>
+                    
+                    
+                    <td>
 
+			 <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Persona Contacto" %><br>
+			 <%= f.text_field :contacto, :placeholder => "Contacto de la empresa" %>
+                         </div></td>
+                    
+                    
+                    
+                    
+                    </tr><tr><td><div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Correo Electrónico" %><br>
+			 <%= f.text_field :correo_contacto, :placeholder => "persona@contacto.com" %>
+                         </div></td></tr><tr><td colspan="2">
                             <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Dirección" %><br>
