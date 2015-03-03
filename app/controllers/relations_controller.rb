@@ -52,10 +52,10 @@ class RelationsController < ApplicationController
       format.pdf do
 	specif = Specification.find(session[:specification_sel_id])
 	@item = Item.find(@relation.item_id)
-	
+	inombre = @item.nombre
         pdf = ReporteRelations.new(@relation,specif,@item,tipo)
 	
-        nombre = "Relacion_Descriptiva_Especificacion_#{session[:specification_sel_id]}.pdf"
+        nombre = "Especificacion_#{session[:specification_sel_id]}_Relacion_Descriptiva_Item_#{inombre}.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
       end
     end

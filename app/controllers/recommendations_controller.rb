@@ -15,7 +15,7 @@ class RecommendationsController < ApplicationController
 		@recoEmp = RecommendationsEmpresa.where(:id_informe => @reco.id).all
 		@itemsq = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
 		pdf = ReporteRecommendations.new(@reco, @recoEmp, @invt, @itemsq)
-		nombre = "Informe_Recomendacion_Especificacion_#{session[:specification_sel_id]}.pdf"
+		nombre = "Especificacion_#{session[:specification_sel_id]}_Informe_Recomendacion.pdf"
 		send_data pdf.render, filename: nombre, type: 'application/pdf'
 	      end
 	      format.xml do

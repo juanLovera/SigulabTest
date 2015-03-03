@@ -14,7 +14,7 @@ respond_to do |format|
       format.pdf do
                @act= Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
 		pdf = ReporteActs.new(@act)
-      		  send_data pdf.render, filename: 'Acto_Motivado.pdf', type: 'application/pdf'
+      		  send_data pdf.render, filename: 'Especificacion_#{session[:specification_sel_id]}_Acto_Motivado.pdf', type: 'application/pdf'
 	      end
        format.xml do
               specification = Specification.find(session[:specification_sel_id])

@@ -86,7 +86,7 @@
 
 
                    <% if session['specification_p5'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><% if session['specification_p4'] != 2 && if session['specification_p4'] != 1 %>
+			<li style="text-align:left" class='deshabilitado'><% if session['specification_p4'] != 2 && session['specification_p4'] != 1 %>
 <a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
 <% else %>
 <a href="javascript:void(0)" onclick="alert('Consultar Informe de Recomendación');" >
@@ -134,3 +134,6 @@
 
 		   
 </ul>
+<div style="font-size:10px; text-align:right">
+<span style="font-size:20px; color:#3083FF">•</span> Paso no completado | <span style="font-size:20px; color:#259325">•</span> Paso Completado | <span style="font-size:20px; color:#E60000">•</span> Paso No Disponible
+</div>

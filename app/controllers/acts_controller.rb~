@@ -46,10 +46,12 @@ respond_to do |format|
   # GET /acts/new
   def new
     @act = Act.new
+    @invitations = Invitation.where(:specification_id => session[:specification_sel_id]).all
   end
 
   # GET /acts/1/edit
   def edit
+	@invitations = Invitation.where(:specification_id => session[:specification_sel_id]).all
   end
 
   # POST /acts
