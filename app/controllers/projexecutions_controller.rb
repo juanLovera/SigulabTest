@@ -60,12 +60,13 @@ class ProjexecutionsController < ApplicationController
      if !@projexecution.check_amount.blank?
        if @projexecution.check_amount > @commitment.amount - @projexecuted
          @projexecution.executable_amount
-         render 'new'
+         render 'new', cid: params[:cid]
        else 
          if @projexecution.save
            redirect_to controller: 'projexecutions', id: @projexecution.proyecto
          else
-           render 'new'        
+binding.pry
+           render 'new', cid: params[:cid]        
          end
        end
      else
