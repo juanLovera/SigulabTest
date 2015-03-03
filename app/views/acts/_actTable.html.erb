@@ -5,13 +5,14 @@
 		   <th align="left">Bien y/o Servicio</th>
 		   <th align="left">Justificación</th>
 		   <th align="left">Responsable</th>
+                   <th></th>
 		 </tr>
 	  </thead>
 
 	  <tbody>
 		 <% @acts.each do |act| %>
 	  		<tr>
-		     
+		     <td><%= act.proveedor %></td>
 		     <td><%= act.bienServicio %></td>
 		     <td><%= act.justificacion %></td>
 		     <td><%= act.responsable %></td>
