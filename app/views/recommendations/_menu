@@ -53,7 +53,7 @@
 		        </a></li>
 
 			<% if session['specification_p2'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una carta de invitación es necesario descargar la solicitud en la pestaña anterior.');" >
+			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una carta de invitación es necesario descargar la especificación técnica.');" >
 		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i></a>
 		</li>
 		   <% else %>
@@ -87,7 +87,11 @@
 
 
                    <% if session['specification_p5'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
+			<li style="text-align:left" class='deshabilitado'><% if session['specification_p4'] != 2 && session['specification_p4'] != 1 %>
+<a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
+<% else %>
+<a href="javascript:void(0)" onclick="alert('Consultar Informe de Recomendación');" >
+<% end %>
 		       <i class="fa fa-angle-right"> &nbsp Acto motivado </i>
 		   </a></li>
 		   <% else %>
@@ -97,7 +101,12 @@
 		   <% end %>
 
 		    <% if session['specification_p6'] == 0 %>
-			<li style="text-align:left" class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para agregar una requisición es necesario agregar un acto motivado o un informe de recomendación.');" >
+			<li style="text-align:left" class="deshabilitado"><% if session['specification_p5'] == 2 %>
+<a href="javascript:void(0)" onclick="alert('Consultar Acto Motivado.');" >
+<% else %>
+<a href="javascript:void(0)" onclick="alert('Para agregar un informe de recomendación es necesario agregar una oferta.');" >
+<% end %>
+	 
 		       <i class="fa fa-files-o"> Requisición </i>
 		   </a></li>
 		   <% else %>

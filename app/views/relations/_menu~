@@ -16,7 +16,7 @@
    margin-top:-4px;
          }
 .nav-tabs > li.habilitado > a,
-   .nav-tabs > li.habilitado > a:hover <% if session['specification_p2'] == 2 %>, .nav-tabs > li.active > a <% end %> {
+   .nav-tabs > li.habilitado > a:hover <% if session['specification_p8'] == 2 %>, .nav-tabs > li.active > a <% end %> {
     color: #000 !important;
     background-color: transparent !important;
     text-decoration: none;
@@ -31,7 +31,7 @@
     border-radius:0px;
      }
 .nav-tabs > li.select > a,
-   .nav-tabs > li.select > a:hover <% if session['specification_p2'] == 1 %>, .nav-tabs > li.active > a <% end %> {
+   .nav-tabs > li.select > a:hover <% if session['specification_p8'] == 1 %>, .nav-tabs > li.active > a <% end %> {
     color: #000 !important;
     background-color: transparent !important;
     text-decoration: none;
@@ -53,11 +53,11 @@
 		        </a></li>
 
 			<% if session['specification_p2'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una carta de invitación es necesario descargar la solicitud en la pestaña anterior.');" >
+			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una carta de invitación es necesario descargar la especificación técnica.');" >
 		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i></a>
 		</li>
 		   <% else %>
-			<li class="active" style="text-align:left"><%= link_to invitations_url do %>
+			<li style="text-align:left" <% if session['specification_p2'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to invitations_url do %>
 		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i>
 		   <% end %></li>
 		   <% end %>
@@ -85,8 +85,12 @@
 
 
 
-                   <% if session['specification_p5'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
+                    <% if session['specification_p5'] == 0 %>
+			<li style="text-align:left" class='deshabilitado'><% if session['specification_p4'] != 2 && if session['specification_p4'] != 1 %>
+<a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
+<% else %>
+<a href="javascript:void(0)" onclick="alert('Consultar Informe de Recomendación');" >
+<% end %>
 		       <i class="fa fa-angle-right"> &nbsp Acto motivado </i>
 		   </a></li>
 		   <% else %>
@@ -96,7 +100,12 @@
 		   <% end %>
 
 		    <% if session['specification_p6'] == 0 %>
-			<li style="text-align:left" class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para agregar una requisición es necesario agregar un acto motivado o un informe de recomendación.');" >
+			<li style="text-align:left" class="deshabilitado"><% if session['specification_p5'] == 2 %>
+<a href="javascript:void(0)" onclick="alert('Consultar Acto Motivado.');" >
+<% else %>
+<a href="javascript:void(0)" onclick="alert('Para agregar un informe de recomendación es necesario agregar una oferta.');" >
+<% end %>
+	 
 		       <i class="fa fa-files-o"> Requisición </i>
 		   </a></li>
 		   <% else %>
@@ -104,6 +113,25 @@
 		   <% end %></li>
 		   <% end %>
 
+<% if session['specification_sel_nacional'] == "Internacional" %>
+	<% if session['specification_p8'] == 0 %>
+			<li id="bt8" style="text-align:left; " class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para agregar una relación debe agregar la requisición.');" >
+		       <i class="fa fa-bars"> Relación Descriptiva </i>
+		   </a></li>
+		   <% else %>
+			<li class="active" style="text-align:left;"><%= link_to relations_url do %><i class="fa fa-bars"> Relación Descriptiva </i>
+		   <% end %></li>
+		   <% end %>
+
+<% if session['specification_p9'] == 0 %>
+			<li id="bt9" style="text-align:left; " class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para agregar una solicitud es necesario completa la relación descriptiva.');" >
+		       <i class="fa fa-globe"> Solicitud de Compra Extranjera </i>
+		   </a></li>
+		   <% else %>
+			<li id="bt9" style="text-align:left; " <% if session['specification_p9'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to requests_url do %><i class="fa fa-globe"> Solicitud de Compra Extranjera </i>
+		   <% end %></li>
+		   <% end %>
+<% end %>
 
 		   
 </ul>

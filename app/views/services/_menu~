@@ -53,7 +53,7 @@
 		        </a></li>
 
 			<% if session['specification_p2'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una carta de invitación es necesario descargar la solicitud en la pestaña anterior.');" >
+			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar una carta de invitación es necesario descargar la especificación técnica.');" >
 		       <i class="fa fa-envelope-o">&nbsp Carta de invitación </i></a>
 		</li>
 		   <% else %>
@@ -74,7 +74,12 @@
 
 
 <% if session['specification_p4'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar un informe de recomendación es necesario agregar una oferta.');" >
+			<li style="text-align:left" class='deshabilitado'>
+<% if session['specification_p5'] == 2 %>
+<a href="javascript:void(0)" onclick="alert('Consultar Acto Motivado.');" >
+<% else %>
+<a href="javascript:void(0)" onclick="alert('Para agregar un informe de recomendación es necesario agregar una oferta.');" >
+<% end %>
 		       <i class="fa fa-file-text-o"> Informe de recomendación</i>
 		   </a></li>
 		   <% else %>
@@ -86,7 +91,12 @@
 
 
                    <% if session['specification_p5'] == 0 %>
-			<li style="text-align:left" class='deshabilitado'><a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
+			<li style="text-align:left" class='deshabilitado'>
+<% if session['specification_p4'] != 2 && if session['specification_p4'] != 1 %>
+<a href="javascript:void(0)" onclick="alert('Para agregar un acto motivado es necesario agregar una oferta.');" >
+<% else %>
+<a href="javascript:void(0)" onclick="alert('Consultar Informe de Recomendación');" >
+<% end %>
 		       <i class="fa fa-angle-right"> &nbsp Acto motivado </i>
 		   </a></li>
 		   <% else %>
@@ -110,7 +120,7 @@
 		       <i class="fa fa-bars"> Relación Descriptiva </i>
 		   </a></li>
 		   <% else %>
-			<li id="bt8" style="text-align:left;" <% if session['specification_p8'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to relations_url do %><i class="fa fa-bars"> Requisición </i>
+			<li id="bt8" style="text-align:left;" <% if session['specification_p8'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to relations_url do %><i class="fa fa-bars"> Relación Descriptiva </i>
 		   <% end %></li>
 		   <% end %>
 
