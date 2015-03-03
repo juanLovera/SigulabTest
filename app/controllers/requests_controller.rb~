@@ -71,7 +71,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
     @request.specification_id = session[:specification_sel_id]
     specification = Specification.find(session[:specification_sel_id])
-    specification.modalidad = params['modalidad']
+    specification.modalidad = param['modalidad']
     specification.save
     respond_to do |format|
       if @request.save
@@ -88,7 +88,7 @@ class RequestsController < ApplicationController
   # PATCH/PUT /invitations/1.json
   def update
     specification = Specification.find(session[:specification_sel_id])
-    specification.modalidad = params['modalidad']
+    specification.modalidad = param['modalidad']
     specification.save
     respond_to do |format|
       if @request.update(request_params)
