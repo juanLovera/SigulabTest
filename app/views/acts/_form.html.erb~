@@ -15,7 +15,7 @@
        <%= f.label "Nombre del Proveedor" %><br><select id='act_proveedor' name='act[proveedor]'>
       <% @invitations.each do |invt| %>
 <% if invt.quote_id != -1 %>
-<option value="<%= invt.nombre %>"><%= invt.nombre %></option>
+<option value="<%= invt.id %>"><%= invt.nombre %></option>
 <% end %>
 <% end %></select>
 </td></tr><tr><td style="padding-top:10px;">

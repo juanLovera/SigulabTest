@@ -23,11 +23,13 @@ respond_to do |format|
        specification.p4 = 0
        specification.p5 = 2
        specification.p6 = 1
+       specification.p8 = 1
        session[:specification_p3] = specification.p3
     session[:specification_p2] = specification.p2
     session[:specification_p4] = specification.p4
     session[:specification_p5] = specification.p5
     session[:specification_p6] = specification.p6
+    session[:specification_p8] = specification.p8
     specification.save
               redirect_to "/acts?pdf=1"
       end
@@ -53,10 +55,20 @@ respond_to do |format|
   # POST /acts
   # POST /acts.json
   def create
+    specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Nacional"
+	specification.nacional = "Nacional"
+	specification.save
     @act = Act.new(act_params)
     @act.user_id = current_user.username
     @act.specification_id = session[:specification_sel_id]
-   
+    @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => @act.proveedor, :tipo => "Internacional").count
+      if @numin != 0
+	specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Internacional"
+	specification.nacional = "Internacional"
+	specification.save
+      end
     respond_to do |format|
       if @act.save
         format.html { redirect_to acts_url, notice: 'Act was successfully created.' }

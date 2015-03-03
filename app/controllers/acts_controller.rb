@@ -46,19 +46,31 @@ respond_to do |format|
   # GET /acts/new
   def new
     @act = Act.new
+    @invitations = Invitation.where(:specification_id => session[:specification_sel_id]).all
   end
 
   # GET /acts/1/edit
   def edit
+	@invitations = Invitation.where(:specification_id => session[:specification_sel_id]).all
   end
 
   # POST /acts
   # POST /acts.json
   def create
+    specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Nacional"
+	specification.nacional = "Nacional"
+	specification.save
     @act = Act.new(act_params)
     @act.user_id = current_user.username
     @act.specification_id = session[:specification_sel_id]
-   
+    @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => @act.proveedor, :tipo => "Internacional").count
+      if @numin != 0
+	specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Internacional"
+	specification.nacional = "Internacional"
+	specification.save
+      end
     respond_to do |format|
       if @act.save
         format.html { redirect_to acts_url, notice: 'Act was successfully created.' }
