@@ -65,12 +65,12 @@ class RelationsController < ApplicationController
   # GET /invitations/new
   def new
     @relation = Relation.new
-    @items = Item.where(:specification_id => session[:specification_sel_id]).all
+    @items = Item.where(:specification_id => session[:specification_sel_id], :comprar => 1).all
   end
 
   # GET /invitations/1/edit
   def edit
-    @items = Item.where(:specification_id => session[:specification_sel_id]).all
+    @items = Item.where(:specification_id => session[:specification_sel_id], :comprar => 1).all
   end
 
   # POST /invitations

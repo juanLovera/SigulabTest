@@ -136,3 +136,6 @@
 
 		   
 </ul>
+<div style="font-size:10px; text-align:right">
+<span style="font-size:20px; color:#3083FF">•</span> Paso No Completado | <span style="font-size:20px; color:#259325">•</span> Paso Completado | <span style="font-size:20px; color:#E60000">•</span> Paso No Disponible
+</div>

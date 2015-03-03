@@ -65,7 +65,7 @@ class QuotesController < ApplicationController
       @itemsquote.save
     end
     end
-    nombre = "Oferta_Especificacion_#{session[:specification_sel_id]}_Empresa_#{quotew.nombre}"
+    nombre = "Especificacion_#{session[:specification_sel_id]}_Oferta_Empresa_#{quotew.nombre}"
     tmp = quotew.attachment_url
     quotew.ataname = tmp.gsub("nca",nombre)
     
