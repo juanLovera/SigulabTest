@@ -54,13 +54,21 @@
 		  </div></td></tr><tr><td style="padding-right:10px;">
 		  <div class="field">
           <span class="red">*</span>
-			 <%= f.label "Teléfono" %><br>
+			 <%= f.label "Nro de Fax" %><br>
 			 <%= f.text_field :telefono, :placeholder => "02121234567" %>
                   </div></td><td style="padding-top:20px;">
 		  <div class="field">
 			 <%= f.label "Teléfono adicional" %><br>
 			 <%= f.text_field :telefono_Adicional, :placeholder => "02121234567" %><br>
-		  </div></td></tr><tr><td colspan="2" style=" padding-left:120px;">
+                            </div></td></tr><tr><td>
+                    <div class="field">
+                        <span class="red">*</span>
+                            <%= f.label "Fecha tope de recepción de ofertas" %><br/>
+				
+				<%= f.text_field :fecha_tope, class: 'bootlayout-date form-control' %>
+				
+                          </div>  <br/><br/>
+                        </td></tr><tr><td colspan="2" style=" padding-left:120px;">
                             <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
 		  <div class="actions">
 			 <%= f.submit "Aceptar", :style => "float:left;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
