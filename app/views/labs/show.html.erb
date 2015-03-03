@@ -8,6 +8,16 @@
 			<li class="active"> <%= @lab.sae_name %> </li>
 		</ol>
 	</div>
+
+	<div class="col-xs-12" align="right">
+		<%= link_to controller: 'budget', action: 'summary' do %>
+			<button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+		<% end %>	
+		</br>
+		</br>
+	</div>
+
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>
