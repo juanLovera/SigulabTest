@@ -41,7 +41,7 @@
 		 </tr>
 	<tr>
 		   <td class="col-xs-5 text-right">Tipo</td>
-		   <td class="col-xs-7"><%= @invitation.tipo %></td>
+		   <td class="col-xs-7"><%= @invitation.international %></td>
 		 </tr>
 	 
    </table>
