@@ -13,6 +13,11 @@ class ProjincomesController < ApplicationController
     @projincome = Projincome.find(params[:id])
     @project = Project.find(@projincome.proyecto)
   end
+
+  def all
+    @projincomes = Projincome.all.order("date ASC")
+    @sum = @projincomes.sum(:amount)
+  end
   
   def new
     @projincome = Projincome.new
