@@ -76,10 +76,6 @@ class RecommendationsController < ApplicationController
     @recommendation.user_id = current_user.username
     @recommendation.specification_id = session[:specification_sel_id]
     @recommendation.save
-    specification = Specification.find(session[:specification_sel_id])
-	session[:specification_sel_nacional] = "Nacional"
-	specification.nacional = "Nacional"
-	specification.save
     params.each do |k,x|
     if k.include?("recommendation_empresas")
       ind = k.gsub("recommendation_empresas", "")
