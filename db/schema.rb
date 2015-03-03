@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150303050723) do
+ActiveRecord::Schema.define(version: 20150303090729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -265,10 +264,8 @@ ActiveRecord::Schema.define(version: 20150303050723) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.integer  "financing"
-    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
-    t.boolean  "estado"
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
@@ -317,6 +314,8 @@ ActiveRecord::Schema.define(version: 20150303050723) do
     t.string   "user_id"
     t.integer  "specification_id"
     t.integer  "quote_id"
+    t.integer  "international"
+    t.string   "tipo"
   end
 
   create_table "items", force: true do |t|
@@ -395,13 +394,13 @@ ActiveRecord::Schema.define(version: 20150303050723) do
     t.datetime "updated_at"
     t.integer  "admin"
     t.integer  "status",         default: 0
-    t.text     "observation"
-    t.integer  "banco"
-    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
+    t.string   "num_cuenta"
+    t.string   "observation"
+    t.integer  "banco"
     t.string   "substitute"
   end
 
@@ -636,8 +635,5 @@ ActiveRecord::Schema.define(version: 20150303050723) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
