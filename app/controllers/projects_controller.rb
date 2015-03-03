@@ -132,7 +132,7 @@ end
       	                              :admin, :sae_code, :amount, :equipments, :services, 
       	                              :infrastructure, :hhrr, :consumables, :furniture, 
                                       :incoming_date, :status, :other_desc, :other_amount, 
-                                      :annulled_date, :observation, :num_cuenta, :banco, :substitute)
+                                      :annulled_date, :observation, :num_cuenta, :banco, :substitute, :observation)
     end
 
 end

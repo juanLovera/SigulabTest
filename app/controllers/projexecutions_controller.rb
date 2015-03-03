@@ -11,6 +11,11 @@ class ProjexecutionsController < ApplicationController
     @sum = @projexecutions.where("check_annulled=false").where("proyecto=?",params[:id]).sum(:check_amount)
   end
 
+  def all
+    @projexecutions = Projexecution.all.order("date ASC")
+    @sum = @projexecutions.sum(:check_amount)
+  end
+
    def show
      @projexecution = Projexecution.find(params[:id])
      @projcommitment = Projcommitment.find(@projexecution.commitment_id)
