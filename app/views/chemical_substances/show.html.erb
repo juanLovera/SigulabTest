@@ -18,8 +18,8 @@
   <div id="tabs">
     <ul>
       <li><a href="#tabs-1" class="show">Características</a></li>
-      <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
-      <li><a href="#tabs-3" class="hidex">Datos de Adquisición</a></li>
+      <li><a href="#tabs-2" class="show">Ubicación</a></li>
+      <li><a href="#tabs-3" class="show">Datos de Adquisición</a></li>
     </ul>
 
     <div id="tab-1">
@@ -64,7 +64,7 @@
            <tr>
             <td class="col-xs-5 text-right" ><strong title="Servicio de Resúmenes Químicos (Chemical Abstract Service)">CAS:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.cas %></td>
-          </tr>
+           </tr>
         </table>
       </div>
       <div id="tab-2">
@@ -154,13 +154,11 @@
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.adquisition_date %></td>
           </tr>
-          
-         </td>
         </table>
       </div>
 
-      </div>
-
+ </div>
+<br><br>
 
 
 
@@ -230,12 +228,12 @@
     outline-offset: -2px;
 }
 
-  #span1 { width: 25px; float: left; height:100%; }
-    #span2 { width: 110px; float: left; height:50%;}
+#span1 { width: 25px; float: left; height:100%; }
+#span2 { width: 110px; float: left; height:50%;}
 
-    .hidden_option{
-      display: none;
-    }
+.hidden_option{
+  display: none;
+}
 </style>
 
   <script type="text/javascript">
