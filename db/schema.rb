@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220125224) do
+
+ActiveRecord::Schema.define(version: 20150303050723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,7 +114,7 @@ ActiveRecord::Schema.define(version: 20150220125224) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.text     "observations"
-    t.integer  "document",     default: 0
+    t.integer  "document"
   end
 
   create_table "consumables", force: true do |t|
@@ -245,6 +246,9 @@ ActiveRecord::Schema.define(version: 20150220125224) do
     t.boolean  "check_annulled",         default: false
     t.string   "remarks"
     t.string   "document_name"
+    t.date     "document_date"
+    t.string   "invoice_number"
+    t.date     "invoice_date"
   end
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
@@ -252,7 +256,7 @@ ActiveRecord::Schema.define(version: 20150220125224) do
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
-    t.integer  "origin",               default: 0
+    t.integer  "origin"
     t.string   "description"
     t.date     "date"
     t.string   "organism"
@@ -260,9 +264,11 @@ ActiveRecord::Schema.define(version: 20150220125224) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
-    t.integer  "financing",            default: 0
+    t.integer  "financing"
+    t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
+    t.boolean  "estado"
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
@@ -387,15 +393,16 @@ ActiveRecord::Schema.define(version: 20150220125224) do
     t.date     "incoming_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "admin",          default: 0
+    t.integer  "admin"
     t.integer  "status",         default: 0
+    t.text     "observation"
+    t.integer  "banco"
+    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
-    t.string   "num_cuenta"
-    t.string   "observation"
-    t.integer  "banco"
+    t.string   "substitute"
   end
 
   create_table "projexecutions", force: true do |t|
@@ -410,10 +417,13 @@ ActiveRecord::Schema.define(version: 20150220125224) do
     t.date     "check_sign_date"
     t.date     "check_delivery_date"
     t.integer  "check_delivery_status"
-    t.boolean  "check_annulled"
+    t.boolean  "check_annulled",         default: false
     t.string   "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "document_date"
+    t.string   "invoice_number"
+    t.date     "invoice_date"
   end
 
   create_table "projincomes", force: true do |t|
@@ -626,5 +636,8 @@ ActiveRecord::Schema.define(version: 20150220125224) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

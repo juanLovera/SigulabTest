@@ -8,6 +8,12 @@ class IncomesController < ApplicationController
     @sum = @incomes.sum(:amount)
   end
 
+  def list_lab
+    @lab = Lab.find(params[:id])
+    @incomes = Income.all.order("date ASC").where("lab_id=?", params[:id])
+    @sum = @incomes.sum(:amount)
+  end
+
   def show
     @income = Income.find(params[:id])  
     respond_to do |format|

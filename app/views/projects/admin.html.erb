@@ -10,7 +10,7 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
-			<li class="active">Administrar proyectos</li>
+			<li class="active">Resumen presupuestario de proyectos</li>
 		</ol>
 	</div>
 	
@@ -43,7 +43,9 @@
 						<tbody>
 							<% @projects.each do |p| %>
 								<tr>
-									<td><%= link_to p.project_number, action: 'summary', id: p.id %></td>
+
+									<!-- service_path(:account_id => acct.id) -->
+									<td class="text-center"> <%= link_to p.project_number, project_path({id: p.id, cid: p.id})+"#tabs-4"  %> </td>
  									<td class="text-center"><%= number_to_currency(@incomes_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>
 									<td class="text-center"><%= number_to_currency(@commitments_proj[p.id], format: "%n", delimiter: ".", separator: ",") %></td>									
 									<td class="text-center"><%= number_to_currency(@executions_commitement[p.id], format: "%n", delimiter: ".", separator: ",") %></td>	
@@ -82,5 +84,17 @@
 					</tbody>
 				</table>
 			</div>
+<div class="col-xs-12" align="center">
+	<%= link_to '<button type="button" class="btn btn-primary"> Descargar Resumen Presupuestario de Proyectos</button>'.html_safe, projects_admin_path("projects", :format => 'pdf') %>	
+	<%= link_to controller: 'projincomes', action: 'all' do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
+	<% end %>
+	<%= link_to controller: 'projcommitments', action: 'all' do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp; Compromisos </button>
+	<% end %>
+	<%= link_to controller: 'projexecutions', action: 'all' do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
+	<% end %>
+</div>
 	</div>
 </div>

@@ -2,6 +2,9 @@
 # encoding: utf-8
 
 class Income < ActiveRecord::Base
+
+  attr_localized :amount
+
   enum origin: [:ordinary, :extraordinary, :reformulation]
   def self.origin_str
   [

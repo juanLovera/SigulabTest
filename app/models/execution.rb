@@ -2,6 +2,9 @@
 # encoding: utf-8
 
 class Execution < ActiveRecord::Base
+
+  attr_localized :check_amount
+
   enum document: [:reception_report, :according_service]
   def self.document_str
   [
@@ -24,11 +27,18 @@ class Execution < ActiveRecord::Base
   validates_date :check_elaboration_date, if: "!check_elaboration_date.blank?"
   validates_date :check_sign_date, if: "!check_sign_date.blank?"
   validates_date :check_delivery_date, if: "!check_delivery_date.blank?"
-
   validate :elaboration_sign, if: "!check_sign_date.blank?"
   validate :sign_delivery, if: "!check_delivery_date.blank?"
-  validate :valid_amount, if: "!check_amount.blank?"
  
+  validates :invoice_number, presence: true
+  validates :invoice_number, numericality: { greater_than: 0 }, if: "!invoice_number.blank?"
+  validates :document_date, presence: true
+  validates_date :document_date, if: "!document_date.blank?"
+  validates :invoice_date, presence: true
+  validates_date :invoice_date, if: "!invoice_date.blank?"
+
+
+
   def elaboration_sign
     if check_elaboration_date > check_sign_date
       errors.add(:check_sign_date, "debe ser posterior a la Fecha de Elaboración.")

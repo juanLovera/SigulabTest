@@ -1,0 +1,68 @@
+<%= stylesheet_link_tag 'demo_table_jui.css'%>
+<%= stylesheet_link_tag 'examples_support/themes/smoothness/jquery-ui-1.8.4.custom.css'%>
+<%= javascript_include_tag 'jquery.dataTables.js' %>
+<%= javascript_include_tag 'tabla.js' %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
+			<li><%= link_to 'Resumen presupuestario de proyectos', controller: 'projects', action: 'admin' %></li>	
+			<li class="active">Ingresos</li>
+		</ol>
+	</div>
+
+	<div class="col-xs-12">
+		<h2><center>Ingresos </center></h2>
+	</div>
+
+
+	<div class="col-xs-12">
+		<div class="well">
+			El monto está expresado en bolívares.
+		</div>
+	</div>
+
+	<div class="col-xs-12">
+
+		<body id="dt_example" class="ex_highlight_row">
+
+			<div id="container">
+				<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+						<thead>
+							<tr>
+								<th class="text-center">Fecha</th>
+								<th class="text-center">Proyecto</th>								
+								<th class="text-center">Descripción</th>
+								<th class="text-center">Monto</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @projincomes.each do |i| %>
+								<tr>
+									<td class="text-center"><%= i.date.strftime('%d/%m/%Y') unless i.date.blank? %></td>
+									<td><%= link_to Project.find(i.proyecto).project_number, Project.find(i.proyecto) %></td>
+									<td><%= link_to i.description, i %></td>
+									<td class="text-right"><%= number_to_currency(i.amount, format: "%n", delimiter: ".", separator: ",") %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</body>
+
+		<p></p>
+
+		<div class="well" align="right">
+			<h4>Monto Total Asignado: Bs. <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> </h4>
+		</div>
+
+	</div>
+
+</div>

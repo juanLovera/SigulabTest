@@ -12,6 +12,11 @@ class ProjcommitmentsController < ApplicationController
     @suma = Projcommitment.all
   end
 
+  def all
+    @projcommitments = Projcommitment.all.order("date ASC")
+    @sum = @projcommitments.sum(:amount)
+  end
+
   def show
     @commitment = Projcommitment.find(params[:id])
     @executions = Projexecution.all.where("commitment_id=?",params[:id])
@@ -50,10 +55,9 @@ class ProjcommitmentsController < ApplicationController
     end
   end
 
-
-
   def edit
     @commitment = Projcommitment.find(params[:id])
+    @project = Project.find(@commitment.proj_id)
   end
 
   def update

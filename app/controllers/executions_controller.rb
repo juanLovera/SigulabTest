@@ -8,6 +8,12 @@ class ExecutionsController < ApplicationController
     @sum = @executions.where("check_annulled=false").sum(:check_amount)
   end
 
+  def list_lab
+    @lab = Lab.find(params[:id])
+    @executions = Execution.joins(commitment: :lab).where("lab_id=?", params[:id])
+    @sum = @executions.where("check_annulled=false").sum(:check_amount)
+  end
+
   def show
     @execution = Execution.find(params[:id])
     @executions = Execution.where("commitment_id=?",params[:cid])
@@ -15,14 +21,10 @@ class ExecutionsController < ApplicationController
   end
 
   def list
-    @execution = Execution.find(params[:cid])
     @executions = Execution.where("commitment_id=?",params[:cid])
     @sum = @executions.where("check_annulled=false").sum(:check_amount)
-
     @commitments = Commitment.find(params[:cid])
-
     @sum_commitment = @commitments.amount
-
   end
   
   def new
@@ -30,6 +32,7 @@ class ExecutionsController < ApplicationController
     if params[:cid]
       @commitment = Commitment.find(params[:cid])
       @execution.commitment_id = params[:cid]
+      @executed = Execution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount)
     end
   end
   
@@ -114,7 +117,7 @@ class ExecutionsController < ApplicationController
   private
   
     def execution_params
-      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :document, :document_name, :check_sign_date, :check_delivery_date, :remarks)
+      params.require(:execution).permit(:code, :commitment_id, :check_amount, :check_number, :check_elaboration_date, :document, :document_name, :check_sign_date, :check_delivery_date, :remarks, :document_date, :invoice_number, :invoice_date)
     end
     
     def purge_date(date)

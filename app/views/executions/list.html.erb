@@ -9,12 +9,12 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Presupuesto', budget_path %></li>
-			<li class="active"> Ejecuciones de <%= @execution.commitment.description %></li>
+			<li class="active"> Ejecuciones de <%= @commitments.description %></li>
 		</ol>
 	</div>
 
 	<div class="col-xs-12">
-		<h2><center> Ejecuciones de <%= @execution.commitment.description %> </center></h2>
+		<h2><center> Ejecuciones de <%= @commitments.description %> </center></h2>
 	</div>
 
 	<div class="col-xs-12">
@@ -72,9 +72,9 @@
 
 					<tr>
 						<td class="text-center">TOTALES</td>
-						<td class="text-center"><%= number_to_currency(@sum_commitment, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
-						<td class="text-center"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
-						<td class="text-center"><%= number_to_currency(@sum_commitment - @sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum_commitment, format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum_commitment - @sum, format: "%n", delimiter: ".", separator: ",") %></td>
 					</tr>
 				</tbody>
 			</table>

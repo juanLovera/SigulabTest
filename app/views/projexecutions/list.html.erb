@@ -9,12 +9,17 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to @project.project_number, @project %></li>		
+			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @commitments.proj_id %></li>
+			<li><%= link_to @commitments.code, @commitments %></li>
 			<li class="active"> Ejecuciones asociadas </li>
 		</ol>
 	</div>
 
 	<div class="col-xs-12">
-		<h2><center> Ejecuciones asociadas  </center></h2>
+		<h2><center> Ejecuciones asociadas al compromiso <%= @commitments.description %> </center></h2> 
+		<h2><center> del Proyecto No. <%= Project.find(@commitments.proj_id).project_number %> </center></h2>
 	</div>
 
 	<div class="col-xs-12">
@@ -72,9 +77,9 @@
 
 					<tr>
 						<td class="text-center">TOTALES</td>
-						<td class="text-center"><%= number_to_currency(@sum_commitment, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
-						<td class="text-center"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
-						<td class="text-center"><%= number_to_currency(@sum_commitment - @sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum_commitment, format: "%n", delimiter: ".", separator: ",")%> </td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> </td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum_commitment - @sum, format: "%n", delimiter: ".", separator: ",") %> </td>
 					</tr>
 				</tbody>
 			</table>

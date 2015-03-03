@@ -4,10 +4,11 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>			
-			<li><%= link_to Project.find(@commitment.proj_id).project_number, controller: 'projects', action: 'summary', id: @commitment.proj_id %></li>	
-			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: Project.find(@commitment.proj_id).project_number %></li>
-			<li class="active">Editar Ejecucion</li>
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to Project.find(@commitment.proj_id).project_number, Project.find(Projexecution.find(params[:id]).proyecto) %></li>
+			<li><%= link_to 'Ejecuciones', controller: 'projexecutions', id: @project %></li>	
+			<li><%= link_to @projexecution.code, @projexecution %></li>				
+			<li class="active">Editar Ejecución</li>
 		</ol>
 	</div>
   <% if @projexecution.errors.any? %>
@@ -25,31 +26,56 @@
 		<%= form_for @projexecution, url: {action: 'update'}, id: @projexecution.id, html: { class: 'form-horizontal' } do |i| %>	
 
 			<div class="form-group">
-				<label for='projexecution_proyecto' class="col-xs-3 control-label text-right">Dependencia</label>
+				<label for='projexecution_proyecto' class="col-xs-3 control-label text-right">Proyecto</label>
 				<div class='col-xs-4'>
-					<input class="form-control" placeholder="<%= @projexecution.proyecto rescue nil %>" disabled>
+					<input class="form-control" placeholder="<%= Project.find(@commitment.proj_id).project_number rescue nil %>" disabled>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label for='projexecution_commitment' class="col-xs-3 control-label text-right">Compromiso Asociado</label>
 				<div class='col-xs-4'>
-					<input class="form-control" placeholder="<%= @projexecution.commitment.description rescue nil %>" disabled>
+					<input class="form-control" placeholder="<%= @commitment.description rescue nil %>" disabled>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label for='projexecution_document' class="col-xs-3 control-label text-right">Documento </label>
 				<div class="col-xs-4">
-					<input class="form-control" placeholder="<%= @projexecution.document_name rescue nil %>" disabled>
+				<% if @commitment.order_buy? %>					
+					<%=  i.text_field :document_name, :value => "Informe de Recepción", class: "form-control", :readonly => true  %>
+				<% else %>
+					<%=  i.text_field :document_name, :value => "Conformidad de Servicio", class: "form-control", :readonly => true  %>			
+				<% end %>	
 				</div>
 			</div>
 			
 	  			<% if !@projexecution.check_annulled? %>
 			<div class="form-group">
-				<label for='projexecution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<label for='projexecution_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :code, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :document_date, value: (@projexecution.document_date.strftime("%d/%m/%Y")), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_number, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_date, value: (@projexecution.invoice_date.strftime("%d/%m/%Y")), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
 				</div>
 			</div>
 
@@ -58,7 +84,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control' %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(i.object.check_amount, format: "%n", delimiter: ".", separator: ",", precision: 2), onblur: "setProjexecutionAmount();" %>
 					</div>
 				</div>
 			</div>	
@@ -69,7 +95,7 @@
 				<label for='projexecution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
 
 					<div class='col-xs-4'>
-						<%= i.text_field :check_number, class: 'form-control', :placeholder => "N° de 8 dígitos" %>
+						<%= i.text_field :check_number, class: 'form-control', :placeholder => "N° de 8 dígitos", :maxlength => 8 %>
 					</div>
 					<%= link_to annul_projexecution_path(@projexecution) do %>
 						<button type="button" class="btn btn-danger" onclick="return confirm('¿Está seguro de anular el cheque?')"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp; Anular Cheque</button>
@@ -106,17 +132,38 @@
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar la ejecución?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Ejecución</button>
-					<%= link_to projexecutions_path, class: "btn btn-default btn-danger" do %>
-						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+					<%= link_to controller: 'projexecutions', action: 'show', id: params[:id] do %>										
+						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar</button>												
 					<% end %>
 				</div>
 			</div>				
   	  			<% else %>
 
 			<div class="form-group">
-				<label for='projexecution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<label for='projexecution_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 						<input class="form-control" placeholder="<%= @projexecution.code rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="bootlayout-date form-control" placeholder="<%= @projexecution.document_date rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="form-control" placeholder="<%= @projexecution.invoice_number rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="bootlayout-date form-control" placeholder="<%= @projexecution.invoice_date rescue nil %>" disabled>
 				</div>
 			</div>
 
@@ -134,8 +181,6 @@
 					
 			<div class="form-group">
 				<label for='projexecution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
-
-
 
 					<div class='col-xs-4'>
 						<input class="form-control" placeholder="<%= @projexecution.check_number rescue nil %>" disabled>
@@ -174,11 +219,11 @@
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary" onclick="return confirm('¿Está seguro de modificar la ejecución?')"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar Ejecución</button>
-					<%= link_to @projexecution, id: @projexecution.id do %>					
-						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación</button>	
-				</div>
-			</div>				
-	  			<% end %>
+					<%= link_to controller: 'projexecutions', action: 'show', id: params[:id] do %>										
+						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar</button>												
+					<% end %>
+					</div>
+				</div>		
 		<% end %>
 	</div>
 	<div class="col-xs-12">

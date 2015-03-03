@@ -21,25 +21,25 @@
 	<% end %>
 	<div class="col-xs-12">
 		<%= form_for @income, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>	
-			
+
 			<div class="form-group">
 				<label for='income_lab_id' class="col-xs-3 control-label text-right">Dependencia <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
-					<%= i.select(:lab_id, options_for_select(@labs.map { |l| [l.sae_name, l.id] }), {:include_blank => true}, {class: "form-control"} ) %>
+					<%= i.select(:lab_id, options_for_select(@labs.map { |l| [l.sae_name, l.id] }, @income.lab_id), {:include_blank => true}, {class: "form-control", :onchange => "setSAECodeIncomes();"} ) %>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label for='income_sae_code' class="col-xs-3 control-label text-right">Código SAE <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :sae_code, class: 'form-control' %>
+					<%= i.text_field :sae_code, class: 'form-control', :readonly => true %>
 				</div>
 			</div>
 			
 			<div class="form-group">
 				<label for='income_origin' class="col-xs-3 control-label text-right">Origen <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">		
-					<%= i.select(:origin, options_for_select(Income.origin_str.zip(Income.origins.keys)), {:include_blank => true}, {class: "form-control"} ) %>
+					<%= i.select(:origin, options_for_select(Income.origin_str.zip(Income.origins.keys), @income.origin), {:include_blank => true}, {class: "form-control"} ) %>
 				</div>
 			</div>
 			
@@ -55,7 +55,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
 						<span class="input-group-addon">Bs.</span>
-						<%= i.text_field :amount, class: 'form-control' %>
+						<%= i.text_field :amount, class: 'form-control', :onblur => "setIncomeAmount();", placeholder: '0.000,00' %>
 					</div>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 			<div class="form-group">
 				<label for='income_financing' class="col-xs-3 control-label text-right">Fuente de Financiamiento <span style="color:#FF0000">*</span></label>
 				<div class="col-xs-4">
-					<%= i.select(:financing, options_for_select(Income.financing_str.zip(Income.financings.keys)), {:include_blank => true}, {class: "form-control"} ) %>
+					<%= i.select(:financing, options_for_select(Income.financing_str.zip(Income.financings.keys), @income.financing), {:include_blank => true}, {class: "form-control"} ) %>
 				</div>
 			</div>
 			
@@ -118,7 +118,7 @@ meta física </label>
 			<div class="form-group">
 				<label for='income_resource' class="col-xs-3 control-label text-right">Recurso de Aplicación </label>
 				<div class="col-xs-4">
-					<%= i.select(:resource, options_for_select(Income.resource_str.zip(Income.resources.keys)), {:include_blank => true}, {class: "form-control"} ) %>
+					<%= i.select(:resource, options_for_select(Income.resource_str.zip(Income.resources.keys), @income.resource), {:include_blank => true}, {class: "form-control"} ) %>
 				</div>
 			</div>
    <div class="form-group">

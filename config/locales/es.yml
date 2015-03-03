@@ -116,11 +116,14 @@ es:
         date: "Fecha"
       execution:
         check_amount: "Monto"
-        check_number: "Número de cheque"
+        check_number: "Número de Cheque"
         check_elaboration_date: "Fecha de elaboración"
         check_sign_date: "Fecha de firma"
         check_delivery_date: "Fecha de entrega"
-        code: "Número de documento"
+        code: "Número de Documento"
+        document_date: "Fecha del Documento"
+        invoice_number: "Número de la Factura"
+        invoice_date: "Fecha de la Factura"
       project:
         project_number: "Número del proyecto"
         contract: "Número del contrato"
@@ -143,6 +146,7 @@ es:
         other_desc: "Otro concepto"
         other_amount: "Monto de otro concepto"
         annulled_date: "Fecha de anulación"
+        substitute: "Sustituto"
       projexecution:
         check_amount: "Monto"
         check_number: "Número de cheque"
@@ -150,6 +154,9 @@ es:
         check_sign_date: "Fecha de firma"
         check_delivery_date: "Fecha de entrega"
         code: "Número de documento"
+        document_date: "Fecha del Documento"
+        invoice_number: "Número de la Factura"
+        invoice_date: "Fecha de la Factura"
     errors:
       models:
         income:

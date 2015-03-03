@@ -4,9 +4,10 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>			
-			<li><%= link_to Project.find(@commitment.proj_id).project_number, controller: 'projcommitments', id: @commitment.proj_id %></li>		
-			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: params[:id] %></li>
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to @project.project_number, @project %></li>
+			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @project.id %></li>
+			<li><%= link_to @commitment.code, @commitment %></li>			
 			<li class="active">Editar Compromiso</li>
 		</ol>
 	</div>
@@ -70,7 +71,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :amount, class: 'form-control' %>			
+						<%= i.text_field :amount, class: 'form-control', value: number_to_currency(i.object.amount, format: "%n", delimiter: ".", separator: ",", precision: 2), :onblur => "setProjcommitmentAmount();"  %>
 					</div>
 				</div>
 			</div>

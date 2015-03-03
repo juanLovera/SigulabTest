@@ -1,5 +1,6 @@
 # encoding: utf-8
 class ReporteBudget < Prawn::Document
+  include ActionView::Helpers::NumberHelper
 
   def initialize(labs,incomes,commitments,executions)
   	super :page_layout => :landscape
@@ -56,10 +57,15 @@ class ReporteBudget < Prawn::Document
   		@commitments_lab = @commitments.where(lab_id: lab.id).sum(:amount)
   		@commitments_total += @commitments_lab
 
-  		@executions_commitement = @executions.where(commitment_id: lab.id).where("check_annulled=false").sum(:check_amount)
+      @executions_commitement = @executions.joins(commitment: :lab).where("lab_id=?", lab.id).where("check_annulled=false").sum(:check_amount)
   		@executions_total += @executions_commitement
 
-  		[lab.sae_name,@incomes_lab,@commitments_lab,@executions_commitement,@incomes_lab-@commitments_lab]
+      @incomes_lab_pdf = number_to_currency(@incomes_lab, format: "%n", delimiter: ".", separator: ",")
+      @commitments_lab_pdf = number_to_currency(@commitments_lab, format: "%n", delimiter: ".", separator: ",")      
+      @executions_commitement_pdf = number_to_currency(@executions_commitement, format: "%n", delimiter: ".", separator: ",")      
+      @available = number_to_currency(@incomes_lab-@commitments_lab, format: "%n", delimiter: ".", separator: ",")            
+
+  		[lab.sae_name,"Bs. #{@incomes_lab_pdf}","Bs. #{@commitments_lab_pdf}","Bs. #{@executions_commitement_pdf}","Bs. #{@available}"]
   	end
   end
 
@@ -73,8 +79,13 @@ class ReporteBudget < Prawn::Document
   end
 
   def content2
+    @incomes_total_pdf = number_to_currency(@incomes_total, format: "%n", delimiter: ".", separator: ",")
+    @commitments_total_pdf = number_to_currency(@commitments_total, format: "%n", delimiter: ".", separator: ",")    
+    @executions_total_pdf = number_to_currency(@executions_total, format: "%n", delimiter: ".", separator: ",")    
+    @available_total = number_to_currency(@incomes_total-@commitments_total, format: "%n", delimiter: ".", separator: ",")    
+
   	[ ["", "Monto Asignado", "Monto Comprometido", "Monto Ejecutado", "Saldo Disponible"] ] + 
-  	[ ["TOTALES",@incomes_total,@commitments_total,@executions_total,@incomes_total-@commitments_total] ]
+  	[ ["TOTALES","Bs. #{@incomes_total}","Bs. #{@commitments_total}","Bs. #{@executions_total}","Bs. #{@available_total}"] ]
   end
 
   def footer

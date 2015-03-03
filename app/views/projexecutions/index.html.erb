@@ -9,12 +9,14 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to @project.project_number, @project %></li>	
 			<li class="active">Ejecuciones</li>
 		</ol>
 	</div>
 
 	<div class="col-xs-12">
-		<h2><center>Ejecuciones</center></h2>
+		<h2><center>Ejecuciones del Proyecto No. <%= @project.project_number %> </center></h2>
 	</div>
 
 	<div class="col-xs-12">
@@ -32,22 +34,25 @@
 					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 						<thead>
 							<tr>
-								<th class="text-center">Número de Documento</th>
-								<th class="text-center">Proyecto</th>
+								<th class="text-center">Número de Cheque</th>
 								<th class="text-center">Compromiso Asociado</th>
-								<th class="text-center">Beneficiario</th>
 								<th class="text-center">Monto</th>
+								<th class="text-center">Estatus del Cheque</th>
 							</tr>
 						</thead>
 
 						<tbody>
 				      		<% @projexecutions.each do |i| %>
 								<tr>
-									<td class="text-center"><%= link_to i.code, i %></td>														
-									<td class="text-center"><%= Project.find(i.proyecto).project_number %></td>
+									<td class="text-center"><%= link_to i.check_number, i %></td>														
 									<td class="text-center"><%= link_to Projcommitment.find(i.commitment_id).description, Projcommitment.find(i.commitment_id) %></td>
-									<td class="text-center"><%= Projcommitment.find(i.commitment_id).recipient %></td>
 									<td class="text-center"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+
+									<% if i.check_annulled %>
+										<td class="text-center">Anulado</td>
+									<% else %>
+										<td class="text-center">Activo</td>
+									<% end %>
 				        			
 								</tr>
 							<% end %>
@@ -62,7 +67,7 @@
 
 		<% if @sum > 0 %>
 			<div class="well" align="right">
-				<h4>Monto Total Ejecutado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
+				<h4>Monto Total Ejecutado: Bs. <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> </h4>
 			</div>
 		<% end %>
 	</div>

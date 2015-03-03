@@ -58,18 +58,39 @@
 			</div>
 			
 			<div class="form-group">
-				<label for='execution_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
+				<label for='execution_code' class="col-xs-3 control-label text-right">Número del Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :code, class: 'form-control' %>
 				</div>
 			</div>
-			
+		
+			<div class="form-group">
+				<label for='execution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :document_date, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_number, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_date, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
+
 			<div class="form-group">
 				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<div class="input-group">
       <span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control' %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(@commitment.amount - @executed, format: "%n", delimiter: ".", separator: ",", precision: 2), :onblur => "setExecutionAmount();" %>
 					</div>
 				</div>
 			</div>
@@ -79,7 +100,7 @@
 			<div class="form-group">
 				<label for='execution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :check_number, class: 'form-control', :placeholder => "Número de 8 dígitos" %>
+					<%= i.text_field :check_number, class: 'form-control', :placeholder => "Número de 8 dígitos", :maxlength => 8  %>
 				</div>
 			</div>
 			
@@ -114,7 +135,7 @@
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
 					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Ejecución</button>
-					<%= link_to executions_path, class: "btn btn-default btn-danger" do %>
+					<%= link_to @commitment, class: "btn btn-default btn-danger" do %>
 						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
 					<% end %>
 				</div>

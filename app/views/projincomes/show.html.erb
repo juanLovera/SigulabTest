@@ -4,11 +4,22 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>					
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to @project.project_number, @project %></li>
 			<li><%= link_to 'Ingresos', controller: 'projincomes', id: @projincome.proyecto %></li>
-			<li class="active"><%= Project.find(@projincome.proyecto).project_number %></li>
+			<li class="active"><%= @projincome.doc_code %></li>
 		</ol>
 	</div>
+
+	<div class="col-xs-12" align="right">
+		<%= link_to controller: 'projincomes', id: @projincome.proyecto do %>
+			<button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+		<% end %>	
+		</br>
+		</br>
+	</div>
+
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>

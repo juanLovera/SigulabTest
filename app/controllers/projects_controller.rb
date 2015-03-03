@@ -38,6 +38,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @incomes_total = Projincome.all.where(proyecto: @project.id).sum(:amount) 
+    @commitments_total = Projcommitment.all.where(proj_id: @project.id).sum(:amount)  
+    @executions_total = Projexecution.all.where(proyecto: @project.id).where("check_annulled=false").sum(:check_amount)    
   end    
 
     def edit
@@ -113,6 +116,14 @@ def admin
     @executions_commitement[p.id] = @executions.where(proyecto: p.id).where("check_annulled=false").sum(:check_amount)
     @executions_total += @executions_commitement[p.id]
   end
+
+  respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = ReporteProjects.new(@projects, @incomes, @commitments, @executions)
+      send_data pdf.render, filename: 'ResumenPresupuestarioProyectos.pdf', type: 'application/pdf'
+    end
+  end
 end
 
 def summary
@@ -127,9 +138,9 @@ end
     def project_params
       params.require(:project).permit(:project_number, :contract, :title, :responsible, 
       	                              :admin, :sae_code, :amount, :equipments, :services, 
-      	                              :infrastructure, :hhrr, :consumables, :incoming_date,
-                     	                :status, :other_desc, :other_amount, :annulled_date,
-                                      :observation, :num_cuenta, :banco)
+      	                              :infrastructure, :hhrr, :consumables, :furniture, 
+                                      :incoming_date, :status, :other_desc, :other_amount, 
+                                      :annulled_date, :observation, :num_cuenta, :banco, :substitute, :observation)
     end
 
 end

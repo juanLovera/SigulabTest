@@ -11,14 +11,14 @@
 
 # Labs (name, sae_code, sae_name)
 labs_list = [
-  [ 'Dir', 'U01', 'Dirección ULAB' ],
-  [ 'A', 'U02', 'Laboratorio A' ],
-  [ 'B', 'U03', 'Laboratorio B' ],
-  [ 'C', 'U04', 'Laboratorio C' ],
-  [ 'D', 'U05', 'Laboratorio D' ],
-  [ 'E', 'U06', 'Laboratorio E' ],
-  [ 'F', 'U07', 'Laboratorio F' ],
-  [ 'G', 'U08', 'Laboratorio G' ],
+  [ 'Dir', '01.05.03.01', 'Dirección ULAB' ],
+  [ 'A', '01.05.03.01', 'Laboratorio A' ],
+  [ 'B', '01.05.03.04', 'Laboratorio B' ],
+  [ 'C', '01.05.03.05', 'Laboratorio C' ],
+  [ 'D', '01.05.03.06', 'Laboratorio D' ],
+  [ 'E', '01.05.03.07', 'Laboratorio E' ],
+  [ 'F', '01.05.03.08', 'Laboratorio F' ],
+  [ 'G', '01.05.03.09', 'Laboratorio G' ],
 ]
  
 labs_list.each do |name, sae_code, sae_name|

@@ -4,14 +4,15 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Administrar proyectos', controller: 'projects', action: 'admin' %></li>			
-			<li><%= link_to Project.find(@commitment.proj_id).project_number, controller: 'projects', action: 'summary', id: @commitment.proj_id %></li>	
-			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: Project.find(@commitment.proj_id).project_number %></li>
-			<li><%= link_to @commitment.id, controller: 'projcommitments', action: 'show', id: @commitment.id %></li>		
-			<li class="active">Agregar Ejecución</li>
+			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to Project.find(@commitment.proj_id).project_number, Project.find(Projcommitment.find(params[:cid]).proj_id) %></li>	
+			<li><%= link_to 'Compromisos', controller: 'projcommitments', id: @commitment.proj_id %></li>
+			<li><%= link_to @commitment.code, @commitment %></li>
+			<li class="active">Nueva Ejecución</li>
 		</ol>
 	</div>
-  <% if @projexecution.errors.any? %>
+
+  	<% if @projexecution.errors.any? %>
 		<div class="col-xs-12" role="alert">
 			<div class="alert alert-danger">
 				<ul>
@@ -22,6 +23,7 @@
 			</div>
 		</div>
 	<% end %>
+
 	<div class="col-xs-12">
 		<%= form_for @projexecution, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>	
 
@@ -46,9 +48,6 @@
 				</div>
 			</div>
 
-			<%= hidden_field_tag "cid", params[:cid] %>
-		
-
 			<div class="form-group">
 				<label for='projexecution_document' class="col-xs-3 control-label text-right">Documento </label>
 				<div class="col-xs-4">
@@ -66,13 +65,34 @@
 					<%= i.text_field :code, class: 'form-control' %>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label for='projexecution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :document_date, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_number, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_date, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
 			
 			<div class="form-group">
 				<label for='projexecution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<div class="input-group">
     					<span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control' %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(Projcommitment.find(params[:cid]).amount - Projexecution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount), format: "%n", delimiter: ".", separator: ",", precision: 2), onblur: "setProjexecutionAmount();" %>
 					</div>
 				</div>
 			</div>
@@ -82,7 +102,7 @@
 			<div class="form-group">
 				<label for='projexecution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :check_number, class: 'form-control', :placeholder => "Número de 8 dígitos" %>
+					<%= i.text_field :check_number, class: 'form-control', :placeholder => "Número de 8 dígitos", :maxlength => 8 %>
 				</div>
 			</div>
 			
@@ -115,6 +135,7 @@
 			</div>
 		
 			<%= i.text_field :proyecto, class: "hidden_option" %>
+			<%= hidden_field_tag "cid", params[:cid] %>
 				
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">

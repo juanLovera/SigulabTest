@@ -3,12 +3,17 @@ class ProjexecutionsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  def index
+  def index   
     if params[:id]
       @project = Project.find(params[:id])
     end           
     @projexecutions = Projexecution.order("date ASC").where("proyecto=?",params[:id])
     @sum = @projexecutions.where("check_annulled=false").where("proyecto=?",params[:id]).sum(:check_amount)
+  end
+
+  def all
+    @projexecutions = Projexecution.all.order("date ASC")
+    @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
   end
 
    def show
@@ -23,6 +28,7 @@ class ProjexecutionsController < ApplicationController
      @projexecutions = Projexecution.where("commitment_id=?",params[:cid])
      @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
      @commitments = Projcommitment.find(params[:cid])
+     @project = Project.find(@commitments.proj_id)
      @sum_commitment = @commitments.amount
    end
   
@@ -32,6 +38,8 @@ class ProjexecutionsController < ApplicationController
        @commitment = Projcommitment.find(params[:cid])
        @projexecution.commitment_id = params[:cid]
        @projexecution.proyecto = @commitment.proj_id
+       @project = Project.find(@commitment.proj_id)
+       @executed = Projexecution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount)       
      end
    end
   
@@ -52,17 +60,17 @@ class ProjexecutionsController < ApplicationController
      if !@projexecution.check_amount.blank?
        if @projexecution.check_amount > @commitment.amount - @projexecuted
          @projexecution.executable_amount
-         render 'new'
+         render 'new', cid: params[:cid]
        else 
          if @projexecution.save
-           redirect_to controller: 'projexecutions', id: params[:cid]
+           redirect_to controller: 'projexecutions', id: @projexecution.proyecto
          else
-           render 'new'        
+           render 'new', cid: params[:cid]        
          end
        end
      else
        if @projexecution.save
-         redirect_to controller: 'projexecutions', id: params[:cid]
+         redirect_to controller: 'projexecutions', id: @projexecution.proyecto
        else
          render 'new'        
        end   
@@ -71,7 +79,8 @@ class ProjexecutionsController < ApplicationController
   
    def edit
      @projexecution = Projexecution.find(params[:id])
-     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id) 
+     @project = Project.find(Projexecution.find(params[:id]).proyecto) 
+     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
    end
   
    def update
@@ -97,7 +106,7 @@ class ProjexecutionsController < ApplicationController
        render 'edit'
      else 
        if @projexecution.update_attributes(execution_params)
-         redirect_to action: 'index'
+         redirect_to action: 'index', id: Project.find(Projcommitment.find(params[:id]).proj_id).id
        else
          @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
          render 'edit'
@@ -113,7 +122,7 @@ class ProjexecutionsController < ApplicationController
   
    private
        def execution_params
-         params.require(:projexecution).permit(:code, :commitment_id, :proyecto, :check_amount, :check_number, :check_elaboration_date, :document, :check_sign_date, :check_delivery_date, :remarks)
+         params.require(:projexecution).permit(:code, :commitment_id, :proyecto, :check_amount, :check_number, :check_elaboration_date, :document, :check_sign_date, :check_delivery_date, :remarks, :document_date, :invoice_number, :invoice_date)
      end
     
      def purge_date(date)

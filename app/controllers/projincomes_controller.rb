@@ -11,7 +11,12 @@ class ProjincomesController < ApplicationController
 
   def show
     @projincome = Projincome.find(params[:id])
-#    @project = Project.find(@projincome.proyecto)
+    @project = Project.find(@projincome.proyecto)
+  end
+
+  def all
+    @projincomes = Projincome.all.order("date ASC")
+    @sum = @projincomes.sum(:amount)
   end
   
   def new
@@ -67,6 +72,8 @@ class ProjincomesController < ApplicationController
   
   def edit
     @projincome = Projincome.find(params[:id])
+    @project = Project.find(Projincome.find(params[:id]).proyecto)
+    binding.pry
   end
   
   def update

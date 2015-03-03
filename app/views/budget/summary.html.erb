@@ -39,15 +39,13 @@
 								<th class="text-center">Saldo Disponible</th>
 							</tr>
 						</thead>
-
 						<tbody>
 							<% @labs.each do |l| %>
 								<tr>
-									<td><%= l.sae_name %></td>
+									<td class="text-center"><%= link_to l.sae_name, controller: 'labs', action: 'show', id: l.id %> </td>
 									<td class="text-center"><%= number_to_currency(@incomes_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
 									<td class="text-center"><%= number_to_currency(@commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>									
-									<td class="text-center"><%= number_to_currency(@executions_commitement[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
-									
+									<td class="text-center"><%= number_to_currency(@executions_commitement[l.id], format: "%n", delimiter: ".", separator: ",") %></td>									
 									<td class="text-center"><%= number_to_currency(@incomes_lab[l.id] - @commitments_lab[l.id], format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>
 							<% end %>

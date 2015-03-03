@@ -24,13 +24,13 @@ class BudgetController < ApplicationController
 
     @executions_total = 0
 
-
     @labs.each do |l|
       @incomes_lab[l.id] = @incomes.where(lab_id: l.id).sum(:amount)
       @incomes_total += @incomes_lab[l.id]
       @commitments_lab[l.id] = @commitments.where(lab_id: l.id).sum(:amount)
       @commitments_total += @commitments_lab[l.id]
-      @executions_commitement[l.id] = @executions.where(commitment_id: l.id).where("check_annulled=false").sum(:check_amount)
+      @com_lab = @commitments.where(lab_id: l.id)
+      @executions_commitement[l.id] = @executions.joins(commitment: :lab).where("lab_id=?", l.id).where("check_annulled=false").sum(:check_amount)
       @executions_total += @executions_commitement[l.id]
     end
 

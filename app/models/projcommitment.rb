@@ -1,5 +1,7 @@
 class Projcommitment < ActiveRecord::Base
 
+  attr_localized :amount
+
 	  belongs_to :project
 
    enum document: [:order_buy, :order_service, :order_expend]
