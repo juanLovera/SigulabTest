@@ -268,16 +268,6 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
-    t.string   "unit"
-    t.string   "variation"
-    t.string   "resource_description"
-    t.integer  "resource",             default: 0
->>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
   end
 
   create_table "instruments", force: true do |t|
@@ -404,14 +394,7 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
     t.string   "num_cuenta"
-<<<<<<< HEAD
-<<<<<<< HEAD
     t.date     "annulled_date"
-=======
-=======
->>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
-    t.string   "observation"
-    t.integer  "banco"
     t.string   "substitute"
   end
 
@@ -451,10 +434,6 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "observations"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
->>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
-=======
->>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
   end
 
   create_table "quotes", force: true do |t|
