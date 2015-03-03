@@ -56,10 +56,7 @@ class QuotesController < ApplicationController
       if session[:specification_sel_tipo] == "Servicios"
          @itemsquote.nombre_item = Service.find(x.to_i).nombre
       else
-	 @item = Item.find(x.to_i)
-	 @item.comprar = 1
-         @itemsquote.nombre_item = @item.nombre
-         @item.save
+         @itemsquote.nombre_item = Item.find(x.to_i).nombre
       end
       @itemsquote.specification_id = session[:specification_sel_id];
       @itemsquote.save
