@@ -4,8 +4,8 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Presupuesto', budget_path %></li>
-			<li><%= link_to 'Presupuesto', controller: 'budget' %></li>
-			<li class="active">Resumen Presupuestario</li>
+			<li><%= link_to 'Resumen Presupuestario', controller: 'budget', action: 'summary' %></li>
+			<li class="active"> <%= @lab.sae_name %> </li>
 		</ol>
 	</div>
 	<div class="col-xs-12">
@@ -33,14 +33,14 @@
 	</div>
 
 </br>
-<div class="col-xs-12">
-	<%= link_to controller: 'projincomes', id: @project.id do %>
+<div class="col-xs-12" align="center">
+	<%= link_to controller: 'incomes', action: 'list_lab', id: @lab.id do %>
 		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
 	<% end %>
-	<%= link_to controller: 'projcommitments', id: @project.id do %>
+	<%= link_to controller: 'commitments', action: 'list_lab', id: @lab.id do %>
 		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp; Compromisos </button>
 	<% end %>
-	<%= link_to controller: 'projexecutions', id: @project.id do %>
+	<%= link_to controller: 'executions', action: 'list_lab', id: @lab.id do %>
 		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
 	<% end %>
 </div>

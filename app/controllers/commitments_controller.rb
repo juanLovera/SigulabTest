@@ -8,6 +8,12 @@ class CommitmentsController < ApplicationController
     @sum = @commitments.sum(:amount)
   end
 
+  def list_lab
+    @lab = Lab.find(params[:id])
+    @commitments = Commitment.all.order("date ASC").where("lab_id=?", params[:id])
+    @sum = @commitments.sum(:amount)
+  end
+
   def show
     @commitment = Commitment.find(params[:id])
     @executions = Execution.where("commitment_id=?",params[:id])

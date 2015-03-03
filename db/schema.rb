@@ -394,12 +394,10 @@ ActiveRecord::Schema.define(version: 20150303030148) do
     t.datetime "updated_at"
     t.integer  "admin"
     t.integer  "status",         default: 0
-    t.text     "observation"
-    t.integer  "banco"
-    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
+    t.string   "num_cuenta"
     t.date     "annulled_date"
     t.string   "substitute"
   end
