@@ -21,6 +21,9 @@
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>
+				<th class="active text-center" colspan="2"><h2><%= @lab.sae_name %></h2></th>
+			</tr>
+			<tr>
 				<td class="col-xs-5 text-right">Monto asignado:</td>
 				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@incomes_total,
 				format: "%n", delimiter: ".", separator: ",") %> </div> </td>

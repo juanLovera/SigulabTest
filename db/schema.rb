@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303030148) do
+ActiveRecord::Schema.define(version: 20150303050723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20150303030148) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.text     "observations"
-    t.integer  "document",     default: 0
+    t.integer  "document"
   end
 
   create_table "consumables", force: true do |t|
@@ -255,7 +255,7 @@ ActiveRecord::Schema.define(version: 20150303030148) do
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
-    t.integer  "origin",               default: 0
+    t.integer  "origin"
     t.string   "description"
     t.date     "date"
     t.string   "organism"
@@ -263,7 +263,7 @@ ActiveRecord::Schema.define(version: 20150303030148) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
-    t.integer  "financing",            default: 0
+    t.integer  "financing"
     t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
@@ -394,10 +394,12 @@ ActiveRecord::Schema.define(version: 20150303030148) do
     t.datetime "updated_at"
     t.integer  "admin"
     t.integer  "status",         default: 0
+    t.text     "observation"
+    t.integer  "banco"
+    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
-    t.string   "num_cuenta"
     t.date     "annulled_date"
     t.string   "substitute"
   end

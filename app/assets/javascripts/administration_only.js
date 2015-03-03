@@ -17,28 +17,28 @@ function setSAECodeIncomes() {
 	saeCode = "";
 
 	if ($('#income_lab_id').val()==1)
-		saeCode = "U01";
+		saeCode = "01.05.03.01";
 
 	if ($('#income_lab_id').val()==2)
-		saeCode = "U02";
+		saeCode = "01.05.03.03";
 
 	if ($('#income_lab_id').val()==3)
-		saeCode = "U03";
+		saeCode = "01.05.03.04";
 
 	if ($('#income_lab_id').val()==4)
-		saeCode = "U04";
+		saeCode = "01.05.03.05";
 
 	if ($('#income_lab_id').val()==5)
-		saeCode = "U05";
+		saeCode = "01.05.03.06";
 
 	if ($('#income_lab_id').val()==6)
-		saeCode = "U06";
+		saeCode = "01.05.03.07";
 
 	if ($('#income_lab_id').val()==7)
-		saeCode = "U07";
+		saeCode = "01.05.03.08";
 
 	if ($('#income_lab_id').val()==8)
-		saeCode = "U08";
+		saeCode = "01.05.03.09";
 
 	$('#income_sae_code').val(saeCode);
 

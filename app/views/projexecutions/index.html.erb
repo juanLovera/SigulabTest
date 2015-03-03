@@ -34,20 +34,25 @@
 					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 						<thead>
 							<tr>
-								<th class="text-center">Número de Documento</th>
+								<th class="text-center">Número de Cheque</th>
 								<th class="text-center">Compromiso Asociado</th>
-								<th class="text-center">Beneficiario</th>
 								<th class="text-center">Monto</th>
+								<th class="text-center">Estatus del Cheque</th>
 							</tr>
 						</thead>
 
 						<tbody>
 				      		<% @projexecutions.each do |i| %>
 								<tr>
-									<td class="text-center"><%= link_to i.code, i %></td>														
+									<td class="text-center"><%= link_to i.check_number, i %></td>														
 									<td class="text-center"><%= link_to Projcommitment.find(i.commitment_id).description, Projcommitment.find(i.commitment_id) %></td>
-									<td class="text-center"><%= Projcommitment.find(i.commitment_id).recipient %></td>
 									<td class="text-center"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+
+									<% if i.check_annulled %>
+										<td class="text-center">Anulado</td>
+									<% else %>
+										<td class="text-center">Activo</td>
+									<% end %>
 				        			
 								</tr>
 							<% end %>
