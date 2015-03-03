@@ -11,7 +11,8 @@
 			<li class="active">Nueva Ejecución</li>
 		</ol>
 	</div>
-  <% if @projexecution.errors.any? %>
+
+  	<% if @projexecution.errors.any? %>
 		<div class="col-xs-12" role="alert">
 			<div class="alert alert-danger">
 				<ul>
@@ -22,6 +23,7 @@
 			</div>
 		</div>
 	<% end %>
+
 	<div class="col-xs-12">
 		<%= form_for @projexecution, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>	
 
@@ -66,6 +68,27 @@
 					<%= i.text_field :code, class: 'form-control' %>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label for='projexecution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :document_date, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_number, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_date, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>
 			
 			<div class="form-group">
 				<label for='projexecution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>
@@ -82,7 +105,7 @@
 			<div class="form-group">
 				<label for='projexecution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
-					<%= i.text_field :check_number, class: 'form-control', :placeholder => "Número de 8 dígitos" %>
+					<%= i.text_field :check_number, class: 'form-control', :placeholder => "Número de 8 dígitos", :maxlength => 8 %>
 				</div>
 			</div>
 			
