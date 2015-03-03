@@ -10,7 +10,7 @@
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
-			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to 'Resumen presupuestario de proyectos', controller: 'projects', action: 'admin' %></li>			
 			<li class="active">Compromisos</li>
 		</ol>
 	</div>
@@ -35,6 +35,7 @@
 						<thead>
 							<tr>
 								<th class="text-center">Fecha</th>
+								<th class="text-center">Proyecto</th>								
 								<th class="text-center">Descripción</th>
 								<th class="text-center">Monto</th>
 							</tr>
@@ -44,6 +45,7 @@
 							<% @projcommitments.each do |c| %>
 								<tr>
 									<td class="text-center"><%= c.date.strftime('%d/%m/%Y') %></td>
+									<td><%= link_to Project.find(c.proj_id).project_number, Project.find(c.proj_id) %></td>	
 									<td><%= link_to c.description, c %></td>
 									<td class="text-right"><%= number_to_currency(c.amount, format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>

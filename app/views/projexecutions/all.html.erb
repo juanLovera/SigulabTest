@@ -8,8 +8,8 @@
 		<ol class="breadcrumb">
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
-			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
+			<li><%= link_to 'Resumen presupuestario de proyectos', controller: 'projects', action: 'admin' %></li>	
 			<li class="active">Ejecuciones</li>
 		</ol>
 	</div>

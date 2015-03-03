@@ -13,7 +13,7 @@ class ProjexecutionsController < ApplicationController
 
   def all
     @projexecutions = Projexecution.all.order("date ASC")
-    @sum = @projexecutions.sum(:check_amount)
+    @sum = @projexecutions.where("check_annulled=false").sum(:check_amount)
   end
 
    def show
