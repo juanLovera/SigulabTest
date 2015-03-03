@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'labs/show'
+
   resources :binnacles
 
   resources :donations
@@ -79,6 +81,9 @@ end
   get "/projects/admin", to: "projects#admin", :as => "projects/admin"
   get "/projcommitments/list", to: "projcommitments#list", :as => "projcommitments/list"
   get "/projexecutions/list", to: "projexecutions#list", :as => "projexecutions/list"
+  get "/projincomes/all", to: "projincomes#all", :as => "projincomes/all"
+  get "/projcommitments/all", to: "projcommitments#all", :as => "projcommitments/all"
+  get "/projexecutions/all", to: "projexecutions#all", :as => "projexecutions/all"
 
   resources :incomes
   resources :commitments

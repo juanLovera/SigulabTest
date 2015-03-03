@@ -84,5 +84,19 @@
 					</tbody>
 				</table>
 			</div>
+		<%= link_to '<button type="button" class="btn btn-primary"> Descargar Resumen Presupuestario de Proyectos</button>'.html_safe, projects_admin_path("projects", :format => 'pdf') %>
+
+
+<div class="col-xs-12" align="center">
+	<%= link_to controller: 'projincomes', action: 'all' do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
+	<% end %>
+	<%= link_to controller: 'projcommitments', action: 'all' do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp; Compromisos </button>
+	<% end %>
+	<%= link_to controller: 'projexecutions', action: 'all' do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
+	<% end %>
+</div>
 	</div>
 </div>

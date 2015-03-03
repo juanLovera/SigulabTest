@@ -11,6 +11,11 @@ class ProjexecutionsController < ApplicationController
     @sum = @projexecutions.where("check_annulled=false").where("proyecto=?",params[:id]).sum(:check_amount)
   end
 
+  def all
+    @projexecutions = Projexecution.all.order("date ASC")
+    @sum = @projexecutions.sum(:check_amount)
+  end
+
    def show
      @projexecution = Projexecution.find(params[:id])
      @projcommitment = Projcommitment.find(@projexecution.commitment_id)
@@ -55,12 +60,13 @@ class ProjexecutionsController < ApplicationController
      if !@projexecution.check_amount.blank?
        if @projexecution.check_amount > @commitment.amount - @projexecuted
          @projexecution.executable_amount
-         render 'new'
+         render 'new', cid: params[:cid]
        else 
          if @projexecution.save
            redirect_to controller: 'projexecutions', id: @projexecution.proyecto
          else
-           render 'new'        
+binding.pry
+           render 'new', cid: params[:cid]        
          end
        end
      else

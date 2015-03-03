@@ -1,10 +1,10 @@
 # encoding: utf-8
-class ReporteBudget < Prawn::Document
+class ReporteProjects < Prawn::Document
   include ActionView::Helpers::NumberHelper
 
-  def initialize(labs,incomes,commitments,executions)
+  def initialize(projects,incomes,commitments,executions)
   	super :page_layout => :landscape
-  	@labs = labs
+  	@projects = projects
   	@incomes = incomes
   	@commitments = commitments
   	@executions = executions
@@ -30,7 +30,7 @@ class ReporteBudget < Prawn::Document
   	move_down 10
   	text "#{Date.today.strftime("%d")}/#{Date.today.strftime("%m")}/#{Time.now.year}", size: 10, :align => :right
     move_down 20
-  	text "RESUMEN PRESUPUESTARIO", size: 12, :align => :center, style: :bold
+  	text "RESUMEN PRESUPUESTARIO DE PROYECTOS", size: 12, :align => :center, style: :bold
     move_down 30  	
   end
 
@@ -47,25 +47,25 @@ class ReporteBudget < Prawn::Document
   	@commitments_total = 0  	
   	@executions_total = 0  	
 
-  	[ ["Dependencia", "Monto Asignado", "Monto Comprometido", "Monto Ejecutado", "Saldo Disponible"] ] + 
+  	[ ["Proyecto", "Monto Asignado", "Monto Comprometido", "Monto Ejecutado", "Saldo Disponible"] ] + 
 
-  	@labs.map do |lab|
+  	@projects.map do |p|
 
-  		@incomes_lab = @incomes.where(lab_id: lab.id).sum(:amount)
-  		@incomes_total += @incomes_lab
+  		@incomes_proj = @incomes.where(proyecto: p.id).sum(:amount)
+  		@incomes_total += @incomes_proj
 
-  		@commitments_lab = @commitments.where(lab_id: lab.id).sum(:amount)
-  		@commitments_total += @commitments_lab
+  		@commitments_proj = @commitments.where(proj_id: p.id).sum(:amount)
+  		@commitments_total += @commitments_proj
 
-      @executions_commitement = @executions.joins(commitment: :lab).where("lab_id=?", lab.id).where("check_annulled=false").sum(:check_amount)
-  		@executions_total += @executions_commitement
+  		@executions_commitment = @executions.where(proyecto: p.id).where("check_annulled=false").sum(:check_amount)
+  		@executions_total += @executions_commitment
 
-      @incomes_lab_pdf = number_to_currency(@incomes_lab, format: "%n", delimiter: ".", separator: ",")
-      @commitments_lab_pdf = number_to_currency(@commitments_lab, format: "%n", delimiter: ".", separator: ",")      
-      @executions_commitement_pdf = number_to_currency(@executions_commitement, format: "%n", delimiter: ".", separator: ",")      
-      @available = number_to_currency(@incomes_lab-@commitments_lab, format: "%n", delimiter: ".", separator: ",")            
+      @incomes_proj_pdf = number_to_currency(@incomes_proj, format: "%n", delimiter: ".", separator: ",")
+      @commitments_proj_pdf = number_to_currency(@commitments_proj, format: "%n", delimiter: ".", separator: ",")      
+      @executions_commitment_pdf = number_to_currency(@executions_commitment, format: "%n", delimiter: ".", separator: ",")      
+      @available = number_to_currency(@incomes_proj-@commitments_proj, format: "%n", delimiter: ".", separator: ",")            
 
-  		[lab.sae_name,"Bs. #{@incomes_lab_pdf}","Bs. #{@commitments_lab_pdf}","Bs. #{@executions_commitement_pdf}","Bs. #{@available}"]
+  		[p.project_number,"Bs. #{@incomes_proj_pdf}","Bs. #{@commitments_proj_pdf}","Bs. #{@executions_commitment_pdf}","Bs. #{@available}"]
   	end
   end
 
@@ -95,12 +95,4 @@ class ReporteBudget < Prawn::Document
 
   end
   
-  def product_rows
-    [['#', 'Name', 'Price']] +
-      @products.map do |product|
-      [product.id, product.name, product.price]
-    end
-  end
-
 end
-
