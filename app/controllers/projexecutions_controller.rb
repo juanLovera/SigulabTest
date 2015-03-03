@@ -65,7 +65,6 @@ class ProjexecutionsController < ApplicationController
          if @projexecution.save
            redirect_to controller: 'projexecutions', id: @projexecution.proyecto
          else
-binding.pry
            render 'new', cid: params[:cid]        
          end
        end
@@ -81,7 +80,7 @@ binding.pry
    def edit
      @projexecution = Projexecution.find(params[:id])
      @project = Project.find(Projexecution.find(params[:id]).proyecto) 
-     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id) 
+     @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
    end
   
    def update

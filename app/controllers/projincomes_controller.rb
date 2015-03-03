@@ -72,7 +72,8 @@ class ProjincomesController < ApplicationController
   
   def edit
     @projincome = Projincome.find(params[:id])
-    @project = Project.find(@projincome.proyecto)    
+    @project = Project.find(Projincome.find(params[:id]).proyecto)
+    binding.pry
   end
   
   def update

@@ -10,6 +10,16 @@
 			<li class="active"><%= @projincome.doc_code %></li>
 		</ol>
 	</div>
+
+	<div class="col-xs-12" align="right">
+		<%= link_to controller: 'projincomes', id: @projincome.proyecto do %>
+			<button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+		<% end %>	
+		</br>
+		</br>
+	</div>
+
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>

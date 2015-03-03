@@ -1,8 +1,0 @@
-class Relation < ActiveRecord::Base
-  UnidadMedida = ['cm', 'm', 'in', 'pies']
-  UnidadMedida2 = ['gr','Kg','lb']
-  
-
- 
-  belongs_to :user
-end

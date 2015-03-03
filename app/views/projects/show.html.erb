@@ -14,6 +14,15 @@
 	</div>
 </div>
 
+	<div class="col-xs-12" align="right">
+		<%= link_to incomes_path, class: "btn btn-primary" do %>
+			<span class="glyphicon glyphicon-arrow-left"></span></span>&nbsp;&nbsp;Volver
+		<% end %>
+		</br>
+		</br>
+	</div>
+
+
 <p><h2><center>Proyecto N°: <%= @project.project_number %></center></h2></p>
 
 <div id="tabs">
@@ -192,11 +201,6 @@
 	<%= link_to controller: 'projexecutions', id: @project.id do %>
 		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
 	<% end %>
-
-	<%= link_to 'list', controller: 'projects', action: 'list' do %>
-		<button type="button" class="btn btn-default btn-danger">
-		<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
-	<% end %>	
 </div>
 
 <style>
