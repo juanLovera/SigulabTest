@@ -2,10 +2,12 @@
 	<%= form_for(@invitation) do |f| %>
 	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @invitation.errors.full_messages.first if @invitation.errors.any? %> </span>
                 <table style="margin-left:-130px;"><tr><td colspan="2"><h4>Datos de la Empresa</h4></td></tr><tr><td style="padding-right:10px;">
-		  <div class="field"><span class="red">*</span>
-			 <%= f.label "RIF" %><br>
-			 <%= f.text_field :rif, :placeholder => "J-00000000-0" %>
-		  </div></td><td style="margin-top:-5px;">
+		 <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Tipo" %><br>
+			 <%= f.collection_select :tipo, Specification::Compra, :to_s, :to_s, :include_blank => false %>
+                         </div></td>
+		  </td><td style="margin-top:-5px;">
                       <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Nombre" %><br>
@@ -13,13 +15,11 @@
 		  </div>
                         </td></tr><tr><td>
 
-			 <div class="field">
-          		<span class="red">*</span>
-			 <%= f.label "Tipo" %><br>
-			 <%= f.collection_select :tipo, Specification::Compra, :to_s, :to_s, :include_blank => false %>
-                         </div></td>
-                    
-                    
+			<div class="field"><span class="red">*</span>
+			 <%= f.label "RIF" %><br>
+			 <%= f.text_field :rif, :placeholder => "J-00000000-0" %>
+		  </div>
+                                       
                     <td>
 
 			 <div class="field">
@@ -160,4 +160,7 @@ select {
 }
 
 </style>
+<script>
+document.getElementById('invitation_tipo').onchange = function () {if (this.value == 'Internacional') {document.getElementById('invitation_rif').readOnly = true; document.getElementById('invitation_rif').value='N/A';document.getElementById('invitation_rif').style.backgroundColor = '#DFDFDF'}else{document.getElementById('invitation_rif').readOnly = false; document.getElementById('invitation_rif').value='';document.getElementById('invitation_rif').style.backgroundColor = 'white'}};
+</script>
 

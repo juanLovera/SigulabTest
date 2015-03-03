@@ -2,23 +2,40 @@
 	<%= form_for(@invitation) do |f| %>
 	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @invitation.errors.full_messages.first if @invitation.errors.any? %> </span>
                 <table style="margin-left:-130px;"><tr><td colspan="2"><h4>Datos de la Empresa</h4></td></tr><tr><td style="padding-right:10px;">
-		  <div class="field"><span class="red">*</span>
-			 <%= f.label "RIF" %><br>
-			 <%= f.text_field :rif, :placeholder => "J-00000000-0" %>
-		  </div></td><td style="margin-top:-5px;">
+		 <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Tipo" %><br>
+			 <%= f.collection_select :tipo, Specification::Compra, :to_s, :to_s, :include_blank => false %>
+                         </div></td>
+		  </td><td style="margin-top:-5px;">
                       <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Nombre" %><br>
 			 <%= f.text_field :nombre, :placeholder => "Empresa a invitar" %>
 		  </div>
-                        </td></tr><tr><td colspan="2">
+                        </td></tr><tr><td>
+
+			<div class="field"><span class="red">*</span>
+			 <%= f.label "RIF" %><br>
+			 <%= f.text_field :rif, :placeholder => "J-00000000-0" %>
+		  </div>
+                                       
+                    <td>
 
 			 <div class="field">
           		<span class="red">*</span>
-			 <%= f.label "Tipo" %><br>
-			 <%= f.collection_select :tipo, Specification::Compra, :to_s, :to_s, :include_blank => false %>
-		  </div>
-
+			 <%= f.label "Persona Contacto" %><br>
+			 <%= f.text_field :contacto, :placeholder => "Contacto de la empresa" %>
+                         </div></td>
+                    
+                    
+                    
+                    
+                    </tr><tr><td><div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Correo Electrónico" %><br>
+			 <%= f.text_field :correo_contacto, :placeholder => "persona@contacto.com" %>
+                         </div></td></tr><tr><td colspan="2">
                             <div class="field">
           		<span class="red">*</span>
 			 <%= f.label "Dirección" %><br>
@@ -37,13 +54,21 @@
 		  </div></td></tr><tr><td style="padding-right:10px;">
 		  <div class="field">
           <span class="red">*</span>
-			 <%= f.label "Teléfono" %><br>
+			 <%= f.label "Nro de Fax" %><br>
 			 <%= f.text_field :telefono, :placeholder => "02121234567" %>
                   </div></td><td style="padding-top:20px;">
 		  <div class="field">
 			 <%= f.label "Teléfono adicional" %><br>
 			 <%= f.text_field :telefono_Adicional, :placeholder => "02121234567" %><br>
-		  </div></td></tr><tr><td colspan="2" style=" padding-left:120px;">
+                            </div></td></tr><tr><td>
+                    <div class="field">
+                        <span class="red">*</span>
+                            <%= f.label "Fecha tope de recepción de ofertas" %><br/>
+				
+				<%= f.text_field :fecha_tope, class: 'bootlayout-date form-control' %>
+				
+                          </div>  <br/><br/>
+                        </td></tr><tr><td colspan="2" style=" padding-left:120px;">
                             <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
 		  <div class="actions">
 			 <%= f.submit "Aceptar", :style => "float:left;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
@@ -118,6 +143,24 @@ font-size: 20px;
 
 }
 
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width: 200px;
+    height: 35px;
+    maxlength:100;
+    font-size: 14px;
+}
 
 </style>
+<script>
+document.getElementById('invitation_tipo').onchange = function () {if (this.value == 'Internacional') {document.getElementById('invitation_rif').readonly = true; document.getElementById('invitation_rif').value='N/A';document.getElementById('invitation_rif').style.backgroundColor = '#DFDFDF'}else{document.getElementById('invitation_rif').readonly = false; document.getElementById('invitation_rif').value='';document.getElementById('invitation_rif').style.backgroundColor = 'white'}};
+</script>
 

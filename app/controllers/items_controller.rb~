@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = ReporteItems.new(@items, specification)
+        pdf = ReporteItems.new(@items)
         nombre = "Especificacion_#{session[:specification_sel_id]}.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
       end

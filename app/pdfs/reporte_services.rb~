@@ -1,9 +1,9 @@
 # encoding: utf-8
-class ReporteItems < Prawn::Document
+class ReporteServices < Prawn::Document
 
-  def initialize(items,spec) 
+  def initialize(services, spec) 
     super()
-    @items = items
+    @services = services
     @spec = spec
     header
     repeat :all do
@@ -14,26 +14,26 @@ class ReporteItems < Prawn::Document
   end
  
   def header
-    #This inserts an image in the pdf file and sets the size of the image
-    image "#{Rails.root}/app/assets/images/coord.jpg", width: 180, height: 100, :position => 0
-    move_up 50
-    image "#{Rails.root}/app/assets/images/Logo_ULab.jpg", width: 50, height: 55, :position => 490
-    
+      #This inserts an image in the pdf file and sets the size of the image
+      image "#{Rails.root}/app/assets/images/coord.jpg", width: 180, height: 100, :position => 0
+      move_up 50
+      image "#{Rails.root}/app/assets/images/Logo_ULab.jpg", width: 50, height: 55, :position => 490  
 
   end
 
   def titulo
-   move_down 35
-   table tittle do
+    move_down 35
+      table tittle do
       row(0).font_style = :bold
       self.header = true
       self.row_colors = ['DDDDDD','DDDDDD']
-      self.column_widths = [450,90]
+      self.column_widths = [455,85]
     end
-  end
+   end
 
    def tittle 
-      [[{:content => "ESPECIFICACIONES TÉCNICAS DE BIENES", :rowspan => 2, :size => 20, :background_color => "DDDDDD" , :align => :center  },
+      [[{:content => "      ESPECIFICACIONES TÉCNICAS DE SERVICIOS", :rowspan => 2, :size => 20, :background_color => "DDDDDD",
+ 																																				:align => :center },
         {:content => "Registro No.", :background_color => "DDDDDD"}],
         [{:content => "#{@spec.id}", :background_color => "FFFFFF", :align => :center}]]
    end
@@ -44,21 +44,23 @@ class ReporteItems < Prawn::Document
     # Then I set the table column widths
     table items_rows do
       row(0).font_style = :bold
-      columns(0..3).align = :center
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [80,120,240,100]
+      self.column_widths = [60,60,80,120,100,120]
     end
+
     move_down 45
     text "______________________\n\nFirma de Autorizacion\ \ \ \ \n", :align => :right 
   end
+
+
  
   def items_rows
-    
-    [['Tipo','Nombre','Descripción','Cantidad']] +
-      @items.map do |item|
- 
-      [item.tipo, item.nombre, item.descripcion, item.cantidad]
+    index = 0
+    [['Número','Número de BN',  'Ubicacion', 'Nombre', 'Tipo de Servicio', 'Descripción']] +
+      @services.map do |service|
+      index = index+1
+      [index, service.numero, service.ubicacion, service.nombre, service.tipo, service.descripcion]
     end
   end
 
@@ -74,4 +76,3 @@ class ReporteItems < Prawn::Document
   end
 
 end
-
