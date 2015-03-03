@@ -5,7 +5,7 @@
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
 			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
-			<li><%= link_to @project.project_number, @project %></li>
+			<li><%= link_to Project.find(params[:id]).project_number, Project.find(params[:id]) %></li>
 			<li><%= link_to 'Ingresos', controller: 'projincomes', id: params[:id] %></li>
 			<li class="active">Nuevo Ingreso</li>
 		</ol>
