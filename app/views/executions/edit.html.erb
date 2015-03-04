@@ -46,9 +46,31 @@
 			
 	  			<% if !@execution.check_annulled? %>
 			<div class="form-group">
-				<label for='execution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<label for='execution_code' class="col-xs-3 control-label text-right">Número del Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :code, class: 'form-control' %>
+				</div>
+			</div>
+
+			
+			<div class="form-group">
+				<label for='execution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :document_date, value: (@execution.document_date.strftime("%d/%m/%Y")), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_number, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_date, value: (@execution.invoice_date.strftime("%d/%m/%Y")), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
 				</div>
 			</div>
 
@@ -113,11 +135,33 @@
   	  			<% else %>
 
 			<div class="form-group">
-				<label for='execution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<label for='execution_code' class="col-xs-3 control-label text-right">Número del Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 						<input class="form-control" placeholder="<%= @execution.code rescue nil %>" disabled>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label for='execution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="bootlayout-date form-control" placeholder="<%= @execution.document_date rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="form-control" placeholder="<%= @execution.invoice_number rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='execution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="bootlayout-date form-control" placeholder="<%= @execution.invoice_date rescue nil %>" disabled>
+				</div>
+			</div>
+
 
 			<div class="form-group">
 				<label for='execution_amount' class="col-xs-3 control-label text-right">Monto <span style="color:#FF0000">*</span></label>

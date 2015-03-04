@@ -5,7 +5,7 @@
 			<li><%= link_to 'Administración', administration_path %></li>
 			<li><%= link_to 'Proyectos', projects_path %></li>
 			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
-			<li><%= link_to @project.project_number, @project %></li>	
+			<li><%= link_to Project.find(@commitment.proj_id).project_number, Project.find(Projexecution.find(params[:id]).proyecto) %></li>
 			<li><%= link_to 'Ejecuciones', controller: 'projexecutions', id: @project %></li>	
 			<li><%= link_to @projexecution.code, @projexecution %></li>				
 			<li class="active">Editar Ejecución</li>
@@ -28,7 +28,7 @@
 			<div class="form-group">
 				<label for='projexecution_proyecto' class="col-xs-3 control-label text-right">Proyecto</label>
 				<div class='col-xs-4'>
-					<input class="form-control" placeholder="<%= @project.project_number rescue nil %>" disabled>
+					<input class="form-control" placeholder="<%= Project.find(@commitment.proj_id).project_number rescue nil %>" disabled>
 				</div>
 			</div>
 
@@ -52,9 +52,30 @@
 			
 	  			<% if !@projexecution.check_annulled? %>
 			<div class="form-group">
-				<label for='projexecution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<label for='projexecution_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 					<%= i.text_field :code, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :document_date, value: (@projexecution.document_date.strftime("%d/%m/%Y")), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_number, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :invoice_date, value: (@projexecution.invoice_date.strftime("%d/%m/%Y")), class: 'bootlayout-date form-control strftime("%d/%m/%Y")' %>
 				</div>
 			</div>
 
@@ -74,7 +95,7 @@
 				<label for='projexecution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
 
 					<div class='col-xs-4'>
-						<%= i.text_field :check_number, class: 'form-control', :placeholder => "N° de 8 dígitos" %>
+						<%= i.text_field :check_number, class: 'form-control', :placeholder => "N° de 8 dígitos", :maxlength => 8 %>
 					</div>
 					<%= link_to annul_projexecution_path(@projexecution) do %>
 						<button type="button" class="btn btn-danger" onclick="return confirm('¿Está seguro de anular el cheque?')"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp; Anular Cheque</button>
@@ -119,9 +140,30 @@
   	  			<% else %>
 
 			<div class="form-group">
-				<label for='projexecution_code' class="col-xs-3 control-label text-right">Código de Documento <span style="color:#FF0000">*</span></label>
+				<label for='projexecution_code' class="col-xs-3 control-label text-right">Número de Documento <span style="color:#FF0000">*</span></label>
 				<div class='col-xs-4'>
 						<input class="form-control" placeholder="<%= @projexecution.code rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_document_date' class="col-xs-3 control-label text-right">Fecha del Documento <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="bootlayout-date form-control" placeholder="<%= @projexecution.document_date rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_number' class="col-xs-3 control-label text-right">Número de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="form-control" placeholder="<%= @projexecution.invoice_number rescue nil %>" disabled>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='projexecution_invoice_date' class="col-xs-3 control-label text-right">Fecha de la Factura <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<input class="bootlayout-date form-control" placeholder="<%= @projexecution.invoice_date rescue nil %>" disabled>
 				</div>
 			</div>
 
@@ -139,8 +181,6 @@
 					
 			<div class="form-group">
 				<label for='projexecution_check_number' class="col-xs-3 control-label text-right">Número de Cheque <span style="color:#FF0000">*</span></label>
-
-
 
 					<div class='col-xs-4'>
 						<input class="form-control" placeholder="<%= @projexecution.check_number rescue nil %>" disabled>

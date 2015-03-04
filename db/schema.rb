@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302153705) do
+
+ActiveRecord::Schema.define(version: 20150304015638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,7 +114,7 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.datetime "updated_at"
     t.string   "sae_code"
     t.text     "observations"
-    t.integer  "document",     default: 0
+    t.integer  "document"
   end
 
   create_table "consumables", force: true do |t|
@@ -245,29 +246,37 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.boolean  "check_annulled",         default: false
     t.string   "remarks"
     t.string   "document_name"
+    t.date     "document_date"
+    t.string   "invoice_number"
+    t.date     "invoice_date"
   end
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
 
+  create_table "fecha_entregas", force: true do |t|
+    t.string   "ubicacion"
+    t.string   "fechaTope"
+    t.string   "condiciones"
+    t.string   "medida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
     t.float    "amount"
-    t.integer  "origin",               default: 0
+    t.integer  "origin"
     t.string   "description"
     t.date     "date"
     t.string   "organism"
     t.string   "document"
-    t.string   "unit"
-    t.integer  "resource",             default: 0
-    t.string   "variation"
-    t.string   "resource_description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
-    t.integer  "financing",            default: 0
-    t.string   "doccode"
+    t.integer  "financing"
     t.string   "doc_code"
     t.date     "doc_date"
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -279,12 +288,17 @@ ActiveRecord::Schema.define(version: 20150302153705) do
 =======
 >>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
 >>>>>>> 24aebff7dd3c276b922c47683ebf210c8f390427
+=======
+>>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
     t.integer  "resource",             default: 0
+<<<<<<< HEAD
 >>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
 >>>>>>> 71f9c1db455e211f8d1acd98c14e9f054be70686
+=======
+>>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
   end
 
   create_table "instruments", force: true do |t|
@@ -329,6 +343,10 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "user_id"
     t.integer  "specification_id"
     t.integer  "quote_id"
+    t.string   "tipo"
+    t.string   "contacto"
+    t.string   "correo_contacto"
+    t.date     "fecha_tope"
   end
 
   create_table "items", force: true do |t|
@@ -347,6 +365,7 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "numeroBien"
     t.string   "user_id"
     t.integer  "specification_id"
+    t.integer  "comprar"
   end
 
   create_table "itemsquotes", force: true do |t|
@@ -361,6 +380,7 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string "name"
     t.string "sae_code"
     t.string "sae_name"
+    t.string "description"
   end
 
   create_table "loans", force: true do |t|
@@ -407,16 +427,12 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.datetime "updated_at"
     t.integer  "admin"
     t.integer  "status",         default: 0
-    t.text     "observation"
-    t.integer  "banco"
-    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
-<<<<<<< HEAD
     t.date     "annulled_date"
-=======
     t.string   "num_cuenta"
+<<<<<<< HEAD
     t.date     "annulled_date"
 <<<<<<< HEAD
 =======
@@ -427,6 +443,10 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.integer  "banco"
 >>>>>>> 24aebff7dd3c276b922c47683ebf210c8f390427
 >>>>>>> 71f9c1db455e211f8d1acd98c14e9f054be70686
+=======
+    t.string   "observation"
+    t.integer  "banco"
+>>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
     t.string   "substitute"
   end
 
@@ -446,6 +466,9 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "document_date"
+    t.string   "invoice_number"
+    t.date     "invoice_date"
   end
 
   create_table "projincomes", force: true do |t|
@@ -521,10 +544,10 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string  "renovacion_licencia"
     t.string  "accesorio"
     t.string  "otro"
-    t.integer "alto"
-    t.integer "ancho"
-    t.integer "largo"
-    t.integer "peso"
+    t.decimal "alto"
+    t.decimal "ancho"
+    t.decimal "largo"
+    t.decimal "peso"
     t.string  "dimensiones_alto"
     t.string  "dimensiones_ancho"
     t.string  "dimensiones_largo"
@@ -608,15 +631,18 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.string   "location"
     t.string   "material"
     t.string   "bill"
-    t.boolean  "from_set"
     t.boolean  "investigation"
     t.boolean  "teaching"
     t.boolean  "extention"
     t.boolean  "management"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "cost"
+    t.string   "buy_order"
+    t.date     "adquisition_date"
+    t.boolean  "showable",         default: true
+    t.boolean  "from_set"
     t.string   "dependency"
-    t.boolean  "solicitados"
     t.string   "id2"
     t.string   "tipo"
     t.string   "origen"
@@ -654,8 +680,5 @@ ActiveRecord::Schema.define(version: 20150302153705) do
     t.boolean  "proy_responsible"
     t.boolean  "external"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

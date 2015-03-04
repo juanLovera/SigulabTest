@@ -25,11 +25,13 @@ class RecommendationsController < ApplicationController
 	       specification.p4 = 2
 	       specification.p5 = 0
 	       specification.p6 = 1
+               specification.p8 = 1
 	       session[:specification_p3] = specification.p3
 	    session[:specification_p2] = specification.p2
 	    session[:specification_p4] = specification.p4
 	    session[:specification_p5] = specification.p5
 	    session[:specification_p6] = specification.p6
+	    session[:specification_p8] = specification.p8
 	    specification.save
               redirect_to "/recommendations?pdf=1"
       end
@@ -74,6 +76,10 @@ class RecommendationsController < ApplicationController
     @recommendation.user_id = current_user.username
     @recommendation.specification_id = session[:specification_sel_id]
     @recommendation.save
+    specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Nacional"
+	specification.nacional = "Nacional"
+	specification.save
     params.each do |k,x|
     if k.include?("recommendation_empresas")
       ind = k.gsub("recommendation_empresas", "")
@@ -82,6 +88,13 @@ class RecommendationsController < ApplicationController
       @nuevoElemento.id_informe = @recommendation.id
       @nuevoElemento.opcion_numero = params["prioridad#{ind}"]
       @nuevoElemento.empresa = params["empresa#{ind}"]
+      @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => params["empresa#{ind}"], :tipo => "Internacional").count
+      if @numin != 0
+	specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Internacional"
+	specification.nacional = "Internacional"
+	specification.save
+      end
       @nuevoElemento.calidad_pro = params["calidadProd#{ind}"]
       @nuevoElemento.disponibilidad_pro = params["disponibilidad#{ind}"]
       @nuevoElemento.proveedor_unico = params["proveedorU#{ind}"]

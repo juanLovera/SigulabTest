@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
 	end
 	   data = "#{@request.fondos}; correspondiente al Proyecto No. #{@request.numero_proyecto}, y a ser debitados de la Cuenta #{@request.tipo_cuenta} Nro. #{@request.numero_cuenta}, del Banco #{@request.nombre_banco}"
         pdf = ReporteRequests.new(@request, specif, data)
-        nombre = "Solicitud_de_Compra_Especificacion_#{session[:specification_sel_id]}.pdf"
+        nombre = "Especificacion_#{session[:specification_sel_id]}_Solicitud_de_Compra.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
       end
 	format.xml do
@@ -70,9 +70,12 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @request.specification_id = session[:specification_sel_id]
+    specification = Specification.find(session[:specification_sel_id])
+    specification.modalidad = params['modalidad']
+    specification.save
     respond_to do |format|
       if @request.save
-        format.html { redirect_to requests_url, notice: 'Invitation was successfully created.' }
+        format.html { redirect_to requests_url, notice: 'Request was successfully created.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -84,7 +87,9 @@ class RequestsController < ApplicationController
   # PATCH/PUT /invitations/1
   # PATCH/PUT /invitations/1.json
   def update
-    
+    specification = Specification.find(session[:specification_sel_id])
+    specification.modalidad = params['modalidad']
+    specification.save
     respond_to do |format|
       if @request.update(request_params)
         format.html { redirect_to @request, notice: 'Invitation was successfully updated.' }

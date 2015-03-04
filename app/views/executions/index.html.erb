@@ -62,7 +62,7 @@
 
 		<% if @sum > 0 %>
 			<div class="well" align="right">
-				<h4>Monto Total Ejecutado: <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %>  Bs.</h4>
+				<h4>Monto Total Ejecutado: Bs. <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></h4>
 			</div>
 		<% end %>
 	</div>

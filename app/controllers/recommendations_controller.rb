@@ -1,21 +1,36 @@
 class RecommendationsController < ApplicationController
   layout "application_compras"
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
-
+def index
+    if current_user
+    	@requests = Request.where(:specification_id => session[:specification_sel_id]).first
+      @sumRequest = Request.where(:specification_id => session[:specification_sel_id]).count
+      if @sumRequest != 0
+        respond_to do |format|
+        format.html { redirect_to @requests, notice: '' }
+      end
+    end
+    end
+  end
   def index
     if current_user
     @recommendations = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
     @sumRec = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+    @reco = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
     end
     respond_to do |format|
-	      format.html
+	      format.html do
+          if @sumRec != 0
+            redirect_to @reco
+          end
+        end
 	      format.pdf do
-		@reco = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+		
 		@invt = Invitation.where(:specification_id => session[:specification_sel_id]).all
 		@recoEmp = RecommendationsEmpresa.where(:id_informe => @reco.id).all
 		@itemsq = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
 		pdf = ReporteRecommendations.new(@reco, @recoEmp, @invt, @itemsq)
-		nombre = "Informe_Recomendacion_Especificacion_#{session[:specification_sel_id]}.pdf"
+		nombre = "Especificacion_#{session[:specification_sel_id]}_Informe_Recomendacion.pdf"
 		send_data pdf.render, filename: nombre, type: 'application/pdf'
 	      end
 	      format.xml do
@@ -76,6 +91,10 @@ class RecommendationsController < ApplicationController
     @recommendation.user_id = current_user.username
     @recommendation.specification_id = session[:specification_sel_id]
     @recommendation.save
+    specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Nacional"
+	specification.nacional = "Nacional"
+	specification.save
     params.each do |k,x|
     if k.include?("recommendation_empresas")
       ind = k.gsub("recommendation_empresas", "")
@@ -84,6 +103,13 @@ class RecommendationsController < ApplicationController
       @nuevoElemento.id_informe = @recommendation.id
       @nuevoElemento.opcion_numero = params["prioridad#{ind}"]
       @nuevoElemento.empresa = params["empresa#{ind}"]
+      @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => params["empresa#{ind}"], :tipo => "Internacional").count
+      if @numin != 0
+	specification = Specification.find(session[:specification_sel_id])
+	session[:specification_sel_nacional] = "Internacional"
+	specification.nacional = "Internacional"
+	specification.save
+      end
       @nuevoElemento.calidad_pro = params["calidadProd#{ind}"]
       @nuevoElemento.disponibilidad_pro = params["disponibilidad#{ind}"]
       @nuevoElemento.proveedor_unico = params["proveedorU#{ind}"]

@@ -65,12 +65,12 @@ class RelationsController < ApplicationController
   # GET /invitations/new
   def new
     @relation = Relation.new
-    @items = Item.where(:specification_id => session[:specification_sel_id]).all
+    @items = Item.where(:specification_id => session[:specification_sel_id], :comprar => 1).all
   end
 
   # GET /invitations/1/edit
   def edit
-    @items = Item.where(:specification_id => session[:specification_sel_id]).all
+    @items = Item.where(:specification_id => session[:specification_sel_id], :comprar => 1).all
   end
 
   # POST /invitations
@@ -91,7 +91,7 @@ class RelationsController < ApplicationController
 	       specification.p8 = 2
 		specification.p9 = 1
 	    session[:specification_p8] = specification.p8
-	    ession[:specification_p9] = specification.p9
+	    session[:specification_p9] = specification.p9
 	    specification.save
 	end
         format.html { redirect_to relations_url, notice: 'Invitation was successfully created.' }

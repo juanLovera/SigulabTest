@@ -1,9 +1,9 @@
 <div style="margin-left:350px;">
-	<%= form_for(@recommendation) do |f| %>
-  		<% if @recommendation.errors.any? %>
-         <h2>Error: ha dejado campos vacíos</h2>
-      	<br>	
-  		<% end %>
+  <%= form_for(@recommendation) do |f| %>
+    <span class="red" style="margin-left:-130px; font-size: 99%;"> 
+      <%= @recommendation.errors.full_messages.first if @recommendation.errors.any? %> 
+    </span>
+
 <table style="margin-left:-220px; width: 660px;">
 <tr><td style="width:55%"><span class="red">*</span> <%= f.label "Código de consulta de precios:" %><br/><%= f.text_field :codigo %></td><td><span class="red">*</span> <%= f.label "Via por la cual se envió la carta de invitación" %><br/><%= f.collection_select :via, Recommendation::ViaEnvio, :to_s, :to_s, :include_blank => false %></td></tr>
 </table>
@@ -22,10 +22,10 @@
 <br/><br/><strong>Seleccione los items que quiere recomendar para esta empresa:</strong>
         <% @itemsquotes.each_with_index do |item,ind2| %>
           <% if (quote.id == item.id_oferta) %>
-             <br/><input type="checkbox" name="item_ofertado<%= ind %>.<%= ind2 %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre_item %>
+             <br/><input type="checkbox" checked name="item_ofertado<%= ind %>.<%= ind2 %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre_item %>
           <% end %>
 	<% end %>
-<strong><br/><br/>Seleccione porque recomienda esta empresa:</strong><br>
+<strong><br/><br/>Seleccione por qué recomienda esta empresa:</strong><br>
             <table style="width: 100%;">
             <tr><td><input type="checkbox" id="calidadProd" name="calidadProd<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Calidad del Producto</td>
                 <td><input type="checkbox" id="disponibilidad" name="disponibilidad<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Disponibilidad del Producto</td>
@@ -42,7 +42,7 @@
   <% end %>
 </div> 
         <div class="actions">
-    <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+    <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la información que acaba de suministrar?' }  %>
 <% end %>
     <%= link_to '<button type="button" class="btn btn-primary" style="margin-top:0px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "recommendations" %>  
       </div>

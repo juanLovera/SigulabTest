@@ -1,0 +1,213 @@
+<script>
+
+	function HandleBrowseClick(a)
+	{
+		 var fileinput = document.getElementById("browse"+a);
+		 fileinput.click();
+	}
+
+	function Handlechange(a)
+	{
+		 var fileinput = document.getElementById("browse"+a);
+		 var textinput = document.getElementById("filename"+a);
+		 textinput.value = fileinput.value;
+	}
+
+</script>
+
+
+<div class="grid_12 push_5">
+	<%= form_for(@request) do |f| %>
+	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @request.errors.full_messages.first if @request.errors.any? %> </span>
+                <table style="margin-left:-130px; width:10px;"><tr><td style="padding-right:10px;">
+		  <div class="field"><span class="red">*</span>
+			 <%= f.label "Unidad solicitante" %><br>
+			 <%= f.text_field :unidad_solicitante %>
+		  </div></td><td style="margin-top:-5px;">
+                      <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Persona contacto" %><br>
+			 <%= f.text_field :persona_contacto %>
+		  </div>
+                        </td></tr><tr><td>
+                            <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Teléfono" %><br>
+			 <%= f.text_field :telefono, :placeholder => "02120987654" %>
+		  </div>
+                        </td><td style="padding-right:10px;">
+		  <div class="field">
+          <span class="red">*</span>
+			 <%= f.label "E-mail" %><br>
+			 <%= f.text_field :email, :placeholder => "contacto@usb.ve" %>
+		  </div></td></tr><tr><td>
+		  <div class="field">
+          <span class="red">*</span>
+			 <%= f.label "Origen de fondos" %><br>
+			 <%= f.collection_select :fondos, Request::Fondos, :to_s, :to_s, 
+          :include_blank => false %>
+		  </div></td><td style="padding-right:10px;">
+		  <div class="field">
+          
+			 <%= f.label "Proyecto Número." %><br>
+			 <%= f.text_field :numero_proyecto %>
+                  </div></td></tr><tr><td>
+		  <div class="field">
+			 <%= f.label "Tipo de cuenta" %><br>
+			 <%= f.collection_select :tipo_cuenta, Request::Cuenta, :to_s, :to_s, 
+          :include_blank => false %><br>
+		  </div></td><td style="padding-right:10px;">
+		  <div class="field">
+          
+			 <%= f.label "Número de cuenta" %><br>
+			 <%= f.text_field :numero_cuenta %>
+                  </div></td></tr><tr><td style="padding-top:20px;">
+		  <div class="field">
+			 <%= f.label "Banco" %><br>
+			 <%= f.text_field :nombre_banco %><br>
+		  </div></td><td><div class="field">
+			 <%= f.label "Modalidad de Importación" %><br>
+			 <select name='modalidad'><option value="Con exoneracion de impuestos de importacion y con exoneracion del I.V.A.">Con exoneracion de impuestos de importacion y con exoneracion del I.V.A.</option><option value="Cancelando el monto correspondiente al Impuesto de Importacion y con exoneracion del I.V.A.">Cancelando el monto correspondiente al Impuesto de Importacion y con exoneracion del I.V.A.</option><option value="Cancelando los montos correspondientes al Impuesto de Importacion y el I.V.A.">Cancelando los montos correspondientes al Impuesto de Importacion y el I.V.A.</option></select><br>
+		  </div>
+</td></tr><tr><td>
+                    
+                    
+                      <div class="field">
+ 	 <span class="red">*</span>
+    <b>Proforma</b><br>
+    <%= f.file_field :proforma, id:"browse1", style:"display: none", onChange:"Handlechange('1')" %>
+	 <input type="text" id="filename1" readonly="true"/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('1');"/>
+  </div></td><td>Proforma a nombre de la Universidad Simón Bolívar, indicando la condición de entrega</td></tr><tr><td>
+                    
+                     <div class="field">
+ 	
+    <b>Folleto</b><br>
+    <%= f.file_field :folleto, id:"browse2", style:"display: none", onChange:"Handlechange('2')" %>
+	 <input type="text" id="filename2" readonly="true"/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('2');"/>
+  </div></td><td>Folleto o catálogo (Brochure) del Material y/o Equipo solicitado, que respalde la información suministrada en el formato de Relación Descriptiva de Materiales/Equipos</td></tr><tr><td>
+                                      <div class="field">
+ 	 
+    <b>Acta del Consejo Directo</b><br>
+    <%= f.file_field :acta_consejo_directo, id:"browse4", style:"display: none", onChange:"Handlechange('4')" %>
+	 <input type="text" id="filename4" readonly="true"/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('4');"/>
+  </div>                    
+   
+                    </td><td>Copia del Acta del Consejo Directo donde autorice la Contratación Pública, si aplica (Compras mayores de 2.500 UT)</td></tr>
+                    
+                    <tr><td colspan="2">
+
+                    <div id="esconder">
+                     <div class="field">
+ 	 <span class="red">*</span>
+    <b>Contrato Fonacit</b><br>
+    <%= f.file_field :fonacit, id:"browse3", style:"display: none", onChange:"Handlechange('3')" %>
+	 <input type="text" id="filename3" readonly="true"/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('3');"/>
+  </div></div>                    
+   
+                    </td></tr>
+                    
+                    <tr><td colspan="2" style=" padding-left:120px;">
+                            <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
+		  <div class="actions">
+			 <%= f.submit "Aceptar", :style => "float:left;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+		  </div>
+		<% end %>
+		<%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-10px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "invitations" %>
+   </td></tr></table>
+</div>
+
+
+<style>
+input[type="submit"] {
+
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+border: 1px solid transparent;
+border-radius: 4px;
+
+
+}
+
+input[type="text"], textarea, input[type="number"] {
+
+display: block;
+width: 200px;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.red {
+
+font-size: 20px;
+color: red;
+
+}
+
+
+input[type="text"]:focus, textarea:focus, input[type="number"]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.field_with_errors {
+  	background-color: red;
+  	border-radius: 4px;
+}
+
+h2 {
+
+position:relative;
+right: 60px;
+color:red;
+font-size: 20px;
+
+}
+
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width:200px;
+    height: 35px;
+   font-size: 14px;
+}
+
+</style>
+<script>
+  function esconderFonacit() {
+    var e = document.getElementById("request_fondos");
+    if (e.options[e.selectedIndex].value == 'El FONACIT')
+      document.getElementById('esconder').style.display = 'inline';
+    else
+      document.getElementById('esconder').style.display = 'none';
+  }
+  document.getElementById("request_fondos").onchange= esconderFonacit;
+</script>

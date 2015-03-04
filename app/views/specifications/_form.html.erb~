@@ -8,7 +8,7 @@
       <div class="field">
           <span class="red">*</span>
        <%= f.label "Nombre de la especificación" %><br>
-       <%= f.text_field :nombre %>
+       <%= f.text_field :nombre, value:@fecha %>
       </div>
       <div class="field">
           <span class="red">*</span>
@@ -16,24 +16,6 @@
 
      <%= f.collection_select :tipo, Specification::Tipo, :to_s, :to_s, :include_blank => false %>
     
-      </div>
-      <div id="esconder">
-      <div class="field">
-          <span class="red">*</span>
-       <%= f.label "Tipo de compra" %><br>
-
-     <%= f.collection_select :nacional, Specification::Compra, :to_s, :to_s, :include_blank => false %>
-    
-      </div>
-          <div id="esconder2" style="display:none;">
-      <div class="field">
-          <span class="red">*</span>
-       <%= f.label "Modalidad de Importación" %><br>
-
-     <%= f.collection_select :modalidad, Specification::Importacion, :to_s, :to_s, :include_blank => false %>
-    
-      </div>
-              </div>
       </div>
       
       <div class="actions" style="padding-left: 70px; padding-top:20px;">

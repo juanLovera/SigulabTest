@@ -72,9 +72,9 @@
 
 					<tr>
 						<td class="text-center">TOTALES</td>
-						<td class="text-center"><%= number_to_currency(@sum_commitment, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
-						<td class="text-center"><%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
-						<td class="text-center"><%= number_to_currency(@sum_commitment - @sum, format: "%n", delimiter: ".", separator: ",") %> Bs.</td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum_commitment, format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum, format: "%n", delimiter: ".", separator: ",") %></td>
+						<td class="text-center">Bs. <%= number_to_currency(@sum_commitment - @sum, format: "%n", delimiter: ".", separator: ",") %></td>
 					</tr>
 				</tbody>
 			</table>

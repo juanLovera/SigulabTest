@@ -8,6 +8,16 @@
 			<li class="active"><%= @income.id%></li>
 		</ol>
 	</div>
+
+	<div class="col-xs-12" align="right">
+		<%= link_to 'list', controller: 'projects', action: 'list' do %>
+			<button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+		<% end %>	
+		</br>
+		</br>
+	</div>
+
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>
@@ -68,9 +78,6 @@
 			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Ingreso</button>
 		<% end %>
 		<%= link_to '<button type="button" class="btn btn-primary"> Consultar Planilla de Modificación Presupuestaria </button>'.html_safe, income_path(@income, :format => 'pdf') %>
-		<%= link_to incomes_path, class: "btn btn-default btn-danger" do %>
-			<span class="glyphicon glyphicon-arrow-left"></span></span>&nbsp;&nbsp;Volver
-		<% end %>
 	</div>
 </div>
 

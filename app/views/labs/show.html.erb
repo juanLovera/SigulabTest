@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="col-xs-12">
+		<ol class="breadcrumb">
+			<li><%= link_to 'Inicio', controller: 'statics' %></li>
+			<li><%= link_to 'Administración', administration_path %></li>
+			<li><%= link_to 'Presupuesto', budget_path %></li>
+			<li><%= link_to 'Resumen Presupuestario', controller: 'budget', action: 'summary' %></li>
+			<li class="active"> <%= @lab.sae_name %> </li>
+		</ol>
+	</div>
+
+	<div class="col-xs-12" align="right">
+		<%= link_to controller: 'budget', action: 'summary' do %>
+			<button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+		<% end %>	
+		</br>
+		</br>
+	</div>
+
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<tr>
+				<th class="active text-center" colspan="2"><h2><%= @lab.sae_name %></h2></th>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto asignado:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@incomes_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto comprometido:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@commitments_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Monto ejecutado:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@executions_total,
+				format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>			
+			<tr>
+				<td class="col-xs-5 text-right">Saldo disponible:</td>
+				<td class="col-xs-7" ><div id="span1">Bs. </div> <div id="span2" align="right">  <%= number_to_currency(@incomes_total-@commitments_total, format: "%n", delimiter: ".", separator: ",") %> </div> </td>
+			</tr>
+		</table>
+	</div>
+
+</br>
+<div class="col-xs-12" align="center">
+	<%= link_to controller: 'incomes', action: 'list_lab', id: @lab.id do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
+	<% end %>
+	<%= link_to controller: 'commitments', action: 'list_lab', id: @lab.id do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-minus-sign"></span>&nbsp;&nbsp; Compromisos </button>
+	<% end %>
+	<%= link_to controller: 'executions', action: 'list_lab', id: @lab.id do %>
+		<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-check"></span>&nbsp;&nbsp;Ejecuciones </button>
+	<% end %>
+</div>
+
+<style>
+	#span1 { width: 25px; float: left; height:100%; }
+    #span2 { width: 110px; float: left; height:50%;}
+</style>
+

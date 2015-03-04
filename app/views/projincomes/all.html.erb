@@ -8,8 +8,8 @@
 		<ol class="breadcrumb">
 			<li><%= link_to 'Inicio', controller: 'statics' %></li>
 			<li><%= link_to 'Administración', administration_path %></li>
-			<li><%= link_to 'Proyectos', projects_path %></li>
-			<li><%= link_to 'Gestionar proyectos', controller: 'projects', action: 'list' %></li>
+			<li><%= link_to 'Proyectos', controller: 'projects' %></li>		
+			<li><%= link_to 'Resumen presupuestario de proyectos', controller: 'projects', action: 'admin' %></li>	
 			<li class="active">Ingresos</li>
 		</ol>
 	</div>
@@ -35,6 +35,7 @@
 						<thead>
 							<tr>
 								<th class="text-center">Fecha</th>
+								<th class="text-center">Proyecto</th>								
 								<th class="text-center">Descripción</th>
 								<th class="text-center">Monto</th>
 							</tr>
@@ -44,6 +45,7 @@
 							<% @projincomes.each do |i| %>
 								<tr>
 									<td class="text-center"><%= i.date.strftime('%d/%m/%Y') unless i.date.blank? %></td>
+									<td><%= link_to Project.find(i.proyecto).project_number, Project.find(i.proyecto) %></td>
 									<td><%= link_to i.description, i %></td>
 									<td class="text-right"><%= number_to_currency(i.amount, format: "%n", delimiter: ".", separator: ",") %></td>
 								</tr>

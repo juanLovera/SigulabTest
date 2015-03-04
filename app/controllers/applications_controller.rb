@@ -35,7 +35,6 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/new
   def new
-    binding.pry
     @lista
     @application = Application.new
     @equipment = Equipment.where(:solicitados => true).all.order('created_at DESC')

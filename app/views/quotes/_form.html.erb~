@@ -35,10 +35,9 @@
   <div class="field">
  	 <span class="red">*</span>
     <%= f.label "Oferta" %><br>
-    <%= f.file_field :attachment, id:"browse", style:"display: none", onChange:"Handlechange()" %>
-	 <input type="text" id="filename" readonly="true"/>
-	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick();"/>
-<<<<<<< HEAD
+    <%= f.file_field :attachment, id:"browse", style:"display: none", onChange:"Handlechange()" %><br/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick();"/><input type="text" style="width: 100px" id="filename" readonly="true"/>
+
   </div>
 
          
@@ -48,16 +47,6 @@
       <input type="checkbox" id="itemsquote" checked name="itemsquotes<%= item.id %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre %><br>
         
 		 <% end %></div>      <br><br>    <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>     
-=======
-  </div><%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
-             
-  <div class="field"> <%= f.label "Items ofertados" %><br/>
-  <% @items.each do |item| %>
-	  	
-        <%= item.nombre %><br>
-        
-		 <% end %></div>                
->>>>>>> 096dcab4670a4670332eaaede798b65a1d311844
         <div class="actions">
     <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
 <% end %>

@@ -10,6 +10,16 @@
 			<li class="active"><%= @projexecution.code %></li>
 		</ol>
 	</div>
+
+	<div class="col-xs-12" align="right">
+		<%= link_to controller: 'projexecutions', id: @projexecution.proyecto do %>
+			<button type="button" class="btn btn-primary">
+			<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+		<% end %>	
+		</br>
+		</br>
+	</div>
+
 	<div class="col-xs-12">
 		<table class="table table-striped">
 			<tr>
@@ -29,6 +39,18 @@
 			<tr>
 				<td class="col-xs-5 text-right">Número de Documento:</td>
 				<td class="col-xs-7"><%= @projexecution.code %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha del Documento:</td>
+				<td class="col-xs-7"><%= @projexecution.document_date %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Número de la Factura:</td>
+				<td class="col-xs-7"><%= @projexecution.invoice_number %></td>
+			</tr>
+			<tr>
+				<td class="col-xs-5 text-right">Fecha de la Factura:</td>
+				<td class="col-xs-7"><%= @projexecution.invoice_date %></td>
 			</tr>
 			<tr>
 				<td class="col-xs-5 text-right">Número de Cheque:</td>
