@@ -40,6 +40,9 @@ function setSAECodeIncomes() {
 	if ($('#income_lab_id').val()==8)
 		saeCode = "01.05.03.09";
 
+	if ($('#income_lab_id').val()==9)
+		saeCode = "01.05.03.02";
+
 	$('#income_sae_code').val(saeCode);
 
 }
@@ -47,30 +50,32 @@ function setSAECodeIncomes() {
 function setSAECodeCommitments() {
 
 	saeCode = "";
-
 	if ($('#commitment_lab_id').val()==1)
-		saeCode = "U01";
+		saeCode = "01.05.03.01";
 
 	if ($('#commitment_lab_id').val()==2)
-		saeCode = "U02";
+		saeCode = "01.05.03.03";
 
 	if ($('#commitment_lab_id').val()==3)
-		saeCode = "U03";
+		saeCode = "01.05.03.04";
 
 	if ($('#commitment_lab_id').val()==4)
-		saeCode = "U04";
+		saeCode = "01.05.03.05";
 
 	if ($('#commitment_lab_id').val()==5)
-		saeCode = "U05";
+		saeCode = "01.05.03.06";
 
 	if ($('#commitment_lab_id').val()==6)
-		saeCode = "U06";
+		saeCode = "01.05.03.07";
 
 	if ($('#commitment_lab_id').val()==7)
-		saeCode = "U07";
+		saeCode = "01.05.03.08";
 
 	if ($('#commitment_lab_id').val()==8)
-		saeCode = "U08";
+		saeCode = "01.05.03.09";
+
+	if ($('#commitment_lab_id').val()==9)
+		saeCode = "01.05.03.02";
 
 	$('#commitment_sae_code').val(saeCode);
 
@@ -81,10 +86,10 @@ function setSAECode() {
 	saeCode = "";
 
 	if ($('#project_admin').val()=="marquez")
-		saeCode = "1.05.03.11";
+		saeCode = "01.05.03.11";
 
 	if ($('#project_admin').val()=="villa")
-		saeCode = "1.05.03.10";
+		saeCode = "01.05.03.10";
 
 	$('#project_sae_code').val(saeCode);
 
