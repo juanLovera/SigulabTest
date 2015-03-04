@@ -34,7 +34,7 @@ class ReporteInvitations < Prawn::Document
  def tittle 
       [[{:content => "Carta de Invitación", :rowspan => 2, :size => 15, :background_color => "DDDDDD", :align => :center, :height => 20},
         {:content => "Registro:", :background_color => "DDDDDD", :height => 18, :size => 9, :align => :center}],
-        [{:content => "000#{@invitation.id}", :background_color => "FFFFFF",:height => 18, :size => 9, :align => :center}]]
+        [{:content => "#{@invitation.id}", :background_color => "FFFFFF",:height => 18, :size => 9, :align => :center}]]
 
     
   end
@@ -45,8 +45,11 @@ class ReporteInvitations < Prawn::Document
 
   def info 
     move_down 20
-
+    if @invitation.rif != "N/A"
   	 text "#{@invitation.nombre} (Rif: #{@invitation.rif})"
+    else
+  	text "#{@invitation.nombre}"
+    end
 
     text "#{@invitation.direccion}"
     text "Presente.-"

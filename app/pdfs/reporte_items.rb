@@ -1,9 +1,10 @@
 # encoding: utf-8
 class ReporteItems < Prawn::Document
 
-  def initialize(items) 
+  def initialize(items,spec) 
     super()
     @items = items
+    @spec = spec
     header
     repeat :all do
       pie_de_pagina
@@ -32,9 +33,9 @@ class ReporteItems < Prawn::Document
   end
 
    def tittle 
-      [[{:content => "ESPECIFICACIONES TÉCNICAS DE BIENES", :rowspan => 2, :size => 20, :background_color => "DDDDDD"  },
+      [[{:content => "ESPECIFICACIONES TÉCNICAS DE BIENES", :rowspan => 2, :size => 20, :background_color => "DDDDDD" , :align => :center  },
         {:content => "Registro No.", :background_color => "DDDDDD"}],
-        [{:content => "0001", :background_color => "FFFFFF", :align => :center}]]
+        [{:content => "#{@spec.id}", :background_color => "FFFFFF", :align => :center}]]
    end
 
 
@@ -43,6 +44,7 @@ class ReporteItems < Prawn::Document
     # Then I set the table column widths
     table items_rows do
       row(0).font_style = :bold
+      columns(0..3).align = :center
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
       self.column_widths = [80,120,240,100]

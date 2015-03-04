@@ -43,8 +43,10 @@ class SpecificationsController < ApplicationController
     @specification.p7 = 0
     @specification.p8 = 0
     @specification.p9 = 0
+    session[:specification_sel_nacional] = "Nacional"
+    @specification.nacional = "Nacional"
+
     session[:specification_sel_nombre] = @specification.nombre
-    session[:specification_sel_nacional] = @specification.nacional
     session[:specification_p1] = @specification.p1
       session[:specification_p2] = @specification.p2
       session[:specification_p3] = @specification.p3

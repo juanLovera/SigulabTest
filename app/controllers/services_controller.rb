@@ -14,7 +14,7 @@ specification = Specification.find(session[:specification_sel_id])
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = ReporteServices.new(@services)
+        pdf = ReporteServices.new(@services, specification)
         nombre = "Especificacion_#{session[:specification_sel_id]}.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
       end

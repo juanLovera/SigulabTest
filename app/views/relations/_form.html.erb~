@@ -1,0 +1,179 @@
+<script>
+function comaApunto(o)
+{
+  o.value = o.value.replace(",", ".");
+}
+</script>
+<div class="grid_12 push_5">
+	<%= form_for(@relation) do |f| %>
+	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @relation.errors.full_messages.first if @relation.errors.any? %> </span>
+                <table style="margin-left:-130px;"><tr><td style="padding-right:10px;">
+		  <div class="field"><span class="red">*</span>
+			 <%= f.label "Nombre del material/equipo" %><br>
+			 <select id='relation_item_id' name='relation[item_id]' style="width:200px;">
+<% @items.each do |i| %>
+<option value="<%= i.id %>"><%= i.nombre %></option>
+<% end %>
+</select>
+		  </div></td><td style="margin-top:-5px;">
+                      <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Marca" %><br>
+			 <%= f.text_field :marca %>
+		  </div>
+                        </td></tr><tr><td>
+                            <div class="field">
+          		<span class="red">*</span>
+			 <%= f.label "Modelo" %><br>
+			 <%= f.text_field :modelo %>
+		  </div>
+                        </td><td style="padding-right:10px;">
+		  <div class="field">
+			 <%= f.label "Tipo" %><br/>
+                          <table style="margin-left:15px;"><tr><td style="padding-right:50px;">
+                         <%= f.check_box :equipo %> Equipo </td><td>
+                         <%= f.check_box :material_consumible %> Material<br/>&nbsp;&nbsp;&nbsp; Consumible </td></tr><tr><td>
+                         <%= f.check_box :repuesto %> Repuesto </td><td>
+                         <%= f.check_box :accesorio %> Accesorio </td></tr><tr><td>
+                         <%= f.check_box :servicio %> Servicio </td><td>
+                         <%= f.check_box :licencia %> Licencia </td></tr><tr><td>
+                         <%= f.check_box :renovacion_licencia %> Renovación<br/>&nbsp;&nbsp;&nbsp; Licencia </td><td>
+                         <%= f.check_box :otro %> Otro </td></tr></table>
+
+		  </div></td></tr><tr><td colspan="2"><div class="field">
+                   <span class="red">*</span>
+<%= f.label "Dimensiones" %><br/>                 <table><tr><td><%= f.text_field :largo, :placeholder => "Largo", :style => "width:65px; margin-bottom:5px; margin-right:5px;  ", :onblur => "comaApunto(this)" %></td><td style="padding-right:10px;">
+                 <%= f.collection_select :dimensiones_largo, Relation::UnidadMedida, :to_s, :to_s, 
+                   :include_blank => true, :style => "width: 55px;" %></td><td>
+                 <%= f.text_field :alto, :placeholder => "Alto", :style => "width:60px; margin-right:5px;  " %></td><td style="padding-right:10px;">
+                 <%= f.collection_select :dimensiones_alto, Relation::UnidadMedida, :to_s, :to_s,
+          :include_blank => true, :style => "width: 55px;" %></td><td>
+                 <%= f.text_field :ancho, :placeholder => "Ancho", :style => "width:65px; margin-right:5px;  " %></td><td>
+                 <%= f.collection_select :dimensiones_ancho, Relation::UnidadMedida, :to_s, :to_s,
+          :include_blank => true, :style => "width: 55px;" %></td></tr><tr><td>
+                 <%= f.text_field :peso, :placeholder => "Peso", :style => "width:65px; margin-right:5px;  " %></td><td>
+                 <%= f.collection_select :dimensiones_peso, Relation::UnidadMedida2, :to_s, :to_s,
+          :include_blank => true, :style => "width: 55px;" %></td></tr></table>
+		  </div></td></tr><tr><td colspan="2">
+		  <div class="field">
+          
+			 <%= f.label "Descripción General" %><br>
+			 <%= f.text_area :descripcion_general, :style => "width:410px; height:80px;" %>
+		  </div></td></tr></table>
+          
+          
+          <table style="margin-left:-120px;"><tr><td colspan="2" style="padding-left:80px;"><h3>Descripción Específica</h3></td></tr><tr><td>
+		  <div class="field">
+          
+			 <%= f.label "Materia Constitutiva" %><br>
+			 <%= f.text_area :materia, :placeholder => "De qué está hecho", :style => "width:410px; height:80px;" %>
+                  </div></td></tr><tr><td style="padding-top:20px;">
+		  <div class="field">
+			 <%= f.label "Función" %><br>
+			 <%= f.text_area :funcion, :placeholder => "Para qué sirve" , :style => "width:410px; height:80px;" %><br>
+		  </div></td></tr>
+                    
+                    
+                    <tr><td style="padding-right:10px;">
+		  <div class="field">
+          
+			 <%= f.label "Aplicación Particular" %><br>
+			 <%= f.text_area :aplicacion, :placeholder => "En qué será utilizado", :style => "width:410px; height:80px;" %>
+                  </div></td></tr><tr><td style="padding-top:20px;">
+		  <div class="field">
+			 <%= f.label "Ubicación Física" %><br>
+			 <%= f.text_area :ubicacion, :placeholder => "Dónde estará localizado", :style => "width:410px; height:80px;" %><br>
+		  </div></td></tr><tr><td>
+<%= f.label "Observaciones" %><br>
+			 <%= f.text_area :observaciones, :placeholder => "Suministre cualquier información adicional que considere relevante y que no se haya mencionado", :style => "width:410px; height:80px;" %><br>		 </td></tr>
+                    
+                    <tr><td colspan="2" style=" padding-left:120px;">
+                            <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>
+		  <div class="actions">
+			 <%= f.submit "Aceptar", :style => "float:left;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+		  </div>
+		<% end %>
+		<%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-10px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "invitations" %>
+   </td></tr></table>
+</div>
+
+
+<style>
+input[type="submit"] {
+
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+border: 1px solid transparent;
+border-radius: 4px;
+
+
+}
+
+input[type="text"], textarea, input[type="number"] {
+
+display: block;
+width: 200px;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.red {
+
+font-size: 20px;
+color: red;
+
+}
+
+
+input[type="text"]:focus, textarea:focus, input[type="number"]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.field_with_errors {
+  	background-color: red;
+  	border-radius: 4px;
+}
+
+h2 {
+
+position:relative;
+right: 60px;
+color:red;
+font-size: 20px;
+
+}
+
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    height: 35px;
+   font-size: 14px;
+}
+</style>
+

@@ -14,6 +14,7 @@
 		 var textinput = document.getElementById("filename");
 		 textinput.value = fileinput.value;
 	}
+        
 
 </script>
 
@@ -44,9 +45,10 @@
  <div class="field"> <%= f.label "Items ofertados" %><br/>
   <% @items.each do |item| %>
 	  	
-      <input type="checkbox" id="itemsquote" checked name="itemsquotes<%= item.id %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre %><br>
+      <input type="checkbox" id="itemsquote" name="itemsquotes<%= item.id %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre %><br>
         
-		 <% end %></div>      <br><br>    <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>     
+		 <% end %></div>     
+                 <br/><br/><%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>     
         <div class="actions">
     <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
 <% end %>

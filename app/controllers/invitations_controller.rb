@@ -20,7 +20,7 @@ class InvitationsController < ApplicationController
       format.html
       format.pdf do
         pdf = ReporteInvitations.new(@invitation)
-        nombre = "Carta_Invitacion_Especificacion_#{session[:specification_sel_id]}_Empresa_#{@invitation.nombre}.pdf"
+        nombre = "Especificacion_#{session[:specification_sel_id]}_Carta_Invitacion_Empresa_#{@invitation.nombre}.pdf"
         send_data pdf.render, filename: nombre, type: 'application/pdf'
       end
     end
@@ -75,6 +75,13 @@ class InvitationsController < ApplicationController
   # DELETE /invitations/1.json
   def destroy
     @invitation.destroy
+    @sumInvitation = Invitation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+    if @sumInvitation == 0
+	specification = Specification.find(session[:specification_sel_id])
+    specification.p3 = 0
+    session[:specification_p3] = specification.p3
+    specification.save
+    end
     respond_to do |format|
       format.html { redirect_to invitations_url, notice: 'Invitation was successfully destroyed.' }
       format.json { head :no_content }
@@ -89,6 +96,6 @@ class InvitationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
-      params.require(:invitation).permit(:nombre, :direccion, :correo, :telefono, :telefono_Adicional, :responsable, :rif, :specification_id)
+      params.require(:invitation).permit(:nombre, :direccion, :correo, :telefono, :telefono_Adicional, :responsable, :rif, :specification_id, :tipo, :contacto, :correo_contacto, :fecha_tope)
     end
 end

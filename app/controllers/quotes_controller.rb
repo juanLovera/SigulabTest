@@ -30,6 +30,12 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
+	if session[:specification_sel_tipo] == "Servicios"
+         @items = Service.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+      else
+         @items = Item.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+      end 
+         @invitations = Invitation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
   end
 
   # POST /quotes
@@ -56,13 +62,16 @@ class QuotesController < ApplicationController
       if session[:specification_sel_tipo] == "Servicios"
          @itemsquote.nombre_item = Service.find(x.to_i).nombre
       else
-         @itemsquote.nombre_item = Item.find(x.to_i).nombre
+	 @item = Item.find(x.to_i)
+	 @item.comprar = 1
+         @itemsquote.nombre_item = @item.nombre
+         @item.save
       end
       @itemsquote.specification_id = session[:specification_sel_id];
       @itemsquote.save
     end
     end
-    nombre = "Oferta_Especificacion_#{session[:specification_sel_id]}_Empresa_#{quotew.nombre}"
+    nombre = "Especificacion_#{session[:specification_sel_id]}_Oferta_Empresa_#{quotew.nombre}"
     tmp = quotew.attachment_url
     quotew.ataname = tmp.gsub("nca",nombre)
     
@@ -76,6 +85,11 @@ class QuotesController < ApplicationController
     if cont == 0
        specification = Specification.find(session[:specification_sel_id])
        specification.p2 = 2
+       cont2 = Invitation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+	if cont2 > 1
+	specification.p5 = 0
+       session[:specification_p5] = specification.p3
+	end
        specification.p3 = 2
        session[:specification_p3] = specification.p3
     session[:specification_p2] = specification.p2

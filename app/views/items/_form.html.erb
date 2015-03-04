@@ -6,7 +6,7 @@
             <tr><td style="padding-right:25px;">
     <div class="field">
        <span class="red">*</span>
-     <%= f.label "Tipo del Bien/Consumible" %><br>
+     <%= f.label "Tipo" %><br>
      <%= f.collection_select :tipo, Item::TipoItem, :to_s, :to_s, 
           :include_blank => true %>
     </div></td><td>

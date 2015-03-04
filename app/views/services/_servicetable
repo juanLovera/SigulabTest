@@ -4,9 +4,11 @@
 	  <thead>
 		 <tr>
 		   <th>Nro</th>
+                   <th>Nro de Bien Nacional</th>
+                   <th>Ubicación</th>
 		   <th>Nombre</th>
+                   <th>Tipo de servicio</th>
 		   <th>Descripción</th>
-         <th>Tipo de servicio</th>
  <th></th>
 		 </tr>
 	  </thead>
@@ -14,9 +16,11 @@
 		 <% @services.each_with_index do |service, index| %>
 		   <tr>
 		     <td><%= index+1 %></td>
+                     <td><%= service.numero %></td>
+                     <td><%= service.ubicacion %></td>
 		     <td><%= service.nombre %></td>
+                     <td><%= service.tipo %></td>
 		     <td><%= service.descripcion %></td>
-           <td><%= service.tipo%></td>
 <td style="text-decoration:none; color:black; text-align: right"><%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, service %></td>
 		   </tr>
 		 <% end %>

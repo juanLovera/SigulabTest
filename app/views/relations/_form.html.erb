@@ -1,3 +1,9 @@
+<script>
+function comaApunto(o)
+{
+  o.value = o.value.replace(",", ".");
+}
+</script>
 <div class="grid_12 push_5">
 	<%= form_for(@relation) do |f| %>
 	  <span class="red" style="margin-left:-130px; font-size: 99%;"> <%= @relation.errors.full_messages.first if @relation.errors.any? %> </span>
@@ -36,16 +42,16 @@
 
 		  </div></td></tr><tr><td colspan="2"><div class="field">
                    <span class="red">*</span>
-<%= f.label "Dimensiones" %><br/>                 <table><tr><td><%= f.text_field :largo, :placeholder => "Largo", :style => "width:65px; margin-bottom:5px; margin-right:5px;  " %></td><td style="padding-right:10px;">
+<%= f.label "Dimensiones" %><br/>                 <table><tr><td><%= f.text_field :largo, :placeholder => "Largo", :style => "width:65px; margin-bottom:5px; margin-right:5px;  ", :onblur => "comaApunto(this)" %></td><td style="padding-right:10px;">
                  <%= f.collection_select :dimensiones_largo, Relation::UnidadMedida, :to_s, :to_s, 
                    :include_blank => true, :style => "width: 55px;" %></td><td>
-                 <%= f.text_field :alto, :placeholder => "Alto", :style => "width:60px; margin-right:5px;  " %></td><td style="padding-right:10px;">
+                 <%= f.text_field :alto, :placeholder => "Alto", :style => "width:60px; margin-right:5px;  ", :onblur => "comaApunto(this)" %></td><td style="padding-right:10px;">
                  <%= f.collection_select :dimensiones_alto, Relation::UnidadMedida, :to_s, :to_s,
           :include_blank => true, :style => "width: 55px;" %></td><td>
-                 <%= f.text_field :ancho, :placeholder => "Ancho", :style => "width:65px; margin-right:5px;  " %></td><td>
+                 <%= f.text_field :ancho, :placeholder => "Ancho", :style => "width:65px; margin-right:5px;  ", :onblur => "comaApunto(this)" %></td><td>
                  <%= f.collection_select :dimensiones_ancho, Relation::UnidadMedida, :to_s, :to_s,
           :include_blank => true, :style => "width: 55px;" %></td></tr><tr><td>
-                 <%= f.text_field :peso, :placeholder => "Peso", :style => "width:65px; margin-right:5px;  " %></td><td>
+                 <%= f.text_field :peso, :placeholder => "Peso", :style => "width:65px; margin-right:5px;  ", :onblur => "comaApunto(this)" %></td><td>
                  <%= f.collection_select :dimensiones_peso, Relation::UnidadMedida2, :to_s, :to_s,
           :include_blank => true, :style => "width: 55px;" %></td></tr></table>
 		  </div></td></tr><tr><td colspan="2">

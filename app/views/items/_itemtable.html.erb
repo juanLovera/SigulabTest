@@ -3,9 +3,10 @@
 	  <thead>
 		 <tr>
                    <th align="left">Nro</th>
+                   <th align="left">Tipo</th>
 		   <th align="left">Nombre</th>
-         <th align="left">Tipo</th>
 		   <th align="left">Descripción</th>
+                   <th align="left">Cantidad</th>
 <th align="left"></th>
 		 </tr>
 	  </thead>
@@ -14,9 +15,10 @@
 		 <% @items.each_with_index do |item, index| %>
 	  		<tr>
                      <td><%= index+1 %></td>
-                     <td><%= item.nombre %></td>
 		     <td><%= item.tipo %></td>
+                     <td><%= item.nombre %></td>
 		     <td><%= item.descripcion %></td>
+                     <td><%= item.cantidad %></td>
                      <td style="text-decoration:none; color:black; text-align: right"><%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, item %></td>
 		   </tr>
 		 <% end %>
