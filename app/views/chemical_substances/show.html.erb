@@ -4,27 +4,18 @@
 <%= javascript_include_tag 'tabs.js' %>
 
 <div class="row">
-<<<<<<< HEAD
-  <div class="col-xs-12">
-    <ol class="breadcrumb">
-	     <li> <%=link_to 'Inicio', controller: 'statics'%></li>
-	     <li> <%=link_to 'Inventario', inventario_url %></li>
-	     <li> <%=link_to 'Sustancias Químicas', chemical_substances_path %></li>
-	     <li class="active"> Ver </li>
-=======
-    <p id="notice"><%= notice %></p>
+
   <div class="col-xs-12">
     <ol class="breadcrumb">
     	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
     	<li> <%=link_to 'Inventario', inventario_url %></li>
     	<li> <%=link_to 'Sustancias Químicas', chemical_substances_path %></li>
     	<li class="active"> Ver </li>
->>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
     </ol>
   </div>
 </div>
 
-<<<<<<< HEAD
+<p id="notice"><%= notice %></p>
 
 <p><h2><center><%= @chemical_substance.name %></center></h2></p>
 
@@ -180,7 +171,7 @@
             </td>
 
           </tr>
-     
+
             <tr>
             <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
             <td class="col-xs-7"> <%= @chemical_substance.quantity %><% @chemical_substance.meassure %></td>
@@ -209,7 +200,7 @@
             <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.location %></td>
           </tr>
-           
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Fecha de expiración:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.expiration_date %></td>
@@ -295,17 +286,17 @@
             <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.bill %></td>
           </tr>
-          
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.cost %> BS.</td>
           </tr>
-          
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Órden de Compra:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.buy_order %></td>
           </tr>
-          
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
             <td class="col-xs-7"><%= @chemical_substance.adquisition_date %></td>
@@ -403,7 +394,7 @@
     {
       localStorage[ 'firstLoad' ] = true;
       window.location.reload();
-    }  
+    }
     else
       localStorage.removeItem( 'firstLoad' );
   }
