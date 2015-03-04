@@ -1,16 +1,31 @@
 class RecommendationsController < ApplicationController
   layout "application_compras"
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
-
+def index
+    if current_user
+    	@requests = Request.where(:specification_id => session[:specification_sel_id]).first
+      @sumRequest = Request.where(:specification_id => session[:specification_sel_id]).count
+      if @sumRequest != 0
+        respond_to do |format|
+        format.html { redirect_to @requests, notice: '' }
+      end
+    end
+    end
+  end
   def index
     if current_user
     @recommendations = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
     @sumRec = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+    @reco = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
     end
     respond_to do |format|
-	      format.html
+	      format.html do
+          if @sumRec != 0
+            redirect_to @reco
+          end
+        end
 	      format.pdf do
-		@reco = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+		
 		@invt = Invitation.where(:specification_id => session[:specification_sel_id]).all
 		@recoEmp = RecommendationsEmpresa.where(:id_informe => @reco.id).all
 		@itemsq = Itemsquote.where(:specification_id => session[:specification_sel_id]).all

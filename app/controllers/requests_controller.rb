@@ -75,7 +75,7 @@ class RequestsController < ApplicationController
     specification.save
     respond_to do |format|
       if @request.save
-        format.html { redirect_to requests_url, notice: 'Invitation was successfully created.' }
+        format.html { redirect_to requests_url, notice: 'Request was successfully created.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
