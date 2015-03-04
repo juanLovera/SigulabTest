@@ -24,12 +24,17 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
-    @loan = Loan.new
-    @equipment = Equipment.where(id2: params[:item_ids])
-    @instruments = Instrument.where(id2: params[:item_ids])
-    @tools = Tool.where(id2: params[:item_ids])
-    @consumables = Consumable.where(id2: params[:item_ids])
-    @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
+    if params[:item_ids] == nil
+      flash[:notice] = "No ha seleccionado ningun item para ser prestado"
+      redirect_to :back
+    else
+      @loan = Loan.new
+      @equipment = Equipment.where(id2: params[:item_ids])
+      @instruments = Instrument.where(id2: params[:item_ids])
+      @tools = Tool.where(id2: params[:item_ids])
+      @consumables = Consumable.where(id2: params[:item_ids])
+      @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
+    end
   end
 
   # GET /loans/1/edit

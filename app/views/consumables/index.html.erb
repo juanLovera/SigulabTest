@@ -9,6 +9,10 @@
     <li class="active"> Consumibles </li>
   </ol>
 
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+
 <div id="LeDivConsumibles">
   <h1><i class="fa fa-fire"></i> Consumibles</h1>
 

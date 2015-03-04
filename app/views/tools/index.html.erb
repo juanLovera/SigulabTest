@@ -9,6 +9,9 @@
   <li class="active"> Herramientas </li>
 </ol>
 
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
 
 <div id="LeDivTools">
   <h1><i class="fa fa-wrench"></i>  Herramientas</h1>
