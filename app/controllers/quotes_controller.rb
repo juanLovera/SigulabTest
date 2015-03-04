@@ -30,6 +30,12 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
+	if session[:specification_sel_tipo] == "Servicios"
+         @items = Service.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+      else
+         @items = Item.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+      end 
+         @invitations = Invitation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
   end
 
   # POST /quotes
@@ -79,6 +85,11 @@ class QuotesController < ApplicationController
     if cont == 0
        specification = Specification.find(session[:specification_sel_id])
        specification.p2 = 2
+       cont2 = Invitation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+	if cont2 > 1
+	specification.p5 = 0
+       session[:specification_p5] = specification.p3
+	end
        specification.p3 = 2
        session[:specification_p3] = specification.p3
     session[:specification_p2] = specification.p2
