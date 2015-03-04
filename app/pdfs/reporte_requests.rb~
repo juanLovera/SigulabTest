@@ -106,29 +106,6 @@ def titulo5
         [{:content => "• Proforma a nombre de la UNIVERSIDAD SIMON BOLIVAR, indicando  la condición de entrega, de acuerdo a lo establecido en numeral 2.5 del instructivo de “Solicitud de Compra a Proveedor en el Extranjero”\n\n• Comunicación oficial emitida por el Proveedor que incluya sus datos generales e información Bancaria, según lo establecido en el punto 3 del Instructivo de “Solicitud de Compra a Proveedor en el Extranjero” 	\n\n• Requisición de Materiales y Equipos detallados en español (pto. 4 del instructivo) 	\n\n• Folleto o catálogo (Brochure) del Material y/o Equipo solicitado, que respalde la información suministrada en el formato de “Relación Descriptiva de Materiales/Equipos” 	\n\n• Instructivo de “Solicitud de Compra a Proveedor en el Extranjero” firmado y sellado. 	\n\n• Copia Contrato Fonacit, si aplica	\n\n• Copia del Acta del Consejo Directo donde autorice la Contratación Pública, si aplica (Compras mayores de 2.500 UT)", :background_color => "FFFFFF", :align => :left}, {:content => "Recibido por:\n\n\n\nCoordinación de Adquisiciones – ULab.\nFecha:\n\n\n\n\n\n\n\n\n\nAprobado por:\n\n\n\n\nDirector – ULab.\nFecha:", :background_color => "FFFFFF", :align => :center}]]
    end
 
-  def table_content 
-    move_down 25
-    # Then I set the table column widths
-    table items_rows do
-      row(0).font_style = :bold
-      row(2).font_style = :bold
-      self.header = true
-      self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [80,200,120,60,80]
-    end
-
-    move_down 45
-    text "______________________\n\nFirma de Autorizacion\ \ \ \ \n", :align => :right 
-  end
-
-
- 
-  def items_rows
-    [['Tipo', 'Descripción', 'Nombre', 'Número de BN', 'Ubicacion']] +
-      @services.map do |service|
-      [service.tipo, service.descripcion, service.nombre, service.numero, service.ubicacion]
-    end
-  end
 
   def pie_de_pagina
     font("#{Prawn::DATADIR}/fonts/DejaVuSans.ttf") do 

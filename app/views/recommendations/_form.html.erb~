@@ -1,0 +1,141 @@
+<div style="margin-left:350px;">
+  <%= form_for(@recommendation) do |f| %>
+    <span class="red" style="margin-left:-130px; font-size: 99%;"> 
+      <%= @recommendation.errors.full_messages.first if @recommendation.errors.any? %> 
+    </span>
+
+<table style="margin-left:-220px; width: 660px;">
+<tr><td style="width:55%"><span class="red">*</span> <%= f.label "Código de consulta de precios:" %><br/><%= f.text_field :codigo %></td><td><span class="red">*</span> <%= f.label "Via por la cual se envió la carta de invitación" %><br/><%= f.collection_select :via, Recommendation::ViaEnvio, :to_s, :to_s, :include_blank => false %></td></tr>
+</table>
+   <br/><br/>     
+<div class="field"><span class="red">*</span> <%= f.label "Empresas Seleccionadas" %>
+
+  <% @quotes.each_with_index do |quote,ind| %><br/>
+<div class="panel panel-default" style="margin-left:-220px; width: 660px;">
+  <div class="panel-heading"><%= quote.nombre %></div>
+  <div class="panel-body">
+     <input type="checkbox" name="recommendation_empresas<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" onClick="if (this.checked) $('#seleccion<%= ind %>').slideDown(); else $('#seleccion<%= ind %>').slideUp();" /> Esta empresa cumplió con todos los requisitos<br><br>      
+    <div id="seleccion<%= ind %>" style='display:none'>
+<input type="hidden" name="quoteid<%= ind %>" value="<%= quote.id %>" />
+<input type="hidden" name="empresa<%= ind %>" value="<%= quote.nombre %>" />
+        <strong>Seleccione prioridad:</strong> <select name='prioridad<%= ind %>'><option value='1'>Primera Opción</option><option value='2'>Segunda Opción</option><option value='4'>Tercera Opción</option><option value='4'>Cuarta Opción</option><option value='5'>Quinta Opción</option><option value='0'>Otro</option></select>
+<br/><br/><strong>Seleccione los items que quiere recomendar para esta empresa:</strong>
+        <% @itemsquotes.each_with_index do |item,ind2| %>
+          <% if (quote.id == item.id_oferta) %>
+             <br/><input type="checkbox" checked name="item_ofertado<%= ind %>.<%= ind2 %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre_item %>
+          <% end %>
+	<% end %>
+<strong><br/><br/>Seleccione por qué recomienda esta empresa:</strong><br>
+            <table style="width: 100%;">
+            <tr><td><input type="checkbox" id="calidadProd" name="calidadProd<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Calidad del Producto</td>
+                <td><input type="checkbox" id="disponibilidad" name="disponibilidad<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Disponibilidad del Producto</td>
+                <td><input type="checkbox" id="proveedorU" name="proveedorU<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Proveedor Único</td></tr>
+                <tr><td><input type="checkbox" id="calidadServ" name="calidadServ<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Calidad del servicio</td>
+                    <td><input type="checkbox" id="garantia" name="garantia<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Garantía</td>
+                    <td><input type="checkbox" id="servicioPV" name="servicioPV<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Servicio Postventa</td></tr>
+                <tr><td><input type="checkbox" id="cumplimientoEsp" name="cumplimientoEsp<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Cumplimiento de las especificaciones </td>
+                    <td><input type="checkbox" id="precio" name="precio<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Precio</td>
+                    <td><input type="checkbox" id="tiempoE" name="tiempoE<%= ind %>" value="1" style="margin-right: 5px; margin-bottom: 5px;" />Tiempo de entrega</td></tr>
+            </table>  
+    </div>
+</div></div>
+  <% end %>
+</div> 
+        <div class="actions">
+    <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la información que acaba de suministrar?' }  %>
+<% end %>
+    <%= link_to '<button type="button" class="btn btn-primary" style="margin-top:0px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "recommendations" %>  
+      </div>
+</div>
+
+<style>
+
+input[type="submit"]  {
+
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	color: #fff;
+	background-color: #428bca;
+	border-color: #357ebd;
+	border: 1px solid transparent;
+	border-radius: 4px;
+
+
+}
+
+#fakeBrowse {
+
+position:relative;
+left: 220px;
+bottom: 34px;
+}
+
+.red {
+
+	font-size: 20px;
+	color: red;
+
+}
+
+
+input[type="text"] {
+
+display: block;
+width: 200px;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+maxlength:100;
+
+}
+
+input[type="text"]:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+h2 {
+
+position:relative;
+right: 150px;
+color:red;
+font-size: 20px;
+right: 60px;
+}
+
+.field_with_errors {
+  	background-color: red;
+  	border-radius: 4px;
+}
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: white;
+    outline:none;
+    display: inline-block;
+    cursor:pointer;
+    width: 200px;
+    height: 35px;
+    maxlength:100;
+    font-size: 14px;
+}
+
+</style>
+

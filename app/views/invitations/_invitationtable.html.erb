@@ -4,8 +4,8 @@
 		 <tr>
 		   <th align="left">Nro</th>
 		   <th align="left">Nombre de la empresa</th>
-		   <th align="left">Responsable</th>
-		   <th align="left">Correo del responsable</th>
+		   <th align="left">Contacto</th>
+		   <th align="left">Correo del contacto</th>
 <th align="left"></th>
 		 </tr>
 	  </thead>
@@ -15,8 +15,8 @@
 	  		<tr>
 		     <td><%= index+1 %></td>
 		     <td><%= invitation.nombre %></td>
-		     <td><%= invitation.responsable %></td>
-		     <td><%= invitation.correo %></td>
+		     <td><%= invitation.contacto %></td>
+		     <td><%= invitation.correo_contacto %></td>
 <td style="text-decoration:none; color:black; text-align: right"><a href="/invitations/<%= invitation.id %>.pdf"><button type="button" class="btn btn-primary"> Descargar </button></a> <%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, invitation %></td>     
 		   </tr>
 		 <% end %>

@@ -65,7 +65,11 @@
 		  <div class="field">
 			 <%= f.label "Banco" %><br>
 			 <%= f.text_field :nombre_banco %><br>
-		  </div></td></tr><tr><td>
+		  </div></td><td><div class="field">
+			 <%= f.label "Modalidad de Importación" %><br>
+			 <select name='modalidad'><option value="Con exoneracion de impuestos de importacion y con exoneracion del I.V.A.">Con exoneracion de impuestos de importacion y con exoneracion del I.V.A.</option><option value="Cancelando el monto correspondiente al Impuesto de Importacion y con exoneracion del I.V.A.">Cancelando el monto correspondiente al Impuesto de Importacion y con exoneracion del I.V.A.</option><option value="Cancelando los montos correspondientes al Impuesto de Importacion y el I.V.A.">Cancelando los montos correspondientes al Impuesto de Importacion y el I.V.A.</option></select><br>
+		  </div>
+</td></tr><tr><td>
                     
                     
                       <div class="field">
@@ -91,7 +95,7 @@
 	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick('4');"/>
   </div>                    
    
-                    </td><td>Copia del Acta del Consejo Directo donde autorice la Contratación Pública, si aplica (Compras mayores de 2.500 UT)</td></tr>
+                    </td><td>Copia del Consejo Directo donde autorice la Contratación Pública, si aplica (Compras mayores de 2.500 UT)</td></tr>
                     
                     <tr><td colspan="2">
 
@@ -112,7 +116,7 @@
 			 <%= f.submit "Aceptar", :style => "float:left;", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
 		  </div>
 		<% end %>
-		<%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-10px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "invitations" %>
+		<%= link_to '<button type="button" class="btn btn-primary" style="margin-top:-10px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "requests" %>
    </td></tr></table>
 </div>
 

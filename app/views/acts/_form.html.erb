@@ -12,8 +12,12 @@
        <%= f.text_field :numRegistro %>
 </td><td>
        <span class="red">*</span>
-       <%= f.label "Nombre del Proveedor" %><br>
-       <%= f.text_field :proveedor, :placeholder => "Nombre del Proveedor" %>
+       <%= f.label "Nombre del Proveedor" %><br><select id='act_proveedor' name='act[proveedor]'>
+      <% @invitations.each do |invt| %>
+<% if invt.quote_id != -1 %>
+<option value="<%= invt.nombre %>"><%= invt.nombre %></option>
+<% end %>
+<% end %></select>
 </td></tr><tr><td style="padding-top:10px;">
        
        <span class="red">*</span>

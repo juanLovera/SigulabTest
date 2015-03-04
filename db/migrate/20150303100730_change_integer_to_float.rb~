@@ -1,0 +1,8 @@
+class ChangeIntegerToFloat < ActiveRecord::Migration
+  def change
+  	 change_column :relations, :alto, :float
+     change_column :relations, :ancho, :float
+     change_column :relations, :largo, :float
+     change_column :relations, :peso, :float
+  end
+end
