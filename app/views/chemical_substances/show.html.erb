@@ -15,8 +15,6 @@
   </div>
 </div>
 
-<p id="notice"><%= notice %></p>
-
 <p><h2><center><%= @chemical_substance.name %></center></h2></p>
 
 <div id="tabs">
@@ -112,47 +110,10 @@
             <% end %>
             <% if @chemical_substance.oxidant %>
               <%= ' COMBURENTE ' %>
-=======
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-1" class="show">Características</a></li>
-      <li><a href="#tabs-2" class="show">Ubicación</a></li>
-      <li><a href="#tabs-3" class="show">Datos de Adquisición</a></li>
-    </ul>
-
-    <div id="tab-1">
-        <table class="table table-striped">
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.name %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Pureza:</strong></td>
-            <td class="col-xs-7"><%=@chemical_substance.purity %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Estado materia:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.matter_states %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Controlado:</strong></td>
-            <td class="col-xs-7">
-              <% if @chemical_substance.controlled %>
-                <%= 'SÍ' %>
-              <% else %>
-                <%= 'NO' %>
-              <% end %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Régimen legal:</strong></td>
-            <td class="col-xs-7">  <% if @chemical_substance.rI7 %>
-              <%= 'RL7' %>
->>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
             <% end %>
             <% if @chemical_substance.explosive %>
               <%= ' EXPLOSIVO ' %>
             <% end %>
-<<<<<<< HEAD
             <% if @chemical_substance.irritating %>
               <%= ' IRRITANTE ' %>
             <% end %>
@@ -167,72 +128,6 @@
             <% end %>
         </td>
       </tr>
-=======
-            </td>
-
-          </tr>
-
-            <tr>
-            <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
-            <td class="col-xs-7"> <%= @chemical_substance.quantity %><% @chemical_substance.meassure %></td>
-          </tr>
-           <tr>
-            <td class="col-xs-5 text-right" ><strong title="Servicio de Resúmenes Químicos (Chemical Abstract Service)">CAS:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.cas %></td>
-           </tr>
-        </table>
-      </div>
-      <div id="tab-2">
-        <table class="table table-striped">
-           <tr>
-            <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.status %></td>
-          </tr>
-           <tr>
-            <td class="col-xs-5 text-right"><strong title="Persona responsable del Item">Responsable:</strong></td>
-            <td class="col-xs-7"> <%= @chemical_substance.responsible %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.dependency %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.location %></td>
-          </tr>
-
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Fecha de expiración:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.expiration_date %></td>
-          </tr>
-         <tr>
-              <td class="col-xs-5 text-right"><strong>Peligrosidad:</strong></td>
-              <td class="col-xs-7">
-                 <% if @chemical_substance.toxic %>
-                  <%= ' TÓXICO ' %>
-                <% end %>
-                <% if @chemical_substance.oxidant %>
-                  <%= ' COMBURENTE ' %>
-                <% end %>
-                <% if @chemical_substance.explosive %>
-                  <%= ' EXPLOSIVO ' %>
-                <% end %>
-                <% if @chemical_substance.irritating %>
-                  <%= ' IRRITANTE ' %>
-                <% end %>
-                <% if @chemical_substance.inflamable %>
-                  <%= ' INFLAMABLE ' %>
-                <% end %>
-                <% if @chemical_substance.corrosive %>
-                  <%= ' CORROSIVO ' %>
-                <% end %>
-                <% if @chemical_substance.nocive %>
-                  <%= ' NOCIVO' %>
-                <% end %>
-            </td>
-          </tr>
->>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
-
       <tr>
         <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
           <td class="col-xs-7">
@@ -245,7 +140,6 @@
             <% if @chemical_substance.extention %>
               <%= ' EXTENSIÓN ' %>
             <% end %>
-<<<<<<< HEAD
           </td>
       </tr>
     </table></p>
@@ -275,38 +169,6 @@
     </table></p>
   </div>
 </div>
-=======
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div id="tab-3">
-        <table class="table table-striped">
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.bill %></td>
-          </tr>
-
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.cost %> BS.</td>
-          </tr>
-
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Órden de Compra:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.buy_order %></td>
-          </tr>
-
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
-            <td class="col-xs-7"><%= @chemical_substance.adquisition_date %></td>
-          </tr>
-        </table>
-      </div>
-
- </div>
-<br><br>
->>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
 
 
 
