@@ -9,6 +9,10 @@
   <li class="active"> Instrumentos de Medición </li>
 </ol>  
 
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+
 <div id="LeDivInstrumentos">
   <h1><i class="fa fa-eyedropper"></i> Instrumentos de Medición</h1>
 

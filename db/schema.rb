@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150303050723) do
 
   # These are extensions that must be enabled in order to support this database
@@ -98,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150303050723) do
     t.date     "adquisition_date"
     t.boolean  "showable",         default: true
     t.string   "dependency"
+    t.integer  "numSolicitud"
     t.boolean  "solicitados"
     t.string   "id2"
     t.string   "origen"
@@ -268,7 +268,6 @@ ActiveRecord::Schema.define(version: 20150303050723) do
     t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
-    t.boolean  "estado"
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
@@ -395,13 +394,13 @@ ActiveRecord::Schema.define(version: 20150303050723) do
     t.datetime "updated_at"
     t.integer  "admin"
     t.integer  "status",         default: 0
-    t.text     "observation"
-    t.integer  "banco"
-    t.string   "num_cuenta"
     t.float    "furniture",      default: 0.0
     t.string   "other_desc"
     t.decimal  "other_amount",   default: 0.0
+    t.string   "num_cuenta"
     t.date     "annulled_date"
+    t.string   "observation"
+    t.integer  "banco"
     t.string   "substitute"
   end
 

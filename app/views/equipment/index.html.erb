@@ -9,6 +9,11 @@
   <li class="active"> Equipos y mobiliarios </li>
 </ol>
 
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+
+
 <div id="LeDivEquipos">
   <h1><i class="fa fa-plug"></i> Equipos y Mobiliarios</h1>
 
