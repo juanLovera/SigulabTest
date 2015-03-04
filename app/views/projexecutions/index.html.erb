@@ -47,13 +47,20 @@
 									<td class="text-center"><%= link_to i.check_number, i %></td>														
 									<td class="text-center"><%= link_to Projcommitment.find(i.commitment_id).description, Projcommitment.find(i.commitment_id) %></td>
 									<td class="text-center"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
-
-									<% if i.check_annulled %>
-										<td class="text-center">Anulado</td>
-									<% else %>
-										<td class="text-center">Activo</td>
-									<% end %>
-				        			
+									<td class="text-center">
+				  						<% if i.check_annulled? %>
+                    						Anulado
+				 						<% else %>
+                  							<% if i.check_sign_date.blank? %> 
+                    							En espera de firma
+                  							<% else if i.check_delivery_date.blank? %> 
+                    							En custodia
+                  							<% else %> 
+                    							Entregado
+                  							<% end %>
+                  							<% end %>
+										<% end %>
+									</td>				        			
 								</tr>
 							<% end %>
 						</tbody>
