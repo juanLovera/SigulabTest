@@ -276,10 +276,29 @@ ActiveRecord::Schema.define(version: 20150304015638) do
     t.integer  "financing"
     t.string   "doc_code"
     t.date     "doc_date"
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    t.boolean  "estado"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
+>>>>>>> 24aebff7dd3c276b922c47683ebf210c8f390427
+=======
+>>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
     t.string   "unit"
     t.string   "variation"
     t.string   "resource_description"
     t.integer  "resource",             default: 0
+<<<<<<< HEAD
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
+>>>>>>> 71f9c1db455e211f8d1acd98c14e9f054be70686
+=======
+>>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
   end
 
   create_table "instruments", force: true do |t|
@@ -413,8 +432,21 @@ ActiveRecord::Schema.define(version: 20150304015638) do
     t.decimal  "other_amount",   default: 0.0
     t.date     "annulled_date"
     t.string   "num_cuenta"
+<<<<<<< HEAD
+    t.date     "annulled_date"
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> 60a085223ec7d1d0d647919822d76302d8538ff1
     t.string   "observation"
     t.integer  "banco"
+>>>>>>> 24aebff7dd3c276b922c47683ebf210c8f390427
+>>>>>>> 71f9c1db455e211f8d1acd98c14e9f054be70686
+=======
+    t.string   "observation"
+    t.integer  "banco"
+>>>>>>> 942491c2e378e9a80c481629ddaa0ce4146c96b9
     t.string   "substitute"
   end
 
