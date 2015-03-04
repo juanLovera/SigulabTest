@@ -37,6 +37,7 @@
 								<th class="text-center">Compromiso Asociado</th>
 								<th class="text-center">Beneficiario</th>
 								<th class="text-center">Monto</th>
+								<th class="text-center">Estatus del cheque</th>
 							</tr>
 						</thead>
 
@@ -48,6 +49,20 @@
 									<td class="text-left"><%= link_to i.commitment.description, i.commitment %></td>
 									<td class="text-left"><%= i.commitment.recipient %></td>
 									<td class="text-left"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+									<td class="text-center">
+				  						<% if i.check_annulled? %>
+                    						Anulado
+				 						<% else %>
+                  							<% if i.check_sign_date.blank? %> 
+                    							En espera de firma
+                  							<% else if i.check_delivery_date.blank? %> 
+                    							En custodia
+                  							<% else %> 
+                    							Entregado
+                  							<% end %>
+                  							<% end %>
+										<% end %>
+									</td>									
 				        			
 								</tr>
 							<% end %>
