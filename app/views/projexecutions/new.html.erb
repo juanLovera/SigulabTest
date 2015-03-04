@@ -92,7 +92,7 @@
 				<div class='col-xs-4'>
 					<div class="input-group">
     					<span class="input-group-addon">Bs.</span>
-						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(Projcommitment.find(params[:cid]).amount - Projexecution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount), format: "%n", delimiter: ".", separator: ",", precision: 2), onblur: "setProjexecutionAmount();" %>
+						<%= i.text_field :check_amount, class: 'form-control', value: number_to_currency(Projcommitment.find(params[:cid]).amount - Projexecution.where("commitment_id=?",params[:cid]).where("check_annulled=false").sum(:check_amount), format: "%n", delimiter: ".", separator: ",", precision: 2), onblur: "setProjexecutionAmount();", placeholder: '0.000,00' %>
 					</div>
 				</div>
 			</div>
