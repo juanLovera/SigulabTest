@@ -24,7 +24,7 @@
     <li><a href="#tabs-3" class="show">Datos de Adquisición</a></li>
   </ul>
 
-  <div id="tab-1">
+  <div id="tabs-1">
       <p><table class="table table-striped">
         <tr>
           <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
@@ -76,14 +76,11 @@
           <td class="col-xs-7"><%= @chemical_substance.status %></td>
         </tr>
 
-        <tr>
-          <td class="col-xs-5 text-right"></td>
-          <td class="col-xs-7"></td>
-        </tr>
+
     </table></p>
   </div>
 
-  <div id="tab-2">
+  <div id="tabs-2">
     <p><table class="table table-striped">
       <tr>
         <td class="col-xs-5 text-right"><strong title="Persona responsable del Item">Responsable:</strong></td>
@@ -146,15 +143,10 @@
             <% end %>
           </td>
       </tr>
-
-      <tr>
-          <td class="col-xs-5 text-right"></td>
-          <td class="col-xs-7"></td>
-      </tr>
     </table></p>
   </div>
 
-  <div id="tab-3">
+  <div id="tabs-3">
     <table class="table table-striped">
       <tr>
         <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
@@ -175,12 +167,6 @@
         <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
         <td class="col-xs-7"><%= @chemical_substance.adquisition_date %></td>
       </tr>
-
-      <tr>
-        <td class="col-xs-5 text-right"></td>
-        <td class="col-xs-7"></td>
-      </tr>
-
     </table></p>
   </div>
 </div>
