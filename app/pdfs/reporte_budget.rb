@@ -73,7 +73,7 @@ class ReporteBudget < Prawn::Document
     move_down 10  	
     table(content2, :position => 23, :width => 700, :cell_style => {:align => :center, :size => 10}) do
       row(0).background_color = "C0C0C0"
-      column(0).width = 137
+      column(0).width = 185
     end   
     move_down 20    
   end
