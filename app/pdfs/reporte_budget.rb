@@ -18,7 +18,7 @@ class ReporteBudget < Prawn::Document
   def header
   	y_position = cursor - 40
     image "#{Rails.root}/app/assets/images/cebolla.png", width: 55, :at => [75, cursor]
-    image "#{Rails.root}/app/assets/images/Logo_ULab.jpg", width: 60, :position => :right
+    image "#{Rails.root}/app/assets/images/Logo_ULab.jpg", width: 35, :at => [685, cursor-40]
 	  bounding_box([0, y_position], :width => 200, :height => 40) do
       text "UNIVERSIDAD SIMÓN BOLÍVAR", size: 10, style: :bold, :align => :center
       text "VICERRECTORADO ACADÉMICO", size: 9, :align => :center
@@ -73,7 +73,7 @@ class ReporteBudget < Prawn::Document
     move_down 10  	
     table(content2, :position => 23, :width => 700, :cell_style => {:align => :center, :size => 10}) do
       row(0).background_color = "C0C0C0"
-      column(0).width = 137
+      column(0).width = 185
     end   
     move_down 20    
   end
@@ -89,18 +89,10 @@ class ReporteBudget < Prawn::Document
   end
 
   def footer
-    move_down 65
+    move_down 40
       text "Universidad Simón Bolívar, Edif. Energética, Planta Baja. Valle de Sartenejas, Baruta, Caracas, Edo. Miranda, Venezuela, 89000", size: 9, :align => :center
       text "Telef.: 58 212 906-3708 / 3709 / 3710 / 3711 Fax: 58 212 906-3712 www.ulab.usb.ve", size: 9, :align => :center      
 
   end
-  
-  def product_rows
-    [['#', 'Name', 'Price']] +
-      @products.map do |product|
-      [product.id, product.name, product.price]
-    end
-  end
 
 end
-

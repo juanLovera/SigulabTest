@@ -14,7 +14,7 @@ labs_list = [
   [ 'DirG', '01.05.03.02', 'Laboratorio G - Administración', 'Administración De Laboratorios, Litoral' ],
 ]
 
-labs_list.each do |name, sae_code, sae_name|
+labs_list.each do |name, sae_code, sae_name, description|
   Lab.create(name: name, sae_code: sae_code, sae_name: sae_name, description: description)  
 end
 

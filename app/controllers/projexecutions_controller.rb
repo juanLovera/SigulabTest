@@ -106,7 +106,7 @@ class ProjexecutionsController < ApplicationController
        render 'edit'
      else 
        if @projexecution.update_attributes(execution_params)
-         redirect_to action: 'index', id: Project.find(Projcommitment.find(params[:id]).proj_id).id
+         redirect_to action: 'index', id: @projexecution.proyecto
        else
          @commitment = Projcommitment.find(Projexecution.find(params[:id]).commitment_id)
          render 'edit'

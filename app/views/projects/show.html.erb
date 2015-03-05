@@ -89,6 +89,9 @@
 				<td class="col-xs-7"></td>
 			</tr>
  		    </table></p>
+ 		<%= link_to edit_project_path do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Distribución del Monto</button>
+		<% end %>
 	</div>
 	<div id="tabs-2">
 		<p><table class="table table-striped">
@@ -139,6 +142,9 @@
 				<td class="col-xs-7" ><div id="span1"> <font size=3.6> Bs. </div> </font><div id="span2" align="right"> <font size=3.6> <%= number_to_currency(@project.amount, format: "%n", delimiter: ".", separator: ",") %> </font> </div> </td>	
 			</tr>  
 		</table></p>
+		<%= link_to edit_project_path + "#tabs-2" do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Distribución del Monto</button>
+		<% end %>
 	</div>
 	<div id="tabs-3">
 		<p><table class="table table-striped">
@@ -149,13 +155,16 @@
 			<tr>
 				<td class="col-xs-5 text-right">Número de cuenta:</td>
 				<td class="col-xs-7"><%= @project.num_cuenta %></td>
-  			</tr>
-  			
+  			</tr>  			
   			<tr>
 				<td class="col-xs-5 text-right"></td>
 				<td class="col-xs-7"></td>
 			</tr>
 		</table></p>
+
+		<%= link_to edit_project_path + "#tabs-3" do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Cuenta Bancaria</button>
+		<% end %>
 	</div>
 	<div id="tabs-4">
 		<p><table class="table table-striped">
@@ -183,15 +192,15 @@
 				<td class="col-xs-7"></td>
 			</tr>
 		</table></p>
+		<%= link_to edit_project_path do %>
+			<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Proyecto</button>
+		<% end %>
 	</div>
 
 </div>
 
 </br>
 <div class="col-xs-12">
-	<%= link_to edit_project_path do %>
-		<button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Editar Proyecto</button>
-	<% end %>
 	<%= link_to controller: 'projincomes', id: @project.id do %>
 		<button type="button" class="btn btn-primary hidden_option"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp; Ingresos </button>
 	<% end %>
