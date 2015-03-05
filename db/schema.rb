@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150305131220) do
+=======
 
 
 ActiveRecord::Schema.define(version: 20150305141950) do
 
+>>>>>>> 99f1eab86ddfa83e65adeb838e51420ec4ea0ddb
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -255,6 +259,15 @@ ActiveRecord::Schema.define(version: 20150305141950) do
   end
 
   add_index "executions", ["commitment_id"], name: "index_executions_on_commitment_id", using: :btree
+
+  create_table "fecha_entregas", force: true do |t|
+    t.string   "ubicacion"
+    t.string   "fechaTope"
+    t.string   "condiciones"
+    t.string   "medida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "incomes", force: true do |t|
     t.integer  "lab_id"
@@ -607,7 +620,6 @@ ActiveRecord::Schema.define(version: 20150305141950) do
     t.boolean  "showable",         default: true
     t.boolean  "from_set"
     t.string   "dependency"
-    t.boolean  "solicitados"
     t.string   "id2"
     t.string   "tipo"
     t.string   "origen"

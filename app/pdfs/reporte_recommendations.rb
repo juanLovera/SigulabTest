@@ -48,7 +48,7 @@ class ReporteRecommendations < Prawn::Document
   def texto
     time = Time.now + 7.days
     move_down 15
-    text"Por medio del presente rindo el informe de recomendación correspondiente al procedimiento de la Consulta de Precios #{@recommendation.codigo}, conforme al tenor descrito a continuación:", :align => :justify, :indent_paragraphs => 40, :inline_format => true
+    text"Por medio del presente rindo el informe de recomendación correspondiente al procedimiento de la Especificación Técnica #{@recommendation.codigo}, conforme al tenor descrito a continuación:", :align => :justify, :indent_paragraphs => 40, :inline_format => true
 
     move_down 10
     text "1. Cumpliendo con el Artículo 7 del Reglamento de la Ley de Contrataciones Públicas, se procedió a la remisión, vía #{@recommendation.via}, de la “Carta de Invitación” y las “Especificaciones Técnicas del Bien” a las empresas que se mencionan a continuación, para que participasen en el proceso de contratación", :align => :justify, :indent_paragraphs => 40

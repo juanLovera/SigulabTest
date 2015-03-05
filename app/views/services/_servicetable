@@ -21,7 +21,7 @@
 		     <td><%= service.nombre %></td>
                      <td><%= service.tipo %></td>
 		     <td><%= service.descripcion %></td>
-<td style="text-decoration:none; color:black; text-align: right"><%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, service %></td>
+<td style="text-decoration:none; color:black; text-align: right"><%= link_to '<button type="button" class="btn btn-warning"> Consultar </button>'.html_safe, service %></td>
 		   </tr>
 		 <% end %>
 		 <% if @sumService == 0 %>
