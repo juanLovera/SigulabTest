@@ -48,7 +48,7 @@ def index
 	    session[:specification_p6] = specification.p6
 	    session[:specification_p8] = specification.p8
 	    specification.save
-              redirect_to "/recommendations?pdf=1"
+              redirect_to "/recommendations/#{@reco.id}?pdf=1"
       end
       end
    	

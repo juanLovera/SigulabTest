@@ -47,13 +47,12 @@ class BinnaclesController < ApplicationController
 
   def create
     @binnacle = Binnacle.new(binnacle_params)
-    flash[:notice] = 'Se ha añadido un registro a la bitácora exitosamente.' if @binnacle.save    
-
+    flash[:notice] = 'Se ha añadido un registro a la bitácora exitosamente.' if @binnacle.save
     @ingresos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:ingreso)
     @consumos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:consumo)
     @binnacle.total = @ingresos - @consumos
     @binnacle.save
-        
+    
   end
 
   def update
