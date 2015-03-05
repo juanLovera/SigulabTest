@@ -66,8 +66,17 @@ class ActsController < ApplicationController
 	specification.nacional = "Nacional"
 	specification.save
     @act = Act.new(act_params)
+    @invitations = Invitation.where(:specification_id => session[:specification_sel_id]).all
     @act.user_id = current_user.username
+    @quot = Quote.where(:specification_id => session[:specification_sel_id]).first
+    @quotes = Itemsquote.where(:id_oferta => @quot.id).all
+    @bienSer = ""
+    @quotes.each do |quot|
+	@bienSer = @bienSer + quot.nombre_item + ", "
+      end
+    @bienSer = @bienSer[0..-3]
     @act.specification_id = session[:specification_sel_id]
+    @act.bienServicio = @bienSer
     @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => @act.proveedor, :tipo => "Internacional").count
       if @numin != 0
 	specification = Specification.find(session[:specification_sel_id])

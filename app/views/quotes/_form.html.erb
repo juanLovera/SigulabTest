@@ -45,9 +45,9 @@
  <div class="field"> <%= f.label "Items ofertados" %><br/>
   <% @items.each do |item| %>
 	  	
-      <input type="checkbox" id="itemsquote" name="itemsquotes<%= item.id %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre %><br>
+      <input type="checkbox" class="checkbox1" id="itemsquote" name="itemsquotes<%= item.id %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre %><br>
         
-		 <% end %></div>     
+		 <% end %><br/><input type="checkbox" id="selecctall"/> Seleccionar todo</div>     
                  <br/><br/><%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>     
         <div class="actions">
     <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
@@ -146,4 +146,19 @@ select {
 }
 
 </style>
-
+<script>
+$(document).ready(function() {
+    $('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+            $('.checkbox1').each(function() { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"               
+            });
+        }else{
+            $('.checkbox1').each(function() { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+            });         
+        }
+    });
+    
+});
+</script>

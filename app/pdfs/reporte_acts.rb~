@@ -16,7 +16,7 @@ class ReporteActs < Prawn::Document
 
 	def header
 	    #This inserts an image in the pdf file and sets the size of the image
-	    image "#{Rails.root}/app/assets/images/coord.jpg", width: 180, height: 100, :position => 0
+	    image "#{Rails.root}/app/assets/images/coord.jpg", width: 180, height: 90, :position => 0
 	    move_up 50
 	    image "#{Rails.root}/app/assets/images/Logo_ULab.jpg", width: 50, height: 55, :position => 490  
 
@@ -46,7 +46,7 @@ class ReporteActs < Prawn::Document
 	 def tittle 
 	      [[{:content => "Acto Motivado", :rowspan => 2, :size => 20, :background_color => "DDDDDD", :align => :center, :height => 20},
 	        {:content => "Registro:", :background_color => "DDDDDD", :height => 18, :size => 9, :align => :center}],
-	        [{:content => "#{@act.numRegistro}", :background_color => "FFFFFF",:height => 18, :size => 9, :align => :center}]]
+	        [{:content => "#{@act.id}", :background_color => "FFFFFF",:height => 18, :size => 9, :align => :center}]]
 
 	    
 	  end

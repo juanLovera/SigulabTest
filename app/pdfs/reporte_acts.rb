@@ -46,7 +46,7 @@ class ReporteActs < Prawn::Document
 	 def tittle 
 	      [[{:content => "Acto Motivado", :rowspan => 2, :size => 20, :background_color => "DDDDDD", :align => :center, :height => 20},
 	        {:content => "Registro:", :background_color => "DDDDDD", :height => 18, :size => 9, :align => :center}],
-	        [{:content => "#{@act.numRegistro}", :background_color => "FFFFFF",:height => 18, :size => 9, :align => :center}]]
+	        [{:content => "#{@act.id}", :background_color => "FFFFFF",:height => 18, :size => 9, :align => :center}]]
 
 	    
 	  end
@@ -67,7 +67,7 @@ class ReporteActs < Prawn::Document
 	  		 "Dicha solicitud obedece a que #{@act.justificacion}.\n\n" +
 	  		 "En tal sentido, es necesario realizar la adjudicación de compra directa a la empresa " +
 	    	 "#{@act.proveedor}, a los fines de darle continuidad a los objetivos planteados.\n\n" +
-	    	 "Es importante señalar que los recursos para cubrir la adquisición del #{@act.bienServicio} " +
+	    	 "Es importante señalar que los recursos para cubrir la adquisición de #{@act.bienServicio} " +
 	    	 "provienen de #{@act.providencia}, cuya cuenta es manejada a través de la administración de " +
 	    	 "la Unidad de Laboratorios.\n\n" +
 	    	 "Por todo lo anterior, estamos convencidos que esta es una compra razonable en sus costos, " +
