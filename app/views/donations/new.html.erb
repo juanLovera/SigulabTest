@@ -6,14 +6,97 @@
 	<li class="active"> Nueva Donación </li>
 </ol>
 
+
 <div id = "table2">
 </div>
-<br>
+<%= form_for(@donation) do |f| %>
+  <% if @donation.errors.any? %>
+    <div class="col-xs-12" role="alert">
+      <div class="alert alert-danger">
+        <ul>
+          <% @donation.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 
-<%= render 'form' %>
+<div class ="Informacion">
 
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', donations_path, :class => 'linkButton' %>
+<div class="col-xs-12">
+        <table class="table table-striped">
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :nombreItem %>
+            <span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :marca %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :modelo %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :cantidad %>
+            <span class="red">*</span></td>
+          </tr>  
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Unidad de Medida:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :unidadMedida %>
+            <span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>No. Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :numDocumento %>
+            <span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha del Documento:</strong></td>
+            <td class="col-xs-7"> <%= f.text_field :fechaDocumento, :class => "bootlayout-date" %></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Valor Estimado:</strong></td>
+            <td class="col-xs-7"> Bs. <%= f.number_field(:estimado, min: 0, :step => 'any') %>
+            <span class="red">*</span></td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Tipo:</strong></td>
+            <td class="col-xs-7"><%= f.select(:tipo, [ ['Equipos/Mobiliarios'],['Instrumentos de Medición'],
+              ['Herramientas'], ['Consumibles/Materiales'] ] ) %></td>
+          </tr>
+
+        </table>
+
+
+
+      <div class="col-xs-12 text-center">
+        <div class="actions">
+          <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
+          <%= link_to donations_path do %>
+            <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
+          <% end %>
+        </div>
+      </div>
 <br><br><br><br>
+      </div>
+    <br><br><br>
+  </div>
+<% end %>
+
+
 
 <style>
 
@@ -26,28 +109,4 @@
     line-height             :1.6em;
 }
 
-.linkButton { 
-   text-decoration: none;
-   text-align: right;
-   color: #384157;
-   font-weight: bold;
-     background: none repeat scroll 0px 0px transparent;
-     border: none;
-}
-
-.linkButton:hover {
-    cursor: pointer;
-    color: #8ED6FF;
-    text-align: right;
-    background: none repeat scroll 0% 0% #FFF;
-    text-decoration: none;
-}
-
-.linkButton:focus {
-    outline: thin dotted;
-    outline-offset: -2px;
-}
-
 </style>
-
-

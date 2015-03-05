@@ -10,9 +10,20 @@
   </ol>
 
 
-<div class="col-xs-12">
-  <h1><i class="fa fa-list"></i>  Solicitudes de Préstamo</h1>
-</div><br>
+<div class="col-xs-12 ">
+  <div class="col-xs-6 text-left">
+    <h1><i class="fa fa-list"></i>  Préstamos Solicitados  </h1>
+  </div>
+
+  <div class="col-xs-6 text-right">
+    <%= link_to inventario_url do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <% end %>
+  </div>
+</div>
+
+
+
 <div class="col-xs-12">
 
 	<div class="col-xs-12">
@@ -48,9 +59,6 @@
 
 	</div>
 
-  <%= link_to inventario_url do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-  <% end %>
 </div>
 
   <br>
