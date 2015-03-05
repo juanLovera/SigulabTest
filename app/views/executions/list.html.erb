@@ -36,6 +36,7 @@
 								<th class="text-center">Número de Documento</th>
 								<th class="text-center">Dependencia</th>
 								<th class="text-center">Monto</th>
+								<th class="text-center">Estatus del cheque</th>
 							</tr>
 						</thead>
 
@@ -45,7 +46,22 @@
 									<td class="text-center"><%= i.check_elaboration_date %></td>
 									<td class="text-center"><%= link_to i.code, i %></td>
 									<td class="text-center"><%= i.commitment.lab.sae_name %></td>					
-									<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+									<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".",
+									separator: ",") %></td>
+									<td class="text-center">
+				  						<% if i.check_annulled? %>
+                    						Anulado
+				 						<% else %>
+                  							<% if i.check_sign_date.blank? %> 
+                    							En espera de firma
+                  							<% else if i.check_delivery_date.blank? %> 
+                    							En custodia
+                  							<% else %> 
+                    							Entregado
+                  							<% end %>
+                  							<% end %>
+										<% end %>
+									</td>									
 								</tr>
 							<% end %>
 						</tbody>

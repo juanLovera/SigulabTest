@@ -39,8 +39,8 @@
 							<tr>
 								<th class="text-center">Fecha de Elaboración</th>
 								<th class="text-center">Número de Documento</th>
-								<th class="text-center">Proyecto</th>
 								<th class="text-center">Monto</th>
+								<th class="text-center">Estatus del cheque</th>
 							</tr>
 						</thead>
 
@@ -48,9 +48,22 @@
 				      		<% @projexecutions.each do |i| %>
 								<tr>
 									<td class="text-center"><%= i.check_elaboration_date %></td>
-									<td class="text-center"><%= link_to i.code, i %></td>
-									<td class="text-center"><%= Project.find(i.proyecto).project_number %></td>					
+									<td class="text-center"><%= link_to i.code, i %></td>				
 									<td class="text-right"><%= number_to_currency(i.check_amount, format: "%n", delimiter: ".", separator: ",") %></td>
+									<td class="text-center">
+				  						<% if i.check_annulled? %>
+                    						Anulado
+				 						<% else %>
+                  							<% if i.check_sign_date.blank? %> 
+                    							En espera de firma
+                  							<% else if i.check_delivery_date.blank? %> 
+                    							En custodia
+                  							<% else %> 
+                    							Entregado
+                  							<% end %>
+                  							<% end %>
+										<% end %>
+									</td>									
 								</tr>
 							<% end %>
 						</tbody>
