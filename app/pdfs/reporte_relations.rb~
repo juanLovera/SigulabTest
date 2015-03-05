@@ -19,6 +19,7 @@ class ReporteRelations < Prawn::Document
     titulo6
     titulo7
     titulo8
+    titulo9
     #table_content
   end
  
@@ -146,6 +147,21 @@ def titulo8
 
    def tittle8
       [[{:content => "Peso", :background_color => "DDDDDD", :align => :left}, {:content => "Ancho", :background_color => "DDDDDD", :align => :left}, {:content => "Alto", :background_color => "DDDDDD", :align => :left}, {:content => "Largo", :background_color => "DDDDDD", :align => :left}], [{:content => "#{@relation.peso} #{@relation.dimensiones_peso}", :background_color => "FFFFFF", :align => :left}, {:content => "#{@relation.ancho} #{@relation.dimensiones_ancho}", :background_color => "FFFFFF", :align => :left}, {:content => "#{@relation.alto} #{@relation.dimensiones_alto}", :background_color => "FFFFFF", :align => :left}, {:content => "#{@relation.largo} #{@relation.dimensiones_largo}", :background_color => "FFFFFF", :align => :left}]]
+   end
+def titulo9
+    move_down 4
+      table tittle9 do
+      row(0).font_style = :bold
+	row(2).font_style = :bold
+      self.header = true
+      self.row_colors = ['DDDDDD','DDDDDD']
+      self.column_widths = [540]
+    end
+   end
+
+   def tittle9
+      [[{:content => "Observaciones", :background_color => "DDDDDD", :align => :center}],
+        [{:content => "#{@relation.observaciones}", :background_color => "FFFFFF", :align => :center}]]
    end
 
   def pie_de_pagina
