@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304234944) do
+ActiveRecord::Schema.define(version: 20150305141950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.text     "descripcion"
     t.string   "tipo"
     t.string   "format"
-    t.integer  "total"
+    t.float    "total",         default: 0.0
   end
 
   create_table "checks", force: true do |t|
@@ -406,6 +406,7 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.string   "num_cuenta"
     t.date     "annulled_date"
     t.string   "substitute"
+    t.text     "observation"
   end
 
   create_table "projexecutions", force: true do |t|
