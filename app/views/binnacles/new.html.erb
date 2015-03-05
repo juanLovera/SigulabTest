@@ -73,6 +73,7 @@
             <td class="col-xs-5 text-right"><strong>Descripción:</strong></td>
             <td class="col-xs-7"><%= f.text_area :descripcion, :placeholder => "Introduzca el No. de factura" %><span class="red">*</span></td>
           </tr>
+          <!--<%= hidden_field_tag "format", @id %> -->
           <%= f.hidden_field :idSustancia, :value => @id %>
 
         </table>

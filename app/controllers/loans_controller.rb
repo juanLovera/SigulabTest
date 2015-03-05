@@ -24,6 +24,7 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
+    binding.pry
     if params[:item_ids] == nil
       flash[:notice] = "No ha seleccionado ningun item para ser prestado"
       redirect_to :back
