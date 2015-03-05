@@ -18,7 +18,7 @@
 	  		<tr>
 		     <td><%= devolution.unidadSolicitante %></td>
 		     <td><%= devolution.observaciones %></td>
-                     <td style="text-decoration:none; color:black; text-align: right"><a href="/devolutions/<%= devolution.id %>.pdf"><button type="button" class="btn btn-primary">Descargar</button></a> <%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, devolution %> </td>
+                     <td style="text-decoration:none; color:black; text-align: right"><a href="/devolutions/<%= devolution.id %>.pdf"><button type="button" class="btn btn-primary">Descargar</button></a> <%= link_to '<button type="button" class="btn btn-warning"> Consultar </button>'.html_safe, devolution %> </td>
 		   </tr>
 		 <% end %>
 		 <% if @sumDevolution == 0 %>
