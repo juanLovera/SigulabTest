@@ -1,4 +1,4 @@
-<%= javascript_include_tag 'bootstrap-confirmation.js' %>
+
 <h1>Nuevo Registro en la Bitácora</h1>
 <ol class="breadcrumb">
 	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
@@ -74,8 +74,6 @@
             <td class="col-xs-7"><%= f.text_area :descripcion, :placeholder => "Introduzca el No. de factura" %><span class="red">*</span></td>
           </tr>
           <%= f.hidden_field :idSustancia, :value => @id %>
-
-          <td class="col-xs-5"><td>
 
         </table>
 

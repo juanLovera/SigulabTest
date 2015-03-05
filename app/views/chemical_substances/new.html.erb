@@ -13,17 +13,6 @@
 	<li class="active"> Nueva </li>
 </ol>
 
-<div class="col-xs-12 text-right">
-  <%= link_to chemical_substances_path do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
-  <% end %>
-</div>
-<br><br>
-
-<div id = "table2">
-</div>
-<br>
-
 <%= form_for(@chemical_substance) do |f| %>
       <% if @chemical_substance.errors.any? %>
         <div class="col-xs-12" role="alert">
@@ -36,8 +25,18 @@
           </div>
         </div>
       <% end %>
-</div>
 
+<div class="col-xs-12 text-right">
+  <%= link_to chemical_substances_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+  <% end %>
+</div>
+<br><br>
+
+<div id = "table2">
+</div>
+<br>
+</div>
 
 <div id="tabs">
     <ul>
@@ -198,7 +197,6 @@
         </table>
       </div>
   </div>
-<% end %>
 </div>
 <br><br>
 
@@ -207,6 +205,7 @@
     <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
   </div>
 </div>
+<% end %>
 <br>
 
 
