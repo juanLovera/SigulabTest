@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150305131220) do
+=======
+
+
+ActiveRecord::Schema.define(version: 20150305141950) do
+
+>>>>>>> 99f1eab86ddfa83e65adeb838e51420ec4ea0ddb
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -416,6 +423,7 @@ ActiveRecord::Schema.define(version: 20150305131220) do
     t.string   "observation"
     t.integer  "banco"
     t.string   "substitute"
+    t.text     "observation"
   end
 
   create_table "projexecutions", force: true do |t|
@@ -474,6 +482,7 @@ ActiveRecord::Schema.define(version: 20150305131220) do
     t.text    "via"
     t.integer "specification_id"
     t.integer "user_id"
+    t.string  "responsale"
   end
 
   create_table "recommendations_empresas", force: true do |t|

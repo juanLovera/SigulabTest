@@ -24,5 +24,10 @@ h3 {
 
 </style>
 
-
+<script>
+if (window.location.search.replace("?", "") == "pdf=1")
+{
+window.location.href = "acts.pdf";
+}
+</script>
 
