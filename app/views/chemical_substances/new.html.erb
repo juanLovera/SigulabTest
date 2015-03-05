@@ -1,5 +1,10 @@
 <%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
 
+<div class="row">
 <h1>Nueva Sustancia Química</h1>
 <ol class="breadcrumb">
 	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
@@ -7,6 +12,13 @@
 	<li> <%=link_to 'Sustancias Químicas', chemical_substances_path %></li>
 	<li class="active"> Nueva </li>
 </ol>
+
+<div class="col-xs-12 text-right">
+  <%= link_to chemical_substances_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+  <% end %>
+</div>
+<br><br>
 
 <div id = "table2">
 </div>
@@ -24,33 +36,44 @@
           </div>
         </div>
       <% end %>
-
-      <div class ="Informacion">
-
+</div>
 
 
+<div id="tabs">
+    <ul>
+      <li><a href="#tabs-1" class="show">Características</a></li>
+      <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
+      <li><a href="#tabs-3" class="hidex">Datos de Adqusición</a></li>
+    </ul>
 
-    <div class="col-xs-12">
+
+
+    <div id="tabs-1">
+      <div class="form-group">
         <table class="table table-striped">
           <tr>
             <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
             <td class="col-xs-7"><%= f.text_field :name %><span class="red">*</span></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Pureza:</strong></td>
             <td class="col-xs-7"><%= f.number_field(:purity, min: 0, max: 100, :step => 'any') %>&nbsp;%
             </td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Estado materia:</strong></td>
             <td class="col-xs-7"><%= f.select(:matter_states, [ ['Líquido'],['Sólido'],['Gaseoso'] ] ) %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Controlado:</strong></td>
             <td class="col-xs-7">
-            <%= f.select(:controlled,[['No',false], ['Si', true]]) %>
+            <%= f.select(:controlled,[['No',false], ['Si', true]]) %></td>
 
-            </tr>
+          </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Régimen legal:</strong></td>
             <td class="col-xs-7">  <%= f.check_box :rI7 %>
@@ -58,49 +81,61 @@
                                       <%= f.check_box :rI4 %>
                                       <%= 'RL4' %><br>
             </td>
-
           </tr>
-     
-            <tr>
-            <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
-            <td class="col-xs-7"><%= f.number_field(:quantity, min: 0, :step => 'any') %><span class="red">*</span>
+
+          <tr>
+              <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+              <td class="col-xs-7"><%= f.number_field(:quantity, min: 0, :step => 'any') %><span class="red">*</span>
             <%= f.select(:meassure, [['kg'], ['g'], ['mg'], ['l'], ['ml'] ] ) %></td>
           </tr>
-           <tr>
+
+          <tr>
             <td class="col-xs-5 text-right"><strong title="Servicio de Resúmenes Químicos (Chemical Abstract Service)">CAS:</strong></td>
             <td class="col-xs-7"><%= f.text_field :cas %><span class="red">*</span></td>
           </tr>
-           <tr>
+
+          <tr>
             <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
             <td class="col-xs-7"><%=f.select(:status, [['Vigente'], ['Vencido'], ['Indeterminado']] )%></td>
           </tr>
-           <tr>
+
+
+        </table>
+      </div>
+    </div>
+
+    <div id="tabs-2">
+      <div class="form-group">
+        <table class="table table-striped">
+          <tr>
             <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
             <td class="col-xs-7"><%= f.text_field :responsible %><span class="red">*</span></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
             <td class="col-xs-7"><%= f.text_field :dependency %>
             <span class="red">*</span> </td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
             <td class="col-xs-7"><%= f.text_field :location %>
             <span class="red">*</span> </td>
           </tr>
-           
-            <tr>
-              <td class="col-xs-5 text-right"><strong>Fecha Expiración:</strong></td>
-              <td class="col-xs-7"><%= f.text_field :expiration_date, :class => "bootlayout-date" %></td>
-            </tr>
 
-      
-       <tr>
-          <td class="col-xs-5 text-right"><strong>Peligrosidad:</strong></td>
-          <td class="col-xs-7">
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Fecha Expiración:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :expiration_date, :class => "bootlayout-date" %></td>
+          </tr>
+
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Peligrosidad:</strong></td>
+            <td class="col-xs-7">
               <%= f.check_box :toxic %>
               <%= f.label :Tóxico %>&nbsp;&nbsp;
-              
+
               <%= f.check_box :inflamable %>
               <%= f.label :Inflamable %>&nbsp;&nbsp;
               <%= f.check_box :oxidant %>
@@ -114,10 +149,11 @@
               <%= f.label :Nocivo %>&nbsp;&nbsp;
               <%= f.check_box :irritating %>
               <%= f.label :Irritante %>
-        </td>
-      </tr>
-      <tr>
-        <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
             <td class="col-xs-7">   <%= f.check_box :investigation %>
             <%= 'Investigación' %>
             <%= f.check_box :teaching %>
@@ -126,50 +162,55 @@
             <%= 'Extensión' %></div></td>
           </tr>
 
+        </table>
+      </div>
+    </div>
+
+    <div id="tabs-3">
+      <div class="form-group">
+        <table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
             <td class="col-xs-7"><%=  f.text_field :bill %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Costo:</strong></td>
-            <td class="col-xs-7"><%= f.number_field(:cost, min: 0, :step => 'any') %>&nbsp;Bs.</td> 
+            <td class="col-xs-7"><%= f.number_field(:cost, min: 0, :step => 'any') %>&nbsp;Bs.</td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Orden de Compra:</strong></td>
             <td class="col-xs-7"><%=  f.text_field :buy_order %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :adquisition_date, class: "bootlayout-date" %></td> 
+            <td class="col-xs-7"><%= f.text_field :adquisition_date, class: "bootlayout-date" %></td>
           </tr>
-            <tr>
+
+          <tr>
             <td class="col-xs-5 text-right"><strong>Origen:</strong></td>
             <td class="col-xs-7"><%=f.select(:origen, [['Comprado'], ['Donado']] )%></td>
           </tr>
-          
-          <td class="col-xs-5"><td>
 
-          
         </table>
-
       </div>
-
-      <div class="col-xs-12 text-center">
-        <div class="actions">
-          <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
-          <%= link_to chemical_substances_path do %>
-            <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-          <% end %>
-        </div>
-      </div>
-
-      <br>
-        
-      <br><br>
-    </div>
+  </div>
 <% end %>
-
+</div>
 <br><br>
+
+<div class="col-xs-12 text-center">
+  <div class="actions">
+    <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
+  </div>
+</div>
+<br>
+
+
+
 
 <style>
 
@@ -182,7 +223,7 @@
     line-height             :1.6em;
 }
 
-.linkButton { 
+.linkButton {
    text-decoration: none;
    text-align: right;
    color: #384157;

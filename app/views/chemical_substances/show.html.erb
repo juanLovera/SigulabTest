@@ -15,7 +15,22 @@
   </div>
 </div>
 
-<p><h2><center><%= @chemical_substance.name %></center></h2></p>
+<div class="col-xs-12 text-right">
+  <%= link_to chemical_substances_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+  <% end %>
+</div>
+<br>
+
+<div id = "table2">
+</div>
+
+<p><h2><center><%= @chemical_substance.name %> <h3><% if @chemical_substance.rI7 %>
+            <%= 'RL7' %>
+          <% end %>
+          <% if @chemical_substance.rI4 %>
+            <%= ' RL4' %>
+          <% end %></h3></center></h2></p>
 
 <div id="tabs">
   <ul>
@@ -28,7 +43,7 @@
       <p><table class="table table-striped">
         <tr>
           <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
-          <td class="col-xs-7"><%= @chemical_substance.name %></td>
+          <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.name %></span></td>
         </tr>
 
         <tr>
@@ -38,7 +53,7 @@
 
         <tr>
           <td class="col-xs-5 text-right"><strong>Estado materia:</strong></td>
-          <td class="col-xs-7"><%= @chemical_substance.matter_states %></td>
+          <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.matter_states %></span></td>
         </tr>
 
         <tr>
@@ -52,28 +67,18 @@
         </tr>
 
         <tr>
-          <td class="col-xs-5 text-right"><strong>Régimen legal:</strong></td>
-          <td class="col-xs-7">  <% if @chemical_substance.rI7 %>
-            <%= 'RL7' %>
-          <% end %>
-          <% if @chemical_substance.rI4 %>
-            <%= ' RL4' %>
-          <% end %></td>
-        </tr>
-
-        <tr>
           <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
           <td class="col-xs-7"> <%= @chemical_substance.quantity %><% @chemical_substance.meassure %></td>
         </tr>
 
         <tr>
           <td class="col-xs-5 text-right" ><strong title="Servicio de Resúmenes Químicos (Chemical Abstract Service)">CAS:</strong></td>
-          <td class="col-xs-7"><%= @chemical_substance.cas %></td>
+          <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.cas %></span></td>
         </tr>
 
         <tr>
           <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
-          <td class="col-xs-7"><%= @chemical_substance.status %></td>
+          <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.status %></span></td>
         </tr>
 
 
@@ -84,22 +89,22 @@
     <p><table class="table table-striped">
       <tr>
         <td class="col-xs-5 text-right"><strong title="Persona responsable del Item">Responsable:</strong></td>
-        <td class="col-xs-7"> <%= @chemical_substance.responsible %></td>
+        <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.responsible %></span></td>
       </tr>
 
       <tr>
         <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
-        <td class="col-xs-7"><%= @chemical_substance.dependency %></td>
+        <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.dependency %></span></td>
       </tr>
 
       <tr>
         <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
-        <td class="col-xs-7"><%= @chemical_substance.location %></td>
+        <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.location %><span class="mayus"></td>
       </tr>
 
       <tr>
         <td class="col-xs-5 text-right"><strong>Fecha de expiración:</strong></td>
-        <td class="col-xs-7"><%= @chemical_substance.expiration_date %></td>
+        <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.expiration_date %></span></td>
       </tr>
 
       <tr>
@@ -149,7 +154,7 @@
     <table class="table table-striped">
       <tr>
         <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
-        <td class="col-xs-7"><%= @chemical_substance.bill %></td>
+        <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.bill %></span></td>
       </tr>
 
       <tr>
@@ -159,7 +164,7 @@
 
       <tr>
         <td class="col-xs-5 text-right"><strong>Órden de Compra:</strong></td>
-        <td class="col-xs-7"><%= @chemical_substance.buy_order %></td>
+        <td class="col-xs-7"><span class="mayus"><%= @chemical_substance.buy_order %></span></td>
       </tr>
 
       <tr>
@@ -175,7 +180,7 @@
 </br>
 <div class="col-xs-12">
 <div class="col-xs-6 text-left">
-
+ <br>
     <% if can? :create, @chemical_substance %>
           <%= link_to new_chemical_substance_path do %>
             <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Sustancia</button>
@@ -199,11 +204,8 @@
     <%= link_to binnacles_path(@ids) do %>
       <button type="button" class="btn btn-info" id="letra"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Bitácora</button>
     <% end %>
-    <%= link_to chemical_substances_path do %>
-      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-    <% end %>
 </div>
-  <br><br><br>
+
 </div>
 
 
@@ -214,6 +216,9 @@
   text-align: right;
   font-weight: bold;
 
+}
+.mayus {
+  text-transform: uppercase;
 }
 
 .linkButton {
