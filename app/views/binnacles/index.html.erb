@@ -24,7 +24,7 @@
         <tr>
           <% @sustancias.each do |sustancia| %>
             <td class="text-left"><%= 'Sustancia:  ' %><span class="mayus"><%= sustancia.name %></span></td>
-            <td class="text-right"><%= 'Unidad de Medida:  ' %><span class="mayus"><%= sustancia.meassure %></span></td>
+            <td class="text-right"><%= 'Unidad de Medida:  ' %><span class"mayus"><%= sustancia.meassure %></span></td>
           <% end %>
         </tr>
       </tbody>
@@ -47,6 +47,7 @@
                   <th class="text-center">Fecha</th>
                   <th class="text-center">Ingreso</th>
                   <th class="text-center">Consumo</th>
+                  <th class="text-center">Cantidad</th>
                 </tr>
               </thead>
 
@@ -56,6 +57,7 @@
                     <td class="text-center"><%= link_to binnacle.fecha, binnacle %></td>
                     <td class="text-center"><%= number_to_currency(binnacle.ingreso, format: "%n", delimiter: ".", separator: ",") %></td>
                     <td class="text-center"><%= number_to_currency(binnacle.consumo, format: "%n", delimiter: ".", separator: ",") %></td>
+                    <td class="text-center"><%= number_to_currency(binnacle.total, format: "%n", delimiter: ".", separator: ",") %></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -77,7 +79,7 @@
       <tbody>
         <tr>
           <% @sustancias.each do |sustancia| %>
-            <td class="text-left">SALDO TOTAL</td>
+            <td class="text-left">CANTIDAD DISPONIBLE</td>
             <td class="text-right"><%= number_to_currency(@total, format: "%n", delimiter: ".", separator: ",") %>&nbsp;<%= sustancia.meassure %></td>
           <% end %>
         </tr>

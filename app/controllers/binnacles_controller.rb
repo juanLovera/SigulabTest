@@ -34,7 +34,6 @@ class BinnaclesController < ApplicationController
       @nombre = "#{sustancia.name}"
     end
     @id = params[:format]
-    @binnacle = Binnacle.new
   end
 
   def edit
@@ -47,8 +46,21 @@ class BinnaclesController < ApplicationController
 
   def create
     @binnacle = Binnacle.new(binnacle_params)
-    flash[:notice] = 'El registro en la bitácora ha sido exitoso.' if @binnacle.save
-    respond_with(@binnacle)
+    respond_to do |format|
+      if @binnacle.save
+        format.html { redirect_to @chemical_substance, notice: 'El registro en la bitácora ha sido exitoso.' }
+        format.json { render :show, status: :created, location: @binnacle }
+      else
+        format.html { render :new }
+        format.json { render json: @binnacle.errors, status: :unprocessable_entity }
+      end
+    end
+
+    @ingresos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:ingreso)
+    @consumos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:consumo)
+    @sum = @binnacle.ingreso - @binnacle.consumo
+    @binnacle.total = (@sum + @ingresos) - @consumos
+    @binnacle.save
         
   end
 
@@ -58,9 +70,8 @@ class BinnaclesController < ApplicationController
   end
 
   def destroy
-    @id = @binnacle.idSustancia
     @binnacle.destroy
-    respond_with(@id)
+    respond_with(@binnacle)
   end
 
   private

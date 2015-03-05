@@ -2,6 +2,7 @@ class ChemicalSubstancesController < ApplicationController
   before_action :set_chemical_substance, only: [:show, :edit, :update, :destroy, :search, :hide]
   layout 'bootlayout'
   before_filter :authenticate_user!
+  require 'binnacles_controller'
   # GET /chemical_substances
   # GET /chemical_substances.json
   def index
@@ -35,7 +36,6 @@ class ChemicalSubstancesController < ApplicationController
   # POST /chemical_substances.json
   def create
     @chemical_substance = ChemicalSubstance.new(chemical_substance_params)
-    @sum = ChemicalSubstance.count
 
     respond_to do |format|
       if @chemical_substance.save
@@ -48,6 +48,14 @@ class ChemicalSubstancesController < ApplicationController
     end
     @chemical_substance.id2 = "SQ-" + "#{@chemical_substance.id}"
     @chemical_substance.save
+    @binnacle = Binnacle.new
+    @binnacle.fecha = Date.today
+    @binnacle.tipo = 'Ingreso'
+    @binnacle.ingreso = @chemical_substance.quantity
+    @binnacle.descripcion = @chemical_substance.bill.to_s
+    @binnacle.idSustancia = @chemical_substance.id2
+    @binnacle.total = @chemical_substance.quantity
+    @binnacle.save
   end
 
   # PATCH/PUT /chemical_substances/1
@@ -79,7 +87,7 @@ class ChemicalSubstancesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to chemical_substances_url, notice: 'Sustancia Quimica fue ocultada de forma exitosa.' }
       format.json { head :no_content }
-	end
+	  end
   end
   
   private
