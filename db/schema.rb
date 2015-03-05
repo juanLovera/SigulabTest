@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(version: 20150304015638) do
     t.date     "adquisition_date"
     t.boolean  "showable",         default: true
     t.string   "dependency"
-    t.integer  "numSolicitud"
     t.boolean  "solicitados"
     t.string   "id2"
     t.string   "origen"
@@ -261,6 +260,10 @@ ActiveRecord::Schema.define(version: 20150304015638) do
     t.date     "date"
     t.string   "organism"
     t.string   "document"
+    t.string   "unit"
+    t.integer  "resource",             default: 0
+    t.string   "variation"
+    t.string   "resource_description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "sae_code"
@@ -268,10 +271,6 @@ ActiveRecord::Schema.define(version: 20150304015638) do
     t.string   "doccode"
     t.string   "doc_code"
     t.date     "doc_date"
-    t.string   "unit"
-    t.string   "variation"
-    t.string   "resource_description"
-    t.integer  "resource",             default: 0
   end
 
   create_table "instruments", force: true do |t|
@@ -405,8 +404,6 @@ ActiveRecord::Schema.define(version: 20150304015638) do
     t.decimal  "other_amount",   default: 0.0
     t.string   "num_cuenta"
     t.date     "annulled_date"
-    t.string   "observation"
-    t.integer  "banco"
     t.string   "substitute"
   end
 
@@ -591,17 +588,13 @@ ActiveRecord::Schema.define(version: 20150304015638) do
     t.string   "location"
     t.string   "material"
     t.string   "bill"
+    t.boolean  "from_set"
     t.boolean  "investigation"
     t.boolean  "teaching"
     t.boolean  "extention"
     t.boolean  "management"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "cost"
-    t.string   "buy_order"
-    t.date     "adquisition_date"
-    t.boolean  "showable",         default: true
-    t.boolean  "from_set"
     t.string   "dependency"
     t.boolean  "solicitados"
     t.string   "id2"
