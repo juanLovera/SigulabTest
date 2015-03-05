@@ -20,7 +20,18 @@ class ChemicalSubstancesController < ApplicationController
   # GET /chemical_substances/1
   # GET /chemical_substances/1.json
   def show
+    if params[:notice]
+      flash[:notice] = "La Sustancia Química se ha creado exitosamente"
+    end
     @ids = @chemical_substance.id2
+    @binnacle = Binnacle.new
+    @binnacle.fecha = Date.today
+    @binnacle.tipo = 'Ingreso'
+    @binnacle.ingreso = @chemical_substance.quantity
+    @binnacle.descripcion = @chemical_substance.bill.to_s
+    @binnacle.idSustancia = @chemical_substance.id2
+    @binnacle.total = @chemical_substance.quantity
+    @binnacle.save
   end
 
   # GET /chemical_substances/new
@@ -48,14 +59,6 @@ class ChemicalSubstancesController < ApplicationController
     end
     @chemical_substance.id2 = "SQ-" + "#{@chemical_substance.id}"
     @chemical_substance.save
-    @binnacle = Binnacle.new
-    @binnacle.fecha = Date.today
-    @binnacle.tipo = 'Ingreso'
-    @binnacle.ingreso = @chemical_substance.quantity
-    @binnacle.descripcion = @chemical_substance.bill.to_s
-    @binnacle.idSustancia = @chemical_substance.id2
-    @binnacle.total = @chemical_substance.quantity
-    @binnacle.save
   end
 
   # PATCH/PUT /chemical_substances/1
