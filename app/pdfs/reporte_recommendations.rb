@@ -17,7 +17,7 @@ class ReporteRecommendations < Prawn::Document
 
   def header
       #This inserts an image in the pdf file and sets the size of the image
-      image "#{Rails.root}/app/assets/images/coord.jpg", width: 180, height: 100, :position => 0
+      image "#{Rails.root}/app/assets/images/coord.jpg", width: 180, height: 90, :position => 0
       move_up 50
       image "#{Rails.root}/app/assets/images/Logo_ULab.jpg", width: 50, height: 55, :position => 490  
 
