@@ -157,7 +157,7 @@ class ReporteRecommendations < Prawn::Document
    text "Agradeciendo su receptividad y respuesta a esta solicitud, se despide de usted.", :align => :justify,:indent_paragraphs => 40
 
    move_down 5
-   text " Atentamente,\n\n\n\n#{@recommendation.responsale}", :align => :center
+   text " Atentamente,\n\n\n#{@recommendation.responsale}", :align => :center
 
    stroke do
 

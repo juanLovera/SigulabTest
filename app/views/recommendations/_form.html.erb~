@@ -5,7 +5,7 @@
     </span>
 
 <table style="margin-left:-220px; width: 660px;">
-<tr><td style="width:55%"><span class="red">*</span> <%= f.label "Código de consulta de precios:" %><br/><%= f.text_field :codigo %></td><td><span class="red">*</span> <%= f.label "Via por la cual se envió la carta de invitación" %><br/><%= f.collection_select :via, Recommendation::ViaEnvio, :to_s, :to_s, :include_blank => false %></td></tr>
+<tr><td style="width:55%"><span class="red">*</span> <%= f.label "Código del proceso de consulta de precios:" %><br/><%= f.text_field :codigo %></td><td><span class="red">*</span> <%= f.label "Nombre del responsable:" %><br/><%= f.text_field :responsale %></td></tr><tr><td><span class="red">*</span><br/><%= f.label "Via por la cual se envió la carta de invitación" %><br/><%= f.collection_select :via, Recommendation::ViaEnvio, :to_s, :to_s, :include_blank => false %></td></tr>
 </table>
    <br/><br/>     
 <div class="field"><span class="red">*</span> <%= f.label "Empresas Seleccionadas" %>
@@ -18,7 +18,28 @@
     <div id="seleccion<%= ind %>" style='display:none'>
 <input type="hidden" name="quoteid<%= ind %>" value="<%= quote.id %>" />
 <input type="hidden" name="empresa<%= ind %>" value="<%= quote.nombre %>" />
-        <strong>Seleccione prioridad:</strong> <select name='prioridad<%= ind %>'><option value='1'>Primera Opción</option><option value='2'>Segunda Opción</option><option value='4'>Tercera Opción</option><option value='4'>Cuarta Opción</option><option value='5'>Quinta Opción</option><option value='0'>Otro</option></select>
+        <strong>Seleccione prioridad:</strong> <select name='prioridad<%= ind %>'>
+	 <% @quotes.each_with_index do |quote,ind| %>
+	<% if (ind == 0) %>
+	<option value='1'>Primera Opción</option>
+	<%end%>
+	<% if (ind == 1) %>
+	<option value='2'>Segunda Opción</option>
+	<%end%>
+	<% if (ind == 2) %>
+	<option value='3'>Tercera Opción</option>
+	<%end%>
+	<% if (ind == 3) %>
+	<option value='4'>Cuarta Opción</option>
+	<%end%>
+	<% if (ind == 4) %>
+	<option value='5'>Quinta Opción</option>
+	<%end%>
+	<% if (ind > 4) %>
+	<option value='0'>Otro</option>
+	<%end%>
+	<% end %>
+</select>
 <br/><br/><strong>Seleccione los items que quiere recomendar para esta empresa:</strong>
         <% @itemsquotes.each_with_index do |item,ind2| %>
           <% if (quote.id == item.id_oferta) %>

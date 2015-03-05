@@ -15,7 +15,6 @@ class ActsController < ApplicationController
           if @sumActs != 0
             redirect_to @act
           end
-	end
       format.pdf do
 		pdf = ReporteActs.new(@act)
       		  send_data pdf.render, filename: 'Especificacion_#{session[:specification_sel_id]}_Acto_Motivado.pdf', type: 'application/pdf'
