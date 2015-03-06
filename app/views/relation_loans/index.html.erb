@@ -1,0 +1,27 @@
+<h1>Listing relation_loans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prestamo</th>
+      <th>Item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relation_loans.each do |relation_loan| %>
+      <tr>
+        <td><%= relation_loan.prestamo %></td>
+        <td><%= relation_loan.item %></td>
+        <td><%= link_to 'Show', relation_loan %></td>
+        <td><%= link_to 'Edit', edit_relation_loan_path(relation_loan) %></td>
+        <td><%= link_to 'Destroy', relation_loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relation loan', new_relation_loan_path %>

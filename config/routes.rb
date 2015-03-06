@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :relation_loans
+
+  resources :relation_services
+
   get 'labs/show'
 
   resources :binnacles

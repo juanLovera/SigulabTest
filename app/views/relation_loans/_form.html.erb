@@ -1,0 +1,25 @@
+<%= form_for(@relation_loan) do |f| %>
+  <% if @relation_loan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relation_loan.errors.count, "error") %> prohibited this relation_loan from being saved:</h2>
+
+      <ul>
+      <% @relation_loan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :prestamo %><br>
+    <%= f.text_field :prestamo %>
+  </div>
+  <div class="field">
+    <%= f.label :item %><br>
+    <%= f.text_field :item %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
