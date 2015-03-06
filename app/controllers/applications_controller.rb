@@ -38,6 +38,7 @@ class ApplicationsController < ApplicationController
     @sumE = Equipment.where(id2: params[:item_ids]).count
     @sumI = Instrument.where(id2: params[:item_ids]).count
     @sumT = Tool.where(id2: params[:item_ids]).count
+    @id = params[:item_ids]
   end
 
   # GET /applications/1/edit
@@ -56,24 +57,27 @@ class ApplicationsController < ApplicationController
       if @application.save
 
         @equipment.each do |equipment|
-          @servicio = ServiceItems.new
-          @servicio.servicio = @application.id.to_s
-          @servicio.item = equipment.id2
+          @relation_service = RelationService.new
+          @relation_service.servicio = @application.id.to_s
+          @relation_service.item = equipment.id2
+          @relation_service.save
         end
 
         @instruments.each do |instrument|
-          @servicio = ServiceItems.new
-          @servicio.servicio = @application.id.to_s
-          @servicio.item = instrument.id2
+          @relation_service = RelationService.new
+          @relation_service.servicio = @application.id.to_s
+          @relation_service.item = instrument.id2
+          @relation_service.save
         end
 
         @tools.each do |tool|
-          @servicio = ServiceItems.new
-          @servicio.servicio = @application.id.to_s
-          @servicio.item = tool.id2
+          @relation_service = RelationService.new
+          @relation_service.servicio = @application.id.to_s
+          @relation_service.item = tool.id2
+          @relation_service.save
         end
 
-        format.html { redirect_to @application, notice: 'La solicitud fue creada satisfactoriamente.', :item_ids => params[:item_ids] }
+        format.html { redirect_to @application, :item_ids => params[:item_ids] }
         format.json { render :show, status: :created, location: @application }
       else
         format.html { render :new }

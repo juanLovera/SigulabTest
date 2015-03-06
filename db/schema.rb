@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306053646) do
+ActiveRecord::Schema.define(version: 20150306070320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -485,6 +485,13 @@ ActiveRecord::Schema.define(version: 20150306053646) do
     t.integer "cumplio_req"
   end
 
+  create_table "relation_services", force: true do |t|
+    t.string   "servicio"
+    t.string   "item"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "relations", force: true do |t|
     t.integer "item_id"
     t.string  "marca"
@@ -542,13 +549,6 @@ ActiveRecord::Schema.define(version: 20150306053646) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
-  end
-
-  create_table "service_items", force: true do |t|
-    t.string   "servicio"
-    t.string   "item"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "services", force: true do |t|

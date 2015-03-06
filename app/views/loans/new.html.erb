@@ -13,10 +13,69 @@
 </div>
 <br>
 <div class="col-xs-12">
-  <div class="col-xs-6">
-    
+
+  <div class="col-xs-8">
+
+    <%= form_for @loan, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %> 
+      <% if @loan.errors.any? %>
+        <div class="col-xs-12" role="alert">
+          <div class="alert alert-danger">
+            <ul>
+              <% @loan.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <label for='income_lab_id' class="col-xs-4 control-label text-right">Fecha requerida: <span style="color:#FF0000">*</span></label>
+        <div class="col-xs-5">
+          <%= i.text_field :fechaEntrega, :class => "bootlayout-date" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for='income_sae_code' class="col-xs-4 control-label text-right">Ubicación Destino: <span style="color:#FF0000">*</span></label>
+        <div class='col-xs-5'>
+          <%= i.text_field :ubicacion %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for='income_lab_id' class="col-xs-4 control-label text-right">Fecha Tope de entrega: <span style="color:#FF0000">*</span></label>
+        <div class="col-xs-5">
+          <%= i.text_field :fechaTope, :class => "bootlayout-date" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for='income_lab_id' class="col-xs-4 control-label text-right">Condiciones del Préstamo: <span style="color:#FF0000">*</span></label>
+        <div class="col-xs-5">
+          <%= i.text_field :condiciones, :class => "bootlayout-date" %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for='income_origin' class="col-xs-4 control-label text-right">Cantidad: <span style="color:#FF0000">*</span></label>
+        <div class="col-xs-5">    
+          <%= i.number_field(:medida, min: 0, :step => 'any') %><%= i.select(:unidadMedida, [['Un'], ['kg'], ['g'], ['mg'], ['l'], ['ml'] ] ) %>
+        </div>
+      </div>
+
+      <%= hidden_field_tag "item_ids", @id %>
+
+      <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
+        </div>
+      </div>
+
+    <% end %>
+
   </div>
-  <div class="col-xs-6">
+  <div class="col-xs-4">
     <table id="itemTable" class="table table-hover">
       <thead>
         <tr>
