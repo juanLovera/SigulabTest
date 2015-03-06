@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prestamo:</strong>
+  <%= @relation_loan.prestamo %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @relation_loan.item %>
+</p>
+
+<%= link_to 'Edit', edit_relation_loan_path(@relation_loan) %> |
+<%= link_to 'Back', relation_loans_path %>
