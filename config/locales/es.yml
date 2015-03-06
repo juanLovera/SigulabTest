@@ -43,6 +43,15 @@ es:
         consumo: "Consumo"
         ingreso: "Ingreso"
         saldo: "Saldo"
+      loans:
+        ubicacion: "Ubicación"
+        condiciones: "Condiciones"
+        fechaEntrega: "Fecha de Entrega"
+        fechaTope: "Fecha Tope"
+      applications:
+        fechaRequerida: "Fecha Requerida"
+        descripcion: "Descripción"
+        uso: "Uso"
       chemical_substance:
         name: "Nombre"
         dependency: "Dependencia"

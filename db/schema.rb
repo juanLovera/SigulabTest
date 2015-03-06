@@ -558,6 +558,13 @@ ActiveRecord::Schema.define(version: 20150306071126) do
     t.string   "user_id"
   end
 
+  create_table "service_items", force: true do |t|
+    t.string   "servicio"
+    t.string   "item"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", force: true do |t|
     t.string   "nombre"
     t.string   "numero"

@@ -35,7 +35,6 @@ class ChemicalSubstancesController < ApplicationController
   # POST /chemical_substances.json
   def create
     @chemical_substance = ChemicalSubstance.new(chemical_substance_params)
-
     respond_to do |format|
       if @chemical_substance.save
         format.html { redirect_to @chemical_substance }
