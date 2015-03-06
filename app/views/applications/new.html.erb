@@ -13,26 +13,26 @@
 <div class="col-xs-12">
 
 
-<div class="col-xs-7">
+<div class="col-xs-8">
     <%= form_for @application, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %> 
 
       <div class="form-group">
         <label for='income_lab_id' class="col-xs-4 control-label text-right">Fecha requerida: <span style="color:#FF0000">*</span></label>
-        <div class="col-xs-3">
+        <div class="col-xs-4">
           <%= i.text_field :fechaRequerida, :class => "bootlayout-date" %>
         </div>
       </div>
       
       <div class="form-group">
         <label for='income_origin' class="col-xs-4 control-label text-right">Uso del Servicio: <span style="color:#FF0000">*</span></label>
-        <div class="col-xs-3">    
+        <div class="col-xs-4">    
           <%= i.select(:uso, [['DOCENTE'], ['INVESTIGACIÓN']] ) %>
         </div>
       </div>
 
       <div class="form-group">
         <label for='income_sae_code' class="col-xs-4 control-label text-right">Descripción: <span style="color:#FF0000">*</span></label>
-        <div class='col-xs-3'>
+        <div class='col-xs-4'>
           <%= i.text_area :descripcion %>
         </div>
       </div>
@@ -43,7 +43,7 @@
 
 
 
-<div class="col-xs-5">
+<div class="col-xs-4">
     <table id="itemTable" class="table table-hover">
       <thead>
         <tr>
