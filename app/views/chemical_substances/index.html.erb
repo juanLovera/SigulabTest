@@ -14,11 +14,19 @@
     <div class="alert alert-danger"><%= flash[:notice] %></div>
   <% end %>
 
-    <div class="col-xs-12">
-      <h1><i class="fa fa-flask"></i> Sustancias Químicas</h1>
-    </div>
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+    <h1><i class="fa fa-flask"></i> Sustancias Químicas</h1>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <br><br>
+  <% end %>
+  </div>
+</div>
+<br><br>
 
-    <br>
 
     <%= form_tag (new_loan_path) do %>
     <div class="col-xs-12">
@@ -47,12 +55,12 @@
                     <% if @sum > 0 %>
                       <td class="tg-s6z2"><%= check_box_tag "item_ids[]", chemical_substance.id2 %></td>
                     <% end %>
-                    <td class="text-center"><%= link_to chemical_substance.name, chemical_substance %></td>
-                    <td class="text-center"><%= chemical_substance.quantity %></td>
-                    <td class="text-center"><%= chemical_substance.meassure %></td>
-                    <td class="text-center"><%= chemical_substance.location %></td>
-                    <td class="text-center"><%= chemical_substance.responsible %></td>
-                    <td class="text-center"><%= chemical_substance.origen %></td>
+                    <td class="text-center"><span class="mayus"><%= link_to chemical_substance.name, chemical_substance %></span></td>
+                    <td class="text-center"><span class="mayus"><%= chemical_substance.quantity %></span></td>
+                    <td class="text-center"><span class="mayus"><%= chemical_substance.meassure %></span></td>
+                    <td class="text-center"><span class="mayus"><%= chemical_substance.location %></span></td>
+                    <td class="text-center"><span class="mayus"><%= chemical_substance.responsible %></span></td>
+                    <td class="text-center"><span class="mayus"><%= chemical_substance.origen %></span></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -74,10 +82,6 @@
     <% end %>
   <% end %>
   <button type="submit" class="btn btn-default"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo</button>
-  <%= submit_tag Solicitar Servicio, :prueba => "hola" %>
-  <%= link_to inventario_url do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-  <% end %>
 </div>  
 
 <% end %>      
@@ -126,6 +130,11 @@
 
 .Informacion {
     line-height             :1.6em;
+}
+
+
+.mayus {
+  text-transform: uppercase;
 }
 
  </style>

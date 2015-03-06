@@ -13,8 +13,22 @@
     <div class="alert alert-danger"><%= flash[:notice] %></div>
   <% end %>
 
-<div id="LeDivInstrumentos">
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
   <h1><i class="fa fa-eyedropper"></i> Instrumentos de Medición</h1>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <br><br>
+  <% end %>
+  </div>
+</div>
+<br><br>
+
+
+<div id="LeDivInstrumentos">
+
 
   <br>
       <body class="ex_highlight_row">
@@ -27,7 +41,7 @@
                 <thead>
                   <tr>
                     <% if @sum > 0 %>
-                      <th>Seleccionar</th>
+                    <th></th>
                     <% end %>
                     <th class="tg-093g">Nombre</th>
                     <th class="tg-093g">Marca</th>
@@ -45,12 +59,12 @@
                       <% if @sum > 0 %>
                         <td class="tg-s6z2"><%= check_box_tag "item_ids[]", instrument.id2 %></td>
                       <% end %>
-                      <td class="tg-s6z2"><%= link_to instrument.name, instrument %></td>
-                      <td class="tg-s6z2"><%= instrument.brand %></td>
-                      <td class="tg-s6z2"><%= instrument.national_good %></td>
-                      <td class="tg-s6z2"><%= instrument.location %></td>
-                      <td class="tg-qpa3"><%= instrument.responsible %></td>
-                      <td class="tg-qpa3"><%= instrument.origen %></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= link_to instrument.name, instrument %></span></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= instrument.brand %></span></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= instrument.national_good %></span></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= instrument.location %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= instrument.responsible %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= instrument.origen %></span></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -73,9 +87,6 @@
     <% end %>
   <% end %>
   <button type="submit" class="btn btn-default"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo/Servicio</button>
-  <%= link_to inventario_url do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-  <% end %>
 </div>  
 
 <% end %>      
@@ -107,6 +118,10 @@
 .linkButton:focus {
     outline: thin dotted;
     outline-offset: -2px;
+}
+
+.mayus {
+  text-transform: uppercase;
 }
 
  </style>

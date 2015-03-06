@@ -1,4 +1,11 @@
-<h1>Editar Equipo</h1>
+<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
+
+<div class="row">
+
 <ol class="breadcrumb">
     <li> <%=link_to 'Inicio', controller: 'statics'%></li>
     <li> <%=link_to 'Inventario', inventario_url %></li>
@@ -6,8 +13,23 @@
     <li class="active"> Editar </li>
 </ol>
 
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+    <h1>Editar Equipo</h1>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to equipment_index_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <br><br>
+  <% end %>
+  </div>
+</div>
+<br><br>
 
 <div id = "table2">
+</div>
+
+<br>
 
 <%= form_for(@equipment) do |f| %>
   <% if @equipment.errors.any? %>
@@ -21,10 +43,21 @@
       </div>
     </div>
   <% end %>
+</div>
 
-<br>
+<div id="tabs">
+    <ul>
+      <li><a href="#tabs-1" class="show">Características</a></li>
+      <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
+      <li><a href="#tabs-3" class="hidex">Datos de Adqusición</a></li>
+    </ul>
 
- <table class="table table-striped">
+
+
+    <div id="tabs-1">
+      <div class="form-group">
+        <table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
             <td class="col-xs-7"> <%= f.text_field :name %>
@@ -73,7 +106,28 @@
             <%= f.select(:measuredepth, [['m'], ['cm'], ['mm'], ['in']] ) %>
             </td>
           </tr>
-           
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
+             <td class="col-xs-7">  
+             <%= f.check_box :investigation %>
+             <%= 'Investigación' %>
+             <%= f.check_box :teaching %>
+             <%= 'Docencia' %>
+             <%= f.check_box :extention %>
+             <%= 'Extensión' %>
+             <%= f.check_box :management %>
+             <%= 'Apoyo administrativo' %><br>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+
+    <div id="tabs-2">
+      <div class="form-group">
+        <table class="table table-striped">
+
         <tr>
           <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
           <td class="col-xs-7"><%= f.text_field :responsible %>
@@ -90,6 +144,15 @@
             <td class="col-xs-7"><%= f.text_field :location %>
             <span class="red">*</span> </td>
           </tr>
+
+        </table>
+      </div>
+    </div>
+
+    <div id="tabs-3">
+      <div class="form-group">
+        <table class="table table-striped">
+
       <tr>
           <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
           <td class="col-xs-7"><%= f.text_field :adquisition_date, :class => "bootlayout-date" %>
@@ -114,37 +177,25 @@
           <td class="col-xs-7"> <%= f.text_field :bill %>
         </td>
       </tr>
-      <tr>
-        <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
-         <td class="col-xs-7">  
-         <%= f.check_box :investigation %>
-         <%= 'Investigación' %>
-         <%= f.check_box :teaching %>
-         <%= 'Docencia' %>
-         <%= f.check_box :extention %>
-         <%= 'Extensión' %>
-         <%= f.check_box :management %>
-         <%= 'Apoyo administrativo' %><br>
-      </tr>
 
-      </table>
-
+        </table>
       </div>
-      <div class="col-xs-12 text-center">
-        <div class="actions">
-          <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar</button>
-          <%= link_to equipment_index_path do %>
-            <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-          <% end %>
-        </div>
-      </div>
-<br><br><br><br>
-      </div>
-    <br><br><br>
   </div>
-<% end %>
 
 </div>
+<br><br>
+
+
+
+<div class="col-xs-12 text-center">
+  <div class="actions">
+    <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar</button>
+  </div>
+</div>
+<% end %>
+        <br><br>
+</div>
+
 <style>
 
 #LeDivEquipos {

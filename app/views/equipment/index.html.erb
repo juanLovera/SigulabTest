@@ -14,8 +14,21 @@
   <% end %>
 
 
-<div id="LeDivEquipos">
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
   <h1><i class="fa fa-plug"></i> Equipos y Mobiliarios</h1>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <br><br>
+  <% end %>
+  </div>
+</div>
+<br><br>
+
+<div id="LeDivEquipos">
+
 
 
    <br>
@@ -30,7 +43,7 @@
                 <thead>
                   <tr>
                     <% if @sum > 0 %>
-                      <th>Seleccionar</th>
+                    <th></th>
                     <% end %>
                     <th class="tg-093g">Nombre</th>
                     <th class="tg-093g">N° de BN</th>
@@ -48,12 +61,12 @@
                       <% if @sum > 0 %>
                         <td class="tg-s6z2"><%= check_box_tag "item_ids[]", equipment.id2 %></td>
                       <% end %>
-                      <td class="tg-s6z2"><%= link_to equipment.name, equipment %></td>
-                      <td class="tg-s6z2"><%= equipment.national_good %></td>
-                      <td class="tg-s6z2"><%= equipment.location %></td>
-                      <td class="tg-qpa3"><%= equipment.responsible %></td>
-                      <td class="tg-qpa3"><%= equipment.status %></td>
-                      <td class="tg-qpa3"><%= equipment.origen %></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= link_to equipment.name, equipment %></span></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= equipment.national_good %></span></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= equipment.location %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= equipment.responsible %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= equipment.status %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= equipment.origen %></span></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -74,9 +87,7 @@
     <% end %>
   <% end %>
   <button type="submit" class="btn btn-default"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo/Servicio</button>
-  <%= link_to inventario_url do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-  <% end %>
+
 </div>  
 
 <% end %>      
@@ -105,6 +116,10 @@
 .linkButton:focus {
     outline: thin dotted;
     outline-offset: -2px;
+}
+
+.mayus {
+  text-transform: uppercase;
 }
 
  </style>

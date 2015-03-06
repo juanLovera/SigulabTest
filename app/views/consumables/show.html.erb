@@ -1,3 +1,11 @@
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
+
+<div class="row">
+
+  <div class="col-xs-12">
 <p id="notice"><%= notice %></p>
 <ol class="breadcrumb">
 	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
@@ -5,13 +13,32 @@
 	<li> <%=link_to 'Consumibles', consumables_path %></li>
 	<li class="active"> Ver </li> 
 </ol>
+  </div>
+</div>
+
+<div class="col-xs-12 text-right">
+  <%= link_to consumables_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+  <% end %>
+</div>
+<br>
+
+<div id = "table2">
+</div>
+
+<p><h2><center><%= @consumable.name %> </h2></p>
 
 
- <table class="table table-striped">
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
-            <td class="col-xs-7"><%=  @consumable.name %></td>
-          </tr>
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1" class="hidex">Características</a></li>
+    <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
+    <li><a href="#tabs-3" class="show">Datos de Adquisición</a></li>
+  </ul>
+
+  <div id="tabs-1">
+      <p><table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Descripción:</strong></td>
             <td class="col-xs-7"><%= @consumable.description %></td>
@@ -20,18 +47,7 @@
             <td class="col-xs-5 text-right"><strong>Material:</strong></td>
             <td class="col-xs-7"><%= @consumable.material %></td>
           </tr>
-           <tr>
-            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
-            <td class="col-xs-7"><%= @consumable.responsible %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
-            <td class="col-xs-7"><%= @consumable.dependency %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
-            <td class="col-xs-7"><%= @consumable.location %></td>
-          </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
             <td class="col-xs-7"><%= @consumable.quantity %></td>
@@ -52,7 +68,32 @@
                 <%= ' GESTIÓN ' %>
               <% end %></td>
          </tr>
-        <tr>        
+
+    </table></p>
+  </div>
+
+  <div id="tabs-2">
+    <p><table class="table table-striped">
+
+           <tr>
+            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
+            <td class="col-xs-7"><%= @consumable.responsible %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= @consumable.dependency %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= @consumable.location %></td>
+          </tr>
+
+    </table></p>
+  </div>
+
+  <div id="tabs-3">
+    <table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
             <td class="col-xs-7"><%= @consumable.bill %></td>
@@ -72,8 +113,11 @@
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
             <td class="col-xs-7"><%= @consumable.adquisition_date %></td>
           </tr>
-          
-        </table>
+
+    </table></p>
+  </div>
+</div>
+
 
 <br>
 <div class="col-xs-12">
@@ -97,23 +141,17 @@
 
 
   </div>
-    <div class="col-xs-6 text-right">
-
-    <%= link_to consumables_path do %>
-      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-    <% end %>
-  </div>
 </div>
 
 <br><br><br><br>
 
 <style>
 
-#LeDivConsumibles {
-    background-image        : url('/assets/consumables2.png');
-    background-size         : 250px;  
+#LeDivEquipos {
+    background-image        : url('/assets/equipment2.png');
+    background-size         : 230px;  
     background-repeat       : no-repeat; 
-    background-position     : bottom right; 
+    background-position     : bottom right;  
     background-color        : #FFFFFF;
 }
 
@@ -148,5 +186,26 @@
     outline-offset: -2px;
 }
 
+.mayus {
+  text-transform: uppercase;
+}
 
 </style>
+
+  <script type="text/javascript">
+  //<![CDATA[
+    showButtons();
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>
