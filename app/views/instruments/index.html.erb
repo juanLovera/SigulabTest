@@ -15,7 +15,7 @@
 
 <div class="col-xs-12">
   <div class="col-xs-6 text-left">
-  <h1><i class="fa fa-eyedropper"></i> Instrumentos de Medición</h1>
+  <h2><i class="fa fa-eyedropper"></i> Instrumentos de Medición</h2>
   </div>
   <div class="col-xs-6 text-right">
     <%= link_to inventario_url do %>
@@ -125,3 +125,20 @@
 }
 
  </style>
+
+  <script type="text/javascript">
+  //<![CDATA[
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>
