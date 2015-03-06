@@ -14,11 +14,13 @@ class ApplicationsController < ApplicationController
   # GET /applications/1
   # GET /applications/1.json
   def show
+    @id = params[:id]
     @application = Application.find(params[:id])
-    @equipment = Equipment.where(id2: params[:item_ids])
-    @instruments = Instrument.where(id2: params[:item_ids])
-    @tools = Tool.where(id2: params[:item_ids])
-
+    @relation_service = RelationService.all.select(:item).where(servicio: @application.id.to_s)
+    @equipment = Equipment.where(id2: @relation_service)
+    @instruments = Instrument.where(id2: @relation_service)
+    @tools = Tool.where(id2: @relation_service)
+    
     respond_to do |format|
       format.html
       format.pdf do
@@ -30,15 +32,16 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/new
   def new
+    @id = params[:item_ids]
     @application = Application.new
     @equipment = Equipment.where(id2: params[:item_ids])
     @instruments = Instrument.where(id2: params[:item_ids])
     @tools = Tool.where(id2: params[:item_ids])
-
+  
     @sumE = Equipment.where(id2: params[:item_ids]).count
     @sumI = Instrument.where(id2: params[:item_ids]).count
     @sumT = Tool.where(id2: params[:item_ids]).count
-    @id = params[:item_ids]
+    
   end
 
   # GET /applications/1/edit
@@ -48,10 +51,11 @@ class ApplicationsController < ApplicationController
   # POST /applications
   # POST /applications.json
   def create
+    @ids = params[:item_ids].split(" ")
     @application = Application.new(application_params)
-    @equipment = Equipment.where(id2: params[:item_ids])
-    @instruments = Instrument.where(id2: params[:item_ids])
-    @tools = Tool.where(id2: params[:item_ids])
+    @equipment = Equipment.where(id2: @ids)
+    @instruments = Instrument.where(id2: @ids)
+    @tools = Tool.where(id2: @ids)
 
     respond_to do |format|
       if @application.save
@@ -91,7 +95,7 @@ class ApplicationsController < ApplicationController
   def update
     respond_to do |format|
       if @application.update(application_params)
-        format.html { redirect_to @application, notice: 'La solicitud fue actualizada satisfactoriamente.' }
+        format.html { redirect_to @application }
         format.json { render :show, status: :ok, location: @application }
       else
         format.html { render :edit }
@@ -105,7 +109,7 @@ class ApplicationsController < ApplicationController
   def destroy
     @application.destroy
     respond_to do |format|
-      format.html { redirect_to applications_url, notice: 'La solicitud fue eliminada satisfactoriamente.' }
+      format.html { redirect_to applications_url }
       format.json { head :no_content }
     end
   end

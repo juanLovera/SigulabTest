@@ -8,9 +8,11 @@ class Loan < ActiveRecord::Base
 	validate :fechas
 
 	def fechas
-	    if fechaEntrega > fechaTope
-	      errors.add(:fechaEntrega, "no puede ser posterior a la fecha de petición")
-	    end
+		if fechaEntrega and fechaTope
+		    if fechaEntrega > fechaTope
+		      errors.add(:fechaEntrega, "no puede ser posterior a la fecha de petición")
+		    end
+		end
 	end
 
 end

@@ -28,22 +28,29 @@ class BinnaclesController < ApplicationController
   end
 
   def new
-    @sustancias = ChemicalSubstance.where(id2: params[:format])
+    @binnacle = Binnacle.new
+    if params[:format]
+      @id = params[:format]
+    else
+      @id = params[:formato]
+    end
+    @sustancias = ChemicalSubstance.where(id2: @id)
+
     @sustancias.each do |sustancia|
       @unidad = "#{sustancia.meassure}"
       @nombre = "#{sustancia.name}"
     end
-    @id = params[:format]
-    @binnacle = Binnacle.new
-    binding.pry
+
   end
 
   def edit
+
     @id = @binnacle.idSustancia
     @sustancias = ChemicalSubstance.where(id2: @id)
     @sustancias.each do |sustancia|
       @unidad = "#{sustancia.meassure}"
     end
+
   end
 
   def create
@@ -54,10 +61,10 @@ class BinnaclesController < ApplicationController
         @consumos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:consumo)
         @binnacle.total = @ingresos - @consumos
         @binnacle.save
-        f.html { redirect_to @binnacle, notice: 'Se ha añadido un registro a la bitácora exitosamente.' }
+        f.html { redirect_to @binnacle }
         f.json { render :show, status: :created, location: @binnacle }
       else
-        f.html { redirect_to :new, format: params[:format] }
+        f.html { render :new }
         f.json { render json: @binnacle.errors, status: :unprocessable_entity }
       end
     end
@@ -65,7 +72,7 @@ class BinnaclesController < ApplicationController
   end
 
   def update
-    flash[:notice] = 'La bitácora se ha actualizado exitosamente.' if @binnacle.update(binnacle_params)
+    @binnacle.update(binnacle_params)
     respond_with(@binnacle)
   end
 
@@ -80,6 +87,6 @@ class BinnaclesController < ApplicationController
     end
 
     def binnacle_params
-      params.require(:binnacle).permit(:idSustancia, :fecha, :tipo, :consumo, :ingreso, :descripcion)
+      params.require(:binnacle).permit(:idSustancia, :fecha, :tipo, :consumo, :ingreso, :descripcion, :total)
     end
 end

@@ -45,7 +45,7 @@
                   <th class="text-center">Medida</th>
                   <th class="text-center">Ubicación</th>
                   <th class="text-center">Responsable</th>
-                  <th class="tg-hgcj">Origen</th>
+                  <th class="text-center">Origen</th>
                 </tr>
               </thead>
 
@@ -53,7 +53,7 @@
                 <% @chemical_substances.each do |chemical_substance| %>
                   <tr>
                     <% if @sum > 0 %>
-                      <td class="tg-s6z2"><%= check_box_tag "item_ids[]", chemical_substance.id2 %></td>
+                      <td class="text-center"><%= check_box_tag "item_ids[]", chemical_substance.id2 %></td>
                     <% end %>
                     <td class="text-center"><span class="mayus"><%= link_to chemical_substance.name, chemical_substance %></span></td>
                     <td class="text-center"><span class="mayus"><%= chemical_substance.quantity %></span></td>
@@ -81,13 +81,7 @@
       <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Sustancia</button>
     <% end %>
   <% end %>
-  <button type="submit" class="btn btn-default"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo</button>
-<<<<<<< HEAD
-=======
-  <%= link_to inventario_url do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-  <% end %>
->>>>>>> 9b371d20759373e78ce4cd71a9d89d130f06126f
+  <button type="submit" class="btn btn-primary"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo</button>
 </div>  
 
 <% end %>      
@@ -144,3 +138,19 @@
 }
 
  </style>
+
+ <script type="text/javascript">
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>

@@ -88,7 +88,8 @@
       <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Herramienta</button>
     <% end %>
   <% end %>
-  <button type="submit" class="btn btn-default"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo/Servicio</button>
+  <button type="submit" class="btn btn-primary"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo</button>
+  <span class="fa fa-retweet"></span><%= submit_tag "Solicitar Servicio", class: "linkButton" %>
 </div>  
 
 <% end %>      
@@ -103,23 +104,9 @@
 .linkButton { 
    text-decoration: none;
    text-align: right;
-   color: #384157;
-   font-weight: bold;
+   color: black;
      background: none repeat scroll 0px 0px transparent;
      border: none;
-}
-
-.linkButton:hover {
-    cursor: pointer;
-    color: #8ED6FF;
-    text-align: right;
-    background: none repeat scroll 0% 0% #FFF;
-    text-decoration: none;
-}
-
-.linkButton:focus {
-    outline: thin dotted;
-    outline-offset: -2px;
 }
 
 .mayus {
@@ -127,3 +114,19 @@
 }
 
  </style>
+
+ <script type="text/javascript">
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>

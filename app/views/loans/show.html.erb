@@ -6,45 +6,101 @@
 </ol>
 
 
-
-
-
-    <div class="col-xs-12">
-        <table class="table table-striped">
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Fecha requerida:</strong></td>
-            <td class="col-xs-7"><%= @loan.fechaEntrega %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Ubicación Destino:</strong></td>
-            <td class="col-xs-7"><%=@loan.ubicacion %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Fecha tope de entrega:</strong></td>
-            <td class="col-xs-7"><%= @loan.fechaTope %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Condiciones de Préstamo:</strong></td>
-            <td class="col-xs-7"><%= @loan.condiciones %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
-            <td class="col-xs-7"> <%= @loan.medida %><% @loan.unidadMedida %></td>
-          </tr>
-          
-         </div></td>
-        </table>
-
-      </div>
-
-
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+    <h1><i class="fa fa-list"></i>  Préstamo  </h1>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to loans_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+      <br><br>
+    <% end %>
+  </div>
+</div>
 
 
 <div class="col-xs-12">
+
+<div class="col-xs-12">
+
+  <div class="col-xs-8">
+
+    <table class="table table-striped">
+      <tr>
+        <td class="col-xs-5 text-right"><strong>Fecha requerida:</strong></td>
+        <td class="col-xs-7"><%= @loan.fechaEntrega %></td>
+      </tr>
+      <tr>
+        <td class="col-xs-5 text-right"><strong>Ubicación Destino:</strong></td>
+        <td class="col-xs-7"><%=@loan.ubicacion %></td>
+      </tr>
+      <tr>
+        <td class="col-xs-5 text-right"><strong>Fecha tope de entrega:</strong></td>
+        <td class="col-xs-7"><%= @loan.fechaTope %></td>
+      </tr>
+      <tr>
+        <td class="col-xs-5 text-right"><strong>Condiciones de Préstamo:</strong></td>
+        <td class="col-xs-7"><%= @loan.condiciones %></td>
+      </tr>
+      <tr>
+        <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
+        <td class="col-xs-7"> <%= @loan.medida %><% @loan.unidadMedida %></td>
+      </tr>
+      <%= hidden_field_tag "id", @id %>
+     </div></td>
+    </table>
+
+  </div>
+  <div class="col-xs-4">
+    <table id="itemTable" class="table table-hover">
+      <thead>
+        <tr>
+          <th class="tg-hgcj"> Código del Bien</th>
+          <th class="tg-093g">Nombre</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @sustancias.each do |sustancia| %>
+          <tr>
+            <td class="tg-s6z2"><%= sustancia.id2 %></td>
+            <td class="tg-s6z2"><%=  sustancia.name  %></td>
+          </tr>
+        <% end %>
+        <% @equipment.each do |equipment| %>
+          <tr>
+            <td class="tg-s6z2"><%= equipment.id2 %></td>
+            <td class="tg-s6z2"><%=  equipment.name  %></td>
+          </tr>
+        <% end %>
+        <% @tools.each do |tool| %>
+          <tr>
+            <td class="tg-s6z2"><%= tool.id2 %></td>
+            <td class="tg-s6z2"><%=  tool.name  %></td>
+          </tr>
+        <% end %>
+        <% @consumables.each do |consumable| %>
+          <tr>
+            <td class="tg-s6z2"><%= consumable.id2 %></td>
+            <td class="tg-s6z2"><%=  consumable.name  %></td>
+          </tr>
+        <% end %>
+        <% @instruments.each do |instrument| %>
+          <tr>
+            <td class="tg-s6z2"><%= instrument.id2 %></td>
+            <td class="tg-s6z2"><%=  instrument.name  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="col-xs-12 text-left">
   <i class="fa fa-cog"></i><%= link_to ' Editar', edit_loan_path(@loan), 'data-no-turbolink' => true %> |
   <i class="fa fa-times fa-1x"></i><%= link_to ' Ocultar', @loan, method: :delete, data: { confirm: '¿Estás seguro?' } %> |
-  <i class="fa fa-download"></i><%= link_to ' Descargar Solicitud '.html_safe, loan_path(@loan, :format => 'pdf') %> | 
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', inventario_url %>
+  <i class="fa fa-download"></i><%= link_to ' Descargar Solicitud '.html_safe, loan_path(@loan, :format => 'pdf') %>
 <br><br><br><br>
 </div>
 

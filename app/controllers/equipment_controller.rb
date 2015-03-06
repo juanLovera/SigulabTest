@@ -35,7 +35,7 @@ class EquipmentController < ApplicationController
 
     respond_to do |format|
       if @equipment.save
-        format.html { redirect_to @equipment, notice: 'El equipo fue creado de forma exitosa.' }
+        format.html { redirect_to @equipment }
         format.json { render :show, status: :created, location: @equipment }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class EquipmentController < ApplicationController
   def update
     respond_to do |format|
       if @equipment.update(equipment_params)
-        format.html { redirect_to @equipment, notice: 'El equipo fue actualizado de forma exitosa.' }
+        format.html { redirect_to @equipment }
         format.json { render :show, status: :ok, location: @equipment }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class EquipmentController < ApplicationController
   def destroy
     @equipment.destroy
     respond_to do |format|
-      format.html { redirect_to equipment_index_url, notice: 'El equipo fue eliminado de forma exitosa.' }
+      format.html { redirect_to equipment_index_url }
       format.json { head :no_content }
     end
   end

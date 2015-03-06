@@ -87,7 +87,7 @@
     <% end %>
   <% end %>
   <button type="submit" class="btn btn-primary"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo</button>
-  <%= submit_tag "Solicitar Servicio", controller: "applications", action: "new" %>
+  <span class="fa fa-retweet"></span><%= submit_tag "Solicitar Servicio", class: "linkButton" %>
 </div>  
 
 <% end %>      
@@ -99,23 +99,9 @@
 .linkButton { 
    text-decoration: none;
    text-align: right;
-   color: #00000;
-   font-weight: bold;
+   color: black;
      background: none repeat scroll 0px 0px transparent;
      border: none;
-}
-
-.linkButton:hover {
-    cursor: pointer;
-    color: #8ED6FF;
-    text-align: right;
-    background: none repeat scroll 0% 0% #FFF;
-    text-decoration: none;
-}
-
-.linkButton:focus {
-    outline: thin dotted;
-    outline-offset: -2px;
 }
 
 .mayus {
@@ -123,3 +109,19 @@
 }
 
  </style>
+
+ <script type="text/javascript">
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>

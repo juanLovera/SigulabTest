@@ -35,7 +35,7 @@ class ToolsController < ApplicationController
 
     respond_to do |format|
       if @tool.save
-        format.html { redirect_to @tool, notice: 'Herramienta fue creada de forma exitosa.' }
+        format.html { redirect_to @tool }
         format.json { render :show, status: :created, location: @tool }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class ToolsController < ApplicationController
   def update
     respond_to do |format|
       if @tool.update(tool_params)
-        format.html { redirect_to @tool, notice: 'Herramienta fue actualizada de forma exitosa.' }
+        format.html { redirect_to @tool }
         format.json { render :show, status: :ok, location: @tool }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class ToolsController < ApplicationController
   def destroy
     @tool.destroy
     respond_to do |format|
-      format.html { redirect_to tools_url, notice: 'Herramienta fue eliminada de forma exitosa.' }
+      format.html { redirect_to tools_url }
       format.json { head :no_content }
     end
   end
