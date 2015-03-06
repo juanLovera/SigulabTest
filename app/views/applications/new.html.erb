@@ -11,54 +11,69 @@
 <br>
 
 <div class="col-xs-12">
-<div class="col-xs-6">
-	<%= render 'form' %>
-</div>
-<div class="col-xs-6">
-<thead>
-    <table id="itemTable" class="table table-hover">
-      <tr>
-        <th></th>
-        <th class="tg-093g">Nombre</th>
-        <th class="tg-hgcj">Número de Bien</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @equipment.each do |equipment| %>
+
+<div class="col-xs-7">
+    <%= form_for @application, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %> 
+
+      <div class="form-group">
+        <label for='income_lab_id' class="col-xs-4 control-label text-right">Fecha requerida: <span style="color:#FF0000">*</span></label>
+        <div class="col-xs-3">
+          <%= i.text_field :fechaRequerida, :class => "bootlayout-date" %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for='income_origin' class="col-xs-4 control-label text-right">Uso del Servicio: <span style="color:#FF0000">*</span></label>
+        <div class="col-xs-3">    
+          <%= i.select(:uso, [['DOCENTE'], ['INVESTIGACIÓN']] ) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for='income_sae_code' class="col-xs-4 control-label text-right">Descripción: <span style="color:#FF0000">*</span></label>
+        <div class='col-xs-3'>
+          <%= i.text_area :descripcion %>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+
+
+<div class="col-xs-5">
+    <table id="itemTable" class="table table-hover">
+      <thead>
         <tr>
-          <td class="tg-s6z2"><%=  equipment.name  %></td>
-              <td class="tg-s6z2"><%= equipment.id %></td>
+          <th class="tg-hgcj"> Código del Bien</th>
+          <th class="tg-093g">Nombre</th>
         </tr>
-      <% end %>
-      <% @instruments.each do |instrument| %>
-        <tr>
-          <td class="tg-s6z2"><%=  instrument.name  %></td>
-              <td class="tg-s6z2"><%= instrument.id %></td>
-        </tr>
-      <% end %>
-      <% @tools.each do |tool| %>
-        <tr>
-          <td class="tg-s6z2"><%=  tool.name  %></td>
-              <td class="tg-s6z2"><%= tool.id %></td>
-        </tr>
-      <% end %>
-      <% @consumables.each do |consumable| %>
-        <tr>
-          <td class="tg-s6z2"><%=  consumable.name  %></td>
-              <td class="tg-s6z2"><%= consumable.id %></td>
-        </tr>
-      <% end %>
-      <% @sustancias.each do |sustancia| %>
-        <tr>
-          <td class="tg-s6z2"><%=  sustancia.name  %></td>
-              <td class="tg-s6z2"><%= sustancia.id %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </thead>
-</div>
+      </thead>
+
+      <tbody>
+        <% @equipment.each do |equipment| %>
+          <tr>
+            <td class="tg-s6z2"><%= equipment.id2 %></td>
+            <td class="tg-s6z2"><%=  equipment.name  %></td>
+          </tr>
+        <% end %>
+        <% @tools.each do |tool| %>
+          <tr>
+            <td class="tg-s6z2"><%= tool.id2 %></td>
+            <td class="tg-s6z2"><%=  tool.name  %></td>
+          </tr>
+        <% end %>
+        <% @instruments.each do |instrument| %>
+          <tr>
+            <td class="tg-s6z2"><%= instrument.id2 %></td>
+            <td class="tg-s6z2"><%=  instrument.name  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
   <br>
 <div class="col-xs-12">

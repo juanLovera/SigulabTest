@@ -1,6 +1,8 @@
 class ApplicationsController < ApplicationController
+  layout 'bootlayout'
   before_filter :authenticate_user!
   before_action :set_application, only: [:show, :edit, :update, :destroy]
+
 
   # GET /applications
   # GET /applications.json
@@ -35,13 +37,10 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/new
   def new
-    @lista
     @application = Application.new
-    @equipment = Equipment.where(:solicitados => true).all.order('created_at DESC')
-    @instruments = Instrument.where(:solicitados => true).all.order('created_at DESC')
-    @tools = Tool.where(:solicitados => true).all.order('created_at DESC')
-    @consumables = Consumable.where(:solicitados => true).all.order('created_at DESC')
-    @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
+    @equipment = Equipment.where(id2: params[:item_ids])
+    @instruments = Instrument.where(id2: params[:item_ids])
+    @tools = Tool.where(id2: params[:item_ids])
   end
 
   # GET /applications/1/edit

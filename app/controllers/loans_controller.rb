@@ -24,17 +24,20 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
-    binding.pry
     if params[:item_ids] == nil
       flash[:notice] = "No ha seleccionado ningun item para ser prestado"
       redirect_to :back
     else
-      @loan = Loan.new
-      @equipment = Equipment.where(id2: params[:item_ids])
-      @instruments = Instrument.where(id2: params[:item_ids])
-      @tools = Tool.where(id2: params[:item_ids])
-      @consumables = Consumable.where(id2: params[:item_ids])
-      @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
+      if params[:commit]
+        redirect_to :controller => "applications", :action => "new", :item_ids => params[:item_ids]
+      else
+        @loan = Loan.new
+        @equipment = Equipment.where(id2: params[:item_ids])
+        @instruments = Instrument.where(id2: params[:item_ids])
+        @tools = Tool.where(id2: params[:item_ids])
+        @consumables = Consumable.where(id2: params[:item_ids])
+        @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
+      end
     end
   end
 

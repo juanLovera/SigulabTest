@@ -1,7 +1,7 @@
 class BinnaclesController < ApplicationController
+  layout 'bootlayout'
   before_action :set_binnacle, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  layout 'bootlayout'
 
   respond_to :html
 
@@ -35,6 +35,7 @@ class BinnaclesController < ApplicationController
     end
     @id = params[:format]
     @binnacle = Binnacle.new
+    binding.pry
   end
 
   def edit
@@ -47,12 +48,19 @@ class BinnaclesController < ApplicationController
 
   def create
     @binnacle = Binnacle.new(binnacle_params)
-    flash[:notice] = 'Se ha añadido un registro a la bitácora exitosamente.' if @binnacle.save
-    respond_with(@binnacle)
-    @ingresos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:ingreso)
-    @consumos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:consumo)
-    @binnacle.total = @ingresos - @consumos
-    @binnacle.save
+    respond_to do |f|
+      if @binnacle.save
+        @ingresos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:ingreso)
+        @consumos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:consumo)
+        @binnacle.total = @ingresos - @consumos
+        @binnacle.save
+        f.html { redirect_to @binnacle, notice: 'Se ha añadido un registro a la bitácora exitosamente.' }
+        f.json { render :show, status: :created, location: @binnacle }
+      else
+        f.html { redirect_to :new, format: params[:format] }
+        f.json { render json: @binnacle.errors, status: :unprocessable_entity }
+      end
+    end
     
   end
 
