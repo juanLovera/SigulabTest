@@ -10,30 +10,59 @@
 </div>
 <br>
 
+<div class="col-xs-12 text-right">
+  <% if @sumT > 0 %>
+    <%= link_to tools_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+      <br><br>
+    <% end %>
+  <% end %>
+  <% if @sumE > 0 %>
+    <%= link_to equipment_index_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+      <br><br>
+    <% end %>
+  <% end %>
+  <% if @sumI > 0 %>
+    <%= link_to instruments_path do %>
+      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+      <br><br>
+    <% end %>
+  <% end %>
+</div>
+
 <div class="col-xs-12">
 
 
 <div class="col-xs-8">
     <%= form_for @application, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %> 
 
+
       <div class="form-group">
         <label for='income_lab_id' class="col-xs-4 control-label text-right">Fecha requerida: <span style="color:#FF0000">*</span></label>
-        <div class="col-xs-4">
+        <div class="col-xs-6">
           <%= i.text_field :fechaRequerida, :class => "bootlayout-date" %>
         </div>
       </div>
       
       <div class="form-group">
         <label for='income_origin' class="col-xs-4 control-label text-right">Uso del Servicio: <span style="color:#FF0000">*</span></label>
-        <div class="col-xs-4">    
+        <div class="col-xs-6">    
           <%= i.select(:uso, [['DOCENTE'], ['INVESTIGACIÓN']] ) %>
         </div>
       </div>
 
       <div class="form-group">
         <label for='income_sae_code' class="col-xs-4 control-label text-right">Descripción: <span style="color:#FF0000">*</span></label>
-        <div class='col-xs-4'>
+        <div class='col-xs-6'>
           <%= i.text_area :descripcion %>
+        </div>
+      </div>
+      <%= hidden_field_tag "items_id", params[:items_id] %>
+
+      <div class="form-group">
+        <div class="col-xs-offset-3 col-xs-9">
+          <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
         </div>
       </div>
 
@@ -76,7 +105,5 @@
   </div>
 </div>
   <br>
-<div class="col-xs-12">
-<i class="fa fa-arrow-left"></i><%= link_to ' Atrás', inventario_url %>
-</div>
-<br><br><br><br>
+
+<br><br>

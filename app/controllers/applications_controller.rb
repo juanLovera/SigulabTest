@@ -15,11 +15,9 @@ class ApplicationsController < ApplicationController
   # GET /applications/1.json
   def show
     @application = Application.find(params[:id])
-    @equipos = Equipment.where(:solicitados => true)
-    @instruments = Instrument.where(:solicitados => true)
-    @tools = Tool.where(:solicitados => true)
-    @consumables = Consumable.where(:solicitados => true)
-    @sustancias = ChemicalSubstance.where(:solicitados => true)
+    @equipment = Equipment.where(id2: params[:item_ids])
+    @instruments = Instrument.where(id2: params[:item_ids])
+    @tools = Tool.where(id2: params[:item_ids])
 
     respond_to do |format|
       format.html
@@ -28,11 +26,6 @@ class ApplicationsController < ApplicationController
         send_data pdf.render, filename: 'SolicitudServicio.pdf', type: 'application/pdf'
       end
     end
-    @equipment = Equipment.update_all(:solicitados => false)
-    @instrumentos = Instrument.update_all(:solicitados => false)
-    @herramientas = Tool.update_all(:solicitados => false)
-    @consumibles = Consumable.update_all(:solicitados => false)
-    @sustanciasqui = ChemicalSubstance.update_all(:solicitados => false)
   end
 
   # GET /applications/new
@@ -41,6 +34,10 @@ class ApplicationsController < ApplicationController
     @equipment = Equipment.where(id2: params[:item_ids])
     @instruments = Instrument.where(id2: params[:item_ids])
     @tools = Tool.where(id2: params[:item_ids])
+
+    @sumE = Equipment.where(id2: params[:item_ids]).count
+    @sumI = Instrument.where(id2: params[:item_ids]).count
+    @sumT = Tool.where(id2: params[:item_ids]).count
   end
 
   # GET /applications/1/edit
@@ -51,10 +48,32 @@ class ApplicationsController < ApplicationController
   # POST /applications.json
   def create
     @application = Application.new(application_params)
+    @equipment = Equipment.where(id2: params[:item_ids])
+    @instruments = Instrument.where(id2: params[:item_ids])
+    @tools = Tool.where(id2: params[:item_ids])
 
     respond_to do |format|
       if @application.save
-        format.html { redirect_to @application, notice: 'La solicitud fue creada satisfactoriamente.' }
+
+        @equipment.each do |equipment|
+          @servicio = ServiceItems.new
+          @servicio.servicio = @application.id.to_s
+          @servicio.item = equipment.id2
+        end
+
+        @instruments.each do |instrument|
+          @servicio = ServiceItems.new
+          @servicio.servicio = @application.id.to_s
+          @servicio.item = instrument.id2
+        end
+
+        @tools.each do |tool|
+          @servicio = ServiceItems.new
+          @servicio.servicio = @application.id.to_s
+          @servicio.item = tool.id2
+        end
+
+        format.html { redirect_to @application, notice: 'La solicitud fue creada satisfactoriamente.', :item_ids => params[:item_ids] }
         format.json { render :show, status: :created, location: @application }
       else
         format.html { render :new }
