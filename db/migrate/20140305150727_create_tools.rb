@@ -15,6 +15,9 @@ class CreateTools < ActiveRecord::Migration
 	    t.boolean  "teaching"
 	    t.boolean  "extention"
 	    t.boolean  "management"
+	    t.float    "cost"
+	    t.string   "buy_order"
+	    t.datetime "adquisition_date"
 	    t.datetime "created_at"
 	    t.datetime "updated_at"
 	    t.timestamps

@@ -74,7 +74,7 @@ class ActsController < ApplicationController
     @quotes.each do |quot|
 	@bienSer = @bienSer + quot.nombre_item + ", "
       end
-    @bienSer = @bienSer[0..-3]
+    @bienSer = @bienSer[0..-2]
     @act.specification_id = session[:specification_sel_id]
     @act.bienServicio = @bienSer
     @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => @act.proveedor, :tipo => "Internacional").count
