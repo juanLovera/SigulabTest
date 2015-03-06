@@ -5,8 +5,7 @@
 		   <th align="left">Nro</th>
 		   <th align="left">Tipo</th>
 		   <th align="left" style="width: 60%;">Nombre</th>
-                   <th align="left">Estado</th>
-		   <th align="left"></th>
+		   <th align="left">Proceso</th>
 		 </tr>
 	  </thead>
 
@@ -16,7 +15,6 @@
 		     <td><%= index+1 %></td>
 		     <td><%= specification.tipo %></td>
 		     <td style="width: 60%;"><%= specification.nombre %></td>
-	             <td style="padding-top:15px;"><span style="font-size:12px;" class="label label-warning">Incompleta</span></td>
 		     <td style="text-align:right">
 		     <%= link_to '<button type="button" class="btn btn-primary">Completar</button>'.html_safe,  {:controller => "comprando", :action => "seleccionarEspecificacion", :specification => specification.id } %></td>
 		   </tr>

@@ -48,7 +48,7 @@ class ReporteRecommendations < Prawn::Document
   def texto
     time = Time.now + 7.days
     move_down 15
-    text"Por medio del presente rindo el informe de recomendación correspondiente al procedimiento de la Consulta de Precios #{@recommendation.codigo}, conforme al tenor descrito a continuación:", :align => :justify, :indent_paragraphs => 40, :inline_format => true
+    text"Por medio del presente rindo el informe de recomendación correspondiente al procedimiento de la Especificación Técnica #{@recommendation.codigo}, conforme al tenor descrito a continuación:", :align => :justify, :indent_paragraphs => 40, :inline_format => true
 
     move_down 10
     text "1. Cumpliendo con el Artículo 7 del Reglamento de la Ley de Contrataciones Públicas, se procedió a la remisión, vía #{@recommendation.via}, de la “Carta de Invitación” y las “Especificaciones Técnicas del Bien” a las empresas que se mencionan a continuación, para que participasen en el proceso de contratación", :align => :justify, :indent_paragraphs => 40
@@ -88,7 +88,7 @@ class ReporteRecommendations < Prawn::Document
    
     @empresas.each do |emp|
 	if emp.cumplio_req == 1
-		case emp.cumplio_req
+		case emp.opcion_numero
 		when 1
 		  opc_nombre = "PRIMERA OPCIÓN"
 		when 2
@@ -157,14 +157,15 @@ class ReporteRecommendations < Prawn::Document
    text "Agradeciendo su receptividad y respuesta a esta solicitud, se despide de usted.", :align => :justify,:indent_paragraphs => 40
 
    move_down 5
-   text " Atentamente,", :align => :center
+   text " Atentamente,\n\n\n\n#{@recommendation.responsale}", :align => :center
 
    stroke do
-   	horizontal_line 210, 340, :at => 45
-		horizontal_line 395, 525, :at => 25
-   end
 
-   draw_text "Recibido por", :at => [435,60], :size => 8
+   	horizontal_line 210, 340, :at => 54
+		horizontal_line 395, 525, :at => 54
+   end
+   draw_text "Coordinador(a) de Adquisiciones", :at => [218,40], :size => 8
+   draw_text "Jefe del Laboratorio", :at => [431,40], :size => 8
    draw_text "Cod. Doc: UL01-M01F04    Fecha: 15/05/2014", :size => 6, :at => [10,20]
    
  

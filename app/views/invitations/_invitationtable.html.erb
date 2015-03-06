@@ -17,7 +17,7 @@
 		     <td><%= invitation.nombre %></td>
 		     <td><%= invitation.contacto %></td>
 		     <td><%= invitation.correo_contacto %></td>
-<td style="text-decoration:none; color:black; text-align: right"><a href="/invitations/<%= invitation.id %>.pdf"><button type="button" class="btn btn-primary"> Descargar </button></a> <%= link_to '<button type="button" class="btn btn-warning"> Editar </button>'.html_safe, invitation %></td>     
+<td style="text-decoration:none; color:black; text-align: right"><a href="/invitations/<%= invitation.id %>.pdf"><button type="button" class="btn btn-primary"> Descargar </button></a> <%= link_to '<button type="button" class="btn btn-warning"> Consultar </button>'.html_safe, invitation %></td>     
 		   </tr>
 		 <% end %>
 		 <% if @sumInvitation == 0 %>
