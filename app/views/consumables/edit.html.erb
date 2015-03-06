@@ -1,4 +1,11 @@
-<h1>Editar Consumible</h1>
+<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
+
+<div class="row">
+
 <ol class="breadcrumb">
     <li> <%=link_to 'Inicio', controller: 'statics'%></li>
     <li> <%=link_to 'Inventario', inventario_url %></li>
@@ -6,9 +13,6 @@
     <li class="active"> Editar </li>
 </ol>
 
-<div id = "table2">
-
-<br>
 
 <%= form_for(@consumable) do |f| %>
   <% if @consumable.errors.any? %>
@@ -23,9 +27,29 @@
     </div>
   <% end %>
 
-<div class ="Informacion">
-    
-    <table class="table table-striped">
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+  <h1>Editar Consumible</h1>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to consumables_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <br><br>
+  <% end %>
+  </div>
+</div>
+<br><br>
+
+<div id = "table2">
+</div>
+
+<br>
+</div>
+
+    <div id="tabs-1">
+      <div class="form-group">
+        <table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
             <td class="col-xs-7"><%= f.text_field :name %><span class="red">*</span</td>
@@ -39,20 +63,7 @@
             <td class="col-xs-7"><%= f.text_field :material %></td>
           </tr>
            <tr>
-            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :responsible %><span class="red">*</span</td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :dependency %>
-            <span class="red">*</span> </td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
-            <td class="col-xs-7"><%= f.text_field :location %>
-            <span class="red">*</span> </td>
-          </tr>
-          <tr>
+
             <td class="col-xs-5 text-right"><strong>Cantidad:</strong></td>
             <td class="col-xs-7"><%= f.text_field :quantity %></td>
           </tr>
@@ -69,6 +80,40 @@
               <%= f.check_box :management %>
               <%= 'apoyo Administrativo' %></div></td>
          </tr>
+
+        </table>
+      </div>
+    </div>
+
+    <div id="tabs-2">
+      <div class="form-group">
+        <table class="table table-striped">
+
+            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :responsible %><span class="red">*</span</td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :dependency %>
+            <span class="red">*</span> </td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= f.text_field :location %>
+            <span class="red">*</span> </td>
+          </tr>
+          <tr>
+
+
+
+        </table>
+      </div>
+    </div>
+
+    <div id="tabs-3">
+      <div class="form-group">
+        <table class="table table-striped">
+
          <tr>
             <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
             <td class="col-xs-7"><%=  f.text_field :bill %></td>
@@ -90,25 +135,22 @@
             <td class="col-xs-7"><%=f.select(:origen, [['Comprado'], ['Donado']] )%></td>
           </tr>
 
-  </div>
-          <td class="col-xs-5"><td>
-          
+
         </table>
-
-      <div class="col-xs-12 text-center">
-        <div class="actions">
-          <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar</button>
-          <%= link_to consumables_path do %>
-            <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-          <% end %>
-        </div>
       </div>
-
-    <br><br><br>
   </div>
-<% end %>
-
+</div>
 <br><br>
+
+
+<div class="col-xs-12 text-center">
+  <div class="actions">
+    <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Actualizar</button>
+  </div>
+</div>
+<% end %>
+        <br><br>
+</div>
 
 <style>
 
@@ -153,3 +195,19 @@
 
 
 </style>
+
+<script type="text/javascript">
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>

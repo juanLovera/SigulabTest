@@ -1,6 +1,8 @@
 class ApplicationsController < ApplicationController
+  layout 'bootlayout'
   before_filter :authenticate_user!
   before_action :set_application, only: [:show, :edit, :update, :destroy]
+
 
   # GET /applications
   # GET /applications.json
@@ -12,13 +14,13 @@ class ApplicationsController < ApplicationController
   # GET /applications/1
   # GET /applications/1.json
   def show
+    @id = params[:id]
     @application = Application.find(params[:id])
-    @equipos = Equipment.where(:solicitados => true)
-    @instruments = Instrument.where(:solicitados => true)
-    @tools = Tool.where(:solicitados => true)
-    @consumables = Consumable.where(:solicitados => true)
-    @sustancias = ChemicalSubstance.where(:solicitados => true)
-
+    @relation_service = RelationService.all.select(:item).where(servicio: @application.id.to_s)
+    @equipment = Equipment.where(id2: @relation_service)
+    @instruments = Instrument.where(id2: @relation_service)
+    @tools = Tool.where(id2: @relation_service)
+    
     respond_to do |format|
       format.html
       format.pdf do
@@ -26,22 +28,20 @@ class ApplicationsController < ApplicationController
         send_data pdf.render, filename: 'SolicitudServicio.pdf', type: 'application/pdf'
       end
     end
-    @equipment = Equipment.update_all(:solicitados => false)
-    @instrumentos = Instrument.update_all(:solicitados => false)
-    @herramientas = Tool.update_all(:solicitados => false)
-    @consumibles = Consumable.update_all(:solicitados => false)
-    @sustanciasqui = ChemicalSubstance.update_all(:solicitados => false)
   end
 
   # GET /applications/new
   def new
-    @lista
+    @id = params[:item_ids]
     @application = Application.new
-    @equipment = Equipment.where(:solicitados => true).all.order('created_at DESC')
-    @instruments = Instrument.where(:solicitados => true).all.order('created_at DESC')
-    @tools = Tool.where(:solicitados => true).all.order('created_at DESC')
-    @consumables = Consumable.where(:solicitados => true).all.order('created_at DESC')
-    @sustancias = ChemicalSubstance.where(id2: params[:item_ids])
+    @equipment = Equipment.where(id2: params[:item_ids])
+    @instruments = Instrument.where(id2: params[:item_ids])
+    @tools = Tool.where(id2: params[:item_ids])
+  
+    @sumE = Equipment.where(id2: params[:item_ids]).count
+    @sumI = Instrument.where(id2: params[:item_ids]).count
+    @sumT = Tool.where(id2: params[:item_ids]).count
+    
   end
 
   # GET /applications/1/edit
@@ -51,11 +51,37 @@ class ApplicationsController < ApplicationController
   # POST /applications
   # POST /applications.json
   def create
+    @ids = params[:item_ids].split(" ")
     @application = Application.new(application_params)
+    @equipment = Equipment.where(id2: @ids)
+    @instruments = Instrument.where(id2: @ids)
+    @tools = Tool.where(id2: @ids)
 
     respond_to do |format|
       if @application.save
-        format.html { redirect_to @application, notice: 'La solicitud fue creada satisfactoriamente.' }
+
+        @equipment.each do |equipment|
+          @relation_service = RelationService.new
+          @relation_service.servicio = @application.id.to_s
+          @relation_service.item = equipment.id2
+          @relation_service.save
+        end
+
+        @instruments.each do |instrument|
+          @relation_service = RelationService.new
+          @relation_service.servicio = @application.id.to_s
+          @relation_service.item = instrument.id2
+          @relation_service.save
+        end
+
+        @tools.each do |tool|
+          @relation_service = RelationService.new
+          @relation_service.servicio = @application.id.to_s
+          @relation_service.item = tool.id2
+          @relation_service.save
+        end
+
+        format.html { redirect_to @application, :item_ids => params[:item_ids] }
         format.json { render :show, status: :created, location: @application }
       else
         format.html { render :new }
@@ -69,7 +95,7 @@ class ApplicationsController < ApplicationController
   def update
     respond_to do |format|
       if @application.update(application_params)
-        format.html { redirect_to @application, notice: 'La solicitud fue actualizada satisfactoriamente.' }
+        format.html { redirect_to @application }
         format.json { render :show, status: :ok, location: @application }
       else
         format.html { render :edit }
@@ -83,7 +109,7 @@ class ApplicationsController < ApplicationController
   def destroy
     @application.destroy
     respond_to do |format|
-      format.html { redirect_to applications_url, notice: 'La solicitud fue eliminada satisfactoriamente.' }
+      format.html { redirect_to applications_url }
       format.json { head :no_content }
     end
   end

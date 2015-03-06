@@ -1,3 +1,11 @@
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
+
+<div class="row">
+
+  <div class="col-xs-12">
 <p id="notice"><%= notice %></p>
 <ol class="breadcrumb">
 	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
@@ -5,14 +13,32 @@
 	<li> <%=link_to 'Herramientas', tools_path %></li>
 	<li class="active"> Ver </li>
 </ol>
+  </div>
+</div>
 
-    <div class="col-xs-12">
-        <table class="table table-striped">
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
-            <td class="col-xs-7"><%= @tool.name %></td>
-          </tr>   
-          <tr>
+<div class="col-xs-12 text-right">
+  <%= link_to tools_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+  <% end %>
+</div>
+<br>
+
+<div id = "table2">
+</div>
+
+<p><h2><center><%= @tool.name %> </h2></p>
+
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1" class="hidex">Características</a></li>
+    <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
+    <li><a href="#tabs-3" class="show">Datos de Adquisición</a></li>
+  </ul>
+
+  <div id="tabs-1">
+      <p><table class="table table-striped">
+
             <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
             <td class="col-xs-7"><%= @tool.brand %></td>
           </tr> 
@@ -29,17 +55,7 @@
             <td class="col-xs-7"><%= @tool.status %></td>
           </tr>
           <tr>
-            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
-            <td class="col-xs-7"><%= @tool.responsible %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
-            <td class="col-xs-7"><%= @tool.dependency %></td>
-          </tr>
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
-            <td class="col-xs-7"><%= @tool.location %></td>
-          </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Material:</strong></td>
             <td class="col-xs-7"><%= @tool.material %></td>
@@ -67,6 +83,31 @@
             <% end %>
               </td>
           </tr>
+
+    </table></p>
+  </div>
+
+  <div id="tabs-2">
+    <p><table class="table table-striped">
+
+            <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
+            <td class="col-xs-7"><%= @tool.responsible %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
+            <td class="col-xs-7"><%= @tool.dependency %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
+            <td class="col-xs-7"><%= @tool.location %></td>
+          </tr>
+
+    </table></p>
+  </div>
+
+  <div id="tabs-3">
+    <table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Factura:</strong></td>
             <td class="col-xs-7"><%= @tool.bill %></td>
@@ -86,12 +127,10 @@
             <td class="col-xs-5 text-right"><strong>Fecha Adquisición:</strong></td>
             <td class="col-xs-7"><%= @tool.adquisition_date %></td>
           </tr>
-        </table>
 
-      </div>
-
-
-
+    </table></p>
+  </div>
+</div>
 <br><br>
 <div class="col-xs-12">
   <div class="col-xs-6 text-left">
@@ -112,12 +151,70 @@
           <% end %>
     <%end%>
   </div>
-  <div class="col-xs-6 text-right">
-
-    <%= link_to tools_path do %>
-      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-    <% end %>
-
-  </div>
 </div>
 <br><br><br><br>
+
+<style>
+
+#LeDivEquipos {
+    background-image        : url('/assets/equipment2.png');
+    background-size         : 230px;  
+    background-repeat       : no-repeat; 
+    background-position     : bottom right;  
+    background-color        : #FFFFFF;
+}
+
+.red {
+    font-size               : 22px;
+    color                   : red;
+}
+
+.Informacion {
+    line-height             :1.6em;
+}
+
+.linkButton { 
+   text-decoration: none;
+   text-align: right;
+   color: #384157;
+   font-weight: bold;
+     background: none repeat scroll 0px 0px transparent;
+     border: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    color: #8ED6FF;
+    text-align: right;
+    background: none repeat scroll 0% 0% #FFF;
+    text-decoration: none;
+}
+
+.linkButton:focus {
+    outline: thin dotted;
+    outline-offset: -2px;
+}
+
+.mayus {
+  text-transform: uppercase;
+}
+
+</style>
+
+  <script type="text/javascript">
+  //<![CDATA[
+    showButtons();
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>

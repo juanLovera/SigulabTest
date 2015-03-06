@@ -1,45 +1,78 @@
-<p id="notice"><%= notice %></p>
-<ol class="breadcrumb">
-	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
-	<li> <%=link_to 'Inventario', inventario_url %></li>
-	<li> <%=link_to 'Equipos y mobiliarios', equipment_index_path %></li>
-	<li class="active"> Ver </li>
-</ol>
+<%= javascript_include_tag 'jquery-1.10.2.js'%>
+<%= javascript_include_tag 'jquery-ui.js' %>
+<%= stylesheet_link_tag 'jquery-ui.css'%>
+<%= javascript_include_tag 'tabs.js' %>
 
+<div class="row">
 
- <table class="table table-striped">
-          <tr>
-            <td class="col-xs-5 text-right"><strong>Nombre:</strong></td>
-            <td class="col-xs-7"><%= @equipment.name %></td>
-          </tr>
+  <div class="col-xs-12">
+    <p id="notice"><%= notice %></p>
+    <ol class="breadcrumb">
+    	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
+    	<li> <%=link_to 'Inventario', inventario_url %></li>
+    	<li> <%=link_to 'Equipos y mobiliarios', equipment_index_path %></li>
+    	<li class="active"> Ver </li>
+    </ol>
+  </div>
+</div>
+
+<div class="col-xs-12 text-right">
+  <%= link_to equipment_index_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+  <% end %>
+</div>
+<br>
+
+<div id = "table2">
+</div>
+
+<p><h2><center><%= @equipment.name %> </h2></p>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1" class="hidex">Características</a></li>
+    <li><a href="#tabs-2" class="hidex">Ubicación</a></li>
+    <li><a href="#tabs-3" class="show">Datos de Adquisición</a></li>
+  </ul>
+
+  <div id="tabs-1">
+      <p><table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Marca:</strong></td>
             <td class="col-xs-7"><%= @equipment.brand %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Modelo:</strong></td>
             <td class="col-xs-7"><%= @equipment.model %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Serial:</strong></td>
             <td class="col-xs-7"><%=  @equipment.serial %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Número de Bien Nacional:</strong></td>
             <td class="col-xs-7">  <%= @equipment.national_good %></td>
           </tr> 
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Estado:</strong></td>
             <td class="col-xs-7"><%= @equipment.status %></td>
           </tr>
+
            <tr>
             <td class="col-xs-5 text-right"><strong>Calibrado:</strong></td>
             <td class="col-xs-7"><%= @equipment.calibrated  %></td>
           </tr>
+
            <tr>
             <td class="col-xs-5 text-right"><strong>Última Calibración:</strong></td>
             <td class="col-xs-7"><%= @equipment.last_calibration %></td>
           </tr>
+
            <tr>
             <td class="col-xs-5 text-right"><strong>Medidas:</strong></td>
             <td class="col-xs-7">
@@ -50,19 +83,49 @@
             <strong> - Profundidad:</strong>
             <%= @equipment.depth %><%= @equipment.measuredepth %></td>
           </tr>
-           
+
+          <tr>
+            <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
+            <td class="col-xs-7">  
+            <% if @equipment.investigation %>
+              <%= ' INVESTIGACIÓN ' %>
+            <% end %>
+            <% if @equipment.teaching %>
+              <%= ' DOCENCIA ' %>
+            <% end %>
+            <% if @equipment.extention %>
+              <%= ' EXTENSIÓN ' %>
+            <% end %>
+            <% if @equipment.management %>
+              <%= ' GESTIÓN ' %>
+            <% end %></td>
+          </tr>
+    </table></p>
+  </div>
+
+  <div id="tabs-2">
+    <p><table class="table table-striped">
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Responsable:</strong></td>
             <td class="col-xs-7"><%= @equipment.responsible %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Dependencia:</strong></td>
             <td class="col-xs-7"><%= @equipment.dependency %></td>
           </tr>
+
           <tr>
             <td class="col-xs-5 text-right"><strong>Ubicación Física:</strong></td>
             <td class="col-xs-7"><%= @equipment.location %></td>
           </tr>
+
+    </table></p>
+  </div>
+
+  <div id="tabs-3">
+    <table class="table table-striped">
       <tr>
           <td class="col-xs-5 text-right"><strong>Fecha Adquisición::</strong></td>
           <td class="col-xs-7"><%= @equipment.adquisition_date %>
@@ -83,24 +146,11 @@
           <td class="col-xs-7"> <%= @equipment.bill %>
         </td>
       </tr>
-      <tr>
-        <td class="col-xs-5 text-right"><strong>Uso:</strong></td>
-            <td class="col-xs-7">  
-            <% if @equipment.investigation %>
-              <%= ' INVESTIGACIÓN ' %>
-            <% end %>
-            <% if @equipment.teaching %>
-              <%= ' DOCENCIA ' %>
-            <% end %>
-            <% if @equipment.extention %>
-              <%= ' EXTENSIÓN ' %>
-            <% end %>
-            <% if @equipment.management %>
-              <%= ' GESTIÓN ' %>
-            <% end %></td>
-          </tr>
-          
-        </table>
+
+
+    </table></p>
+  </div>
+</div>
 
 
 <br><br>
@@ -122,13 +172,6 @@
             <button type="button" class="btn btn-danger"><span class="fa fa-times fa-1x"></span>&nbsp;&nbsp;Eliminar</button>
           <% end %>
     <%end%>
-  </div>
-    <div class="col-xs-6 text-right">
-
-    <%= link_to equipment_path do %>
-      <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-    <% end %>
-
   </div>
 </div>
 <br><br><br><br>
@@ -175,4 +218,26 @@
     outline-offset: -2px;
 }
 
+.mayus {
+  text-transform: uppercase;
+}
+
 </style>
+
+  <script type="text/javascript">
+  //<![CDATA[
+    showButtons();
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>

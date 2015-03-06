@@ -1,7 +1,7 @@
 class BinnaclesController < ApplicationController
+  layout 'bootlayout'
   before_action :set_binnacle, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  layout 'bootlayout'
 
   respond_to :html
 
@@ -28,44 +28,51 @@ class BinnaclesController < ApplicationController
   end
 
   def new
-    @sustancias = ChemicalSubstance.where(id2: params[:format])
+    @binnacle = Binnacle.new
+    if params[:format]
+      @id = params[:format]
+    else
+      @id = params[:formato]
+    end
+    @sustancias = ChemicalSubstance.where(id2: @id)
+
     @sustancias.each do |sustancia|
       @unidad = "#{sustancia.meassure}"
       @nombre = "#{sustancia.name}"
     end
-    @id = params[:format]
+
   end
 
   def edit
+
     @id = @binnacle.idSustancia
     @sustancias = ChemicalSubstance.where(id2: @id)
     @sustancias.each do |sustancia|
       @unidad = "#{sustancia.meassure}"
     end
+
   end
 
   def create
     @binnacle = Binnacle.new(binnacle_params)
-    respond_to do |format|
+    respond_to do |f|
       if @binnacle.save
-        format.html { redirect_to @chemical_substance, notice: 'El registro en la bitácora ha sido exitoso.' }
-        format.json { render :show, status: :created, location: @binnacle }
+        @ingresos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:ingreso)
+        @consumos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:consumo)
+        @binnacle.total = @ingresos - @consumos
+        @binnacle.save
+        f.html { redirect_to @binnacle }
+        f.json { render :show, status: :created, location: @binnacle }
       else
-        format.html { render :new }
-        format.json { render json: @binnacle.errors, status: :unprocessable_entity }
+        f.html { render :new }
+        f.json { render json: @binnacle.errors, status: :unprocessable_entity }
       end
     end
-
-    @ingresos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:ingreso)
-    @consumos = Binnacle.where(idSustancia: @binnacle.idSustancia).sum(:consumo)
-    @sum = @binnacle.ingreso - @binnacle.consumo
-    @binnacle.total = (@sum + @ingresos) - @consumos
-    @binnacle.save
-        
+    
   end
 
   def update
-    flash[:notice] = 'La bitácora se ha actualizado exitosamente.' if @binnacle.update(binnacle_params)
+    @binnacle.update(binnacle_params)
     respond_with(@binnacle)
   end
 
@@ -80,6 +87,6 @@ class BinnaclesController < ApplicationController
     end
 
     def binnacle_params
-      params.require(:binnacle).permit(:idSustancia, :fecha, :tipo, :consumo, :ingreso, :descripcion)
+      params.require(:binnacle).permit(:idSustancia, :fecha, :tipo, :consumo, :ingreso, :descripcion, :total)
     end
 end

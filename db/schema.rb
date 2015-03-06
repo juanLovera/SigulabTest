@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304234944) do
+ActiveRecord::Schema.define(version: 20150306071126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.text     "descripcion"
     t.string   "tipo"
     t.string   "format"
-    t.integer  "total"
+    t.float    "total",         default: 0.0
   end
 
   create_table "checks", force: true do |t|
@@ -406,6 +406,7 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.string   "num_cuenta"
     t.date     "annulled_date"
     t.string   "substitute"
+    t.text     "observation"
   end
 
   create_table "projexecutions", force: true do |t|
@@ -464,6 +465,7 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.text    "via"
     t.integer "specification_id"
     t.integer "user_id"
+    t.string  "responsale"
   end
 
   create_table "recommendations_empresas", force: true do |t|
@@ -481,6 +483,20 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.integer "precio"
     t.integer "tiempo"
     t.integer "cumplio_req"
+  end
+
+  create_table "relation_loans", force: true do |t|
+    t.string   "prestamo"
+    t.string   "item"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relation_services", force: true do |t|
+    t.string   "servicio"
+    t.string   "item"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "relations", force: true do |t|
@@ -542,6 +558,13 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.string   "user_id"
   end
 
+  create_table "service_items", force: true do |t|
+    t.string   "servicio"
+    t.string   "item"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", force: true do |t|
     t.string   "nombre"
     t.string   "numero"
@@ -594,6 +617,9 @@ ActiveRecord::Schema.define(version: 20150304234944) do
     t.boolean  "teaching"
     t.boolean  "extention"
     t.boolean  "management"
+    t.float    "cost"
+    t.string   "buy_order"
+    t.datetime "adquisition_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "dependency"

@@ -1,0 +1,2 @@
+module RelationLoansHelper
+end

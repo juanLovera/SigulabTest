@@ -13,9 +13,20 @@
     <div class="alert alert-danger"><%= flash[:notice] %></div>
   <% end %>
 
-<div id="LeDivConsumibles">
-  <h1><i class="fa fa-fire"></i> Consumibles</h1>
+<div class="col-xs-12">
+  <div class="col-xs-6 text-left">
+  <h2><i class="fa fa-fire"></i> Consumibles</h2>
+  </div>
+  <div class="col-xs-6 text-right">
+    <%= link_to inventario_url do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <br><br>
+  <% end %>
+  </div>
+</div>
+<br><br>
 
+<div id="LeDivConsumibles">
   <br>
 
       <body class="ex_highlight_row">
@@ -28,7 +39,7 @@
                 <thead>
                   <tr>
                     <% if @sum > 0 %>
-                      <th>Seleccionar</th>
+                    <th></th>
                     <% end %>
                     <th class="tg-093g">Nombre</th>
                     <th class="tg-093g">Cantidad</th>
@@ -45,12 +56,12 @@
                       <% if @sum > 0 %>
                         <td class="tg-s6z2"><%= check_box_tag "item_ids[]", consumable.id2 %></td>
                       <% end %>
-                      <td class="tg-s6z2"><%= link_to consumable.name, consumable %></td>
-                      <td class="tg-s6z2"><%= consumable.quantity %></td>
-                      <td class="tg-s6z2"><%= consumable.location %></td>
-                      <td class="tg-qpa3"><%= consumable.responsible %></td>
-                      <td class="tg-qpa3"><%= consumable.material %></td>
-                      <td class="tg-qpa3"><%= consumable.origen %></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= link_to consumable.name, consumable %></span></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= consumable.quantity %></span></td>
+                      <td class="tg-s6z2"><span class="mayus"><%= consumable.location %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= consumable.responsible %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= consumable.material %></span></td>
+                      <td class="tg-qpa3"><span class="mayus"><%= consumable.origen %></span></td>
                     </tr>
                   <% end %>
                 </tbody>
@@ -70,10 +81,7 @@
       <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Agregar Consumible</button>
     <% end %>
   <% end %>
-  <button type="submit" class="btn btn-default" onclick="validate_ids(item_ids)"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo/Servicio</button>
-  <%= link_to inventario_url do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Atrás</button>
-  <% end %>
+  <button type="submit" class="btn btn-default"><span class="fa fa-exchange"></span>&nbsp;&nbsp;Solicitar Préstamo</button>
 </div>  
 
 <% end %>      
@@ -104,20 +112,25 @@
     outline-offset: -2px;
 }
 
- </style>
-
- <script>
-
-function validate_ids(val) {
-	if (val.length > 0) {
-		return true
-	}
-	else {
-		alert("No ha seleccionado ningún ítem")
-		return false
-	};
-
+.mayus {
+  text-transform: uppercase;
 }
 
- </script>
+ </style>
+
+ <script type="text/javascript">
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>
 

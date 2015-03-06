@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :relation_loans
+
+  resources :relation_services
+
   get 'labs/show'
 
   resources :binnacles
@@ -27,10 +31,6 @@ Rails.application.routes.draw do
   get 'ofertas/index'
 
   get 'informe_recomendacion/index'
-
-  get 'loans/index2'
-
-  get 'loans/show2'
 
   post 'loans/new'
 

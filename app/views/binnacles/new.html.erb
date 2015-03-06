@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'chemical_substances.css.scss'%>
+
 <h1>Nuevo Registro en la Bitácora</h1>
 <ol class="breadcrumb">
 	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
@@ -73,7 +73,9 @@
             <td class="col-xs-5 text-right"><strong>Descripción:</strong></td>
             <td class="col-xs-7"><%= f.text_area :descripcion, :placeholder => "Introduzca el No. de factura" %><span class="red">*</span></td>
           </tr>
+          
           <%= f.hidden_field :idSustancia, :value => @id %>
+          <%= hidden_field_tag "formato", params[:format] %>
 
         </table>
 
@@ -140,4 +142,20 @@
 }
 
 </style>
+
+<script type="text/javascript">
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>
 

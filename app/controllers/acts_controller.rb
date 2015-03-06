@@ -8,11 +8,15 @@ class ActsController < ApplicationController
     if current_user
     	@acts = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
       @sumActs = Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
+	@act= Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
   	 end
-respond_to do |format|
-      format.html
+	respond_to do |format|
+      format.html do
+          if @sumActs != 0
+            redirect_to @act
+          end
+	end
       format.pdf do
-               @act= Act.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
 		pdf = ReporteActs.new(@act)
       		  send_data pdf.render, filename: 'Especificacion_#{session[:specification_sel_id]}_Acto_Motivado.pdf', type: 'application/pdf'
 	      end
@@ -31,7 +35,7 @@ respond_to do |format|
     session[:specification_p6] = specification.p6
     session[:specification_p8] = specification.p8
     specification.save
-              redirect_to "/acts?pdf=1"
+              redirect_to "/acts/#{@act.id}?pdf=1"
       end
     end
   end
@@ -62,8 +66,17 @@ respond_to do |format|
 	specification.nacional = "Nacional"
 	specification.save
     @act = Act.new(act_params)
+    @invitations = Invitation.where(:specification_id => session[:specification_sel_id]).all
     @act.user_id = current_user.username
+    @quot = Quote.where(:specification_id => session[:specification_sel_id]).first
+    @quotes = Itemsquote.where(:id_oferta => @quot.id).all
+    @bienSer = ""
+    @quotes.each do |quot|
+	@bienSer = @bienSer + quot.nombre_item + ", "
+      end
+    @bienSer = @bienSer[0..-3]
     @act.specification_id = session[:specification_sel_id]
+    @act.bienServicio = @bienSer
     @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => @act.proveedor, :tipo => "Internacional").count
       if @numin != 0
 	specification = Specification.find(session[:specification_sel_id])

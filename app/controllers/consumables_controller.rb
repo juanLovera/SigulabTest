@@ -36,7 +36,7 @@ class ConsumablesController < ApplicationController
 
     respond_to do |format|
       if @consumable.save
-        format.html { redirect_to @consumable, notice: 'Consumible fue creado de forma exitosa.' }
+        format.html { redirect_to @consumable }
         format.json { render :show, status: :created, location: @consumable }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class ConsumablesController < ApplicationController
   def update
     respond_to do |format|
       if @consumable.update(consumable_params)
-        format.html { redirect_to @consumable, notice: 'Consumible fue actualizado de forma exitosa.' }
+        format.html { redirect_to @consumable }
         format.json { render :show, status: :ok, location: @consumable }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class ConsumablesController < ApplicationController
   def destroy
     @consumable.destroy
     respond_to do |format|
-      format.html { redirect_to consumables_url, notice: 'Consumible fue eliminado de forma exitosa.' }
+      format.html { redirect_to consumables_url }
       format.json { head :no_content }
     end
   end

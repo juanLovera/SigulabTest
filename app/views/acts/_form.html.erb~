@@ -6,29 +6,22 @@
     <% end %>
       
       <table style="margin-left:-150px;"><tr><td style="padding-right:10px;">
-
-          <span class="red">*</span>
-       <%= f.label "Número de registro" %><br>
-       <%= f.text_field :numRegistro %>
-</td><td>
        <span class="red">*</span>
        <%= f.label "Nombre del Proveedor" %><br><select id='act_proveedor' name='act[proveedor]'>
       <% @invitations.each do |invt| %>
 <% if invt.quote_id != -1 %>
-<option value="<%= invt.id %>"><%= invt.nombre %></option>
+<option value="<%= invt.nombre %>"><%= invt.nombre %></option>
 <% end %>
 <% end %></select>
-</td></tr><tr><td style="padding-top:10px;">
-       
-       <span class="red">*</span>
-       <%= f.label "Bien y/o Servicio" %><br>
-       <%= f.text_field :bienServicio, :placeholder => "Indique el nombre" %>
 </td><td style="padding-top:10px;">
-       
        <span class="red">*</span>
        <%= f.label "Será usado en:" %><br>
-       <%= f.collection_select :tesis, Act::Uso, :to_s, :to_s, 
-          :include_blank => true %>
+       <select multiple="true" name="act[tesis]">
+       <option value="Docencia">Docencia<option>
+       <option value="Investigacion">Investigacion<option>
+       <option value="Extension">Extension<option>
+       <option value="Apoyo Administrativo">Apoyo Administrativo<option>
+       </select>
 </td></tr><tr><td style="padding-top:10px;">
        <span class="red">*</span>
        <%= f.label "Nombre del Responsable" %><br>
@@ -40,7 +33,7 @@
        <%= f.text_field :justificacion, :placeholder => "Razón de solicitud" %>
 </td></tr><tr><td style="padding-top:10px;"> 
        <span class="red">*</span>
-       <%= f.label "Providencia" %><br>
+       <%= f.label "Origen de los recursos" %><br>
        <%= f.text_field :providencia, :placeholder => "Providencia de fondos" %>
 </td></tr></table>
        

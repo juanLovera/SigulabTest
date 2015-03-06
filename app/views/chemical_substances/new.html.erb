@@ -5,7 +5,7 @@
 <%= javascript_include_tag 'tabs.js' %>
 
 <div class="row">
-<h1>Nueva Sustancia Química</h1>
+
 <ol class="breadcrumb">
 	<li> <%=link_to 'Inicio', controller: 'statics'%></li>
 	<li> <%=link_to 'Inventario', inventario_url %></li>
@@ -13,16 +13,6 @@
 	<li class="active"> Nueva </li>
 </ol>
 
-<div class="col-xs-12 text-right">
-  <%= link_to chemical_substances_path do %>
-    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
-  <% end %>
-</div>
-<br><br>
-
-<div id = "table2">
-</div>
-<br>
 
 <%= form_for(@chemical_substance) do |f| %>
       <% if @chemical_substance.errors.any? %>
@@ -36,6 +26,18 @@
           </div>
         </div>
       <% end %>
+
+<div class="col-xs-12 text-right">
+  <%= link_to chemical_substances_path do %>
+    <button type="button" class="btn btn-primary"><span class="fa fa-arrow-left"></span>&nbsp;&nbsp;Volver</button>
+    <br><br>
+  <% end %>
+</div>
+<h1>Nueva Sustancia Química</h1>
+
+<div id = "table2">
+</div>
+<br>
 </div>
 
 
@@ -198,7 +200,6 @@
         </table>
       </div>
   </div>
-<% end %>
 </div>
 <br><br>
 
@@ -207,10 +208,8 @@
     <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Crear</button>
   </div>
 </div>
+<% end %>
 <br>
-
-
-
 
 <style>
 
@@ -246,4 +245,20 @@
 }
 
 </style>
+
+<script type="text/javascript">
+
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+;
+  //]]>
+  </script>
 

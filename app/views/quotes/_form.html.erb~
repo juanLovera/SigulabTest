@@ -14,6 +14,7 @@
 		 var textinput = document.getElementById("filename");
 		 textinput.value = fileinput.value;
 	}
+        
 
 </script>
 
@@ -35,18 +36,20 @@
   <div class="field">
  	 <span class="red">*</span>
     <%= f.label "Oferta" %><br>
-    <%= f.file_field :attachment, id:"browse", style:"display: none", onChange:"Handlechange()" %><br/>
-	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick();"/><input type="text" style="width: 100px" id="filename" readonly="true"/>
-
+    <%= f.file_field :attachment, id:"browse", style:"display: none", onChange:"Handlechange()" %>
+	 <input type="text" id="filename" readonly="true"/>
+	 <input type="button" class="btn btn-default" value="Examinar" id="fakeBrowse" onclick="HandleBrowseClick();"/>
   </div>
 
          
  <div class="field"> <%= f.label "Items ofertados" %><br/>
+<input type="checkbox" id="selecctall"/> Seleccionar todo<br/>
   <% @items.each do |item| %>
 	  	
-      <input type="checkbox" id="itemsquote" checked name="itemsquotes<%= item.id %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre %><br>
+      <input type="checkbox" class="checkbox1" id="itemsquote" name="itemsquotes<%= item.id %>" value="<%= item.id %>" style="margin-right: 5px; margin-bottom: 5px;" /><%= item.nombre %><br>
         
-		 <% end %></div>      <br><br>    <%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>     
+		 <% end %></div>     
+                 <br/><br/><%= f.hidden_field :specification_id, :value => session['specification_sel_id'] %>     
         <div class="actions">
     <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
 <% end %>
@@ -144,4 +147,19 @@ select {
 }
 
 </style>
-
+<script>
+$(document).ready(function() {
+    $('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+            $('.checkbox1').each(function() { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"               
+            });
+        }else{
+            $('.checkbox1').each(function() { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+            });         
+        }
+    });
+    
+});
+</script>

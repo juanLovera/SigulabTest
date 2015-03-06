@@ -2,7 +2,6 @@ class ChemicalSubstancesController < ApplicationController
   before_action :set_chemical_substance, only: [:show, :edit, :update, :destroy, :search, :hide]
   layout 'bootlayout'
   before_filter :authenticate_user!
-  require 'binnacles_controller'
   # GET /chemical_substances
   # GET /chemical_substances.json
   def index
@@ -36,10 +35,9 @@ class ChemicalSubstancesController < ApplicationController
   # POST /chemical_substances.json
   def create
     @chemical_substance = ChemicalSubstance.new(chemical_substance_params)
-
     respond_to do |format|
       if @chemical_substance.save
-        format.html { redirect_to @chemical_substance, notice: 'Sustancia Quimica fue creada de forma exitosa.' }
+        format.html { redirect_to @chemical_substance }
         format.json { render :show, status: :created, location: @chemical_substance }
       else
         format.html { render :new }
@@ -49,12 +47,13 @@ class ChemicalSubstancesController < ApplicationController
     @chemical_substance.id2 = "SQ-" + "#{@chemical_substance.id}"
     @chemical_substance.save
     @binnacle = Binnacle.new
-    @binnacle.fecha = Date.today
-    @binnacle.tipo = 'Ingreso'
-    @binnacle.ingreso = @chemical_substance.quantity
-    @binnacle.descripcion = @chemical_substance.bill.to_s
     @binnacle.idSustancia = @chemical_substance.id2
+    @binnacle.fecha = Date.today
+    @binnacle.consumo = 0.0
+    @binnacle.ingreso = @chemical_substance.quantity
     @binnacle.total = @chemical_substance.quantity
+    @binnacle.tipo = "Ingreso"
+    @binnacle.descripcion = " "
     @binnacle.save
   end
 
@@ -63,7 +62,7 @@ class ChemicalSubstancesController < ApplicationController
   def update
     respond_to do |format|
       if @chemical_substance.update(chemical_substance_params)
-        format.html { redirect_to @chemical_substance, notice: 'Sustancia Quimica fue actualizado de forma exitosa.' }
+        format.html { redirect_to @chemical_substance }
         format.json { render :show, status: :ok, location: @chemical_substance }
       else
         format.html { render :edit }
@@ -77,7 +76,7 @@ class ChemicalSubstancesController < ApplicationController
   def destroy
     @chemical_substance.destroy
     respond_to do |format|
-      format.html { redirect_to chemical_substances_url, notice: 'Sustancia Quimica fue eliminada de forma exitosa.' }
+      format.html { redirect_to chemical_substances_url }
       format.json { head :no_content }
     end
   end
@@ -85,7 +84,7 @@ class ChemicalSubstancesController < ApplicationController
   def hide
     @chemical_substance.hide
     respond_to do |format|
-      format.html { redirect_to chemical_substances_url, notice: 'Sustancia Quimica fue ocultada de forma exitosa.' }
+      format.html { redirect_to chemical_substances_url }
       format.json { head :no_content }
 	  end
   end

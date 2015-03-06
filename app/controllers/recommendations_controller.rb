@@ -1,17 +1,7 @@
 class RecommendationsController < ApplicationController
   layout "application_compras"
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
-def index
-    if current_user
-    	@requests = Request.where(:specification_id => session[:specification_sel_id]).first
-      @sumRequest = Request.where(:specification_id => session[:specification_sel_id]).count
-      if @sumRequest != 0
-        respond_to do |format|
-        format.html { redirect_to @requests, notice: '' }
-      end
-    end
-    end
-  end
+
   def index
     if current_user
     @recommendations = Recommendation.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
@@ -26,8 +16,8 @@ def index
         end
 	      format.pdf do
 		
-		@invt = Invitation.where(:specification_id => session[:specification_sel_id]).all
-		@recoEmp = RecommendationsEmpresa.where(:id_informe => @reco.id).all
+		@invt = Invitation.where(:specification_id => session[:specification_sel_id]).order('nombre ASC')
+		@recoEmp = RecommendationsEmpresa.where(:id_informe => @reco.id).order('empresa ASC')
 		@itemsq = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
 		pdf = ReporteRecommendations.new(@reco, @recoEmp, @invt, @itemsq)
 		nombre = "Especificacion_#{session[:specification_sel_id]}_Informe_Recomendacion.pdf"
@@ -48,7 +38,7 @@ def index
 	    session[:specification_p6] = specification.p6
 	    session[:specification_p8] = specification.p8
 	    specification.save
-              redirect_to "/recommendations?pdf=1"
+              redirect_to "/recommendations/#{@reco.id}?pdf=1"
       end
       end
    	
@@ -71,7 +61,7 @@ def index
         else
     	@recommendation = Recommendation.new
         end
-    @quotes = Quote.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
+    @quotes = Quote.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).order('nombre ASC')
     @itemsquotes = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
   end
 
@@ -162,6 +152,6 @@ def index
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recommendation_params
-      params.require(:recommendation).permit(:codigo,:via)
+      params.require(:recommendation).permit(:codigo,:via, :responsale)
     end
 end
