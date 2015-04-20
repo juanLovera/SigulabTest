@@ -80,7 +80,7 @@ class ReporteInvitations < Prawn::Document
       
     end
 
-    move_down 80
+    move_down 100
     text " La oferta deberá ser enviada por fax al número: #{@invitation.telefono} o correo electrónico #{@invitation.correo} sellado y 				firmado por la empresa participante. De igual manera, le informamos que se recibirán ofertas hasta el día #{time.strftime("%d-%m-%Y")}", :align => :justify, :indent_paragraphs => 40
 
    move_down 5

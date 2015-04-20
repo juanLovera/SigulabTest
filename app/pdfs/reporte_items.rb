@@ -45,6 +45,7 @@ class ReporteItems < Prawn::Document
     table items_rows do
       row(0).font_style = :bold
       columns(0..3).align = :center
+      columns(0..3).valign = :center
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
       self.column_widths = [80,120,240,100]
@@ -55,10 +56,10 @@ class ReporteItems < Prawn::Document
  
   def items_rows
     
-    [['Tipo','Nombre','Descripción','Cantidad']] +
+    [['Item','Nombre','Descripción','Cantidad']] +
       @items.map do |item|
  
-      [item.tipo, item.nombre, item.descripcion, item.cantidad]
+      [item.id, item.nombre, item.descripcion, item.cantidad]
     end
   end
 
