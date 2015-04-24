@@ -50,9 +50,10 @@ class ReporteInvitations < Prawn::Document
     else
   	text "#{@invitation.nombre}"
     end
-
-    text "#{@invitation.direccion}"
-    text "Presente.-"
+    bounding_box([bounds.left,cursor], :width => 400, :height => 30) do
+      text "#{@invitation.direccion}", :size => 8
+      text "Presente.-"
+    end
   end
 
   def texto
@@ -106,7 +107,7 @@ class ReporteInvitations < Prawn::Document
 		horizontal_line 395, 525, :at => 25
    end
 
-   draw_text "#{@invitation.responsable}", :at => [235,32]
+   draw_text "#{@invitation.responsable}", :at => [220,32]
    draw_text "Recibido por", :at => [435,60], :size => 8
    draw_text "Cod. Doc.: UL01-M01F03     Fecha: 03/01/2014", :size => 6, :at => [10,20]
    
