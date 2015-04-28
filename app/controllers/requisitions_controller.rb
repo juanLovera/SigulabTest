@@ -7,8 +7,15 @@ class RequisitionsController < ApplicationController
   # GET /requisitions.json
   def index
     if current_user
-    	@requisitions = Requisition.where(:user_id => current_user.username).all
+    	@requisitions = Requisition.where(:user_id => current_user.username).first
       @sumRequisition = Requisition.where(:user_id => current_user.username).count
+     respond_to do |format|
+	      format.html do
+          if @sumRequisition != 0
+            redirect_to @requisitions
+          end
+        end
+      end
     end
   end
 
