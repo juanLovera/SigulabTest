@@ -113,6 +113,10 @@
 		   <% end %></li>
 		   <% end %>
 
+<li style="text-align:left" <% if session['specification_p7'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to devolutions_url do %>
+		       <i class="fa fa-file-text-o"> &nbsp Nota de Devolución </i>
+		   <% end %></li>
+
 <% if session['specification_sel_nacional'] == "Internacional" %>
 	<% if session['specification_p8'] == 0 %>
 			<li id="bt8" style="text-align:left; " class="deshabilitado"><a href="javascript:void(0)" onclick="alert('Para una relación debe la requisición.');" >

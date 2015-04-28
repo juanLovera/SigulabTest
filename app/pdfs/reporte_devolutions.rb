@@ -36,7 +36,7 @@ class ReporteDevolutions < Prawn::Document
 
 	   header = [[{:content => "NOTA DE DEVOLUCIÓN", :rowspan => 2, :width => 450, :size => 20, :background_color => "DDDDDD", :align => :center, :height => 20, :font_style => :bold},
 			        {:content => "Registro No.", :background_color => "DDDDDD", :width => 90, :height => 18, :size => 9, :align => :center, :font_style => :bold}],
-			        [{:content => "UL01/14-#{@devolution.numRegistro}", :background_color => "FFFFFF", :width => 90,:height => 18, :size => 9, :align => :center}],
+			        [{:content => "UL01/14-#{@devolution.id}", :background_color => "FFFFFF", :width => 90,:height => 18, :size => 9, :align => :center}],
 			      	]
 
 			cuerpo1 = [[{:width => 180, :height => 20},{:width => 180, :height => 20},{:width => 180, :height => 20}],
