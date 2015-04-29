@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :requisitions
 
+  resources :servicerequests
+
   resources :quotes
 
   resources :devolutions
