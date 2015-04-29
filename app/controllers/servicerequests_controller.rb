@@ -5,31 +5,12 @@ class ServicerequestsController < ApplicationController
 
   # GET /servicerequests
   # GET /servicerequests.json
-  def index
+   def index
     if current_user
-    	@servicerequests = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
-      @sumServicerequest = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
-     respond_to do |format|
-	      format.html do
-          if @sumServicerequest != 0
-            redirect_to @servicerequests
-          end
-        end
-        format.pdf do
-		
-		redirect_to @servicerequests.attachment
-	      end
-	      format.xml do
-              specification = Specification.find(session[:specification_sel_id])
-	       specification.p10 = 2
-	    session[:specification_p10] = specification.p10
-	    specification.save
-              redirect_to "/servicerequests/#{@servicerequests.id}?pdf=1"
-      end
-      end
+        @servicerequests = Servicerequest.where(:user_id => current_user.username).all
+        @sumDevolution = Servicerequest.where(:user_id => current_user.username).count
     end
   end
-
   # GET /servicerequests/1
   # GET /servicerequests/1.json
   def show
@@ -95,6 +76,6 @@ class ServicerequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def servicerequest_params
-      params.require(:servicerequest).permit(:seccion, :contacto_int, :nombre, :ubicacion, :monto, :partida)
+      params.require(:servicerequest).permit(:seccion, :contacto_int, :nombre, :ubicacion, :monto)
     end
 end

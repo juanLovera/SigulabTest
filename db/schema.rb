@@ -574,9 +574,7 @@ ActiveRecord::Schema.define(version: 20150429050337) do
   end
 
   create_table "servicerequests", force: true do |t|
-    t.boolean  "tipo_servicio"
     t.string   "seccion"
-    t.integer  "lab_id"
     t.string   "contacto_int"
     t.string   "correo_int"
     t.string   "extension"
@@ -592,8 +590,6 @@ ActiveRecord::Schema.define(version: 20150429050337) do
     t.string   "nro_cotizacion"
     t.string   "monto"
     t.text     "observacion"
-    t.string   "sae_code"
-    t.string   "partida"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
