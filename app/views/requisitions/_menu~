@@ -16,7 +16,7 @@
    margin-top:-4px;
          }
 .nav-tabs > li.habilitado > a,
-   .nav-tabs > li.habilitado > a:hover <% if session['specification_p6'] == 2 %>, .nav-tabs > li.active > a <% end %> {
+   .nav-tabs > li.habilitado > a:hover <% if session['specification_p3'] == 2 %>, .nav-tabs > li.active > a <% end %> {
     color: #000 !important;
     background-color: transparent !important;
     text-decoration: none;
@@ -31,7 +31,7 @@
     border-radius:0px;
      }
 .nav-tabs > li.select > a,
-   .nav-tabs > li.select > a:hover <% if session['specification_p6'] == 1 %>, .nav-tabs > li.active > a <% end %> {
+   .nav-tabs > li.select > a:hover <% if session['specification_p3'] == 1 %>, .nav-tabs > li.active > a <% end %> {
     color: #000 !important;
     background-color: transparent !important;
     text-decoration: none;
@@ -67,8 +67,7 @@
 		       <i class="fa fa-tag"> &nbsp Ofertas </i>
 		   </a></li>
 		   <% else %>
-			<li style="text-align:left" <% if session['specification_p3'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to quotes_url do %>
-
+			<li class="active" style="text-align:left"><%= link_to quotes_url do %>
 		       <i class="fa fa-tag"> &nbsp Ofertas </i>
 		   <% end %></li>
 		   <% end %>
@@ -110,8 +109,7 @@
 		       <i class="fa fa-files-o"> Requisición </i>
 		   </a></li>
 		   <% else %>
-			<li class="active" style="text-align:left"><%= link_to requisitions_url do %>
-		       <i class="fa fa-tag"> &nbsp Requisición </i>
+			<li style="text-align:left" <% if session['specification_p6'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to requisitions_url do %><i class="fa fa-files-o"> Requisición </i>
 		   <% end %></li>
 		   <% end %>
 <% if session['specification_sel_nacional'] == "Internacional" %>
