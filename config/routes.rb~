@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :records
   resources :relation_loans
 
   resources :relation_services
@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :specifications
 
   resources :requisitions
+
+  
 
   resources :quotes
 

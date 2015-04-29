@@ -18,33 +18,171 @@
 
 </script>
 
-<div style="margin-left:350px;">
-	<%= form_for(@servicerequest) do |f| %>
-  		<% if @servicerequest.errors.any? %>
-         <h2>Error: ha dejado campos vacíos</h2>
-      	<br>	
-  		<% end %>
-  <div class="field">
-          <span class="red">*</span>
-			 <%= f.label "Seccion" %><br>
-			 <%= f.text_field :autor %>
-                  </div>
-<div class="field">
-                        <span class="red">*</span>
-                            <%= f.label "Fecha" %><br/>
-				
-				<%= f.text_field :observacion, class: 'bootlayout-date form-control' %>
-				
-                          </div>  
+<div class="col-xs-12">
+		<%= form_for @servicerequest, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>
+
+	
+
+			<div class="form-group">
+				<label for='income_lab_id' class="col-xs-3 control-label text-right">De: <span style="color:#FF0000">*</span></label>
+				<div class="col-xs-4">
+					<%= i.select(:seccion, options_for_select([ "Director", "Asistente del Director", "Gestora de SMyDP","Coordinaciones de Adquisiciones e Importaciones", "Coordinacion de la Calidad y U Admn", "Jefatura de Laboratorio", "Sección/área de Laboratorio", "Dirección ULAB", "Laboratorio A", "Laboratorio B","Laboratorio C", "Laboratorio D", "Laboratorio E", "Laboratorio F", "Laboratorio G-Administración" ])) %>
+				</div>
+			</div>	
 
 
-        <div class="actions">
-    <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
-<% end %>
-    <%= link_to '<button type="button" class="btn btn-primary" style="margin-top:0px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "servicerequests" %>  
-      </div>
-</div>
+			<div class="form-group">
+				<label for='income_unit' class="col-xs-3 control-label text-right">Fecha</label>
+				<div class='col-xs-4'>
+					<%= i.text_field :created_at, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>	
 
+			
+			
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">Persona contacto de la unidad solicitante <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :contacto_int, class: 'form-control' %>
+				</div>
+			</div>
+			
+<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">E-mail <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :correo_int, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">Teléfonos <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :telefonos, class: 'form-control' %>
+				</div>
+			</div>
+
+
+
+			<br> <h4>Datos del bien (objeto del servicio) </h4> <br>
+
+
+
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">Nombre <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :nombre, class: 'form-control' %>
+				</div>
+			</div>	
+
+
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">No. Bien nacional <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :nro_bien, class: 'form-control' %>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">Ubicación física <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :ubicacion, class: 'form-control' %>
+				</div>
+			</div>
+
+		
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">Descripción detallada del servicio <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_area :descripcion, class: 'form-control' %>
+				</div>
+			</div>
+
+
+			<br> <h4>Datos del proveedor de servicio  </h4> <br>
+						
+			<hr />	
+			
+			
+			
+			<div class="form-group">
+				<label for='income_organism' class="col-xs-3 control-label text-right">Compañia <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :compania, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for='income_doc_code' class="col-xs-3 control-label text-right">Rif <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :rif, class: 'form-control' %>
+				</div>
+			</div>			
+
+			<div class="form-group">
+				<label for='income_doc_date' class="col-xs-3 control-label text-right">Persona contacto <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :contacto_ext, class: 'form-control' %>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">E-mail <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :correo_ext, class: 'form-control' %>
+				</div>
+			</div>
+			
+    		<div class="form-group">
+				<label for='income_date' class="col-xs-3 control-label text-right">Teléfonos <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_field :telefonos, class: 'form-control', placeholder: '02123235757' %>
+				</div>
+			</div>
+
+			<hr />	
+
+				<br> <h4> Referencia de cotización  </h4> <br>
+			
+			<div class="form-group">
+				<label for='income_unit' class="col-xs-3 control-label text-right">Fecha</label>
+				<div class='col-xs-4'>
+					<%= i.text_field :updated_at, class: 'bootlayout-date form-control' %>
+				</div>
+			</div>			
+			<div class="form-group">
+				<label for='income_variation' class="col-xs-3 control-label text-right">No. </label>
+				<div class='col-xs-4'>
+					<%= i.text_field :nro_cotizacion, class: 'form-control' %>
+				</div>
+			</div>
+			
+   <div class="form-group">
+				<label for='income_resource_description' class="col-xs-3 control-label text-right">Monto Total del Servicio (Bs.): </label>
+				<div class='col-xs-4'>
+					<%= i.text_field :monto, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for='income_description' class="col-xs-3 control-label text-right">Observaciones <span style="color:#FF0000">*</span></label>
+				<div class='col-xs-4'>
+					<%= i.text_area :observacion, class: 'form-control' %>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;&nbsp;Agregar Ingreso</button>
+					<%= link_to incomes_path, class: "btn btn-default btn-danger" do %>
+						<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Cancelar Operación
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+
+	</div>
 <style>
 
 input[type="submit"]  {

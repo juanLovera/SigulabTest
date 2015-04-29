@@ -12,7 +12,7 @@ class AddServicerequests < ActiveRecord::Migration
     t.string   "nro_bien"
     t.string   "ubicacion"
     t.text     "descripcion"
-    t.string   "compañia"
+    t.string   "compania"
     t.string   "rif"
     t.string   "contacto_ext"
     t.string   "correo_ext"
@@ -25,6 +25,7 @@ class AddServicerequests < ActiveRecord::Migration
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.integer  "specification_id"
 
 
       t.timestamps

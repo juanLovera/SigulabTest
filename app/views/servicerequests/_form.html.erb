@@ -1,4 +1,5 @@
 # encoding: utf-8
+<<<<<<< HEAD
 
 <script>
 
@@ -20,6 +21,34 @@
 
 <div class="col-xs-12">
 		<%= form_for @servicerequest, url: {action: 'create'}, html: { class: 'form-horizontal' } do |i| %>
+=======
+<div style="margin-left:350px;">
+	<%= form_for(@servicerequest) do |f| %>
+  		<% if @servicerequest.errors.any? %>
+         <h2>Error: ha dejado campos vacíos</h2>
+      	<br>	
+  		<% end %>
+  <div class="field">
+          <span class="red">*</span>
+			 <%= f.label "Seccion" %><br>
+			 <%= f.text_field :nombre %>
+                  </div>
+<div class="field">
+                        <span class="red">*</span>
+                            <%= f.label "Fecha" %><br/>
+				
+				<%= f.text_field :observacion, class: 'bootlayout-date form-control' %>
+				
+                          </div>  
+
+
+        <div class="actions">
+    <%= f.submit "Aceptar", data: { confirm: '¿Está seguro de la informacion que acaba de suministrar?' }  %>
+<% end %>
+    <%= link_to '<button type="button" class="btn btn-primary" style="margin-top:0px; margin-left:15px;"> Cancelar </button>'.html_safe, controller: "servicerequests" %>  
+      </div>
+</div>
+>>>>>>> 2b0b6b4fa7f3348084eb1e65f3c8a5d1f802c945
 
 	
 
