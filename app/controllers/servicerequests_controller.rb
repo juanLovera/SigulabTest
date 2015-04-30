@@ -1,16 +1,70 @@
 class ServicerequestsController < ApplicationController
   layout "application_compras"
-  respond_to :html, :xml, :json
   before_action :set_servicerequest, only: [:show, :edit, :update, :destroy]
 
   # GET /servicerequests
   # GET /servicerequests.json
    def index
-    if current_user
-        @servicerequests = Servicerequest.where(:user_id => current_user.username).all
-        @sumDevolution = Servicerequest.where(:user_id => current_user.username).count
-    end
-  end
+     if current_user
+         @servicerequests = Servicerequest.where(:user_id => current_user.username).all
+         @sumServReq = Servicerequest.where(:user_id => current_user.username).count
+         @servreq = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+     end
+     respond_to do |format|
+       format.html do
+         if @sumServReq != 0
+           redirect_to @servreq
+         end
+       end
+       format.pdf do
+
+         #Revisamos si es un Acto Motivado
+         if Recommendation.where(:specification_id => session[:specification_sel_id]).count == 0
+            @act = Act.where(:specification_id => session[:specification_sel_id]).first
+            @empresa = Invitation.where(:nombre => @act.proveedor,:specification_id => session[:specification_sel_id])
+            @quote = Quote.where(:specification_id => session[:specification_sel_id]).first
+            @items = []
+
+            pdf = SolicitudServices.new(@servreq, @empresa, @items, @quote)
+         end
+
+         #Revisamos si es una Recomendacion
+         if Recommendation.where(:specification_id => session[:specification_sel_id]).count != 0
+           @reco = Recommendation.where(:specification_id => session[:specification_sel_id]).first
+           @recoEmp = RecommendationsEmpresa.where(:id_informe => @reco.id, :opcion_numero => 1).first
+           @empresa = Invitation.where(:quote_id => @recoEmp.quote_id).first
+           #ERROR VACIO
+           @quote = Quote.where(:es_id_seq => :quote_id, :specification_id => session[:specification_sel_id])
+           #ERROR VACIO
+           @itemsQts = Itemsquote.where(:specification_id => session[:specification_sel_id],:id_oferta => @recoEmp.quote_id, :compra => 1).all
+           @items = []
+
+           pdf = SolicitudServices.new(@servreq, @empresa, @items, @quote)
+         end
+
+         nombre = "Solicitud_#{session[:specification_sel_id]}_de_Servicios.pdf"
+         send_data pdf.render, filename: nombre, type: 'application/pdf'
+       end
+       format.xml do
+         specification = Specification.find(session[:specification_sel_id])
+         specification.p2 = 2
+         specification.p3 = 2
+         specification.p4 = 2
+         specification.p5 = 0
+         specification.p6 = 1
+         specification.p8 = 1
+         session[:specification_p3] = specification.p3
+         session[:specification_p2] = specification.p2
+         session[:specification_p4] = specification.p4
+         session[:specification_p5] = specification.p5
+         session[:specification_p6] = specification.p6
+         session[:specification_p8] = specification.p8
+         specification.save
+         redirect_to "/servicerequests/#{@servreq.id}?pdf=1"
+       end
+     end
+   end
+
   # GET /servicerequests/1
   # GET /servicerequests/1.json
   def show
