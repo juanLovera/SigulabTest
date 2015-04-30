@@ -7,169 +7,75 @@ class ServicerequestsController < ApplicationController
   # GET /servicerequests.json
    def index
     if current_user
-      @servicerequests = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).all
-      @sumServ = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
-      @servreq = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
+        @servicerequests = Servicerequest.where(:user_id => current_user.username).all
+        @sumDevolution = Servicerequest.where(:user_id => current_user.username).count
     end
-    respond_to do |format|
-      format.html do
-        if @sumServ != 0
-          redirect_to @servreq
-        end
-      end
-      format.pdf do
-
-        @invt = Invitation.where(:specification_id => session[:specification_sel_id]).order('nombre ASC')
-        @recoEmp = ServicerequestssEmpresa.where(:id_informe => @reco.id).order('empresa ASC')
-        @itemsq = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
-        pdf = ReporteServicerequestss.new(@reco, @recoEmp, @invt, @itemsq)
-        nombre = "Especificacion_#{session[:specification_sel_id]}_Informe_Recomendacion.pdf"
-        send_data pdf.render, filename: nombre, type: 'application/pdf'
-      end
-      format.xml do
-        specification = Specification.find(session[:specification_sel_id])
-        specification.p2 = 2
-        specification.p3 = 2
-        specification.p4 = 2
-        specification.p5 = 0
-        specification.p6 = 1
-        specification.p8 = 1
-        session[:specification_p3] = specification.p3
-        session[:specification_p2] = specification.p2
-        session[:specification_p4] = specification.p4
-        session[:specification_p5] = specification.p5
-        session[:specification_p6] = specification.p6
-        session[:specification_p8] = specification.p8
-	session[:specification_p8] = specification.p8
-        specification.save
-        redirect_to "/recommendations/#{@reco.id}?pdf=1"
-      end
-
-    end
-
   end
-
   # GET /servicerequests/1
   # GET /servicerequests/1.json
-
-
-  # GET /quotes/1
-  # GET /quotes/1.json
-
   def show
-    @recommendation = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
-    @empresas_todas = Invitation.where(:specification_id => session[:specification_sel_id]).all
-    @empresas = ServicerequestssEmpresa.where(:id_informe => @recommendation.id).all
-    @itemsquote = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
+    @servicerequest = Servicerequest.find(params[:id])
+
   end
 
-  # GET /quotes/new
+  # GET /servicerequests/new
   def new
-    num = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
-    if num != 0
-      @recommendation = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
-    else
-      @recommendation = Servicerequests.new
-    end
-    @quotes = Quote.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).order('nombre ASC')
-    @itemsquotes = Itemsquote.where(:specification_id => session[:specification_sel_id]).all
+    @servicerequest= Servicerequest.new
   end
 
-  # GET /quotes/1/edit
+  # GET /servicerequests/1/edit
   def edit
   end
 
-  # POST /quotes
-  # POST /quotes.json
+  # POST /servicerequests
+  # POST /servicerequests.json
   def create
-    num = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
-    if num != 0
-      @recommendation = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
-      @recommendation.destroy
-    end
-    @recommendation = Servicerequests.new(recommendation_params)
-    @recommendation.user_id = current_user.username
-    @recommendation.specification_id = session[:specification_sel_id]
-    @recommendation.save
-    specification = Specification.find(session[:specification_sel_id])
-    session[:specification_sel_nacional] = "Nacional"
-    specification.nacional = "Nacional"
-    specification.save
-    params.each do |k,x|
-      if k.include?("recommendation_empresas")
-        ind = k.gsub("recommendation_empresas", "")
-        @nuevoElemento = ServicerequestssEmpresa.new
-        @nuevoElemento.quote_id = params["quoteid#{ind}"]
-        @nuevoElemento.id_informe = @recommendation.id
-        @nuevoElemento.opcion_numero = params["prioridad#{ind}"]
-        @nuevoElemento.empresa = params["empresa#{ind}"]
-        @numin = Invitation.where(:specification_id => session[:specification_sel_id], :nombre => params["empresa#{ind}"], :tipo => "Internacional").count
-        if @numin != 0
-          specification = Specification.find(session[:specification_sel_id])
-          session[:specification_sel_nacional] = "Internacional"
-          specification.nacional = "Internacional"
-          specification.save
-        end
-        @nuevoElemento.calidad_pro = params["calidadProd#{ind}"]
-        @nuevoElemento.disponibilidad_pro = params["disponibilidad#{ind}"]
-        @nuevoElemento.proveedor_unico = params["proveedorU#{ind}"]
-        @nuevoElemento.calidad_ser = params["calidadServ#{ind}"]
-        @nuevoElemento.garantia = params["garantia#{ind}"]
-        @nuevoElemento.servicio_post = params["servicioPV#{ind}"]
-        @nuevoElemento.cumplimiento_esp = params["cumplimientoEsp#{ind}"]
-        @nuevoElemento.precio = params["precio#{ind}"]
-        @nuevoElemento.tiempo = params["tiempoE#{ind}"]
-        @nuevoElemento.cumplio_req = 1
-        @nuevoElemento.save
-        @quotes = Itemsquote.where(:id_oferta => params["quoteid#{ind}"]).all
-        @quotes.each do |quot|
-          quot.compra = 1
-          quot.save
-        end
+    @servicerequest = Servicerequest.new(servicerequest_params)
+    @servicerequest.user_id = current_user.username
+    @servicerequest.specification_id = session[:specification_sel_id]
+    respond_to do |format|
+      if @servicerequest.save
+        format.html { redirect_to @servicerequest, notice: 'Service request was successfully created.' }
+        format.json { render :show, status: :created, location: @servicerequest}
+      else
+        format.html { render :new }
+        format.json { render json: @servicerequest.errors, status: :unprocessable_entity }
       end
     end
+  end
 
+  # PATCH/PUT /servicerequests/1
+  # PATCH/PUT /servicerequests/1.json
+  def update
     respond_to do |format|
-
-      format.html { redirect_to recommendations_url, notice: 'Service Requests was successfully created.' }
-      format.json { render :show, status: :created, location: @Servicerequests }
-
+      if @servicerequest.update(servicerequest_params)
+        format.html { redirect_to @servicerequest, notice: 'Service request was successfully updated.' }
+        format.json { render :show, status: :ok, location: @servicerequest }
+      else
+        format.html { render :edit }
+        format.json { render json: @servicerequest.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  # PATCH/PUT /quotes/1
-  # PATCH/PUT /quotes/1.json
-  def update
-    create
-  end
-
-  # DELETE /quotes/1
-  # DELETE /quotes/1.json
+  # DELETE /servicerequests/1
+  # DELETE /servicerequests/1.json
   def destroy
-    @recommendation = Servicerequests.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
-    @recommendation.destroy
+    @servicerequest.destroy
     respond_to do |format|
-      format.html { redirect_to recommendations_url, notice: 'Service Requests was successfully destroyed.' }
+      format.html { redirect_to servicerequests_url, notice: 'Service request was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_recommendation
-    @recommendation = Servicerequests.find(params[:id])
-  end
-
+    # Use callbacks to share common setup or constraints between actions.
+    def set_servicerequest
+      @servicerequest = Servicerequest.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def servicerequest_params
       params.require(:servicerequest).permit(:seccion, :contacto_int, :nombre, :ubicacion, :monto)
     end
 end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def recommendation_params
-    params.require(:recommendation).permit(:codigo,:via, :responsale)
-  end
-end
-
