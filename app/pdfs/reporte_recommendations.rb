@@ -1,13 +1,14 @@
 # encoding: utf-8
 class ReporteRecommendations < Prawn::Document
 
-  def initialize(recommendation, empresas, empresas_todas, itemsquote) 
+  def initialize(recommendation, empresas, empresas_todas, itemsquote,fecha)
 	 print "INIT OK "
     super()
     @recommendation = recommendation
     @empresas = empresas
     @empresas2 = empresas.sort {|a,b| a.opcion_numero <=> b.opcion_numero}
     @empresas_todas = empresas_todas
+    @fecha = fecha
     @itemsquote = itemsquote
    repeat :all do
     header
@@ -53,13 +54,14 @@ class ReporteRecommendations < Prawn::Document
   end
 
   def texto
-    time = Time.now + 7.days
+    time = @fecha.created_at
+    time2 = time + + 7.days
 
     bounding_box([bounds.left,bounds.top - 190], :width => bounds.width, :height => 450) do
       text"Por medio del presente rindo el informe de recomendación correspondiente al procedimiento de la Especificación Técnica #{@recommendation.codigo}, conforme al tenor descrito a continuación:", :align => :justify, :indent_paragraphs => 40, :inline_format => true
 
       move_down 7
-      text "1. Cumpliendo con el Artículo 7 del Reglamento de la Ley de Contrataciones Públicas, se procedió a la remisión, vía #{@recommendation.via}, de la “Carta de Invitación” y las “Especificaciones Técnicas del Bien” a las empresas que se mencionan a continuación, para que participasen en el proceso de contratación", :align => :justify, :indent_paragraphs => 40
+      text "1. Cumpliendo con el Artículo 7 del Reglamento de la Ley de Contrataciones Públicas, el día #{time.strftime("%d-%m-%Y")} se procedió a la remisión, vía #{@recommendation.via}, de la “Carta de Invitación” y las “Especificaciones Técnicas del Bien” a las empresas que se mencionan a continuación, para que participasen en el proceso de contratación", :align => :justify, :indent_paragraphs => 40
 
 
 
@@ -89,7 +91,7 @@ class ReporteRecommendations < Prawn::Document
        text empresas_all, :align => :justify, :indent_paragraphs => 40
 
        move_down 12
-       text "4. El día #{time.strftime("%d-%m-%Y")} se procedió a evaluar las ofertas calificadas, aplicando los criterios de evaluación estipulados en la “Carta de Invitación”.", :align => :justify, :indent_paragraphs => 40
+       text "4. El día #{time2.strftime("%d-%m-%Y")} se procedió a evaluar las ofertas calificadas, aplicando los criterios de evaluación estipulados en la “Carta de Invitación”.", :align => :justify, :indent_paragraphs => 40
 
        move_down 7
        text "Una vez evaluadas las ofertas en cuestión y cumpliendo con lo estipulado en el articulo 118 del Reglamento de la Ley de Contrataciones Públicas, se recomienda formalizar la(s) adjudicación(es) como se describe a continuación:",

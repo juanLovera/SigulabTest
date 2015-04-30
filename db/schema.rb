@@ -574,9 +574,13 @@ ActiveRecord::Schema.define(version: 20150429050339) do
   end
 
   create_table "servicerequests", force: true do |t|
+<<<<<<< HEAD
     t.boolean  "tipo_servicio"
     t.string   "seccion"
     t.integer  "lab_id"
+=======
+    t.string   "seccion"
+>>>>>>> ee6255a722fef9ae552ef22c79dac9184bc8074a
     t.string   "contacto_int"
     t.string   "correo_int"
     t.string   "extension"
@@ -592,8 +596,11 @@ ActiveRecord::Schema.define(version: 20150429050339) do
     t.string   "nro_cotizacion"
     t.string   "monto"
     t.text     "observacion"
+<<<<<<< HEAD
     t.string   "sae_code"
     t.string   "partida"
+=======
+>>>>>>> ee6255a722fef9ae552ef22c79dac9184bc8074a
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
@@ -628,6 +635,7 @@ ActiveRecord::Schema.define(version: 20150429050339) do
     t.string   "nacional"
     t.integer  "p8"
     t.integer  "p9"
+    t.integer  "p10"
     t.string   "modalidad"
   end
 
