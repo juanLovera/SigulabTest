@@ -8,7 +8,7 @@ class ServicerequestsController < ApplicationController
 
      if current_user
          @servicerequests = Servicerequest.where(:user_id => current_user.username).all
-         @sumServReq = Servicerequest.where(:user_id => current_user.username).count
+         @sumServReq = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
          @servreq = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
      end
      respond_to do |format|
