@@ -95,6 +95,6 @@ class RequisitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def requisition_params
-      params.require(:requisition).permit(:solicitante, :consumidor, :partida, :autor, :observacion, :attachment)
+      params.require(:requisition).permit(:solicitante, :consumidor, :partida, :numero, :observacion, :archivo)
     end
 end

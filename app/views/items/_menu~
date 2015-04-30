@@ -106,16 +106,23 @@
 <a href="javascript:void(0)" onclick="alert('Para un informe de recomendación es necesario una oferta.');" >
 <% end %>
 	 
+<% if session['specification_sel_link'] == "/items/" %>
 		       <i class="fa fa-files-o"> Requisición </i>
 		   </a></li>
 		   <% else %>
 			<li style="text-align:left" <% if session['specification_p6'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to requisitions_url do %><i class="fa fa-files-o"> Requisición </i>
 		   <% end %></li>
 		   <% end %>
+<% else %>
 
-<li style="text-align:left" <% if session['specification_p10'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to   	servicerequest_url do %>
-		       <i class="fa fa-file-text-o"> &nbsp Solicitud de Servicio </i>
+
+<i class="fa fa-files-o"> Solicitud de Servicio </i>
+		   </a></li>
+		   <% else %>
+			<li style="text-align:left" <% if session['specification_p6'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to servicerequests_url do %><i class="fa fa-file-text-o"> Solicitud de Servicio </i>
 		   <% end %></li>
+		   <% end %>
+<% end %>
 
 <li style="text-align:left" <% if session['specification_p7'] == 1 %> class='select' <% else %> class='habilitado' <% end %>><%= link_to devolutions_url do %>
 		       <i class="fa fa-file-text-o"> &nbsp Nota de Devolución </i>
