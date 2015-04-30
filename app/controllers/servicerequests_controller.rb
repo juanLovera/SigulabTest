@@ -23,6 +23,7 @@ class ServicerequestsController < ApplicationController
             @act = Act.where(:specification_id => session[:specification_sel_id]).first
             @empresa = Invitation.where(:nombre => @act.proveedor,:specification_id => session[:specification_sel_id])
             @quote = Quote.where(:specification_id => session[:specification_sel_id]).first
+            @itemsQts = Itemsquote.where(:specification_id => session[:specification_sel_id],:id_oferta => @recoEmp.quote_id,:compra => 1).all
             @items = []
 
             pdf = SolicitudServices.new(@servreq, @empresa, @items, @quote)
@@ -34,10 +35,13 @@ class ServicerequestsController < ApplicationController
            @recoEmp = RecommendationsEmpresa.where(:id_informe => @reco.id, :opcion_numero => 1).first
            @empresa = Invitation.where(:quote_id => @recoEmp.quote_id).first
            #ERROR VACIO
-           @quote = Quote.where(:es_id_seq => :quote_id, :specification_id => session[:specification_sel_id])
+           @quote = Quote.where(:id => @empresa.quote_id, :specification_id => session[:specification_sel_id]).first
            #ERROR VACIO
-           @itemsQts = Itemsquote.where(:specification_id => session[:specification_sel_id],:id_oferta => @recoEmp.quote_id, :compra => 1).all
+           @itemsQts = Itemsquote.where(:specification_id => session[:specification_sel_id],:id_oferta => @recoEmp.quote_id,:compra => 1).all
            @items = []
+           @itemsQts.each do |itemsqts|
+             @items.push(Service.where(:specification_id => session[:specification_sel_id],:id => itemsqts.id_item).first)
+           end
 
            pdf = SolicitudServices.new(@servreq, @empresa, @items, @quote)
          end

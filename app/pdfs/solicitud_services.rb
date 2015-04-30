@@ -66,15 +66,17 @@ class SolicitudServices < Prawn::Document
           row(0).font_style = :bold
           self.column_widths = [540]
       end
-      table datos_del_bien do
+      @items.each do |item|
+      table datos_del_bien(item) do
         
          row(0).font_style = :bold
           self.column_widths = [180,180,180]
       end
-      table descripcion_del_bien do
+      table descripcion_del_bien(item) do
 
          row(0).font_style = :bold
           self.column_widths = [540]
+      end
       end
       table titulo_del_proveedor do
         
@@ -135,7 +137,7 @@ class SolicitudServices < Prawn::Document
     [[{:content => "DATOS DEL BIEN(OBJETO DEL SERVICIO)", :background_color => "DDDDDD" , :align => :center, :valign => :center, :size => 12  }]]
   end
 
-  def datos_del_bien
+  def datos_del_bien(item)
 
     [
 
@@ -143,18 +145,18 @@ class SolicitudServices < Prawn::Document
       {:content => "No. Bien Nacional", :background_color => "DDDDDD", :align => :center, :valign => :center, :size => 8, :height => 17},
       {:content => "UBICACIÓN FÍSICA",:background_color => "DDDDDD", :align => :center, :valign => :center, :size => 8, :height => 17}],
 
-     [{:content => "Nombre", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8},
-      {:content => "Numero", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8},
-      {:content => "Ubicacion", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8}],
+     [{:content => "#{item.nombre}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8},
+      {:content => "#{item.numero}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8},
+      {:content => "#{item.ubicacion}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8}],
 
     ]
 
   end
 
-  def descripcion_del_bien
+  def descripcion_del_bien(item)
     [
      [{:content => "DESCRIPCIÓN DETALLADA DEL SERVICIO", :background_color => "DDDDDD" , :align => :center, :valign => :center, :size => 8, :height => 17  }],
-     [{:content => "Descripcion", :background_color => "FFFFFF", :align => :center, :valign => :justify, :size => 8, :height => 51}]
+     [{:content => "#{item.descripcion}", :background_color => "FFFFFF", :align => :center, :valign => :justify, :size => 8, :height => 51}]
     ]
   end
 
@@ -201,8 +203,8 @@ class SolicitudServices < Prawn::Document
            {:content => "No.", :background_color => "DDDDDD", :align => :center, :valign => :center, :size => 8, :height => 17},
            {:content => "Monto Total del Servicio (Bs.):",:background_color => "DDDDDD", :align => :center, :valign => :center, :size => 8, :height => 17}],
 
-          [{:content => "#{}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17},
-           {:content => "#{}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17},
+          [{:content => "#{@cotizacion.created_at.strftime("%d-%m-%Y")}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17},
+           {:content => "#{@cotizacion.id}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17},
            {:content => "#{@servicerequest.monto}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17}]
     ]
   end
