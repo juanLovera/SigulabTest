@@ -1,23 +1,4 @@
 # encoding: utf-8
-
-<script>
-
-	function HandleBrowseClick()
-	{
-		 var fileinput = document.getElementById("browse");
-		 fileinput.click();
-	}
-
-	function Handlechange()
-	{
-		 var fileinput = document.getElementById("browse");
-		 var textinput = document.getElementById("filename");
-		 textinput.value = fileinput.value;
-	}
-        
-
-</script>
-
 <div style="margin-left:350px;">
 	<%= form_for(@servicerequest) do |f| %>
   		<% if @servicerequest.errors.any? %>
