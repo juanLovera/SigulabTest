@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417114321) do
+ActiveRecord::Schema.define(version: 20150429050337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -569,6 +569,35 @@ ActiveRecord::Schema.define(version: 20150417114321) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_id"
+    t.string   "attachment"
+    t.integer  "specification_id"
+  end
+
+  create_table "servicerequests", force: true do |t|
+    t.boolean  "tipo_servicio"
+    t.string   "seccion"
+    t.integer  "lab_id"
+    t.string   "contacto_int"
+    t.string   "correo_int"
+    t.string   "extension"
+    t.string   "nombre"
+    t.string   "nro_bien"
+    t.string   "ubicacion"
+    t.text     "descripcion"
+    t.string   "compania"
+    t.string   "rif"
+    t.string   "contacto_ext"
+    t.string   "correo_ext"
+    t.string   "telefonos"
+    t.string   "nro_cotizacion"
+    t.string   "monto"
+    t.text     "observacion"
+    t.string   "sae_code"
+    t.string   "partida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "user_id"
+    t.integer  "specification_id"
   end
 
   create_table "services", force: true do |t|
@@ -599,6 +628,7 @@ ActiveRecord::Schema.define(version: 20150417114321) do
     t.string   "nacional"
     t.integer  "p8"
     t.integer  "p9"
+    t.integer  "p10"
     t.string   "modalidad"
   end
 
