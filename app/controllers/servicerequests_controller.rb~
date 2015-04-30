@@ -5,7 +5,7 @@ class ServicerequestsController < ApplicationController
   # GET /servicerequests
   # GET /servicerequests.json
    def index
-
+<<<<<<< HEAD
      if current_user
          @servicerequests = Servicerequest.where(:user_id => current_user.username).all
          @sumServReq = Servicerequest.where(:user_id => current_user.username).count
@@ -70,6 +70,13 @@ class ServicerequestsController < ApplicationController
      end
    end
 
+=======
+    if current_user
+        @servicerequests = Servicerequest.where(:user_id => current_user.username).all
+        @sumServicerequest = Servicerequest.where(:user_id => current_user.username).count
+    end
+  end
+>>>>>>> 1827c4325cad9151ffa545cc535453c1ebc683c7
   # GET /servicerequests/1
   # GET /servicerequests/1.json
   def show
