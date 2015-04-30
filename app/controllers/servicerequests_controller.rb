@@ -8,7 +8,7 @@ class ServicerequestsController < ApplicationController
    def index
     if current_user
         @servicerequests = Servicerequest.where(:user_id => current_user.username).all
-        @sumDevolution = Servicerequest.where(:user_id => current_user.username).count
+        @sumServicerequest = Servicerequest.where(:user_id => current_user.username).count
     end
   end
   # GET /servicerequests/1
