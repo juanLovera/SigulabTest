@@ -187,7 +187,7 @@ class SolicitudServices < Prawn::Document
 
          [{:content => "#{@empresa.contacto}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17},
           {:content => "#{@empresa.correo_contacto}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17},
-          {:content => "#{@empresa.telefono}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17}]
+          {:content => "#{@empresa.correo_telefono}", :background_color => "FFFFFF", :align => :center, :valign => :center, :size => 8, :height => 17}]
         ]
   end
 

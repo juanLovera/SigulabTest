@@ -15,7 +15,7 @@
 			</tr>
 	  	 <tr>
        	<td class="col-xs-5 text-right">Nro de requisición</td>
-       	<td class="col-xs-7"><%=@requisition.autor%></td>
+       	<td class="col-xs-7"><%=@requisition.numero%></td>
     	</tr>
 	  	 <tr>
        	<td class="col-xs-5 text-right">Fecha</td>
@@ -25,12 +25,12 @@
        	<td class="col-xs-5 text-right">Unidad solicitante</td>
        	<td class="col-xs-7"><%=@requisition.solicitante%></td>
     	</tr>
-	  	 <tr>
-       	<td class="col-xs-5 text-right">Nro de requisición</td>
-       	<td class="col-xs-7"><%=@requisition.autor%></td>
+
+     	 <tr>
+       	<td class="col-xs-5 text-right">Requisición</td>
+       	<td class="col-xs-7"><a href='<%= @requisition.archivo %>'>Ver Requisición</a></td>
     	</tr>
- 
- 
+
 	</table>
 
 	</div>
@@ -74,7 +74,7 @@ border-color:#7A7070;
 <script>
 if (window.location.search.replace("?", "") == "pdf=1")
 {
-window.location.href = "<%= @requisition.attachment %>";
+window.location.href = "<%= @requisition.archivo %>";
 }
 </script>
 

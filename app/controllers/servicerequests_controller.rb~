@@ -5,10 +5,10 @@ class ServicerequestsController < ApplicationController
   # GET /servicerequests
   # GET /servicerequests.json
    def index
-<<<<<<< HEAD
+
      if current_user
          @servicerequests = Servicerequest.where(:user_id => current_user.username).all
-         @sumServReq = Servicerequest.where(:user_id => current_user.username).count
+         @sumServReq = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
          @servreq = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
      end
      respond_to do |format|
@@ -70,13 +70,6 @@ class ServicerequestsController < ApplicationController
      end
    end
 
-=======
-    if current_user
-        @servicerequests = Servicerequest.where(:user_id => current_user.username).all
-        @sumServicerequest = Servicerequest.where(:user_id => current_user.username).count
-    end
-  end
->>>>>>> 1827c4325cad9151ffa545cc535453c1ebc683c7
   # GET /servicerequests/1
   # GET /servicerequests/1.json
   def show
@@ -115,7 +108,7 @@ class ServicerequestsController < ApplicationController
   def update
     respond_to do |format|
       if @servicerequest.update(servicerequest_params)
-        format.html { redirect_to @servicerequest, notice: 'Service request was successfully updated.' }
+        format.html { redirect_to servicerequests_url, notice: 'Service request was successfully updated.' }
         format.json { render :show, status: :ok, location: @servicerequest }
       else
         format.html { render :edit }
@@ -142,6 +135,6 @@ class ServicerequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def servicerequest_params
-      params.require(:servicerequest).permit(:seccion, :contacto_int, :nombre, :ubicacion, :monto)
+      params.require(:servicerequest).permit(:seccion, :monto, :contacto_int, :correo_int, :extension, :observacion, :fecha)
     end
 end

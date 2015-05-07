@@ -8,7 +8,7 @@ class ServicerequestsController < ApplicationController
 
      if current_user
          @servicerequests = Servicerequest.where(:user_id => current_user.username).all
-         @sumServReq = Servicerequest.where(:user_id => current_user.username).count
+         @sumServReq = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).count
          @servreq = Servicerequest.where(:user_id => current_user.username, :specification_id => session[:specification_sel_id]).first
      end
      respond_to do |format|
@@ -47,24 +47,14 @@ class ServicerequestsController < ApplicationController
            pdf = SolicitudServices.new(@servreq, @empresa, @items, @quote)
          end
 
-         nombre = "Solicitud_#{session[:specification_sel_id]}_de_Servicios.pdf"
+         nombre = "Especificacion_#{session[:specification_sel_id]}_Solicitud_de_Servicios.pdf"
          send_data pdf.render, filename: nombre, type: 'application/pdf'
        end
        format.xml do
          specification = Specification.find(session[:specification_sel_id])
-         specification.p2 = 2
-         specification.p3 = 2
-         specification.p4 = 2
-         specification.p5 = 0
-         specification.p6 = 1
-         specification.p8 = 1
-         session[:specification_p3] = specification.p3
-         session[:specification_p2] = specification.p2
-         session[:specification_p4] = specification.p4
-         session[:specification_p5] = specification.p5
-         session[:specification_p6] = specification.p6
-         session[:specification_p8] = specification.p8
-         specification.save
+	       specification.p6 = 2
+	    session[:specification_p6] = specification.p6
+	    specification.save
          redirect_to "/servicerequests/#{@servreq.id}?pdf=1"
        end
      end
@@ -108,7 +98,7 @@ class ServicerequestsController < ApplicationController
   def update
     respond_to do |format|
       if @servicerequest.update(servicerequest_params)
-        format.html { redirect_to @servicerequest, notice: 'Service request was successfully updated.' }
+        format.html { redirect_to servicerequests_url, notice: 'Service request was successfully updated.' }
         format.json { render :show, status: :ok, location: @servicerequest }
       else
         format.html { render :edit }
@@ -135,6 +125,6 @@ class ServicerequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def servicerequest_params
-      params.require(:servicerequest).permit(:seccion, :contacto_int, :nombre, :ubicacion, :monto)
+      params.require(:servicerequest).permit(:seccion, :monto, :contacto_int, :correo_int, :extension, :observacion, :fecha)
     end
 end
