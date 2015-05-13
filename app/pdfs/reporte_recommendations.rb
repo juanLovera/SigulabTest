@@ -55,7 +55,7 @@ class ReporteRecommendations < Prawn::Document
 
   def texto
     time = @fecha.created_at
-    time2 = time + + 7.days
+    time2 = time + + 9.days
 
     bounding_box([bounds.left,bounds.top - 190], :width => bounds.width, :height => 450) do
       text"Por medio del presente rindo el informe de recomendación correspondiente al procedimiento de la Especificación Técnica #{@recommendation.codigo}, conforme al tenor descrito a continuación:", :align => :justify, :indent_paragraphs => 40, :inline_format => true
@@ -67,7 +67,7 @@ class ReporteRecommendations < Prawn::Document
 
        empresas_all = ""
        @empresas_todas.each do |nombre|
-	        empresas_all = empresas_all + ", " + nombre.nombre
+	        empresas_all = empresas_all + "\n" + nombre.nombre
        end
        empresas_all = empresas_all[1..-1]
        move_down 12
@@ -82,7 +82,7 @@ class ReporteRecommendations < Prawn::Document
        empresas_all = ""
        @empresas.each do |emp|
 	        if emp.cumplio_req == 1
-		        empresas_all = empresas_all + ", " + emp.empresa
+		        empresas_all = empresas_all + "\n" + emp.empresa
           end
        end
        empresas_all = empresas_all[1..-1]
@@ -122,7 +122,7 @@ class ReporteRecommendations < Prawn::Document
 		      itemsof = ""
 		      @itemsquote.each do |item|
 			      if item.id_oferta == emp.quote_id and item.compra == 1
-				      itemsof = itemsof +item.nombre_item + ", "
+				      itemsof = itemsof +item.id.to_s + ", "
 			      end
 		      end
   		    itemsof = itemsof[0..-2]
