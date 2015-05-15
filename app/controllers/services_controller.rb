@@ -11,6 +11,11 @@ class ServicesController < ApplicationController
       @sumService = Service.where(:specification_id => session[:specification_sel_id]).count
 	 end
 specification = Specification.find(session[:specification_sel_id])
+	if specification.user_id == current_user.username
+		@propio = true
+	else
+		@propio = false
+	end
     respond_to do |format|
       format.html
       format.pdf do

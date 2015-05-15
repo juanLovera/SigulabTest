@@ -66,7 +66,7 @@ class ServicerequestsController < ApplicationController
      if current_user.acquisition? || current_user.import? 
     @especificacion = Specification.where(:id => session[:specification_sel_id]).first 
     @user = User.where(:username => @especificacion.user_id).first 
-        if @user.acquisition? || @user.import? || @user.acquisition_analist? || @user.import_analist?
+        if @user.directorate? @user.acquisition? || @user.import? || @user.acquisition_analist? || @user.import_analist?
             @mostrar = true
         else
             @mostrar = false

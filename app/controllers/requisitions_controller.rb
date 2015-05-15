@@ -47,7 +47,7 @@ if current_user.acquisition? || current_user.import?
 if current_user.acquisition? || current_user.import? 
     @especificacion = Specification.where(:id => session[:specification_sel_id]).first 
     @user = User.where(:username => @especificacion.user_id).first 
-        if @user.director? || @user.acquisition? || @user.import? || @user.quality? || @user.manage?
+        if @user.director? || @user.directorate? || @user.acquisition? || @user.import? || @user.quality? || @user.manage?
             @mostrar = true
         else
             @mostrar = false
